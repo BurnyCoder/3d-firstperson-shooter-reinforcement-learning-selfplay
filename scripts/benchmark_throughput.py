@@ -55,12 +55,14 @@ def main():
     parser.add_argument("--pause-pid", type=int, required=True)  # Root verifies this is the active training process first.
     parser.add_argument("--output", type=Path, default=Path("runs/performance/sweep1"))  # Project-local generated evidence.
     parser.add_argument("--max-seconds", type=float, default=180)  # Count suspension against the original experiment deadline.
-    parser.add_argument("--wide", action="store_true")  # Explore four/six simultaneous learners after the small initial sweep.
+    sweep = parser.add_mutually_exclusive_group()  # Each invocation answers one hardware question with bounded extra compute.
+    sweep.add_argument("--wide", action="store_true")  # Explore four/six simultaneous learners after the small initial sweep.
+    sweep.add_argument("--thread-sweep", action="store_true")  # Compare one/two CPU threads with all six independent learners.
     args = parser.parse_args()  # Validate CLI shape before touching a running process.
     configure_logging(args.output / "logs")  # Mirror orchestration progress to timestamped file and terminal.
     process = psutil.Process(args.pause_pid)  # Resolve one known process rather than an unbounded process-name search.
     command = process.cmdline()  # Verify identity from the authorized command before suspension.
-    if "ministrike.app" not in command or "--suite" not in command:  # Refuse unrelated apps and other training modes.
+    if "ministrike.app" not in command or "--suite" not in command or Path(process.cwd()).resolve() != Path.cwd().resolve():  # Refuse other projects and training modes.
         raise ValueError("pause-pid must identify this project's running MiniStrike suite")
     configurations = [("e16_t4", [(16, 4, "selfplay", True)]),
                       ("e16_t1", [(16, 1, "selfplay", False)]),
@@ -71,17 +73,31 @@ def main():
     if args.wide:  # Keep the follow-up bounded rather than repeating already measured candidates.
         configurations = [(f"parallel_{count}", [(16, 1, "selfplay" if index % 2 == 0 else "fixed", False)
                                                 for index in range(count)]) for count in (4, 6)]  # Balanced conditions share the same GPU in each group.
+    if args.thread_sweep:  # Hold concurrent model count and per-model learning settings constant.
+        configurations = [(f"six_threads_{threads}", [(16, threads, "selfplay" if index % 2 == 0 else "fixed", False)
+                                                     for index in range(6)]) for threads in (1, 2)]  # Observe CPU thread overhead under actual shared hardware pressure.
     started = time.monotonic()  # The pause duration is evidence and consumes the unchanged wall allowance.
     receipt = {"paused_pid": process.pid, "groups": [], "purpose": "hardware calibration only"}
+    suspended = []  # Restore every successfully suspended process even if a later suspension fails.
     try:
-        process.suspend()  # Freeze the active learner without changing weights, RNGs or its in-memory round states.
-        logging.info("Paused verified suite process %d for at most %.0f seconds", process.pid, args.max_seconds)
+        process.suspend()  # Prevent a suite parent from dispatching more work while its current descendants are enumerated.
+        suspended.append(process)  # The finally block owns this reversible pause from this point onward.
+        for child in process.children(recursive=True):  # Concurrent suites have independent collector/optimizer processes below the verified parent.
+            child.suspend()  # Preserve each learner's live rounds, weights and RNGs without checkpoint rollback.
+            suspended.append(child)  # A partial pause failure still releases all earlier successfully suspended children.
+        receipt["paused_process_ids"] = [item.pid for item in suspended]  # Retain exact process scope for recovery/auditing.
+        write_json(args.output / "sweep.json", receipt)  # Record the pause before starting disposable optimizer processes.
+        logging.info("Paused verified suite processes %s for at most %.0f seconds", receipt["paused_process_ids"], args.max_seconds)
         for name, candidates in configurations:  # Execute stable candidate order, retaining every result.
             logging.info("Benchmark group %s", name)  # Each short phase remains visible to the user.
             receipt["groups"].append(run_group(args.output, name, candidates, started + args.max_seconds))
             write_json(args.output / "sweep.json", receipt)  # A later failure cannot erase completed measurements.
     finally:
-        process.resume()  # Always release the live experiment, including on timeout or failed calibration.
+        for item in reversed(suspended):  # Resume collectors before the parent resumes result bookkeeping.
+            try:
+                item.resume()  # Always release the live experiment, including on timeout or failed calibration.
+            except psutil.NoSuchProcess:  # Preserve evidence if an external interruption removed a paused process.
+                logging.error("Paused process %d disappeared before resume", item.pid)  # Do not conceal an independently interrupted learner.
         receipt["suspension_seconds"] = time.monotonic() - started  # Record actual time charged to the original run.
         write_json(args.output / "sweep.json", receipt)  # Preserve incomplete sweeps rather than silently retrying them.
         logging.info("Resumed suite process %d after %.3f seconds", process.pid, receipt["suspension_seconds"])

@@ -126,6 +126,8 @@ class MatchHUD:
             self.hint.text = "TAB NEXT BOT   V FREE CAMERA   F TAKE OVER THIS BOT   ESC PAUSE   F12 SCREENSHOT   F10 QUIT"
         else:  # Local: free camera controls are cosmetic and never change a selected bot's movement.
             self.hint.text = "WASD FLY   Q/E DOWN/UP   RMB LOOK   TAB NEXT BOT   V FIRST PERSON   F TAKE OVER   ESC PAUSE   F10 QUIT"
+        if not simulation.spec.bomb and controlled is not None:
+            self.hint.text = self.hint.text.replace("   HOLD E INTERACT", "")  # Local: do not advertise disabled duel actions.
         for index, dot in enumerate(self.dots):  # Local: update only the small retained marker objects.
             known = controlled is None or index // team_size == controlled // team_size  # Local: no enemy radar on takeover.
             dot.enabled = bool(simulation.alive[0, index]) and known  # Local: dead operators have no active marker.

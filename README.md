@@ -2,11 +2,11 @@
 
 An original, local **3D first-person shooter** and a staged self-play reinforcement-learning project. The current task is fixed-spawn **1v1 elimination** in a small flat arena; the original 5v5 bomb game remains available as a deferred advanced experiment.
 
-![MiniStrike arena](docs/images/gameplay.png)
+![MiniStrike fixed-spawn duel: scripted baseline before training](docs/images/duel-baseline.png)
 
 ## Methodology and quick start
 
-One NumPy simulation owns gameplay, collisions, visibility and outcomes; Ursina renders it. Randomly initialized bots train exclusively against frozen self-play snapshots using TorchRL PPO/GAE, local four-frame observations and a separate team value network. No human data, imitation learning or scripted training opponents are used in the new stages. Progression is fixed-spawn duel → random spawns → tactical maps → free-for-all → teams → bomb objectives. Completing the first duel stage is sufficient for its separately recorded 12-hour budget. Read the [complete registered roadmap](docs/experiment-roadmap.md), [active protocol](docs/duel-protocol.md), [sources](docs/sources.md) and [evidence index](docs/evidence-index.md) before experiments. The image above depicts the original 5v5 map, not measured duel learning.
+One NumPy simulation owns gameplay, collisions, visibility and outcomes; Ursina renders it. Randomly initialized bots train exclusively against frozen self-play snapshots using TorchRL PPO/GAE, local four-frame observations and a separate team value network. No human data, imitation learning or scripted training opponents are used in the new stages. Progression is fixed-spawn duel → random spawns → tactical maps → free-for-all → teams → bomb objectives. Completing the first duel stage is sufficient for its separately recorded 12-hour budget. Read the [complete registered roadmap](docs/experiment-roadmap.md), [active protocol](docs/duel-protocol.md), [sources](docs/sources.md) and [evidence index](docs/evidence-index.md) before experiments. The image above shows the scripted demonstration, not a trained policy.
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/) and clone this repository into a writable directory. The supported and tested target is Windows with Python 3.12. `uv` creates the project-local `.venv` and obtains Python when needed.
 

@@ -14,7 +14,7 @@ from ministrike.records import configure_logging  # Mirror all phase logs to fil
 
 def create_parser(settings) -> argparse.ArgumentParser:
     """Local: declare the public CLI. Global: every mode remains directly scriptable and reproducible."""
-    parser = argparse.ArgumentParser(description="MiniStrike: play, watch, and train 3D tactical bots")  # No command opens the two-choice launcher.
+    parser = argparse.ArgumentParser(description="MiniStrike: play, watch, and train 3D tactical bots")  # No command opens the three-mode launcher.
     commands = parser.add_subparsers(dest="command")  # Keep launch optional for human users.
     for mode in ("play", "watch"):  # Both visible modes accept identical checkpoint/replay settings.
         command = commands.add_parser(mode, help=f"{mode} a local 5v5 game")  # Explicit modes bypass the launcher.
@@ -63,7 +63,7 @@ def execute_phase(arguments, settings):
     if arguments.command in (None, "play", "watch"):  # Renderers are imported only for visible interaction.
         from ministrike.view import run_view  # Headless commands never construct Ursina objects.
         checkpoint = getattr(arguments, "checkpoint", None) or recommended_checkpoint(settings.output_dir)  # Prefer an explicit user-selected model.
-        if arguments.command is None:  # Human entry point offers the two requested post-training choices.
+        if arguments.command is None:  # Human entry point offers arena spectating, bot POV, and human play.
             from ministrike.view import run_launcher  # Standard desktop launcher opens before the game engine.
             return run_launcher(checkpoint=checkpoint, seed=settings.seed)  # Choose watch or human first-person play.
         return run_view(mode=arguments.command, checkpoint=checkpoint, seed=arguments.seed, team=arguments.team,

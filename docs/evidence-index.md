@@ -18,3 +18,5 @@ This index maps claims to records. A registration is not a result. Stage A has n
 |Public artifact identity |Git commits/PR/checks, HF commit IDs and collection items |Publish all confirmation outcomes, label failed acceptance experimental |
 
 Every generated table/figure/report must identify raw input paths+hashes, config/seeds, source revision, checkpoint hashes and the command regenerating it. Put lengthy derivations here or in protocol/architecture docs rather than duplicating them across README/model cards. Claims without evidence remain explicitly pending, inferred or removed.
+
+Raw `data/`, `raw/` and launch-failure bundles disable Git line-ending conversion using [the documented `-text` attribute](https://git-scm.com/docs/gitattributes). This preserves SHA256 byte identity across clones and web downloads. A publication audit found the newer audit/calibration bundles initially inherited Windows CRLF normalization; their exact original bytes were restored in a follow-up commit. Numerical content did not change. Checkpoint hashes identify local/Hugging Face binaries and do not imply that those binaries are stored in Git.

@@ -61,7 +61,8 @@ def run_suite(output: str | Path, max_hours: float = 12, device: str = "auto", n
                         result = json.loads(result_path.read_text(encoding="utf-8"))
                     else:
                         result = calibrate(TrainConfig(output_dir=str(path), condition=condition, seed=8001,
-                                                      num_envs=num_envs, device=candidate, max_seconds=min(180, remaining_seconds(manifest))))  # Includes actual PPO updates/checkpoint writes.
+                                                      num_envs=num_envs, device=candidate, source_revision=manifest["source_revision"],
+                                                      max_seconds=min(180, remaining_seconds(manifest))))  # Includes actual PPO updates/checkpoint writes under the frozen suite source.
                     result["device"] = candidate  # Record device with the measured full-pipeline throughput.
                     manifest["calibration"] = [row for row in manifest["calibration"] if not (row["device"] == candidate and row["condition"] == condition)] + [result]  # Idempotent resume bookkeeping.
                     write_json(manifest_path, manifest)  # Calibration evidence is durable after each probe.
@@ -87,7 +88,8 @@ def run_suite(output: str | Path, max_hours: float = 12, device: str = "auto", n
                 checkpoint = path / "model.pt"  # Resume an interrupted run only if a valid checkpoint exists.
                 result = train_run(TrainConfig(output_dir=str(path), condition=condition, seed=seed, num_envs=num_envs,
                                                total_frames=manifest["total_frames"], max_seconds=min(manifest["per_run_seconds"], available - 15),
-                                               device=manifest["device"], resume=str(checkpoint) if checkpoint.exists() else None),
+                                               device=manifest["device"], source_revision=manifest["source_revision"],
+                                               resume=str(checkpoint) if checkpoint.exists() else None),
                                    deadline_monotonic=time.monotonic() + remaining_seconds(manifest) - 10)  # Local: transient suite deadline cannot be overridden by restored per-run settings.
             manifest["runs"][name] = result  # Retain timeouts as results rather than hiding unsuccessful runs.
             write_json(manifest_path, manifest)  # A later failure cannot erase completed training evidence.

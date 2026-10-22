@@ -25,6 +25,8 @@ uv run csrl play --team 0 --checkpoint runs/suite/selfplay_seed111/model.pt
 
 WASD moves; mouse aims; left mouse fires; R reloads; E interacts. Spectator controls let you switch between free camera and a bot's eyes, cycle living players, take over the selected bot, and return control to its policy **without resetting the round**. The on-screen guide lists the current bindings. Team 0 attacks and team 1 defends.
 
+While spectating, **Tab** selects the next living bot, **V** changes between free camera and bot first-person, and **F** lets you become the selected bot or hand control back. You keep that player's current position, health, ammunition, and bomb state.
+
 ![MiniStrike arena](docs/images/gameplay.png)
 
 ## Train, evaluate, and inspect
@@ -53,6 +55,8 @@ At run time the application loads local configuration, initializes logging, coll
 Logs stream to the terminal and timestamped UTF-8 files in `runs/logs`. Each run retains every update in `metrics.jsonl`; evaluation retains every completed round. No LLM API or API key is needed. `.env`, logs, caches, and bulky checkpoints are not committed to source control.
 
 **Training status:** the repository implements the experiment; measured training results belong in [reports](reports/README.md). An initial implementation, scripted opponent, or short smoke run is not evidence of learned tactical competence. Three seeds per condition are a pilot unless the uncertainty supports a stronger claim.
+
+Public checkpoints and model cards are grouped in the [MiniStrike Hugging Face collection](https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad). Each card identifies its training budget and measured evaluation; short verification models are explicitly labeled. To download a published model, install the locked environment and use `uv run hf download BurnyCoder/ministrike-selfplay-cpu --local-dir artifacts/models/selfplay-cpu`, then select `artifacts/models/selfplay-cpu/model.pt` in the launcher. Publication instructions are in [the workflow documentation](docs/publication.md).
 
 ## Features and technologies
 

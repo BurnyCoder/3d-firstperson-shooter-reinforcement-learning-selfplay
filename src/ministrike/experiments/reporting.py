@@ -22,6 +22,7 @@ SOURCES = {  # Local: primary sources; global: separate external methodology fro
     "RL evaluation uncertainty": "https://arxiv.org/abs/2108.13264",
     "RL reproducibility": "https://arxiv.org/abs/1709.06560",
     "Student-t distribution": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html",
+    "Noncentral-t power calculation": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.nct.html",
 }
 EXPECTED_SEEDS = (111, 222, 333)  # Local: the three pre-specified independent initialization seeds.
 
@@ -36,10 +37,12 @@ def discover_runs(input_dir):
     root = Path(input_dir).resolve()  # Resolve only the explicitly requested evidence tree.
     records = []  # One record per discovered training result.
     for path in sorted(root.rglob("result.json")):  # Walk measured result files, never model binaries.
+        relative = path.parent.relative_to(root)  # Local: classify paths within only the requested evidence tree.
+        if "publication" in relative.parts:  # Local: upload staging copies are not additional experiments.
+            continue  # Local: retain original evidence once, excluding duplicated generated publication trees.
         result = _read_json(path)  # Invalid JSON fails visibly instead of inventing fallback values.
         if not isinstance(result, dict) or not {"condition", "seed", "frames"}.issubset(result):
             continue  # Ignore orchestration summaries that do not represent an actual training run.
-        relative = path.parent.relative_to(root)  # Preserve the source folder identity in report data paths.
         name = "__".join(relative.parts) or root.name  # Stable filename without directory traversal.
         canonical = path.parent.name == f"{result['condition']}_seed{result['seed']}"
         primary = canonical and result["seed"] in EXPECTED_SEEDS and "calibration" not in str(relative).lower()
@@ -236,14 +239,74 @@ def _plot_learning(records, destination):
     plt.close(figure)  # Release memory before subsequent report generations.
 
 
-def _paper_sections(records, comparison):
+def _preserve_suite(input_dir, destination):
+    """Local: preserve one exact manifest snapshot. Global: appendix claims and copied evidence use identical bytes."""
+    source = Path(input_dir) / "suite.json"  # Local: do not guess among unrelated nested suite protocols.
+    if not source.is_file():  # Local: individual smoke runs need not have a full experiment-suite manifest.
+        return None  # Local: missing protocol evidence must be reported as pending.
+    contents = source.read_bytes()  # Local: read once so concurrent manifest replacement cannot mismatch prose and copy.
+    suite = json.loads(contents)  # Local: malformed source evidence fails visibly.
+    if not isinstance(suite, dict):  # Local: a suite protocol must expose named recorded fields.
+        raise ValueError("suite.json must contain a JSON object")  # Local: reject invalid evidence instead of fabricating defaults.
+    copied = Path(destination) / "data" / "suite.json"  # Local: stable public link contains only the requested manifest.
+    if source.resolve() != copied.resolve():  # Local: generating alongside existing report data must not overwrite itself.
+        copied.parent.mkdir(parents=True, exist_ok=True)  # Local: create only the report's existing data tree.
+        temporary = copied.with_suffix(".json.tmp")  # Local: publish complete original bytes atomically on the same filesystem.
+        temporary.write_bytes(contents)  # Local: preserve whitespace and all recorded failures without reserialization.
+        temporary.replace(copied)  # Local: readers see one complete recorded protocol snapshot.
+    return suite  # Local: paper content derives from precisely the preserved bytes.
+
+
+def _suite_appendix(suite):
+    """Local: describe recorded budget and power assumptions. Global: missing decisions remain pending, never inferred."""
+    if suite is None:  # Local: a smoke run does not establish the full suite's timing or analysis settings.
+        return ("Suite protocol, deadline, selected device, calibrated frame budget, and power sensitivity are pending: "
+                "no suite.json was present in the requested input directory.")
+    paragraphs = [  # Local: compact paragraphs retain exact provenance without repeating every per-run configuration.
+        f"Recorded suite protocol: [suite.json](data/suite.json). Status: `{suite.get('status', 'pending')}`; "
+        f"started UTC: `{suite.get('started_utc', 'pending')}`; original deadline UTC: `{suite.get('deadline_utc', 'pending')}`. "
+        f"Total wall-clock cap: {_number(suite.get('max_hours'), 2)} hours. Selected optimizer device: "
+        f"`{suite.get('device', 'pending')}`; parallel arenas: `{suite.get('num_envs', 'pending')}`. "
+        f"Calibrated frozen budget per training invocation: `{suite.get('total_frames', 'pending')}` arena transitions "
+        f"and {_number(suite.get('per_run_seconds'), 1)} seconds. These are recorded limits, not claims of completed work."
+    ]  # Local: actual completion remains reported independently for every training invocation.
+    calibration = suite.get("calibration", [])  # Local: include all stored probes rather than choosing favorable throughput examples.
+    if calibration:  # Local: throughput exists only when the suite persisted calibration measurements.
+        rows = ["| Calibration condition | Device | Measured frames | Arena transitions/s |", "| --- | --- | --- | --- |"]
+        for row in calibration:  # Local: each stored calibration invocation remains independently inspectable.
+            rows.append(f"| {row.get('condition', 'pending')} | {row.get('device', 'pending')} | "
+                        f"{row.get('frames', 'pending')} | {_number(row.get('frames_per_second'), 2)} |")
+        paragraphs.append("Recorded calibration throughput:\n\n" + "\n".join(rows))  # Local: label measurements separately from allocated budgets.
+    else:
+        paragraphs.append("Calibration throughput measurements are pending.")  # Local: an absent probe is not a zero-throughput device.
+    power = suite.get("power_sensitivity", [])  # Local: report pre-recorded calculations without rerunning them after seeing outcomes.
+    if power:  # Local: show the actual assumptions attached to this suite.
+        paragraphs.append("Recorded power sensitivity uses an independent two-group noncentral-t calculation; "
+                          "it is an assumption-based planning calculation, not measured power or a power estimate "
+                          "for the final three-seed paired analysis. "
+                          f"[Distribution implementation]({SOURCES['Noncentral-t power calculation']}).")
+        rows = ["| Assumed run SD | Effect | Alpha | Target power | Seeds/condition | Calculated power |",
+                "| --- | --- | --- | --- | --- | --- |"]  # Local: expose every assumption behind sample-size requirements.
+        for row in power:  # Local: retain all recorded noise assumptions without selecting a convenient row.
+            rows.append(f"| {_number(row.get('assumed_run_sd'), 2)} | {_number(row.get('effect'), 2)} | "
+                        f"{_number(row.get('alpha'), 2)} | {_number(row.get('target_power'), 2)} | "
+                        f"{row.get('seeds_per_condition', 'pending')} | {_number(row.get('achieved_power'), 3)} |")
+        paragraphs.append("\n".join(rows))  # Local: Markdown and PDF share identical recorded values.
+    else:
+        paragraphs.append("Power sensitivity assumptions and calculated seed requirements are pending.")
+    if suite.get("error") is not None:  # Local: preserve orchestration failures in addition to per-run outcomes.
+        paragraphs.append(f"Recorded suite failure: `{suite['error']}`.")  # Local: do not convert a failed suite into a success narrative.
+    return "\n\n".join(paragraphs)  # Local: appendix uses ordinary paper blocks and the existing renderer.
+
+
+def _paper_sections(records, comparison, suite=None):
     """Local: compose a sourced paper from measured evidence; global: avoid unsupported causal/general claims."""
     primary = [record for record in records if record["primary"]]  # Keep the headline table tied to the registered suite.
     complete = sum(record["result"].get("complete", False) for record in primary)  # Count actual completed budgets.
     return [
         ("Abstract", f"We implement an original 3D five-versus-five tactical shooter and compare historical "
-         f"self-play with fixed-opponent MAPPO training. This artifact contains {len(records)} recorded runs, "
-         f"including {complete} completed primary-suite training runs. " + _comparison_text(comparison)),
+         f"self-play with fixed-opponent MAPPO training. Recorded training invocations: {len(records)}; "
+         f"completed primary-suite frame budgets: {complete}. " + _comparison_text(comparison)),
         ("Introduction and motivation", "The practical question is whether historical self-play improves "
          "a small local-observation policy's round score against frozen controls relative to equally budgeted "
          "fixed-opponent training. The pre-specified practically meaningful difference is 0.10. This experiment "
@@ -258,7 +321,8 @@ def _paper_sections(records, comparison):
          "ammunition, planting, defusing, timers, and terminal outcomes for both rendered play and learning. "
          "The actor is a shared 2x128 tanh MLP over four 96-feature observation frames (384 inputs); the "
          "central critic is a 2x256 tanh MLP over five players' combined observations. Six independent "
-         "categorical heads form one joint action per player. PPO ratios sum control log probabilities, "
+         "categorical heads form one joint action per player. Each PPO likelihood ratio exponentiates "
+         "the difference between summed new and old control log probabilities, "
          "not player log probabilities. GAE precedes death masking; actor and entropy losses exclude "
          "post-death actions, while critic learning retains terminal team outcomes. Default discount "
          "gamma is 0.999 and GAE lambda is 0.95. Exact hyperparameters, frame counts, code revisions, "
@@ -301,7 +365,7 @@ def _paper_sections(records, comparison):
          "side/baseline breakdowns and raw-artifact links. comparison.json records every planned seed-pair "
          "difference and exclusion. The source repository and model cards provide installation and "
          "checkpoint usage instructions. Accuracy, fill rate, and generic completion rate are N/A: "
-         "this is round-based reinforcement learning without labeled classification or fill-in targets."),
+         "this is round-based reinforcement learning without labeled classification or fill-in targets.\n\n" + _suite_appendix(suite)),
         ("Sources", "\n".join(f"- [{name}]({url})" for name, url in SOURCES.items())),
     ]  # One source of paper content keeps Markdown and PDF claims synchronized.
 
@@ -313,8 +377,9 @@ def _render_pdf(markdown, destination, figure_path):
     from reportlab.lib.styles import getSampleStyleSheet  # Reuse tested typography defaults.
     from reportlab.platypus import Image, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
     styles = getSampleStyleSheet()  # Standard styles include title, body, and section headings.
-    styles["BodyText"].fontSize, styles["BodyText"].leading = 9, 13  # Dense methods remain readable.
-    styles["BodyText"].spaceAfter = 7  # Separate paragraphs without excessive page growth.
+    styles["BodyText"].fontSize, styles["BodyText"].leading = 9, 11.8  # Local: retain readable text with slightly tighter leading.
+    styles["BodyText"].spaceAfter = 5  # Local: compact paragraph spacing avoids a nearly empty trailing sources page.
+    styles["Heading2"].keepWithNext = True  # Local: section headings remain with their following image, table, or paragraph.
     width = A4[0] - 88  # Match document left/right margins exactly.
     story, table_rows, paragraph = [], [], []  # Maintain simple Markdown block state.
 
@@ -355,9 +420,7 @@ def _render_pdf(markdown, destination, figure_path):
         else:
             if table_rows:
                 flush()  # Body text following a table must not precede it.
-            paragraph.append(line.removeprefix("- "))  # Source entries render as separate linked paragraphs.
-            if line.startswith("- "):
-                flush()  # Keep each bibliographic link separately readable.
+            paragraph.append(line.removeprefix("- ") + ("; " if line.startswith("- ") else ""))  # Consecutive source links form one compact paragraph, avoiding a nearly empty overflow page.
     flush()  # Emit the final body paragraph or table.
     document = SimpleDocTemplate(str(destination), pagesize=A4, rightMargin=44, leftMargin=44,
                                  topMargin=44, bottomMargin=44, title="MiniStrike self-play experiment",
@@ -370,6 +433,7 @@ def create_reports(input_dir, output_dir):
     destination = Path(output_dir)  # Caller decides where generated public reports belong.
     destination.mkdir(parents=True, exist_ok=True)  # Create only the requested artifact tree.
     records = discover_runs(input_dir)  # Ground every empirical statement in recorded input artifacts.
+    suite = _preserve_suite(input_dir, destination)  # Local: copied protocol and paper appendix share one exact manifest snapshot.
     comparison = paired_training_comparison(records)  # Freeze inclusion rules before inspecting their scores.
     for record in records:  # Every experiment receives a separate report and raw-evidence directory.
         data_dir = destination / "data" / record["name"]  # Stable relative links survive publication.
@@ -406,7 +470,7 @@ def create_reports(input_dir, output_dir):
                "Individual reports contain side/baseline breakdowns and raw evidence. "
                "[Paper](paper.md) documents methods and limitations; [comparison data](comparison.json) retains exclusions.\n")
     (destination / "summary.md").write_text(summary, encoding="utf-8")  # Canonical cross-experiment overview.
-    sections = _paper_sections(records, comparison)  # Shared scientific content for both paper formats.
+    sections = _paper_sections(records, comparison, suite)  # Shared scientific content includes recorded suite budget and power assumptions.
     paper = "# MiniStrike: a reproducible self-play pilot\n\nLibor Burian\n\n" + "\n\n".join(
         f"## {heading}\n\n{body}" for heading, body in sections) + "\n"
     (destination / "paper.md").write_text(paper, encoding="utf-8")  # Editable sourced paper text.

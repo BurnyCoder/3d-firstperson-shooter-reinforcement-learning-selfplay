@@ -40,12 +40,12 @@ def resolve_combat(sim, controls, active, rewards, events):
     sim.damage_dealt[:, 0] += attack_damage  # Local: preserve raw round metrics independently of rewards.
     sim.damage_dealt[:, 1] += defense_damage  # Local: record the defending team's effective damage.
     sim.shots_fired += firing  # Local: round-level inactivity/accuracy analysis uses actual successful firing.
-    for arena, shooter in zip(*np.nonzero(firing)):  # Local: emit sparse replay/renderer events only for actual shots.
+    for arena, shooter in zip(*np.nonzero(firing), strict=True):  # Local: matching nonzero indices identify actual shots.
         events.append({"arena": int(arena), "type": "shot", "player": int(shooter)})
-    for arena, shooter in zip(arenas, shooters):  # Local: attribute simultaneous overkill proportionally to all hits.
+    for arena, shooter in zip(arenas, shooters, strict=True):  # Local: paired hit coordinates preserve attribution.
         victim = target[arena, shooter]  # Local: each hit retains its own shooter and target identity.
         amount = float(effective[arena, victim] * sim.config.damage / damage[arena, victim])  # Local: conserve effective HP lost.
         events.append({"arena": int(arena), "type": "damage", "player": int(victim), "attacker": int(shooter),
                        "victim": int(victim), "amount": amount, "value": amount, "team": int(shooter // 5)})
-    for arena, victim in zip(*np.nonzero(previous_alive & ~sim.alive)):  # Local: deaths retain their existing slots.
+    for arena, victim in zip(*np.nonzero(previous_alive & ~sim.alive), strict=True):  # Local: paired death coordinates retain slots.
         events.append({"arena": int(arena), "type": "kill", "player": int(victim), "team": int(victim // 5)})

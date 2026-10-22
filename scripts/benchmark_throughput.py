@@ -55,6 +55,7 @@ def main():
     parser.add_argument("--pause-pid", type=int, required=True)  # Root verifies this is the active training process first.
     parser.add_argument("--output", type=Path, default=Path("runs/performance/sweep1"))  # Project-local generated evidence.
     parser.add_argument("--max-seconds", type=float, default=180)  # Count suspension against the original experiment deadline.
+    parser.add_argument("--wide", action="store_true")  # Explore four/six simultaneous learners after the small initial sweep.
     args = parser.parse_args()  # Validate CLI shape before touching a running process.
     configure_logging(args.output / "logs")  # Mirror orchestration progress to timestamped file and terminal.
     process = psutil.Process(args.pause_pid)  # Resolve one known process rather than an unbounded process-name search.
@@ -67,6 +68,9 @@ def main():
                       ("e64_t1", [(64, 1, "selfplay", False)]),
                       ("parallel_t1", [(16, 1, "selfplay", False), (16, 1, "fixed", False)]),
                       ("parallel_t4", [(16, 4, "selfplay", False), (16, 4, "fixed", False)])]  # Compare measured work, not GPU utilization alone.
+    if args.wide:  # Keep the follow-up bounded rather than repeating already measured candidates.
+        configurations = [(f"parallel_{count}", [(16, 1, "selfplay" if index % 2 == 0 else "fixed", False)
+                                                for index in range(count)]) for count in (4, 6)]  # Balanced conditions share the same GPU in each group.
     started = time.monotonic()  # The pause duration is evidence and consumes the unchanged wall allowance.
     receipt = {"paused_pid": process.pid, "groups": [], "purpose": "hardware calibration only"}
     try:

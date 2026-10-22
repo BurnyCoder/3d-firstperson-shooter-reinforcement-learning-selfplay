@@ -31,18 +31,19 @@ class FactorizedCategorical(Independent):
 class ActorNetwork(nn.Module):
     """Local: shared two-layer MLP; global: bots use their own local history only."""
 
-    def __init__(self):
+    def __init__(self, observation_dim=OBS_DIM, action_nvecs=ACTION_NVECS):
         """Local: allocate layers and action mask; global: fixed published architecture."""
         super().__init__()  # Register parameters with PyTorch.
-        self.network = nn.Sequential(nn.Linear(OBS_DIM, 128), nn.Tanh(),
+        self.observation_dim, self.action_nvecs = observation_dim, tuple(action_nvecs)  # Local: explicit saved interface.
+        self.network = nn.Sequential(nn.Linear(observation_dim, 128), nn.Tanh(),
                                      nn.Linear(128, 128), nn.Tanh(),
-                                     nn.Linear(128, sum(ACTION_NVECS)))
-        self.register_buffer("head_sizes", torch.tensor(ACTION_NVECS))  # Save contract with weights.
+                                     nn.Linear(128, sum(action_nvecs)))
+        self.register_buffer("head_sizes", torch.tensor(action_nvecs))  # Save contract with weights.
 
     def forward(self, observation):
         """Local: pad unequal categorical heads; global: reuse standard distributions."""
-        pieces = self.network(observation).split(ACTION_NVECS, dim=-1)  # Each slice is one control.
-        padded = [torch.nn.functional.pad(piece, (0, max(ACTION_NVECS) - piece.shape[-1]),
+        pieces = self.network(observation).split(self.action_nvecs, dim=-1)  # Each enabled slice is one control.
+        padded = [torch.nn.functional.pad(piece, (0, max(self.action_nvecs) - piece.shape[-1]),
                                          value=-1e9) for piece in pieces]
         return torch.stack(padded, dim=-2)  # [..., six heads, nine padded categories].
 
@@ -50,11 +51,11 @@ class ActorNetwork(nn.Module):
 class CentralCritic(nn.Module):
     """Local: combine five local observations; global: centralized team value learning."""
 
-    def __init__(self):
+    def __init__(self, observation_dim=OBS_DIM, team_size=5):
         """Local: define a 2x256 critic; global: actor remains independently executable."""
         super().__init__()  # Register the critic network.
-        self.network = nn.Sequential(nn.Linear(5 * OBS_DIM, 256), nn.Tanh(),
-                                     nn.Linear(256, 256), nn.Tanh(), nn.Linear(256, 5))
+        self.network = nn.Sequential(nn.Linear(team_size * observation_dim, 256), nn.Tanh(),
+                                     nn.Linear(256, 256), nn.Tanh(), nn.Linear(256, team_size))
 
     def forward(self, observation):
         """Local: flatten only player/features; global: preserve batch and time axes."""

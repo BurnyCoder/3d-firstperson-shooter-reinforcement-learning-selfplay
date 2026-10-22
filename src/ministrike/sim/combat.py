@@ -4,7 +4,6 @@ import numpy as np  # Local: batch rays and damage accumulation across independe
 
 from .constants import EYE_HEIGHT, PLAYER_HEIGHT, PLAYER_RADIUS  # Local: consistent human/model hit geometry.
 from .geometry import aim_directions, ray_boxes  # Local: shared slab intersection from cited geometry module.
-from .map import WALLS  # Local: the visible wall geometry also blocks bullets.
 
 
 def resolve_combat(sim, controls, active, rewards, events):
@@ -15,15 +14,15 @@ def resolve_combat(sim, controls, active, rewards, events):
         return  # Local: authoritative state remains unchanged by nonexistent shots.
     origins = sim.positions + np.array([0, EYE_HEIGHT, 0], dtype=np.float32)  # Local: fire from eye height.
     directions = aim_directions(sim.yaw, sim.pitch)  # Local: physics uses exactly the controller's orientation.
-    wall_distance = ray_boxes(origins[:, :, None], directions[:, :, None], WALLS[:, :3], WALLS[:, 3:]).min(-1)
+    wall_distance = ray_boxes(origins[:, :, None], directions[:, :, None], sim.walls[:, :3], sim.walls[:, 3:]).min(-1)
     lower = sim.positions - np.array([PLAYER_RADIUS, 0, PLAYER_RADIUS], dtype=np.float32)  # Local: target feet.
     upper = sim.positions + np.array([PLAYER_RADIUS, PLAYER_HEIGHT, PLAYER_RADIUS], dtype=np.float32)
     target_distance = ray_boxes(origins[:, :, None], directions[:, :, None], lower[:, None], upper[:, None])
-    target_distance = np.where(sim.alive[:, None, :] & ~np.eye(10, dtype=bool)[None], target_distance, np.inf)
+    target_distance = np.where(sim.alive[:, None, :] & ~np.eye(sim.players, dtype=bool)[None], target_distance, np.inf)
     target = target_distance.argmin(-1)  # Local: teammates can physically intercept a shot.
     nearest = target_distance.min(-1)  # Local: rifle hits only the nearest occupied hitbox.
     hits = firing & (nearest < wall_distance) & np.isfinite(nearest)  # Local: walls win equal-distance ties.
-    hits &= (target // 5) != (np.arange(10)[None] // 5)  # Local: friendly fire is disabled, but bodies block.
+    hits &= (target // sim.team_size) != (np.arange(sim.players)[None] // sim.team_size)  # Local: bodies block friendly fire.
     sim.ammo -= firing  # Local: misses still consume ammunition.
     sim.cooldown[firing] += 1 / sim.config.shots_per_second  # Local: retain tick overshoot to average six shots per second.
     damage = np.zeros_like(sim.health)  # Local: aggregate every simultaneous hit before touching health.
@@ -32,9 +31,9 @@ def resolve_combat(sim, controls, active, rewards, events):
     effective = np.minimum(damage, sim.health)  # Local: overkill does not inflate shaping or damage metrics.
     previous_alive = sim.alive.copy()  # Local: kill events compare pre- and post-damage life states.
     sim.health[:] = np.maximum(sim.health - damage, 0)  # Local: simultaneous lethal trades are preserved.
-    attack_damage = effective[:, 5:].sum(-1)  # Local: damage against defenders credits attackers.
-    defense_damage = effective[:, :5].sum(-1)  # Local: damage against attackers credits defenders.
-    shaped = .1 * (attack_damage - defense_damage) / (5 * sim.config.health)  # Local: total per-team damage bonus≤.1.
+    attack_damage = effective[:, sim.team_size:].sum(-1)  # Local: damage against team 1 credits team 0.
+    defense_damage = effective[:, :sim.team_size].sum(-1)  # Local: damage against team 0 credits team 1.
+    shaped = .1 * (attack_damage - defense_damage) / (5 * sim.config.health) if sim.spec.bomb else 0
     rewards[:, 0] += shaped  # Local: zero-sum attack-side shaping.
     rewards[:, 1] -= shaped  # Local: defense receives the exact negation.
     sim.damage_dealt[:, 0] += attack_damage  # Local: preserve raw round metrics independently of rewards.
@@ -46,6 +45,6 @@ def resolve_combat(sim, controls, active, rewards, events):
         victim = target[arena, shooter]  # Local: each hit retains its own shooter and target identity.
         amount = float(effective[arena, victim] * sim.config.damage / damage[arena, victim])  # Local: conserve effective HP lost.
         events.append({"arena": int(arena), "type": "damage", "player": int(victim), "attacker": int(shooter),
-                       "victim": int(victim), "amount": amount, "value": amount, "team": int(shooter // 5)})
+                       "victim": int(victim), "amount": amount, "value": amount, "team": int(shooter // sim.team_size)})
     for arena, victim in zip(*np.nonzero(previous_alive & ~sim.alive), strict=True):  # Local: paired death coordinates retain slots.
-        events.append({"arena": int(arena), "type": "kill", "player": int(victim), "team": int(victim // 5)})
+        events.append({"arena": int(arena), "type": "kill", "player": int(victim), "team": int(victim // sim.team_size)})

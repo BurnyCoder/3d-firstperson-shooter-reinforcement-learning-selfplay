@@ -18,10 +18,10 @@ class ViewControlState:
     controlled: int | None  # Local: only this slot has its policy output replaced by human controls.
 
     @classmethod
-    def create(cls, mode, team=0, first_person=False):
+    def create(cls, mode, team=0, first_person=False, team_size=5):
         """Local: choose the initial interface state; global: keep the public play/watch modes backward compatible."""
-        initial = int(team) * 5 if mode == "play" else None  # Local: each team has five permanent player indices.
-        return cls(initial, int(team) * 5, mode == "play" or first_person, initial)  # Local: explicit playable/follow modes.
+        initial = int(team) * team_size if mode == "play" else None  # Local: active match defines permanent slots.
+        return cls(initial, int(team) * team_size, mode == "play" or first_person, initial)  # Local: explicit modes.
 
     @property
     def followed(self):

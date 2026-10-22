@@ -39,7 +39,7 @@ class ViewSession:
         self.policy = self._load_policy(checkpoint)  # Local: select learned weights or a clearly named fixed baseline.
         self.controls = HumanControls()  # Local: aggregate mouse movement until the next fixed tick.
         self.arena = ArenaScene()  # Local: shared map arrays provide all visible obstacles.
-        policy_label = f"LEARNED / {Path(checkpoint).stem[:24]}" if checkpoint else "SCRIPTED BASELINE / UNTRAINED"
+        policy_label = f"CHECKPOINT / {Path(checkpoint).stem[:24]}" if checkpoint else "SCRIPTED BASELINE / UNTRAINED"
         self.hud = MatchHUD(mode, policy_label, self.human)  # Local: expose policy provenance in the visible interface.
         self.scores = [0, 0]  # Local: retain team round wins across resets inside this window session.
         self.round_number = 1  # Local: the HUD uses one-based numbering for human readers.
@@ -57,8 +57,8 @@ class ViewSession:
         self.handler = Entity(update=self.update, input=self.input)  # Local: documented entity callbacks enter this wrapper.
         camera.fov = 90  # Local: familiar shooter perspective; observation visibility still follows simulation rules.
         camera.clip_plane_near = 0.03  # Local: the original rifle viewmodel remains visible close to the camera.
-        mouse.locked = mode == "play"  # Local: spectator sessions do not capture the user's pointer.
-        mouse.visible = mode != "play"  # Local: a free cursor is visible whenever aiming is not active.
+        mouse.locked = False  # Local: initialize uncaptured so the ownership synchronizer centers the first FPS capture.
+        mouse.visible = True  # Local: spectator sessions leave the system cursor usable from their first frame.
         self._sync(time.perf_counter())  # Local: populate the first rendered frame before the manual loop starts.
         LOGGER.info("view_started mode=%s seed=%s policy=%s", mode, seed, policy_label)  # Local: provenance in logs.
 
@@ -151,6 +151,8 @@ class ViewSession:
         locked = not self.paused and (self.control_state.controlled is not None or free_look)  # Local: no passive capture.
         if mouse.locked != locked:  # Local: avoid resetting the cursor position unnecessarily every frame.
             self.controls.clear()  # Local: ownership/capture changes must not apply the previous mode's mouse motion.
+            if locked:  # Local: Ursina 8 confines without recentering when its locked property is first set.
+                mouse.position = (0, 0)  # Local: prevent the pre-capture desktop cursor offset from becoming a large aim jump.
             mouse.locked = locked  # Local: lock/unlock the system pointer only on a real state transition.
             mouse.visible = not locked  # Local: preserve a usable pointer while passively watching bots.
 

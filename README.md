@@ -38,7 +38,7 @@ While spectating, **Tab** selects the next living bot, **V** changes between fre
 uv run csrl train --experiment duel-fixed-v1 --calibrate --run-config configs/duel-calibration.json
 
 # Following calibration, freeze and publish the resolved pilot/confirmation configs.
-# These dependent files intentionally do not exist until their prerequisites are satisfied.
+# R0 is resolved; confirmation remains conditional on its validation gate.
 uv run csrl train --experiment duel-fixed-v1 --run-config configs/duel-pilot-R0.json
 uv run csrl train --experiment duel-fixed-v1 --suite --run-config configs/duel-confirmation.json
 
@@ -53,7 +53,7 @@ At run time the application loads `.env` and published run configuration, verifi
 
 Logs stream to the terminal and timestamped UTF-8 files in `runs/logs`. Each run retains every update in `metrics.jsonl`; evaluation retains every completed round. No LLM API or API key is needed. `.env`, logs, caches, and bulky checkpoints are not committed to source control.
 
-**Training status:** Stage A implementation/registration is in progress; no new Stage A learning result is claimed here. The original 5v5 suite is deferred, with checkpoints, zero-win controls, diagnostics and interruptions preserved. Its deadlines are not extended. Measured findings belong in [reports](reports/README.md); a running optimizer or decreasing loss does not establish useful combat learning.
+**Training status:** Stage A implementation is merged and nine hardware cells completed. The [calibration resolution](docs/amendments/2026-10-23-duel-calibration.md) selects 64 arenas with CUDA inference/optimization and freezes the first reward pilot; no Stage A learning-quality result is claimed yet. The separate budget ends 2026-10-23 11:30:52 UTC. Original 5v5 checkpoints, zero-win controls, diagnostics and interruptions remain deferred with unchanged deadlines. Measured findings belong in [reports](reports/README.md); a running optimizer or decreasing loss does not establish useful combat learning.
 
 Public checkpoints and model cards are grouped in the [MiniStrike Hugging Face collection](https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad). Each card identifies its training budget and measured evaluation; short verification models are explicitly labeled. To download a published model, install the locked environment and use `uv run hf download BurnyCoder/ministrike-selfplay-cpu --local-dir artifacts/models/selfplay-cpu`, then select `artifacts/models/selfplay-cpu/model.pt` in the launcher. Publication instructions are in [the workflow documentation](docs/publication.md).
 
@@ -65,7 +65,7 @@ Public checkpoints and model cards are grouped in the [MiniStrike Hugging Face c
 - TorchRL PPO with frozen historical opponents, masked dead-player actor losses and a separate team critic. Scripted controls are evaluation-only in the staged protocol; old fixed-opponent training remains historical evidence.
 - Python 3.12, NumPy, Ursina/Panda3D, PyTorch, TorchRL/TensorDict, SciPy, Matplotlib, ReportLab, pytest, and uv. `uv.lock` records exact versions.
 
-Windows uses the official PyTorch CUDA13.0 wheel index; CPU execution remains available. The GPU path was tested with an RTX5070 Laptop GPU and driver591.74. `--device auto` benchmarks optimizer devices for the suite rather than assuming GPU training is faster for these small networks. [uv PyTorch integration](https://docs.astral.sh/uv/guides/integration/pytorch/)
+Windows uses the official PyTorch CUDA13.0 wheel index; CPU execution remains available. The GPU path was tested with an RTX5070 Laptop GPU and driver591.74. Stage A takes execution placement from its published run configuration and bounded calibration. [uv PyTorch integration](https://docs.astral.sh/uv/guides/integration/pytorch/)
 
 The deferred suite used six independent CUDA learners with16 arenas each and one CPU thread per worker, selected through [ten documented hardware probes](reports/performance/summary.md). Stage A reuses those findings as a starting point, then makes one bounded comparison for its smaller workload. The goal is fastest complete collection/update throughput with memory headroom, not an arbitrary GPU-utilization percentage.
 

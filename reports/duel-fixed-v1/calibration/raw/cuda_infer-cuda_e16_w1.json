@@ -1,0 +1,139 @@
+{
+  "name": "calibration/cuda_infer-cuda_e16_w1",
+  "status": "complete",
+  "config": "configs\\duel-calibration.json",
+  "indices": [
+    8
+  ],
+  "started_utc": "2026-10-22T23:32:27.292987+00:00",
+  "workers": [
+    {
+      "pid": 51004,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs\\duel-calibration.json",
+        "--index",
+        "8"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cuda_e16_w1\\seed5290"
+    }
+  ],
+  "telemetry": [
+    {
+      "timestamp_utc": "20261022T233227.324742Z",
+      "cpu_percent": 38.2,
+      "ram_available_fraction": 0.28623008867671856,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2219.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7277634646055698
+    },
+    {
+      "timestamp_utc": "20261022T233229.403331Z",
+      "cpu_percent": 22.3,
+      "ram_available_fraction": 0.27616448123431225,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2068.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7462887989203779
+    },
+    {
+      "timestamp_utc": "20261022T233231.492354Z",
+      "cpu_percent": 23.3,
+      "ram_available_fraction": 0.27555783749233775,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2114.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7406453195926881
+    },
+    {
+      "timestamp_utc": "20261022T233233.588834Z",
+      "cpu_percent": 24.8,
+      "ram_available_fraction": 0.2740455534743848,
+      "gpu_percent": 20.0,
+      "gpu_used_mib": 2138.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7377008955956325
+    },
+    {
+      "timestamp_utc": "20261022T233235.687427Z",
+      "cpu_percent": 28.6,
+      "ram_available_fraction": 0.2847654442858217,
+      "gpu_percent": 29.0,
+      "gpu_used_mib": 2167.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7341430499325237
+    },
+    {
+      "timestamp_utc": "20261022T233237.778202Z",
+      "cpu_percent": 27.7,
+      "ram_available_fraction": 0.2723661043200613,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2253.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7235921972764078
+    },
+    {
+      "timestamp_utc": "20261022T233239.862364Z",
+      "cpu_percent": 27.8,
+      "ram_available_fraction": 0.239241333456311,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2362.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7102196049564471
+    },
+    {
+      "timestamp_utc": "20261022T233241.952944Z",
+      "cpu_percent": 25.3,
+      "ram_available_fraction": 0.24001197448221756,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2327.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7145135566188198
+    },
+    {
+      "timestamp_utc": "20261022T233244.045488Z",
+      "cpu_percent": 22.4,
+      "ram_available_fraction": 0.23988416382037156,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2295.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7184394552815605
+    }
+  ],
+  "results": [
+    {
+      "condition": "selfplay",
+      "seed": 5290,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "6db495937074e63876863b364654aef36a904345",
+      "execution_revision": "6db495937074e63876863b364654aef36a904345",
+      "elapsed_seconds": 7.28099999999904,
+      "frames_per_second": 1125.120175800176,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cuda_e16_w1\\seed5290\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cuda_e16_w1\\seed5290\\initial.pt",
+      "rounds": 16,
+      "wins": 0,
+      "draws": 16,
+      "loss": -0.07665130897172882,
+      "gradient_norm": 0.37519905095299083,
+      "entropy": 6.756483852863312,
+      "critic_loss": 2.8393505620745902e-05,
+      "policy_loss": -0.009114866028539836,
+      "approx_kl": 0.0057458469333748026,
+      "clip_fraction": 0.09195963541666667
+    }
+  ],
+  "exit_codes": [
+    0
+  ],
+  "wall_seconds": 18.8279999999977,
+  "aggregate_arena_steps_per_second": 435.09666454222435
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "models": 3,
+    "effect": 0.2,
+    "assumed_sd": 0.05,
+    "power": 0.9084887436810317
+  },
+  {
+    "models": 3,
+    "effect": 0.2,
+    "assumed_sd": 0.1,
+    "power": 0.47074943127843494
+  },
+  {
+    "models": 3,
+    "effect": 0.2,
+    "assumed_sd": 0.2,
+    "power": 0.1792553937765518
+  }
+]

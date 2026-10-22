@@ -75,7 +75,7 @@ def evaluate_policy(policy, output: str | Path, pairs: int = 128, num_envs: int 
                 if all(key in completed for key in keys):  # Local: fully completed groups do not repeat expensive matches.
                     continue  # Local: a partially completed group replays only to reconstruct its unsaved game state.
                 simulator = Simulation(num_envs=count, seed=seed_base + offset)  # Both sides use the same world seed and arena ordering.
-                simulator.reset(seed=seed_base + offset, scenario="standard")  # Test only ordinary 5v5 starts.
+                observations = simulator.reset(seed=seed_base + offset, scenario="standard")  # Reset returns the canonical observation copy for ordinary 5v5 starts.
                 opponent = RandomPolicy(seed_base + offset + 99) if baseline == "random" else ScriptedPolicy(baseline)  # Reinitialize stochastic control consistently.
                 learner_slots = slice(side * 5, side * 5 + 5)  # Each learner controls a complete five-player team.
                 opponent_slots = slice((1 - side) * 5, (1 - side) * 5 + 5)  # The fixed control owns the opposing team.
@@ -89,7 +89,6 @@ def evaluate_policy(policy, output: str | Path, pairs: int = 128, num_envs: int 
                 for tick in range(2000):  # One hundred seconds safely covers the documented 60+25-second game limit.
                     if deadline is not None and time.monotonic() >= deadline:  # Respect the shared compute deadline.
                         return persist("incomplete", "deadline")  # Local: preserve every completed round and protocol before stopping.
-                    observations = simulator.observe()  # Copies prevent mutable NumPy buffers corrupting stored observations.
                     controls = np.zeros((count, 10, 7), dtype=np.float32)  # Both teams act from the same pre-step state.
                     controls[:, learner_slots] = policy.act(observations[:, learner_slots], deterministic=True)  # Evaluate the actual actor without exploration noise.
                     controls[:, opponent_slots] = opponent.act(observations[:, opponent_slots])  # No private simulator state enters the baseline.
@@ -97,6 +96,7 @@ def evaluate_policy(policy, output: str | Path, pairs: int = 128, num_envs: int 
                     idle += np.sum(living & (np.linalg.norm(controls[:, learner_slots], axis=-1) < 1e-6), axis=1)  # Report literal zero-action inactivity.
                     living_decisions += living.sum(axis=1)  # Keep rates interpretable across varying round lengths.
                     result = simulator.step(controls)  # Physics and objective resolution are shared with play and training.
+                    observations = result.observations  # Reuse the canonical independent copy instead of recomputing visibility.
                     for event in result.events:  # Event records carry their arena index.
                         arena = event.get("arena", 0)  # Backward-compatible default is only relevant to single-arena fixtures.
                         plants[arena] += int(event["type"] == "plant")  # Count objective completions, not reward proxies.

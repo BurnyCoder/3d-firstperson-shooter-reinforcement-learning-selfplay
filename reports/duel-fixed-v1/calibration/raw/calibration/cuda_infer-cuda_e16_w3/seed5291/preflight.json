@@ -1,0 +1,8 @@
+{
+  "source_revision": "6db495937074e63876863b364654aef36a904345",
+  "implementation_tree": "4fd48c6d03bd349f71542cb8769cd244ac33f52f",
+  "config": "configs/duel-calibration.json",
+  "sha256": "e801e65438ff78d9e2c20559ce48123989294268944bc10d73becfb55e189c15",
+  "registration": "A-CAL",
+  "checked_utc": "2026-10-22T23:32:58.311020+00:00"
+}

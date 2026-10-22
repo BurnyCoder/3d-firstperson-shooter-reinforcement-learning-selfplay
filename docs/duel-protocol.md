@@ -53,3 +53,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 ## Amendments
 
 2026-10-23 registration: original six-run 5v5 suite is deferred by user direction; its immutable deadlines/accounting remain historical. No Stage A budget is charged before the first published optimizer-bearing experiment. Resolved calibration, source identity, execution times and any deviations must be appended here or linked as dated files under `docs/amendments/` before dependent execution.
+
+2026-10-23 [calibration resolution](amendments/2026-10-23-duel-calibration.md): all nine cells complete; CUDA inference/optimization, 64 arenas, one worker/thread selected under memory-headroom constraints. Equal pilot target1,245,184 arena steps; R0 configuration published before execution. Original registration above remains unchanged.

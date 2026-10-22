@@ -2,3 +2,6 @@
 *.pdf binary
 *.png binary
 *.pt binary
+# Local: keep raw evidence bytes, including profiler spacing; global: make audits reproducible on every clone.
+# Git attributes documentation: https://git-scm.com/docs/gitattributes
+reports/performance/data/** -text -whitespace

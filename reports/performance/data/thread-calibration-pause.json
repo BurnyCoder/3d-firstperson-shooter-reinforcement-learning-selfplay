@@ -1,0 +1,18 @@
+{
+  "timestamp_utc": "20261022T204907.777816Z",
+  "reason": "Bounded six-worker CPU thread calibration; all learners stopped at exact periodic checkpoint boundaries to release RAM and avoid paging-confounded timing",
+  "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\thread-calibration-20261022T204829.071912Z",
+  "restored_frames": {
+    "selfplay_seed111": 1699840,
+    "fixed_seed111": 286720,
+    "fixed_seed222": 286720,
+    "selfplay_seed222": 286720,
+    "selfplay_seed333": 286720,
+    "fixed_seed333": 266240
+  },
+  "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+  "resumed_utc": "20261022T205227.146217Z",
+  "stopped_seconds": 199.064155,
+  "selected_threads": 1,
+  "selection": "six_threads_1 3026.17 vs six_threads_2 2774.65 arena steps/s; same six-worker standard-start calibration"
+}

@@ -24,6 +24,7 @@ def create_parser(settings) -> argparse.ArgumentParser:
         command.add_argument("--seconds", type=float)  # Bounded rendering supports automated visual verification.
         command.add_argument("--screenshot", type=Path)  # Finite viewers also save action replay evidence.
         command.add_argument("--first-person", action="store_true")  # Watch through a bot's eyes before optional live takeover.
+        command.add_argument("--experiment", choices=("duel-fixed-v1", "legacy-5v5-v1"))  # Infer from checkpoint if omitted.
     train = commands.add_parser("train", help="train one run or the pre-registered six-run suite")  # Actual reinforcement learning.
     train.add_argument("--suite", action="store_true")  # Opt in to independent self-play/control runs.
     train.add_argument("--output", type=Path)  # Defaults differ between individual and suite runs.
@@ -35,12 +36,19 @@ def create_parser(settings) -> argparse.ArgumentParser:
     train.add_argument("--device", choices=("cpu", "cuda", "auto"), default=settings.device)  # Auto benchmarks both supported devices in a suite.
     train.add_argument("--resume", type=Path)  # Individual checkpoint or existing suite manifest.
     train.add_argument("--pairs", type=int, default=128)  # Freeze final-test sample count before suite execution.
+    train.add_argument("--experiment", choices=("duel-fixed-v1", "legacy-5v5-v1"))  # Stage A requires publication preflight.
+    train.add_argument("--run-config", type=Path)  # Published resolved execution config, including all confirmation seeds.
+    train.add_argument("--run-index", type=int, default=0)  # Select one registered worker without overriding frozen settings.
+    train.add_argument("--calibrate", action="store_true")  # One bounded registered two-player hardware comparison.
     evaluate = commands.add_parser("evaluate", help="evaluate a frozen checkpoint on held-out seed pairs")  # Never updates weights.
     evaluate.add_argument("--checkpoint", type=Path, required=True)  # Evaluation target is always explicit.
     evaluate.add_argument("--output", type=Path, default=settings.output_dir / "evaluation.json")  # Full raw results and summary.
     evaluate.add_argument("--pairs", type=int, default=128)  # Equal number of paired worlds across opponents.
     evaluate.add_argument("--num-envs", type=int, default=settings.num_envs)  # Record batching because it determines seeded world streams.
     evaluate.add_argument("--seed-base", type=int, default=2_000_000)  # Final-test namespace differs from training and validation.
+    evaluate.add_argument("--experiment", choices=("duel-fixed-v1", "legacy-5v5-v1"))  # Match-specific benchmark suite.
+    evaluate.add_argument("--initial", type=Path)  # Corresponding frozen initial policy for duel comparison.
+    evaluate.add_argument("--stochastic", action="store_true")  # Separate secondary evaluation mode.
     report = commands.add_parser("report", help="render measured experiment reports and PDF")  # No invented placeholder performance.
     report.add_argument("--input", type=Path, default=settings.output_dir / "suite")  # Read saved artifacts only.
     report.add_argument("--output", type=Path, default=Path("reports"))  # Versionable evidence separate from bulky checkpoints.
@@ -68,22 +76,36 @@ def execute_phase(arguments, settings):
             return run_launcher(checkpoint=checkpoint, seed=settings.seed)  # Choose watch or human first-person play.
         return run_view(mode=arguments.command, checkpoint=checkpoint, seed=arguments.seed, team=arguments.team,
                         seconds=arguments.seconds, screenshot_path=arguments.screenshot,
-                        spectator_first_person=arguments.first_person)  # One renderer serves watch, first-person spectating, and takeover.
+                        spectator_first_person=arguments.first_person, experiment=arguments.experiment)
     if arguments.command == "train":  # Delay expensive torch imports until a learning command needs them.
+        if arguments.experiment == "duel-fixed-v1":
+            from ministrike.experiments.staged import execute_registered
+            return execute_registered(arguments.run_config, arguments.run_index, arguments.suite,
+                                      arguments.calibrate, arguments.resume)  # Local: registered phases own all defaults.
         if arguments.suite:  # The suite owns its total deadline and frozen protocol.
-            from ministrike.experiments.suite import run_suite  # Keep experiment scheduling separate from optimization.
-            return run_suite(arguments.output or settings.output_dir / "suite", arguments.max_hours, arguments.device,
-                             arguments.num_envs, arguments.pairs, arguments.resume)  # Persist every chosen setting.
+            raise ValueError("The original 5v5 suite is deferred; select --experiment duel-fixed-v1 with a published run config")
+        if arguments.calibrate or arguments.run_config:
+            raise ValueError("Registered staged commands require --experiment duel-fixed-v1")
         from ministrike.learning import TrainConfig, train_run  # Reuse the same trainer as the suite.
         return train_run(TrainConfig(output_dir=str(arguments.output or settings.output_dir / "single"), condition=arguments.condition,
                                     seed=arguments.seed, num_envs=arguments.num_envs, total_frames=arguments.frames,
                                     max_seconds=arguments.max_hours * 3600, device="cpu" if arguments.device == "auto" else arguments.device,
                                     resume=str(arguments.resume) if arguments.resume else None))  # Single-run auto defaults conservatively to CPU.
     if arguments.command == "evaluate":  # Frozen evaluation is independently repeatable.
+        if arguments.experiment == "duel-fixed-v1":
+            from ministrike.experiments.duel_evaluation import evaluate_duel
+            if not arguments.initial:
+                raise ValueError("Duel evaluation requires --initial for the corresponding frozen initial policy")
+            seed_base = 3_000_000 if arguments.seed_base == 2_000_000 else arguments.seed_base
+            return evaluate_duel(arguments.checkpoint, arguments.initial, arguments.output, seed_base,
+                                 arguments.pairs, arguments.stochastic, arguments.num_envs)
         from ministrike.experiments.evaluation import evaluate_policy  # Tournament logic is shared with the suite.
         from ministrike.learning import PolicyCheckpoint  # Load the exact actor under evaluation.
         return evaluate_policy(PolicyCheckpoint(arguments.checkpoint), arguments.output, arguments.pairs,
                                arguments.num_envs, arguments.seed_base)  # Test seed namespace is saved in results.
+    if (arguments.input / "manifest.json").exists():
+        from ministrike.experiments.duel_reporting import create_duel_reports
+        return create_duel_reports(arguments.input, arguments.output)  # Local: versioned Stage A reporting, no legacy mixing.
     from ministrike.experiments.reporting import create_reports  # The only remaining parser mode is report.
     return create_reports(arguments.input, arguments.output)  # Reports derive claims from saved measured artifacts.
 

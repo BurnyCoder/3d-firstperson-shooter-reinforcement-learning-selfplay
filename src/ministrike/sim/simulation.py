@@ -10,11 +10,13 @@ from dataclasses import asdict, dataclass  # Local: explicit configuration and s
 import numpy as np  # Local: CPU batches keep physics independent of renderer and neural-network device.
 
 from .combat import resolve_combat  # Local: isolated weapon phase retains simultaneous damage semantics.
-from .constants import FRAME_DIM, HISTORY_LENGTH, GameConfig  # Local: single rule/layout source.
-from .map import SITES, SPAWNS  # Local: original map supplies standard and objective curriculum starts.
+from .constants import HISTORY_LENGTH  # Local: single rule/layout source.
+from .map import SITES  # Local: original objective curriculum retains its frozen site positions.
 from .movement import advance_movement  # Local: isolated collision and weapon-clock phase.
 from .objectives import resolve_objectives  # Local: explicit objective and terminal state machine.
 from .observation import make_frame  # Local: visibility masking remains independent of policy implementation.
+from .specs import match_spec  # Local: versioned match controls shapes and geometry across all clients.
+from .rewards import aim_potential, resolve_duel  # Local: objective-free outcomes share the same combat phase.
 
 
 @dataclass
@@ -22,7 +24,7 @@ class StepResult:
     """Local: immutable-by-convention copied transition data. Global: one interface serves every caller."""
 
     observations: np.ndarray  # Local: [arena, player, four stacked observation frames].
-    rewards: np.ndarray  # Local: [arena, team] exactly zero-sum reward increments.
+    rewards: np.ndarray  # Local: [arena, team]; outcomes/damage are zero-sum, R2 also has individual potential terms.
     terminated: np.ndarray  # Local: [arena] true until an explicit masked reset.
     winner: np.ndarray  # Local: 0 attack, 1 defense, -1 draw or ongoing; consult terminated.
     events: list[dict]  # Local: sparse JSON-compatible combat/objective events for rendering and evaluation.
@@ -35,16 +37,23 @@ class Simulation:
                      "tick", "bomb_position", "bomb_carrier", "bomb_planted", "bomb_timer", "interaction",
                      "done", "winner", "history", "damage_dealt", "shots_fired")  # Local: exhaustive checkpoint arrays.
 
-    def __init__(self, num_envs=1, seed=0, config=None):
+    def __init__(self, num_envs=1, seed=0, config=None, experiment=None, reward="R0"):
         """Local: allocate stable player slots. Global: the same constructor supports interactive and batched use."""
         if not isinstance(num_envs, int) or num_envs < 1:  # Local: invalid batches cannot yield meaningful arenas.
             raise ValueError("num_envs must be a positive integer")  # Local: fail early with actionable feedback.
         self.num_envs = num_envs  # Local: all state arrays share this leading independent-arena dimension.
-        self.config = config or GameConfig()  # Local: rule customization is explicit and checkpointed.
+        self.spec = match_spec(experiment)  # Local: legacy defaults remain valid for existing checkpoints.
+        self.walls, self.sites, self.spawns = self.spec.geometry()  # Local: rendering reads these same arrays.
+        self.players, self.team_size = self.spec.players, self.spec.team_size  # Local: derive permanent slots.
+        self.config = config or self.spec.rules()  # Local: rule customization is explicit and checkpointed.
+        if reward not in {"R0", "R1", "R2"}:
+            raise ValueError("Unknown registered duel reward")  # Local: fail rather than silently change shaping.
+        self.reward_id = reward  # Local: immutable experiment-level shaping identity.
+        self.reward_components = {}  # Local: populated after each duel transition.
         if any(value <= 0 for value in asdict(self.config).values()):  # Local: normalization/timing require positive rules.
             raise ValueError("All GameConfig values must be positive")  # Local: prevent silent divide-by-zero mechanics.
         self.rng = np.random.default_rng(seed)  # Local: dedicated RNG avoids rendering/library RNG interference.
-        shape = (num_envs, 10)  # Local: fixed ten-player slots remain throughout each round.
+        shape = (num_envs, self.players)  # Local: stable match-specific slots remain throughout each round.
         self.positions = np.zeros((*shape, 3), dtype=np.float32)  # Local: XYZ feet positions in metres.
         self.yaw = np.zeros(shape, dtype=np.float32)  # Local: zero aims toward positive Z.
         self.pitch = np.zeros(shape, dtype=np.float32)  # Local: positive angles look upward.
@@ -61,7 +70,7 @@ class Simulation:
         self.interaction = np.zeros(shape, dtype=np.float32)  # Local: uninterrupted stationary hold duration.
         self.done = np.zeros(num_envs, dtype=bool)  # Local: completed arenas hold until masked reset.
         self.winner = np.full(num_envs, -1, dtype=np.int64)  # Local: draw/ongoing sentinel disambiguated by done.
-        self.history = np.zeros((*shape, HISTORY_LENGTH, FRAME_DIM), dtype=np.float32)  # Local: oldest frame first.
+        self.history = np.zeros((*shape, HISTORY_LENGTH, self.spec.frame_dim), dtype=np.float32)  # Local: oldest first.
         self.damage_dealt = np.zeros((num_envs, 2), dtype=np.float32)  # Local: effective damage totals by team.
         self.shots_fired = np.zeros(shape, dtype=np.int64)  # Local: per-player firing totals support evaluation.
         self.reset()  # Local: construction returns a ready-to-step arena batch.
@@ -81,11 +90,12 @@ class Simulation:
         if seed is not None:  # Local: explicit seeds restart the dedicated reset RNG reproducibly.
             self.rng = np.random.default_rng(seed)  # Local: no global NumPy random state is modified.
         ids = np.flatnonzero(selected)  # Local: all mutation below is indexed by selected arenas.
-        self.positions[ids] = SPAWNS  # Local: baseline starts have two separated five-player teams.
-        jitter = self.rng.uniform(-.3, .3, (len(ids), 10, 2))  # Local: small valid start diversity, never hidden physics noise.
-        self.positions[ids, :, 0] += jitter[..., 0]  # Local: vary initial east-west placement.
-        self.positions[ids, :, 2] += jitter[..., 1]  # Local: vary initial north-south placement.
-        self.yaw[ids] = np.array([0] * 5 + [np.pi] * 5)  # Local: teams initially face toward the opposing half.
+        self.positions[ids] = self.spawns  # Local: each map owns its registered starting positions.
+        jitter = self.rng.uniform(-.3, .3, (len(ids), self.players, 2)) if self.spec.bomb else 0
+        if self.spec.bomb:  # Local: fixed duel starts consume no spawn randomness.
+            self.positions[ids, :, 0] += jitter[..., 0]  # Local: retained legacy jitter.
+            self.positions[ids, :, 2] += jitter[..., 1]  # Local: retained legacy jitter.
+        self.yaw[ids] = np.array([0] * self.team_size + [np.pi] * self.team_size)  # Local: face each other.
         self.pitch[ids] = 0  # Local: aim begins horizontally.
         self.health[ids] = self.config.health  # Local: every new round starts all players alive.
         self.ammo[ids] = self.config.magazine  # Local: refill rifles exactly once per round.
@@ -93,7 +103,7 @@ class Simulation:
         self.cooldown[ids] = 0  # Local: rifles are ready on the first tick.
         self.reload_timer[ids] = 0  # Local: no reload carries across rounds.
         self.tick[ids] = 0  # Local: pre-plant clock starts at zero.
-        self.bomb_carrier[ids] = 0  # Local: a stable attacker slot starts carrying the bomb.
+        self.bomb_carrier[ids] = 0 if self.spec.bomb else -1  # Local: deathmatch has no bomb possession.
         self.bomb_planted[ids] = False  # Local: every scenario starts with an unplanted objective by default.
         self.bomb_timer[ids] = 0  # Local: explosion timer starts only when planted.
         self.interaction[ids] = 0  # Local: no held objective progress survives reset.
@@ -101,7 +111,8 @@ class Simulation:
         self.winner[ids] = -1  # Local: clear previous outcome.
         self.damage_dealt[ids] = 0  # Local: statistics refer only to the current round.
         self.shots_fired[ids] = 0  # Local: reset inactivity/shot counters.
-        self._reset_scenario(ids, scenario)  # Local: curriculum placement is a distinct readable phase.
+        if self.spec.bomb:
+            self._reset_scenario(ids, scenario)  # Local: legacy curriculum never alters fixed duel spawns.
         self.bomb_position[ids] = self.positions[ids, 0]  # Local: carried objective starts at carrier feet.
         planted = ids[self.bomb_planted[ids]]  # Local: objective curriculum can start in a post-plant state.
         self.bomb_position[planted] = SITES[0]  # Local: planted curriculum bomb is fixed at site A.
@@ -129,21 +140,26 @@ class Simulation:
     def step(self, controls):
         """Local: run one fixed-tick transition. Global: this wrapper exposes clearly named rule phases."""
         controls = np.asarray(controls, dtype=np.float32)  # Local: normalize controller transport dtype.
-        if controls.shape != (self.num_envs, 10, 7) or not np.isfinite(controls).all():
-            raise ValueError("controls must be finite with shape (num_envs, 10, 7)")  # Local: reject invalid policies.
+        if controls.shape != (self.num_envs, self.players, 7) or not np.isfinite(controls).all():
+            raise ValueError("controls must be finite with shape (num_envs, players, 7)")  # Local: reject invalid policies.
         active = ~self.done  # Local: terminal arenas stay frozen until their caller explicitly resets them.
         rewards = np.zeros((self.num_envs, 2), dtype=np.float32)  # Local: per-tick reward increments start at zero.
         events = []  # Local: sparse events belong only to this transition.
+        damage_before = self.damage_dealt.copy()  # Local: reward uses only this transition's effective damage.
+        potential_before = aim_potential(self) if not self.spec.bomb and self.reward_id == "R2" else None
         advance_movement(self, controls, active)  # Local: rotate/move before shooting and objective interaction.
         resolve_combat(self, controls, active, rewards, events)  # Local: all shots resolve simultaneously.
         self.tick += active  # Local: only running arenas advance their pre-plant clock.
-        resolve_objectives(self, controls, active, rewards, events)  # Local: objective state defines terminal precedence.
+        if self.spec.bomb:
+            resolve_objectives(self, controls, active, rewards, events)  # Local: preserve legacy terminal precedence.
+        else:
+            resolve_duel(self, active, rewards, events, damage_before, potential_before)  # Local: no objective logic.
         for event in events:  # Local: all sparse events use the transition's authoritative integer tick.
             event["tick"] = int(self.tick[event["arena"]])  # Local: replay/report consumers do not infer event timing.
         frame = make_frame(self)  # Local: observations describe the fully resolved transition.
         self.history[active, :, :-1] = self.history[active, :, 1:]  # Local: roll history only for advancing arenas.
         self.history[active, :, -1] = frame[active]  # Local: append current observable state after all rule phases.
-        observations = self.history.reshape(self.num_envs, 10, -1).copy()  # Local: consumers cannot mutate history.
+        observations = self.history.reshape(self.num_envs, self.players, -1).copy()  # Local: consumers cannot mutate history.
         return StepResult(observations, rewards, self.done.copy(), self.winner.copy(), events)
 
     def observe(self):
@@ -154,7 +170,7 @@ class Simulation:
         """Local: combine owned history with an already computed frame. Global: reset and explicit reads share exact output semantics."""
         history = self.history.copy()  # Local: external controllers cannot corrupt stored history.
         history[:, :, -1] = frame  # Local: refresh all returned current frames without mutating unselected arena history.
-        return history.reshape(self.num_envs, 10, -1)  # Local: flatten oldest-to-newest four-frame actor input.
+        return history.reshape(self.num_envs, self.players, -1)  # Local: flatten oldest-to-newest four-frame actor input.
 
     def snapshot(self, arena=0):
         """Local: expose JSON-serializable public state. Global: renderer/replay/report tooling can inspect one arena."""
@@ -162,12 +178,14 @@ class Simulation:
 
     def state_dict(self):
         """Local: copy physics, history and RNG. Global: resuming training preserves exact simulator continuation."""
-        return {"num_envs": self.num_envs, "config": asdict(self.config), "rng": deepcopy(self.rng.bit_generator.state),
+        return {"num_envs": self.num_envs, "config": asdict(self.config), "match": self.spec.identity,
+                "reward": self.reward_id, "rng": deepcopy(self.rng.bit_generator.state),
                 "arrays": {name: getattr(self, name).copy() for name in self._STATE_ARRAYS}}
 
     def load_state_dict(self, state):
         """Local: restore a compatible checkpoint. Global: reject implicit architecture/rule changes on resume."""
-        if state["num_envs"] != self.num_envs or state["config"] != asdict(self.config):
+        if (state["num_envs"] != self.num_envs or state["config"] != asdict(self.config)
+                or state.get("match", "legacy-5v5-v1") != self.spec.identity or state.get("reward", "R0") != self.reward_id):
             raise ValueError("Simulator checkpoint batch size or rules differ")  # Local: reproducibility requires both.
         for name in self._STATE_ARRAYS:  # Local: restore every declared state field, including observation history.
             value = np.asarray(state["arrays"][name])  # Local: accept serialized arrays without aliasing them.

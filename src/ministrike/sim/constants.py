@@ -44,15 +44,15 @@ class GameConfig:
     fov_degrees: float = 110.0  # Local: full three-dimensional cone of player visibility.
 
 
-def decode_actions(actions):
+def decode_actions(actions, nvecs=ACTION_NVECS):
     """Local: convert categorical heads to physical controls. Global: one decoder serves all learned policies."""
     actions = np.asarray(actions, dtype=np.int64)  # Local: indexing requires integer action categories.
-    if actions.shape[-1] != 6 or np.any(actions < 0) or np.any(actions >= ACTION_NVECS):
-        raise ValueError("Expected six categorical actions within ACTION_NVECS")  # Local: reject invalid policy outputs.
+    if actions.shape[-1] != len(nvecs) or np.any(actions < 0) or np.any(actions >= nvecs):
+        raise ValueError("Expected categorical actions within the match action specification")
     moves = np.array([[0, 0], [1, 0], [-1, 0], [0, -1], [0, 1], [1, -1], [1, 1], [-1, -1], [-1, 1]], dtype=np.float32)
     result = np.zeros((*actions.shape[:-1], 7), dtype=np.float32)  # Local: forward/strafe/angles/buttons format.
     result[..., :2] = moves[actions[..., 0]]  # Local: diagonal speed is normalized by movement physics.
     result[..., 2] = np.array([-.24, -.08, 0, .08, .24], dtype=np.float32)[actions[..., 1]]  # Local: radians per tick.
     result[..., 3] = np.array([-.12, -.04, 0, .04, .12], dtype=np.float32)[actions[..., 2]]  # Local: vertical radians per tick.
-    result[..., 4:] = actions[..., 3:]  # Local: binary fire/reload/interact become continuous control switches.
+    result[..., 4:4 + len(nvecs) - 3] = actions[..., 3:]  # Local: omitted interaction remains exactly zero.
     return result  # Local: caller submits this exact array to Simulation.step.

@@ -1,0 +1,10 @@
+{
+  "kind": "exploratory_positive_control",
+  "seed": 91001,
+  "source_revision": "33e597b6639614141ba6b15ebbe2102ff30b1de9",
+  "timestamp_utc": "20261022T213845.851773Z",
+  "frames": 65536,
+  "validation_seed": 1190000,
+  "success": "Final stochastic score >= 0.8 and improvement >= 0.2 over initial on 512 fixed worlds.",
+  "limitations": "A four-tick shooting fixture does not establish 5v5 skill or self-play superiority."
+}

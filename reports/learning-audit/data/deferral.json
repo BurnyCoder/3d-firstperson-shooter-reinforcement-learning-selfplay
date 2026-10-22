@@ -1,0 +1,102 @@
+{
+  "utc": "20261022T232354Z",
+  "old_status": "learning_audit_recovery",
+  "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+  "original_deadline_fields": {
+    "deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+    "training_deadline_utc": "2026-10-23T05:35:52.872233+00:00"
+  },
+  "archive": "runs\\suite\\execution_amendments\\staged-deferral-20261022T232354Z",
+  "metric_tails": {
+    "fixed_seed111": {
+      "timestamp_utc": "20261022T215021.142955Z",
+      "frames": 2682880,
+      "updates": 1310,
+      "elapsed_seconds": 4168.510187,
+      "frames_per_second": 643.6064396260524,
+      "rounds": 12575,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.077606337814359,
+      "gradient_norm": 0.46065734326839447,
+      "entropy": 7.15291957060496,
+      "critic_loss": 2.3341149410308995e-06
+    },
+    "fixed_seed222": {
+      "timestamp_utc": "20261022T215026.634630Z",
+      "frames": 2682880,
+      "updates": 1310,
+      "elapsed_seconds": 4171.891009999999,
+      "frames_per_second": 643.084872919535,
+      "rounds": 13673,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.07761223414369549,
+      "gradient_norm": 0.430111825466156,
+      "entropy": 7.13911630709966,
+      "critic_loss": 1.3526147559635623e-05
+    },
+    "fixed_seed333": {
+      "timestamp_utc": "20261022T215039.310037Z",
+      "frames": 2662400,
+      "updates": 1300,
+      "elapsed_seconds": 4180.385939,
+      "frames_per_second": 636.8789960663008,
+      "rounds": 15577,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.07538502496511985,
+      "gradient_norm": 0.5003748796880245,
+      "entropy": 7.201262295246124,
+      "critic_loss": 4.7816747184015185e-06
+    },
+    "selfplay_seed111": {
+      "timestamp_utc": "20261022T215014.657376Z",
+      "frames": 3604480,
+      "updates": 1760,
+      "elapsed_seconds": 6260.026033,
+      "frames_per_second": 575.7931326481435,
+      "rounds": 3227,
+      "wins": 1609,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.0746017652854789,
+      "gradient_norm": 0.4138804264366627,
+      "entropy": 6.934627274672191,
+      "critic_loss": 2.2608535014493705e-06
+    },
+    "selfplay_seed222": {
+      "timestamp_utc": "20261022T214101.922062Z",
+      "frames": 1904640,
+      "updates": 930,
+      "elapsed_seconds": 3608.765070999998,
+      "frames_per_second": 527.7816545348627,
+      "rounds": 1790,
+      "wins": 885,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.07399823656305671,
+      "gradient_norm": 0.3342246462901433,
+      "entropy": 6.905549426873525,
+      "critic_loss": 1.779404617726262e-06
+    },
+    "selfplay_seed333": {
+      "timestamp_utc": "20261022T215017.287593Z",
+      "frames": 2211840,
+      "updates": 1080,
+      "elapsed_seconds": 4163.906455,
+      "frames_per_second": 531.1934895521085,
+      "rounds": 2049,
+      "wins": 1027,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.07336630429684494,
+      "gradient_norm": 0.3416527820130189,
+      "entropy": 6.826252023379008,
+      "critic_loss": 2.5269580608740703e-06
+    }
+  }
+}

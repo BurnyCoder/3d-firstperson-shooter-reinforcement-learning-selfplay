@@ -10,6 +10,8 @@ import torch  # Local: tensor-only loading; global: avoid arbitrary pickle execu
 
 from ministrike.learning.models import ActorNetwork, FactorizedCategorical
 from ministrike.sim.constants import ACTION_NVECS, OBS_DIM, decode_actions
+from ministrike.sim.specs import match_spec  # Local: validate the full match-specific interface before loading.
+from ministrike.sim.constants import GameConfig  # Local: gameplay retains original checkpoint rules.
 
 
 def encode_state(value):
@@ -53,16 +55,21 @@ def load_checkpoint(path):
 class PolicyCheckpoint:
     """Local: inference-only shared actor; global: evaluation and rendering share trained bots."""
 
-    def __init__(self, path):
+    def __init__(self, path, experiment=None):
         """Local: load a validated actor state; global: inference never needs the central critic."""
         state = load_checkpoint(path)  # Restrict deserialization even for local model files.
-        if state.get("observation_dim", OBS_DIM) != OBS_DIM:  # Reject incompatible observation versions.
+        self.spec = match_spec(state.get("config", {}).get("experiment"))  # Local: missing identity means original 5v5.
+        if experiment is not None and self.spec.identity != experiment:
+            raise ValueError("Checkpoint match does not match the requested experiment")  # Local: explicit incompatibility.
+        if state.get("observation_dim", OBS_DIM) != self.spec.observation_dim:
             raise ValueError("Checkpoint observation dimension does not match this game")
-        if tuple(state.get("schema", {}).get("action_nvecs", ACTION_NVECS)) != ACTION_NVECS:
+        if tuple(state.get("schema", {}).get("action_nvecs", ACTION_NVECS)) != self.spec.action_nvecs:
             raise ValueError("Checkpoint control categories do not match this game")  # Prevent silent decoder mismatch.
-        self.actor = ActorNetwork().eval().requires_grad_(False)  # CPU matches the simulator's arrays.
+        self.actor = ActorNetwork(self.spec.observation_dim, self.spec.action_nvecs).eval().requires_grad_(False)
         self.actor.load_state_dict(state["actor"])  # Strict loading rejects missing/extra architecture keys.
         self.path = str(path)  # Expose provenance to reports and the renderer.
+        rules = state.get("environment", {}).get("sim", {}).get("config")  # Local: legacy experiments keep exact rules.
+        self.rules = GameConfig(**rules) if rules else self.spec.rules()  # Local: inference never substitutes new rules.
 
     def act(self, observation, deterministic=True):
         """Local: choose joint categories then decode; global: no scripted aiming/navigation."""
@@ -70,4 +77,4 @@ class PolicyCheckpoint:
             tensor = torch.as_tensor(np.asarray(observation, dtype=np.float32).copy())
             distribution = FactorizedCategorical(self.actor(tensor))  # Local observations only.
             action = distribution.mode if deterministic else distribution.sample()  # Explicit evaluation mode.
-            return decode_actions(action.numpy())  # Shared simulation decoder defines physical units.
+            return decode_actions(action.numpy(), self.spec.action_nvecs)  # Local: disabled heads stay absent.

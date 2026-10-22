@@ -1,0 +1,4 @@
+# Generated binary artifacts must keep exact bytes on Windows clones.
+*.pdf binary
+*.png binary
+*.pt binary

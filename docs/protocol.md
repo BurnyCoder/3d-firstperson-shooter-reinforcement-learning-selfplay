@@ -20,6 +20,8 @@ The practical hypothesis is a mean advantage of at least0.10 score units. The en
 
 Maximum12hours from the suite start, including calibration, checkpointing, and evaluation. At most10hours are allocated across six independent training runs; the remainder supports calibration/evaluation. A resumed suite retains its original absolute deadline.
 
+Execution accounting clarification, recorded after the engineering smoke runs but before the primary suite: this machine's suite allowance will be shortened by the wall time elapsed since the first optimizer smoke began. This conservatively keeps verification plus the primary experiment within the user's overall 12-hour limit, even counting intervening implementation time. The actual command and absolute deadline are recorded in the launch receipt and `suite.json`. No algorithm setting or hypothesis changes in this clarification.
+
 Calibration measures four actual collection/update batches for each available optimizer device and condition. CPU simulation/inference is shared. Choose the optimizer device by the minimum throughput across conditions, then select the fastest such device. Freeze equal frames per run from the slower-condition rate, the allocated duration, and a20%runtime reserve, rounded down to complete rollout batches. Record exact rates and the frozen target in `suite.json`. Device selection never uses game scores.
 
 Runs stop on their frame or time allowance. A timed-out run is retained and flagged; comparisons requiring equal training frames must not silently include mismatched budgets. Do not extend training to obtain significance. Interruption/resume restores optimizer, simulator, observation history, roles, frozen opponent pool, random generators, counters, and used budget.

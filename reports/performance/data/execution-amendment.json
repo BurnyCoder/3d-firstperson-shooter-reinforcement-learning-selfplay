@@ -1,0 +1,19 @@
+{
+  "timestamp_utc": "20261022T202743.567605Z",
+  "reason": "User requested maximum practical GPU use; throughput-only concurrent calibration",
+  "execution_revision": "d1eccacec7b00b0ecdc03e95ce5de4bfaa726e67",
+  "old_pid": 26216,
+  "run": "selfplay_seed111",
+  "frames": 1433600,
+  "updates": 700,
+  "original_checkpoint_sha256": "742f2e4ed34af8b1dcac3445d016b9a46c744f9b2836efe562d8895e6e61d893",
+  "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\20261022T202743.530683Z",
+  "workers_before": 1,
+  "workers_after": 6,
+  "torch_threads": 1,
+  "per_run_seconds_before": 5832.454619861111,
+  "per_run_seconds_after": 32901.07288,
+  "training_deadline_utc": "2026-10-23T05:35:52.872233+00:00",
+  "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+  "unchanged": "weights, optimizer, simulator, RNGs, actor/critic architecture, PPO settings, arena count, rollout length, frozen total frames and hypothesis"
+}

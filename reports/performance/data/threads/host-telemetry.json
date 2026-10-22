@@ -1,0 +1,152 @@
+[
+  {
+    "timestamp_utc": "2026-10-22T20:50:12.214935+00:00",
+    "cpu_total_percent": 72.5,
+    "memory_available_gb": 10.950477600097656,
+    "gpu": "3, 1929, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:13.301358+00:00",
+    "cpu_total_percent": 80.8,
+    "memory_available_gb": 10.793464660644531,
+    "gpu": "5, 1929, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:14.394511+00:00",
+    "cpu_total_percent": 85.2,
+    "memory_available_gb": 10.58864974975586,
+    "gpu": "4, 1924, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:15.500878+00:00",
+    "cpu_total_percent": 73.0,
+    "memory_available_gb": 9.776020050048828,
+    "gpu": "4, 2950, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:16.611798+00:00",
+    "cpu_total_percent": 99.3,
+    "memory_available_gb": 9.75225830078125,
+    "gpu": "2, 2950, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:17.710463+00:00",
+    "cpu_total_percent": 99.9,
+    "memory_available_gb": 9.655765533447266,
+    "gpu": "2, 2951, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:18.836156+00:00",
+    "cpu_total_percent": 100.0,
+    "memory_available_gb": 9.636455535888672,
+    "gpu": "2, 2951, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:19.941663+00:00",
+    "cpu_total_percent": 99.4,
+    "memory_available_gb": 6.8399658203125,
+    "gpu": "11, 3657, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:21.041600+00:00",
+    "cpu_total_percent": 95.5,
+    "memory_available_gb": 2.4851531982421875,
+    "gpu": "53, 3887, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:22.167865+00:00",
+    "cpu_total_percent": 99.4,
+    "memory_available_gb": 2.51361083984375,
+    "gpu": "2, 3887, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:23.283726+00:00",
+    "cpu_total_percent": 100.0,
+    "memory_available_gb": 2.472644805908203,
+    "gpu": "2, 3887, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:24.388110+00:00",
+    "cpu_total_percent": 100.0,
+    "memory_available_gb": 2.4539947509765625,
+    "gpu": "2, 3887, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:25.502746+00:00",
+    "cpu_total_percent": 92.9,
+    "memory_available_gb": 2.4427947998046875,
+    "gpu": "75, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:26.605579+00:00",
+    "cpu_total_percent": 100.0,
+    "memory_available_gb": 2.473094940185547,
+    "gpu": "2, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:27.713059+00:00",
+    "cpu_total_percent": 100.0,
+    "memory_available_gb": 2.4911231994628906,
+    "gpu": "2, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:28.830527+00:00",
+    "cpu_total_percent": 99.9,
+    "memory_available_gb": 2.391326904296875,
+    "gpu": "49, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:29.925845+00:00",
+    "cpu_total_percent": 96.4,
+    "memory_available_gb": 2.343891143798828,
+    "gpu": "47, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:31.024671+00:00",
+    "cpu_total_percent": 96.9,
+    "memory_available_gb": 2.4316749572753906,
+    "gpu": "2, 4007, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:32.143146+00:00",
+    "cpu_total_percent": 99.6,
+    "memory_available_gb": 2.379375457763672,
+    "gpu": "3, 4068, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:33.253191+00:00",
+    "cpu_total_percent": 96.7,
+    "memory_available_gb": 2.367908477783203,
+    "gpu": "5, 4156, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:34.343746+00:00",
+    "cpu_total_percent": 97.4,
+    "memory_available_gb": 2.2848854064941406,
+    "gpu": "34, 4154, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:35.454018+00:00",
+    "cpu_total_percent": 98.2,
+    "memory_available_gb": 2.3009681701660156,
+    "gpu": "7, 4045, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:36.560905+00:00",
+    "cpu_total_percent": 89.3,
+    "memory_available_gb": 2.362957000732422,
+    "gpu": "3, 4047, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:37.658251+00:00",
+    "cpu_total_percent": 92.6,
+    "memory_available_gb": 7.680606842041016,
+    "gpu": "10, 2997, 8151"
+  },
+  {
+    "timestamp_utc": "2026-10-22T20:50:38.750175+00:00",
+    "cpu_total_percent": 68.4,
+    "memory_available_gb": 7.944538116455078,
+    "gpu": "34, 2993, 8151"
+  }
+]

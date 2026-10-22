@@ -26,6 +26,12 @@ Calibration measures four actual collection/update batches for each available op
 
 Runs stop on their frame or time allowance. A timed-out run is retained and flagged; comparisons requiring equal training frames must not silently include mismatched budgets. Do not extend training to obtain significance. Interruption/resume restores optimizer, simulator, observation history, roles, frozen opponent pool, random generators, counters, and used budget.
 
+### Execution amendment — 22 October 2026
+
+After the primary suite started, hardware-only probes selected six concurrent independent learners, each retaining 16 arenas and 128 ticks per rollout, with one PyTorch CPU thread per process. This replaces the serial execution order above; it does not pool models, trajectories, optimizers, or opponent snapshots. No primary final-test results were observed when selecting this change. All ten probes, including a later one-versus-two-thread comparison and slower configurations, are preserved in the [performance report](../reports/performance/summary.md).
+
+The frozen target remains 4,167,680 arena steps for each of six runs. Runtime caps are reallocated for overlap within the original five-sixths training window, preserving the evaluation reservation and absolute suite deadline of 2026-10-23 07:32:38.503505 UTC. Calibration suspensions and the checkpoint handoff consume that existing wall budget. The handoff archives the original checkpoint/configuration/metrics/manifest and records runtime-field changes; model, optimizer, random-generator, simulator, snapshot, and training-counter states are restored. Reward, curriculum, architecture, PPO, analysis, and evaluation settings remain unchanged. Changed CPU threading/device scheduling may affect numerical execution, so bitwise equivalence across execution modes is not asserted. Timed-out or unequal-frame results still receive the original exclusions and disclosure rules.
+
 ## Training settings and rationale
 
 The shared actor has two128-unit hidden layers. The centralized critic has two256-unit hidden layers and receives the team's combined local observations. Categorical heads represent movement9, yaw5, pitch5, and binary fire/reload/interact. Their log probabilities sum within each player, not across players.

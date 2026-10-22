@@ -5,3 +5,6 @@
 # Local: keep raw evidence bytes, including profiler spacing; global: make audits reproducible on every clone.
 # Git attributes documentation: https://git-scm.com/docs/gitattributes
 reports/performance/data/** -text -whitespace
+reports/**/data/** -text -whitespace
+reports/**/raw/** -text -whitespace
+reports/duel-fixed-v1/launch-failure/** -text -whitespace

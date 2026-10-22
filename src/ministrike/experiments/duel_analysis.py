@@ -30,11 +30,18 @@ def paired_match_interval(initial, final, resamples=5000):
         raise ValueError("Initial/final paired worlds do not match")
     rng = np.random.default_rng(5701)  # Local: frozen analysis RNG, never used for training or evaluation.
     draws = np.zeros(resamples)
+    all_seeds = sorted({seed for _, _, seed in before})  # Local: preserve common-random-number coupling across baselines.
+    indices = rng.integers(len(all_seeds), size=(resamples, len(all_seeds)))  # Local: resample one complete seed block.
     for baseline in ("random", "initial", "scripted"):
         seeds = sorted({seed for name, _, seed in before if name == baseline})
         deltas = np.array([np.mean([after[baseline, side, seed] - before[baseline, side, seed] for side in (0, 1)])
                            for seed in seeds])  # Local: keep the two ends of each world paired.
-        draws += deltas[rng.integers(len(deltas), size=(resamples, len(deltas)))].mean(-1) / 3
+        if len(seeds) == 1:
+            draws += deltas[0] / 3  # Local: fixed deterministic cell has no fictitious match sampling uncertainty.
+        elif seeds == all_seeds:
+            draws += deltas[indices].mean(-1) / 3  # Local: retain baseline/side/checkpoint coupling of each random world.
+        else:
+            raise ValueError("Unequal stochastic seed blocks cannot use the registered paired bootstrap")
     return {"ci95": np.quantile(draws, [.025, .975]).tolist(), "resamples": resamples,
             "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"}
 

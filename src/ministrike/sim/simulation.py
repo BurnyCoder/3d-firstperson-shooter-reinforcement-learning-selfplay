@@ -24,7 +24,7 @@ class StepResult:
     """Local: immutable-by-convention copied transition data. Global: one interface serves every caller."""
 
     observations: np.ndarray  # Local: [arena, player, four stacked observation frames].
-    rewards: np.ndarray  # Local: [arena, team] exactly zero-sum reward increments.
+    rewards: np.ndarray  # Local: [arena, team]; outcomes/damage are zero-sum, R2 also has individual potential terms.
     terminated: np.ndarray  # Local: [arena] true until an explicit masked reset.
     winner: np.ndarray  # Local: 0 attack, 1 defense, -1 draw or ongoing; consult terminated.
     events: list[dict]  # Local: sparse JSON-compatible combat/objective events for rendering and evaluation.

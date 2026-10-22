@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "20261022T202856.989660Z",
+  "all_learning_state_equal": true,
+  "preserved_keys": [
+    "format_version",
+    "observation_dim",
+    "source_revision",
+    "saved_at_utc",
+    "schema",
+    "actor",
+    "critic",
+    "optimizer",
+    "pool",
+    "environment",
+    "frames",
+    "updates",
+    "python_rng",
+    "numpy_rng",
+    "torch_rng",
+    "cuda_rng"
+  ],
+  "runtime_config_changes": {
+    "max_seconds": [
+      5832.454619861111,
+      32901.07288
+    ],
+    "torch_threads": [
+      4,
+      1
+    ]
+  },
+  "frames": 1433600,
+  "updates": 700,
+  "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00"
+}

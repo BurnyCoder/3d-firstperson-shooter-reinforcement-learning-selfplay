@@ -1,0 +1,51 @@
+{
+  "timestamp_utc": "20261022T204123.628008Z",
+  "reason": "Worker termination recorded as BrokenProcessPool; user reported Codex restart. Runtime termination cause not independently established. Recover durable checkpoints and launch independently through Windows WMI.",
+  "prior_error": "BrokenProcessPool('A process in the process pool was terminated abruptly while the future was running or pending.')",
+  "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\interrupted-20261022T204123.366201Z",
+  "runs": [
+    {
+      "run": "fixed_seed111",
+      "restored_frames": 40960,
+      "restored_updates": 20,
+      "archived_uncheckpointed_records": 3,
+      "charged_elapsed_seconds": 111.125
+    },
+    {
+      "run": "fixed_seed222",
+      "restored_frames": 40960,
+      "restored_updates": 20,
+      "archived_uncheckpointed_records": 2,
+      "charged_elapsed_seconds": 109.03100000000086
+    },
+    {
+      "run": "fixed_seed333",
+      "restored_frames": 40960,
+      "restored_updates": 20,
+      "archived_uncheckpointed_records": 0,
+      "charged_elapsed_seconds": 104.82799999999952
+    },
+    {
+      "run": "selfplay_seed111",
+      "restored_frames": 1474560,
+      "restored_updates": 720,
+      "archived_uncheckpointed_records": 4,
+      "charged_elapsed_seconds": 2209.2576389999995
+    },
+    {
+      "run": "selfplay_seed222",
+      "restored_frames": 40960,
+      "restored_updates": 20,
+      "archived_uncheckpointed_records": 9,
+      "charged_elapsed_seconds": 110.53199999999924
+    },
+    {
+      "run": "selfplay_seed333",
+      "restored_frames": 40960,
+      "restored_updates": 20,
+      "archived_uncheckpointed_records": 9,
+      "charged_elapsed_seconds": 110.375
+    }
+  ],
+  "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00"
+}

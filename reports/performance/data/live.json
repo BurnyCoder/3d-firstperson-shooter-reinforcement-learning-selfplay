@@ -1,0 +1,556 @@
+{
+  "started_utc": "2026-10-22T20:35:11.856045+00:00",
+  "finished_utc": "2026-10-22T20:36:01.314797+00:00",
+  "elapsed_seconds": 49.45258819999981,
+  "before": {
+    "fixed_seed111": {
+      "timestamp_utc": "20261022T203508.645611Z",
+      "frames": 4096,
+      "updates": 2,
+      "elapsed_seconds": 30.436999999999898,
+      "frames_per_second": 134.57305253474433,
+      "rounds": 248,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07652482925914228,
+      "gradient_norm": 0.2804725443323453,
+      "entropy": 7.462738454341888,
+      "critic_loss": 0.002920350447917978
+    },
+    "fixed_seed222": {
+      "timestamp_utc": "20261022T203509.699007Z",
+      "frames": 4096,
+      "updates": 2,
+      "elapsed_seconds": 31.09400000000096,
+      "frames_per_second": 131.72959413391243,
+      "rounds": 247,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07550857631334414,
+      "gradient_norm": 0.27066849172115326,
+      "entropy": 7.466578741868337,
+      "critic_loss": 0.0028752820520215514
+    },
+    "fixed_seed333": {
+      "timestamp_utc": "20261022T203510.230061Z",
+      "frames": 4096,
+      "updates": 2,
+      "elapsed_seconds": 31.563000000000102,
+      "frames_per_second": 129.77220162848863,
+      "rounds": 250,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07515309209702536,
+      "gradient_norm": 0.29032644008596736,
+      "entropy": 7.463523765405019,
+      "critic_loss": 0.0029648702269090186
+    },
+    "selfplay_seed111": {
+      "timestamp_utc": "20261022T203511.796201Z",
+      "frames": 1439744,
+      "updates": 703,
+      "elapsed_seconds": 2131.460638999999,
+      "frames_per_second": 675.4729473566416,
+      "rounds": 1415,
+      "wins": 666,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.07394810416735709,
+      "gradient_norm": 0.3289531121651332,
+      "entropy": 6.944554289182027,
+      "critic_loss": 3.7457069339552618e-06
+    },
+    "selfplay_seed222": {
+      "timestamp_utc": "20261022T203511.497158Z",
+      "frames": 8192,
+      "updates": 4,
+      "elapsed_seconds": 32.98500000000058,
+      "frames_per_second": 248.3553130210658,
+      "rounds": 0,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07882777042686939,
+      "gradient_norm": 0.20802333143850169,
+      "entropy": 7.45237398147583,
+      "critic_loss": 1.9918693927441684e-05
+    },
+    "selfplay_seed333": {
+      "timestamp_utc": "20261022T203511.464762Z",
+      "frames": 8192,
+      "updates": 4,
+      "elapsed_seconds": 32.73500000000058,
+      "frames_per_second": 250.25202382770289,
+      "rounds": 0,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07821656096105774,
+      "gradient_norm": 0.20488613471388817,
+      "entropy": 7.452401955922444,
+      "critic_loss": 2.5090363502992357e-05
+    }
+  },
+  "after": {
+    "fixed_seed111": {
+      "timestamp_utc": "20261022T203557.927052Z",
+      "frames": 30720,
+      "updates": 15,
+      "elapsed_seconds": 79.71899999999914,
+      "frames_per_second": 385.35355435969257,
+      "rounds": 1824,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07873564977974941,
+      "gradient_norm": 0.2784536487112443,
+      "entropy": 7.388065695762634,
+      "critic_loss": 2.8198801146572805e-05
+    },
+    "fixed_seed222": {
+      "timestamp_utc": "20261022T203559.438206Z",
+      "frames": 30720,
+      "updates": 15,
+      "elapsed_seconds": 80.82800000000134,
+      "frames_per_second": 380.0663136536781,
+      "rounds": 1800,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07825450432331611,
+      "gradient_norm": 0.2699030724664529,
+      "entropy": 7.428142050902049,
+      "critic_loss": 2.276962269813036e-05
+    },
+    "fixed_seed333": {
+      "timestamp_utc": "20261022T203557.554079Z",
+      "frames": 28672,
+      "updates": 14,
+      "elapsed_seconds": 78.89099999999962,
+      "frames_per_second": 363.43816151398937,
+      "rounds": 1667,
+      "wins": 0,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07866250366593401,
+      "gradient_norm": 0.2691054753959179,
+      "entropy": 7.399004737536113,
+      "critic_loss": 3.758223973212201e-05
+    },
+    "selfplay_seed111": {
+      "timestamp_utc": "20261022T203559.316857Z",
+      "frames": 1466368,
+      "updates": 716,
+      "elapsed_seconds": 2178.9756390000002,
+      "frames_per_second": 672.9620899630443,
+      "rounds": 1438,
+      "wins": 678,
+      "draws": 0,
+      "scenario": "standard",
+      "loss": -0.0736089763425601,
+      "gradient_norm": 0.32193171977996826,
+      "entropy": 6.936081608136495,
+      "critic_loss": 5.579752989130308e-06
+    },
+    "selfplay_seed222": {
+      "timestamp_utc": "20261022T203559.535173Z",
+      "frames": 40960,
+      "updates": 20,
+      "elapsed_seconds": 81.01599999999962,
+      "frames_per_second": 505.57914486027687,
+      "rounds": 32,
+      "wins": 12,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07773003575857729,
+      "gradient_norm": 0.26381703714529675,
+      "entropy": 7.352920671304067,
+      "critic_loss": 0.00016315834848986319
+    },
+    "selfplay_seed333": {
+      "timestamp_utc": "20261022T203559.536176Z",
+      "frames": 40960,
+      "updates": 20,
+      "elapsed_seconds": 80.79700000000048,
+      "frames_per_second": 506.9495154523034,
+      "rounds": 32,
+      "wins": 18,
+      "draws": 0,
+      "scenario": "combat",
+      "loss": -0.07756358014012221,
+      "gradient_norm": 0.22924897695581117,
+      "entropy": 7.370029071966807,
+      "critic_loss": 0.000344405985136594
+    }
+  },
+  "additional_arena_frames": 169984,
+  "aggregate_arena_frames_per_second": 3437.3125085493634,
+  "gpu_mean_percent": 15.488888888888889,
+  "gpu_min_percent": 2.0,
+  "gpu_max_percent": 61.0,
+  "samples": [
+    {
+      "gpu_percent": 58.0,
+      "memory_activity_percent": 9.0,
+      "memory_used_mib": 4343.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 25.23,
+      "timestamp_utc": "2026-10-22T20:35:11.948054+00:00"
+    },
+    {
+      "gpu_percent": 19.0,
+      "memory_activity_percent": 4.0,
+      "memory_used_mib": 4325.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 18.1,
+      "timestamp_utc": "2026-10-22T20:35:13.044389+00:00"
+    },
+    {
+      "gpu_percent": 18.0,
+      "memory_activity_percent": 3.0,
+      "memory_used_mib": 4325.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 21.24,
+      "timestamp_utc": "2026-10-22T20:35:14.120609+00:00"
+    },
+    {
+      "gpu_percent": 11.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4322.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 21.66,
+      "timestamp_utc": "2026-10-22T20:35:15.199776+00:00"
+    },
+    {
+      "gpu_percent": 56.0,
+      "memory_activity_percent": 10.0,
+      "memory_used_mib": 4323.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 33.37,
+      "timestamp_utc": "2026-10-22T20:35:16.282434+00:00"
+    },
+    {
+      "gpu_percent": 4.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4323.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 10.15,
+      "timestamp_utc": "2026-10-22T20:35:17.384176+00:00"
+    },
+    {
+      "gpu_percent": 6.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4329.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 12.52,
+      "timestamp_utc": "2026-10-22T20:35:18.473350+00:00"
+    },
+    {
+      "gpu_percent": 5.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4331.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 10.05,
+      "timestamp_utc": "2026-10-22T20:35:19.540481+00:00"
+    },
+    {
+      "gpu_percent": 19.0,
+      "memory_activity_percent": 4.0,
+      "memory_used_mib": 4375.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 24.07,
+      "timestamp_utc": "2026-10-22T20:35:20.615702+00:00"
+    },
+    {
+      "gpu_percent": 18.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4389.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 26.18,
+      "timestamp_utc": "2026-10-22T20:35:21.725449+00:00"
+    },
+    {
+      "gpu_percent": 11.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4393.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 22.76,
+      "timestamp_utc": "2026-10-22T20:35:22.829700+00:00"
+    },
+    {
+      "gpu_percent": 21.0,
+      "memory_activity_percent": 3.0,
+      "memory_used_mib": 4381.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 16.51,
+      "timestamp_utc": "2026-10-22T20:35:23.929639+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4384.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 9.55,
+      "timestamp_utc": "2026-10-22T20:35:25.021818+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4358.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 8.36,
+      "timestamp_utc": "2026-10-22T20:35:26.115552+00:00"
+    },
+    {
+      "gpu_percent": 47.0,
+      "memory_activity_percent": 8.0,
+      "memory_used_mib": 4353.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 19.35,
+      "timestamp_utc": "2026-10-22T20:35:27.222751+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4337.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 14.87,
+      "timestamp_utc": "2026-10-22T20:35:28.313075+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4333.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 8.3,
+      "timestamp_utc": "2026-10-22T20:35:29.428786+00:00"
+    },
+    {
+      "gpu_percent": 24.0,
+      "memory_activity_percent": 5.0,
+      "memory_used_mib": 4345.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 15.83,
+      "timestamp_utc": "2026-10-22T20:35:30.515383+00:00"
+    },
+    {
+      "gpu_percent": 8.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4343.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 22.41,
+      "timestamp_utc": "2026-10-22T20:35:31.611394+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4334.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 9.32,
+      "timestamp_utc": "2026-10-22T20:35:32.708959+00:00"
+    },
+    {
+      "gpu_percent": 58.0,
+      "memory_activity_percent": 9.0,
+      "memory_used_mib": 4343.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 33.78,
+      "timestamp_utc": "2026-10-22T20:35:33.799415+00:00"
+    },
+    {
+      "gpu_percent": 8.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4328.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 17.96,
+      "timestamp_utc": "2026-10-22T20:35:34.890097+00:00"
+    },
+    {
+      "gpu_percent": 7.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4335.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 21.49,
+      "timestamp_utc": "2026-10-22T20:35:35.993533+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4332.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 22.24,
+      "timestamp_utc": "2026-10-22T20:35:37.104954+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4312.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 15.65,
+      "timestamp_utc": "2026-10-22T20:35:38.193154+00:00"
+    },
+    {
+      "gpu_percent": 10.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4315.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 23.84,
+      "timestamp_utc": "2026-10-22T20:35:39.273507+00:00"
+    },
+    {
+      "gpu_percent": 9.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4323.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 26.43,
+      "timestamp_utc": "2026-10-22T20:35:40.365220+00:00"
+    },
+    {
+      "gpu_percent": 13.0,
+      "memory_activity_percent": 3.0,
+      "memory_used_mib": 4378.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 13.71,
+      "timestamp_utc": "2026-10-22T20:35:41.476717+00:00"
+    },
+    {
+      "gpu_percent": 9.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4397.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 14.8,
+      "timestamp_utc": "2026-10-22T20:35:42.585994+00:00"
+    },
+    {
+      "gpu_percent": 9.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4390.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 28.76,
+      "timestamp_utc": "2026-10-22T20:35:43.683251+00:00"
+    },
+    {
+      "gpu_percent": 10.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4374.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 22.47,
+      "timestamp_utc": "2026-10-22T20:35:44.764363+00:00"
+    },
+    {
+      "gpu_percent": 10.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4264.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 21.95,
+      "timestamp_utc": "2026-10-22T20:35:45.862081+00:00"
+    },
+    {
+      "gpu_percent": 7.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4305.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 22.61,
+      "timestamp_utc": "2026-10-22T20:35:46.949929+00:00"
+    },
+    {
+      "gpu_percent": 3.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4325.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 16.35,
+      "timestamp_utc": "2026-10-22T20:35:48.063215+00:00"
+    },
+    {
+      "gpu_percent": 2.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4298.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 17.03,
+      "timestamp_utc": "2026-10-22T20:35:49.167918+00:00"
+    },
+    {
+      "gpu_percent": 3.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4317.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 13.34,
+      "timestamp_utc": "2026-10-22T20:35:50.251607+00:00"
+    },
+    {
+      "gpu_percent": 31.0,
+      "memory_activity_percent": 6.0,
+      "memory_used_mib": 4357.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 17.5,
+      "timestamp_utc": "2026-10-22T20:35:51.346987+00:00"
+    },
+    {
+      "gpu_percent": 3.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4358.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 9.84,
+      "timestamp_utc": "2026-10-22T20:35:52.451366+00:00"
+    },
+    {
+      "gpu_percent": 8.0,
+      "memory_activity_percent": 2.0,
+      "memory_used_mib": 4339.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 25.59,
+      "timestamp_utc": "2026-10-22T20:35:53.525490+00:00"
+    },
+    {
+      "gpu_percent": 9.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4443.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 12.86,
+      "timestamp_utc": "2026-10-22T20:35:54.621600+00:00"
+    },
+    {
+      "gpu_percent": 32.0,
+      "memory_activity_percent": 5.0,
+      "memory_used_mib": 4298.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 19.84,
+      "timestamp_utc": "2026-10-22T20:35:55.818017+00:00"
+    },
+    {
+      "gpu_percent": 10.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4657.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 10.57,
+      "timestamp_utc": "2026-10-22T20:35:56.934963+00:00"
+    },
+    {
+      "gpu_percent": 41.0,
+      "memory_activity_percent": 6.0,
+      "memory_used_mib": 4629.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 29.74,
+      "timestamp_utc": "2026-10-22T20:35:58.016022+00:00"
+    },
+    {
+      "gpu_percent": 61.0,
+      "memory_activity_percent": 10.0,
+      "memory_used_mib": 4774.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 28.37,
+      "timestamp_utc": "2026-10-22T20:35:59.132095+00:00"
+    },
+    {
+      "gpu_percent": 5.0,
+      "memory_activity_percent": 1.0,
+      "memory_used_mib": 4764.0,
+      "memory_total_mib": 8151.0,
+      "power_watts": 13.82,
+      "timestamp_utc": "2026-10-22T20:36:00.307708+00:00"
+    }
+  ]
+}

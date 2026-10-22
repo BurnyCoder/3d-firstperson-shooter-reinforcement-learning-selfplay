@@ -1,0 +1,38 @@
+         505629 function calls (490237 primitive calls) in 2.307 seconds
+
+   Ordered by: cumulative time
+   List reduced from 435 to 30 due to restriction <30>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.001    0.001    2.307    2.307 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\learning\trainer.py:38(collect_batch)
+        1    0.000    0.000    2.301    2.301 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torchrl\envs\common.py:3452(rollout)
+        1    0.002    0.002    2.277    2.277 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torchrl\envs\common.py:4046(_rollout_nonstop)
+      127    0.001    0.000    1.639    0.013 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torchrl\envs\common.py:4093(step_and_maybe_reset)
+      127    0.002    0.000    1.638    0.013 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torchrl\envs\common.py:4102(_step_and_maybe_reset)
+      128    0.003    0.000    1.623    0.013 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torchrl\envs\common.py:2343(step)
+      128    0.016    0.000    1.562    0.012 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\learning\environment.py:83(_step)
+      128    0.016    0.000    0.944    0.007 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\sim\simulation.py:129(step)
+ 5888/768    0.011    0.000    0.853    0.001 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torch\nn\modules\module.py:1779(_wrapped_call_impl)
+ 5888/768    0.021    0.000    0.851    0.001 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\torch\nn\modules\module.py:1787(_call_impl)
+      129    0.036    0.000    0.714    0.006 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\sim\observation.py:28(make_frame)
+      492    0.329    0.001    0.708    0.001 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\sim\geometry.py:10(ray_boxes)
+  512/128    0.004    0.000    0.622    0.005 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\common.py:265(wrapper)
+  512/128    0.004    0.000    0.619    0.005 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\utils.py:353(wrapper)
+      128    0.002    0.000    0.616    0.005 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\probabilistic.py:1511(forward)
+      128    0.025    0.000    0.503    0.004 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\learning\opponents.py:49(act)
+      128    0.002    0.000    0.453    0.004 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\probabilistic.py:1252(get_dist_params)
+      128    0.001    0.000    0.445    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\sequence.py:626(forward)
+      128    0.001    0.000    0.441    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\sequence.py:588(_run_module)
+      128    0.002    0.000    0.435    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\common.py:1158(forward)
+     6173    0.405    0.000    0.405    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      129    0.018    0.000    0.381    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\sim\observation.py:14(visible_players)
+      128    0.002    0.000    0.348    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\nn\common.py:1120(_write_to_tensordict)
+      128    0.002    0.000    0.337    0.003 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\tensordict\base.py:15461(from_any)
+      128    0.001    0.000    0.333    0.003 <frozen importlib.util>:70(find_spec)
+      128    0.003    0.000    0.332    0.003 <frozen importlib._bootstrap>:1240(_find_spec)
+      128    0.000    0.000    0.325    0.003 <frozen importlib._bootstrap_external>:1524(find_spec)
+      128    0.003    0.000    0.325    0.003 <frozen importlib._bootstrap_external>:1495(_get_spec)
+     1280    0.016    0.000    0.320    0.000 <frozen importlib._bootstrap_external>:1597(find_spec)
+      984    0.003    0.000    0.307    0.000 C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\numpy\_core\fromnumeric.py:66(_wrapreduction)
+
+

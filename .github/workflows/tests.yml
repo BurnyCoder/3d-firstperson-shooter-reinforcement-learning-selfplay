@@ -1,0 +1,13 @@
+# Local context: repeat the supported Windows checks. Global context: gate feature merges on the same interfaces.
+name: tests
+on: [push, pull_request]
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --locked
+      - run: uv run pytest -q

@@ -2,6 +2,8 @@
 
 An original, local **3D first-person 5v5 tactical shooter** and a reproducible self-play reinforcement-learning experiment. Two teams fight around two bomb sites. Bots learn raw movement, aiming, firing, reloading, and interaction from visibility-limited game observations.
 
+![MiniStrike arena](docs/images/gameplay.png)
+
 ## Methodology and quick start
 
 One NumPy simulation owns gameplay, collisions, visibility, and round outcomes. Ursina draws that state. TorchRL trains a shared decentralized actor with a centralized training-only critic (MAPPO). Historical self-play uses frozen earlier opponents; a separate fixed-opponent condition measures whether self-play helps. See the [pre-specified experiment protocol](docs/protocol.md).
@@ -26,8 +28,6 @@ uv run csrl play --team 0 --checkpoint runs/suite/selfplay_seed111/model.pt
 WASD moves; mouse aims; left mouse fires; R reloads; E interacts. Spectator controls let you switch between free camera and a bot's eyes, cycle living players, take over the selected bot, and return control to its policy **without resetting the round**. The on-screen guide lists the current bindings. Team 0 attacks and team 1 defends.
 
 While spectating, **Tab** selects the next living bot, **V** changes between free camera and bot first-person, and **F** lets you become the selected bot or hand control back. You keep that player's current position, health, ammunition, and bomb state.
-
-![MiniStrike arena](docs/images/gameplay.png)
 
 ## Train, evaluate, and inspect
 
@@ -67,6 +67,8 @@ Public checkpoints and model cards are grouped in the [MiniStrike Hugging Face c
 - Python 3.12, NumPy, Ursina/Panda3D, PyTorch, TorchRL/TensorDict, SciPy, Matplotlib, ReportLab, pytest, and uv. `uv.lock` records exact versions.
 
 Windows uses the official PyTorch CUDA13.0 wheel index; CPU execution remains available. The GPU path was tested with an RTX5070 Laptop GPU and driver591.74. `--device auto` benchmarks optimizer devices for the suite rather than assuming GPU training is faster for these small networks. [uv PyTorch integration](https://docs.astral.sh/uv/guides/integration/pytorch/)
+
+The active primary suite has a recorded execution amendment selecting six independent CUDA learners with 16 arenas each (96 arenas total) and one CPU thread per worker. Short probes measured 3,272 aggregate arena steps/s versus 737 for the original single learner; longer-run performance and playing quality require separate evidence. A follow-up comparison found two CPU threads per worker slower than one. Per-model learning settings, the frozen step budget, and the original overall deadline are preserved. See [all hardware probes and their limitations](reports/performance/summary.md).
 
 ```mermaid
 flowchart LR

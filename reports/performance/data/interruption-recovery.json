@@ -1,0 +1,56 @@
+{
+  "timestamp_utc": "20261022T203431.762754Z",
+  "reason": "All six worker processes and parent disappeared without a logged traceback; cause unconfirmed. Preserve attempt logs and resume durable checkpoints.",
+  "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\interrupted-20261022T203431.465548Z",
+  "runs": [
+    {
+      "run": "fixed_seed111",
+      "checkpoint_source": "initial.pt",
+      "restored_frames": 0,
+      "restored_updates": 0,
+      "archived_uncheckpointed_records": 4,
+      "charged_elapsed_seconds": 19.42200000000048
+    },
+    {
+      "run": "fixed_seed222",
+      "checkpoint_source": "initial.pt",
+      "restored_frames": 0,
+      "restored_updates": 0,
+      "archived_uncheckpointed_records": 4,
+      "charged_elapsed_seconds": 19.375
+    },
+    {
+      "run": "fixed_seed333",
+      "checkpoint_source": "initial.pt",
+      "restored_frames": 0,
+      "restored_updates": 0,
+      "archived_uncheckpointed_records": 4,
+      "charged_elapsed_seconds": 19.32799999999952
+    },
+    {
+      "run": "selfplay_seed111",
+      "checkpoint_source": "model.pt",
+      "restored_frames": 1433600,
+      "restored_updates": 700,
+      "archived_uncheckpointed_records": 4,
+      "charged_elapsed_seconds": 2117.366639
+    },
+    {
+      "run": "selfplay_seed222",
+      "checkpoint_source": "initial.pt",
+      "restored_frames": 0,
+      "restored_updates": 0,
+      "archived_uncheckpointed_records": 6,
+      "charged_elapsed_seconds": 19.42200000000048
+    },
+    {
+      "run": "selfplay_seed333",
+      "checkpoint_source": "initial.pt",
+      "restored_frames": 0,
+      "restored_updates": 0,
+      "archived_uncheckpointed_records": 6,
+      "charged_elapsed_seconds": 19.20300000000134
+    }
+  ],
+  "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00"
+}

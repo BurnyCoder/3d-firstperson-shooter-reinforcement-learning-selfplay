@@ -9,7 +9,7 @@ from ursina import Entity, Text, camera, color  # Local: construct readable scre
 from ursina.shaders import unlit_shader  # Local: keep interface colors independent of arena lighting.
 
 from ministrike.sim.constants import DT  # Local: turn canonical tick counters into the displayed round time.
-from ministrike.sim.map import SITES, WALLS  # Local: show only public, fixed map geometry.
+from ministrike.sim.specs import match_spec  # Local: show only public selected-map geometry.
 from ministrike.view.scene import ATTACK, DEFEND, INK  # Local: share one team palette with the 3D operators.
 
 
@@ -28,9 +28,10 @@ def label(text, position, scale=0.8, tint=None, centered=False, parent=None):
 class MatchHUD:
     """Local: manage all overlay elements; global: state is read from the authoritative simulation only."""
 
-    def __init__(self, mode, policy_label, human):
+    def __init__(self, mode, policy_label, human, spec=None):
         """Local: create static headings and dynamic labels; global: communicate controls and bot provenance."""
         self.mode, self.human = mode, human  # Local: distinguish spectator information from human information.
+        self.spec = spec or match_spec()  # Local: HUD dimensions follow the match, preserving legacy defaults.
         panel((-0.849, 0.445, 0), (0.007, 0.06), ATTACK)  # Local: small brand accent frames the main title.
         label("MINISTRIKE", (-0.827, 0.478), 1.2)  # Local: original game name; global: no Counter-Strike assets.
         label("SELF-PLAY LAB  /  SECTOR 01", (-0.825, 0.435), 0.53, color.rgb32(150, 174, 185))  # Local: subtitle.
@@ -65,23 +66,25 @@ class MatchHUD:
         """Local: draw known map geometry; global: avoid revealing hidden opponent dynamics to a human."""
         self.map_root = Entity(parent=camera.ui, position=(0.71, 0.265))  # Local: upper-right tactical inset.
         panel((0, 0, 0.15), (0.26, 0.26), INK, self.map_root)  # Local: dark panel keeps tiny markers readable.
-        self.low = np.min(WALLS[:, [0, 2]], axis=0)  # Local: extract only horizontal map bounds.
-        self.span = np.max(WALLS[:, [3, 5]], axis=0) - self.low  # Local: normalize world X/Z into panel units.
-        for wall in WALLS:  # Local: show each public obstacle without creating a separate map definition.
+        walls, sites, _ = self.spec.geometry()  # Local: same map as renderer and physics.
+        self.low = np.min(walls[:, [0, 2]], axis=0)  # Local: extract only horizontal map bounds.
+        self.span = np.max(walls[:, [3, 5]], axis=0) - self.low  # Local: normalize world X/Z into panel units.
+        for wall in walls:  # Local: show each public obstacle without a second map definition.
             midpoint = (wall[[0, 2]] + wall[[3, 5]]) / 2  # Local: derive the top-down obstacle center.
             location = (midpoint - self.low) / self.span * 0.23 - 0.115  # Local: keep an inner padding margin.
             size = (wall[[3, 5]] - wall[[0, 2]]) / self.span * 0.23  # Local: scale to consistent map coordinates.
             panel((*location, 0.05), tuple(size), color.rgb32(74, 94, 105), self.map_root)  # Local: static wall footprint.
-        for name, site in zip(("A", "B"), SITES, strict=True):  # Local: label the two objectives on the inset.
+        for name, site in zip(("A", "B")[:len(sites)], sites, strict=True):  # Local: no duel objective markers.
             location = (site[[0, 2]] - self.low) / self.span * 0.23 - 0.115  # Local: use the same projection as walls.
             label(name, (*location, -0.02), 0.45, ATTACK, True, self.map_root)  # Local: visible public objective.
-        self.dots = [panel((0, 0, -0.05), (0.006, 0.006), ATTACK if i < 5 else DEFEND, self.map_root)
-                     for i in range(10)]  # Local: retain reusable markers for all permanent player slots.
+        self.dots = [panel((0, 0, -0.05), (0.006, 0.006), ATTACK if i < self.spec.team_size else DEFEND, self.map_root)
+                     for i in range(self.spec.players)]  # Local: one reusable marker per permanent slot.
 
     def sync(self, simulation, scores, round_number, followed, paused, notice="", controlled=None, selected=None):
         """Local: update HUD text and markers; global: display canonical timers, health, and objective state."""
-        attacker_count = int(simulation.alive[0, :5].sum())  # Local: count living permanent attacker slots.
-        defender_count = int(simulation.alive[0, 5:].sum())  # Local: count living permanent defender slots.
+        team_size = simulation.team_size  # Local: derive display labels/counts from the actual rules.
+        attacker_count = int(simulation.alive[0, :team_size].sum())  # Local: living team0 slots.
+        defender_count = int(simulation.alive[0, team_size:].sum())  # Local: living team1 slots.
         self.attack_score.text = f"ATTACK  {scores[0]}"  # Local: keep match wins across round resets.
         self.defend_score.text = f"{scores[1]}  DEFEND"  # Local: report the defender's independently accumulated wins.
         self.alive.text = f"{attacker_count} ALIVE       ROUND {round_number:02d}       {defender_count} ALIVE"  # Local: team status.
@@ -91,21 +94,21 @@ class MatchHUD:
         self.clock.text = f"{seconds // 60:02d}:{seconds % 60:02d}"  # Local: familiar MM:SS countdown.
         self.clock.color = ATTACK if simulation.bomb_planted[0] else color.white  # Local: armed bomb warning.
         player = (selected if selected is not None else self.human) if followed is None else followed  # Local: current target.
-        team = player // 5  # Local: canonical slot ordering decides attacker/defender labels.
-        operator = f"{'ATTACKER' if team == 0 else 'DEFENDER'} {player % 5 + 1:02d}"  # Local: name the selected bot explicitly.
+        team = player // team_size  # Local: canonical slot ordering determines team labels.
+        operator = f"{'ATTACKER' if team == 0 else 'DEFENDER'} {player % team_size + 1:02d}"  # Local: selected bot.
         viewpoint = "YOU" if controlled is not None else ("BOT POV" if followed is not None else "FREE CAMERA")
         self.mode_label.text = f"{viewpoint} / {operator}"  # Local: show whether the user is watching or driving this actor.
         self.health.text = str(max(0, int(simulation.health[0, player])))  # Local: display actual health only.
-        self.player_name.text = f"{'ATTACKER' if team == 0 else 'DEFENDER'} {player % 5 + 1:02d}"  # Local: operator ID.
+        self.player_name.text = operator  # Local: keep selected-player identity consistent across HUD regions.
         self.player_name.color = ATTACK if team == 0 else DEFEND  # Local: consistent affiliation across modes.
         self.ammo.text = f"{int(simulation.ammo[0, player]):02d} / {int(simulation.reserve[0, player]):02d}"  # Local: ammo.
         reloading = float(simulation.reload_timer[0, player])  # Local: read the simulation-controlled reload state.
         self.weapon.text = f"RELOADING  {reloading:.1f}s" if reloading > 0 else "RIFLE  /  R RELOAD"  # Local: feedback.
         if followed is None:  # Local: the tactical view summarizes both teams instead of an arbitrary dead operator.
-            self.health.text = f"{attacker_count} / 5"  # Local: overview status counts attackers still in the round.
+            self.health.text = f"{attacker_count} / {team_size}"  # Local: actual team capacity.
             self.health_caption.text = "ALIVE"  # Local: do not mislabel a team count as an individual health value.
             self.player_name.text = "ATTACKERS  /  TACTICAL VIEW"  # Local: make the overview's context explicit.
-            self.ammo.text = f"{defender_count} / 5"  # Local: the matching right panel counts living defenders.
+            self.ammo.text = f"{defender_count} / {team_size}"  # Local: actual team capacity.
             self.weapon.text = "DEFENDERS  /  TACTICAL VIEW"  # Local: avoid showing arbitrary ammunition while not following.
         else:  # Local: first-person and follow modes keep the selected actor's health label.
             self.health_caption.text = "HEALTH"  # Local: restore the label after a spectator leaves the overview.
@@ -124,13 +127,15 @@ class MatchHUD:
         else:  # Local: free camera controls are cosmetic and never change a selected bot's movement.
             self.hint.text = "WASD FLY   Q/E DOWN/UP   RMB LOOK   TAB NEXT BOT   V FIRST PERSON   F TAKE OVER   ESC PAUSE   F10 QUIT"
         for index, dot in enumerate(self.dots):  # Local: update only the small retained marker objects.
-            known = controlled is None or index // 5 == controlled // 5  # Local: a watch-mode takeover also loses enemy radar.
+            known = controlled is None or index // team_size == controlled // team_size  # Local: no enemy radar on takeover.
             dot.enabled = bool(simulation.alive[0, index]) and known  # Local: dead operators have no active marker.
             point = (simulation.positions[0, index, [0, 2]] - self.low) / self.span * 0.23 - 0.115  # Local: projection.
             dot.x, dot.y = float(point[0]), float(point[1])  # Local: copy coordinates, never write into simulation arrays.
 
     def _objective_text(self, simulation, player):
         """Local: choose a short objective instruction; global: teach planting and defusing during play."""
+        if not simulation.spec.bomb:
+            return "DUEL / ELIMINATE YOUR OPPONENT / TIMEOUT OR MUTUAL KILL DRAWS"  # Local: actual active objective.
         if simulation.bomb_planted[0]:  # Local: after planting, both roles need an explicit bomb announcement.
             return "BOMB PLANTED  /  HOLD E NEAR BOMB TO DEFUSE" if player >= 5 else "BOMB PLANTED  /  DEFEND THE BOMB"
         if player >= 5:  # Local: defenders protect both sites before the plant.

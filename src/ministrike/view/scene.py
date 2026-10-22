@@ -12,7 +12,7 @@ from ursina import AmbientLight, DirectionalLight, Entity, Text, Vec3, camera, c
 from ursina.shaders import lit_with_shadows_shader, unlit_shader  # Local: light world geometry, keep UI readable.
 
 from ministrike.sim.constants import EYE_HEIGHT  # Local: align the first-person camera with hitscan origin.
-from ministrike.sim.map import SITES, WALLS  # Local: use exactly the obstacles used in headless matches.
+from ministrike.sim.specs import match_spec  # Local: renderer reads the same versioned geometry as physics.
 
 ATTACK = color.rgb32(242, 158, 79)  # Local: warm attackers; global: consistent team color throughout the viewer.
 DEFEND = color.rgb32(76, 202, 190)  # Local: cool defenders; global: distinguish teams without copied game assets.
@@ -30,17 +30,19 @@ def block(position, scale, tint, parent=scene, **kwargs):
 class ArenaScene:
     """Local: construct and synchronize visible entities; global: presentation never mutates match state."""
 
-    def __init__(self):
+    def __init__(self, spec=None):
         """Local: build floor, cover, sites, players and rifle; global: reuse one compact original map."""
-        self.low = np.min(WALLS[:, :3], axis=0)  # Local: derive the arena envelope from canonical map bounds.
-        self.high = np.max(WALLS[:, 3:], axis=0)  # Local: avoid hard-coded offsets that could drift from physics.
+        self.spec = spec or match_spec()  # Local: legacy caller defaults remain available.
+        self.walls, self.sites, _ = self.spec.geometry()  # Local: no independently drawn gameplay geometry.
+        self.low = np.min(self.walls[:, :3], axis=0)  # Local: derive the envelope from canonical map bounds.
+        self.high = np.max(self.walls[:, 3:], axis=0)  # Local: no hard-coded physics/render offsets.
         self.center = (self.low + self.high) / 2  # Local: place the overview camera relative to this map.
         span = max(self.high[0] - self.low[0], self.high[2] - self.low[2])  # Local: fit the initial free camera to this map.
         self.free_position = np.array([self.center[0], span * 0.94, self.center[2] - span * 0.72], dtype=np.float32)
         self.free_rotation = np.array([math.degrees(math.atan2(0.94, 0.72)), 0, 0], dtype=np.float32)  # Local: downward view.
         self.players = []  # Local: retain one visible entity per permanent player slot.
         self.flashes = []  # Local: muzzle effects depend only on shots reported by the simulation.
-        self.flash_until = np.zeros(10)  # Local: track cosmetic lifetimes without simulation random draws.
+        self.flash_until = np.zeros(self.spec.players)  # Local: cosmetic lifetimes use no simulation randomness.
         self._build_map()  # Local: construct static geometry before attaching dynamic actors.
         self._build_players()  # Local: create original block-figure operators for each team.
         self.bomb = block((0, 0.16, 0), (0.42, 0.28, 0.3), ATTACK)  # Local: render a small objective case.
@@ -66,7 +68,7 @@ class ArenaScene:
             block((x, -0.021, self.center[2]), (0.025, 0.01, depth), color.rgb32(83, 98, 105))  # Local: thin seam.
         for z in np.arange(self.low[2], self.high[2], 4):  # Local: complete the regular floor tile grid.
             block((self.center[0], -0.021, z), (width, 0.01, 0.025), color.rgb32(83, 98, 105))  # Local: thin seam.
-        for wall in WALLS:  # Local: draw exactly one primary block per collision AABB.
+        for wall in self.walls:  # Local: draw exactly one primary block per collision AABB.
             midpoint, size = (wall[:3] + wall[3:]) / 2, wall[3:] - wall[:3]  # Local: convert bounds to cubes.
             tint = color.rgb32(94, 115, 127) if size[1] > 2 else color.rgb32(109, 126, 125)  # Local: cover contrast.
             block(tuple(midpoint), tuple(size), tint)  # Local: display the complete physical obstacle.
@@ -77,7 +79,7 @@ class ArenaScene:
                 stripe = midpoint.copy()  # Local: maintain immutable obstacle data while positioning the stripe.
                 stripe[1] = wall[4] - 0.12  # Local: keep the decorative stripe on the upper cover face.
                 block(tuple(stripe), (size[0] + 0.012, 0.10, size[2] + 0.012), ATTACK)  # Local: amber band.
-        for label, site in zip(("A", "B"), SITES, strict=True):  # Local: both bomb sites share one visual grammar.
+        for label, site in zip(("A", "B")[:len(self.sites)], self.sites, strict=True):  # Local: duel has no sites.
             block((site[0], 0.003, site[2]), (3.8, 0.014, 3.8), color.rgb32(109, 83, 52))  # Local: painted zone.
             for offset in (-1.9, 1.9):  # Local: outline the planted-objective area with clear amber corners.
                 block((site[0] + offset, 0.015, site[2]), (0.08, 0.025, 3.8), ATTACK)  # Local: vertical edges.
@@ -89,8 +91,8 @@ class ArenaScene:
 
     def _build_players(self):
         """Local: create compact operator silhouettes; global: make team, heading, and death readable."""
-        for index in range(10):  # Local: retain stable slots even after an operator dies.
-            tint = ATTACK if index < 5 else DEFEND  # Local: match the canonical team slot allocation.
+        for index in range(self.spec.players):  # Local: retain stable slots even after an operator dies.
+            tint = ATTACK if index < self.spec.team_size else DEFEND  # Local: canonical team allocation.
             root = Entity()  # Local: moving this parent moves cosmetic anatomy together.
             block((0, 0.94, 0), (0.56, 0.72, 0.35), tint, parent=root)  # Local: colored torso.
             block((0, 0.94, 0.19), (0.36, 0.42, 0.08), INK, parent=root)  # Local: front armor indicates heading.
@@ -132,7 +134,7 @@ class ArenaScene:
             entity.enabled = index != followed  # Local: hide the body that would obstruct the first-person camera.
             self.flashes[index].enabled = now < self.flash_until[index] and simulation.alive[0, index]  # Local: flash.
         self.bomb.position = tuple(simulation.bomb_position[0] + np.asarray([0, 0.15, 0]))  # Local: objective case.
-        self.bomb.enabled = int(simulation.bomb_carrier[0]) < 0 or bool(simulation.bomb_planted[0])  # Local: carried case hidden.
+        self.bomb.enabled = self.spec.bomb and (int(simulation.bomb_carrier[0]) < 0 or bool(simulation.bomb_planted[0]))
         self.bomb.color = color.rgb32(255, 91, 65) if simulation.bomb_planted[0] else ATTACK  # Local: armed warning.
         self.rifle.enabled = followed is not None and bool(simulation.alive[0, followed])  # Local: FPS-only viewmodel.
         self.first_flash.enabled = followed is not None and now < self.flash_until[followed]  # Local: confirmed flash.

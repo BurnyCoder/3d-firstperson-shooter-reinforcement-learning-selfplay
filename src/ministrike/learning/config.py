@@ -32,6 +32,12 @@ class TrainConfig:
     log_interval: int = 1  # Local: report every update by default with timestamps supplied by root logger.
     torch_threads: int = 4  # Local: avoid excessive CPU overhead for small dense networks.
     source_revision: str | None = None  # Local: persist the precise Git commit that started the run.
+    experiment: str = "legacy-5v5-v1"  # Local: select a versioned match without changing legacy checkpoint defaults.
+    reward: str = "R0"  # Local: registered duel reward; legacy shaping remains unchanged.
+    inference_device: str = "cpu"  # Local: calibration chooses placement using complete throughput.
+    registration: str | None = None  # Local: stable roadmap experiment ID required for Stage A optimizer work.
+    run_config: str | None = None  # Local: published JSON freezes this execution's resolved parameters.
+    budget_manifest: str = "runs/duel-fixed-v1/manifest.json"  # Local: a single absolute Stage A clock.
 
     def validate(self):
         """Local: reject impossible budgets; global: scientific protocol cannot silently drift."""
@@ -43,3 +49,5 @@ class TrainConfig:
             raise ValueError("Training counts and wall-clock budget must be positive")
         if self.total_frames % self.num_envs:  # Never silently collect more than the frozen frame budget.
             raise ValueError("total_frames must be divisible by num_envs")
+        if self.experiment == "duel-fixed-v1" and self.condition != "selfplay":
+            raise ValueError("Stage A trains exclusively from self-play")  # Local: evaluation scripts cannot train.

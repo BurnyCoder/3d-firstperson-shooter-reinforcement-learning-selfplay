@@ -24,7 +24,8 @@ from ministrike.learning.models import ActorNetwork, CentralCritic, make_actor, 
 from ministrike.learning.objectives import make_objectives, masked_total_loss, prepare_advantages
 from ministrike.learning.opponents import SnapshotPool
 from ministrike.records import source_revision, timestamp  # Reuse project-wide provenance/timestamp helpers.
-from ministrike.sim.constants import ACTION_NVECS, FRAME_DIM, HISTORY_LENGTH, OBS_DIM
+from ministrike.sim.constants import HISTORY_LENGTH
+from ministrike.sim.specs import match_spec  # Local: construct model dimensions from the authoritative interface.
 
 LOGGER = logging.getLogger(__name__)  # Root CLI installs timestamped terminal and file handlers.
 
@@ -42,7 +43,7 @@ def collect_batch(env, rollout_actor, steps):
         env.reset(TensorDict({"_reset": mask}, env.batch_size))
     with torch.no_grad(), set_exploration_type(ExplorationType.RANDOM):  # Store behavior log probabilities.
         return env.rollout(steps, rollout_actor, auto_reset=False, break_when_any_done=False,
-                           return_contiguous=True, tensordict=env.current_tensordict())
+                           return_contiguous=True, tensordict=env.current_tensordict(), auto_cast_to_device=True)
 
 
 def optimize_batch(batch, loss, estimator, optimizer, parameters, config):
@@ -64,16 +65,23 @@ def optimize_batch(batch, loss, estimator, optimizer, parameters, config):
             optimizer.step()  # The only learner parameter update in the project.
             statistics.append({"loss": float(total.detach()), "gradient_norm": float(norm),
                                "entropy": float(losses["entropy"]),
-                               "critic_loss": float(losses["loss_critic"].mean().detach())})
+                               "critic_loss": float(losses["loss_critic"].mean().detach()),
+                               "policy_loss": float(losses["loss_objective"].mean().detach()),
+                               "approx_kl": float(losses.get("kl_approx", torch.tensor(float("nan"))).mean()),
+                               "clip_fraction": float(losses.get("clip_fraction", torch.tensor(float("nan"))).mean())})
     return {key: float(np.mean([row[key] for row in statistics])) for key in statistics[0]}
 
 
 def _capture(config, actor, critic, optimizer, pool, env, frames, updates, elapsed):
     """Local: assemble complete state; global: resume preserves trajectory, RNG, and budgets."""
-    return {"format_version": 1, "observation_dim": OBS_DIM, "config": asdict(config),
+    spec = env.sim.spec  # Local: every checkpoint contains compatible observation/action/map/match metadata.
+    from ministrike.experiments.registration import git  # Local: content identity survives documentation-only commits.
+    return {"format_version": 2, "observation_dim": spec.observation_dim, "config": asdict(config),
+            "implementation_tree": git("rev-parse", "HEAD:src/ministrike") if not spec.bomb else None,
             "source_revision": config.source_revision, "saved_at_utc": timestamp(),
-            "schema": {"observation_dim": OBS_DIM, "frame_dim": FRAME_DIM,
-                       "history_length": HISTORY_LENGTH, "action_nvecs": ACTION_NVECS},
+            "schema": {"observation_dim": spec.observation_dim, "frame_dim": spec.frame_dim,
+                       "history_length": HISTORY_LENGTH, "action_nvecs": spec.action_nvecs, **asdict(spec),
+                       "reward": config.reward},
             "actor": {key: value.detach().cpu() for key, value in actor.state_dict().items()},
             "critic": {key: value.detach().cpu() for key, value in critic.state_dict().items()},
             "optimizer": optimizer.state_dict(), "pool": pool.state_dict(), "environment": env.snapshot(),
@@ -88,11 +96,19 @@ def train_run(config, deadline_monotonic=None):
     config = TrainConfig(**config) if isinstance(config, dict) else config  # Small API accepts JSON configs too.
     resumed = load_checkpoint(config.resume) if config.resume else None  # Load safely before any execution.
     if resumed:  # Restored protocol wins over accidental new CLI defaults.
+        if config.experiment != resumed["config"].get("experiment", "legacy-5v5-v1"):
+            raise ValueError("Resume checkpoint match differs from requested experiment")  # Local: no reinterpretation.
         config = replace(TrainConfig(**resumed["config"]), output_dir=config.output_dir,
                          resume=config.resume, device=config.device)
     if config.source_revision is None:  # Initial runs record their source identity before optimization.
         config = replace(config, source_revision=source_revision())
     config.validate()  # Reject inconsistent frame/budget settings before artifact creation.
+    if config.experiment == "duel-fixed-v1":
+        from ministrike.experiments.registration import training_preflight, remaining_budget
+        receipt = training_preflight(config)  # Local: refuse unpublished/unregistered optimization, including probes.
+        if resumed and resumed.get("implementation_tree") != receipt["implementation_tree"]:
+            raise ValueError("Resume implementation changed; register a separate amendment/experiment instead")
+        deadline_monotonic = time.monotonic() + remaining_budget(config.budget_manifest, start=True, phase=config.registration)
     if config.device.startswith("cuda") and not torch.cuda.is_available():  # Never pretend GPU execution worked.
         raise RuntimeError("CUDA requested but unavailable; use --device cpu")
     torch.set_num_threads(config.torch_threads)  # Small MLPs avoid excessive CPU thread overhead.
@@ -104,13 +120,14 @@ def train_run(config, deadline_monotonic=None):
     if (directory / "model.pt").exists() and not resumed:  # Avoid silently overwriting an independent run.
         raise FileExistsError(f"Run already exists: {directory}; use resume or a fresh output directory")
     (directory / "config.json").write_text(json.dumps(asdict(config), indent=2), encoding="utf-8")
-    actor_network = ActorNetwork().to(config.device)  # One policy shared across learner players and sides.
-    critic_network = CentralCritic().to(config.device)  # Separate centralized team value network.
+    spec = match_spec(config.experiment)  # Local: derive every network/batch dimension from selected match.
+    actor_network = ActorNetwork(spec.observation_dim, spec.action_nvecs).to(config.device)
+    critic_network = CentralCritic(spec.observation_dim, spec.team_size).to(config.device)
     actor, critic = make_actor(actor_network), make_critic(critic_network)  # Named TorchRL interfaces.
-    rollout_network = copy.deepcopy(actor_network).cpu()  # NumPy simulation uses CPU policy inference.
-    rollout_actor = make_actor(rollout_network)  # Save behavior log probabilities at collection time.
+    rollout_network = copy.deepcopy(actor_network).to(config.inference_device)  # Local: measured placement.
+    rollout_actor = make_actor(rollout_network)  # Local: explicit device transport below preserves behavior probabilities.
     pool = SnapshotPool(rollout_network, config.seed + 2003)  # Independent immutable opponent history.
-    env = ArenaEnv(config.num_envs, config.seed, config.condition, pool)  # Batched independent matches.
+    env = ArenaEnv(config.num_envs, config.seed, config.condition, pool, experiment=config.experiment, reward=config.reward)
     parameters = list(actor_network.parameters()) + list(critic_network.parameters())  # No duplicate weights.
     optimizer = torch.optim.Adam(parameters, lr=config.learning_rate)  # Same optimizer in both conditions.
     loss, estimator = make_objectives(actor, critic, config)  # Library PPO and temporal advantage recursion.
@@ -151,7 +168,7 @@ def train_run(config, deadline_monotonic=None):
         if remaining_seconds < 1.25 * last_update_seconds:  # Reserve observed update/checkpoint cost conservatively.
             break  # A time-limited partial run is reported honestly rather than extending its allocation.
         update_started = time.monotonic()  # Include collection, optimization, logging, and snapshot costs.
-        env.scenario = curriculum_scenario(frames, config.total_frames)  # Change only future round resets.
+        env.scenario = curriculum_scenario(frames, config.total_frames) if spec.bomb else "standard"
         steps = min(config.rollout_steps, (config.total_frames - frames) // config.num_envs)
         batch = collect_batch(env, rollout_actor, steps)  # Library collection returns intact temporal sequences.
         metrics = optimize_batch(batch, loss, estimator, optimizer, parameters, config)  # One MAPPO update phase.
@@ -167,7 +184,10 @@ def train_run(config, deadline_monotonic=None):
         elapsed = previous_elapsed + time.monotonic() - started  # Include any periodic checkpoint serialization.
         row = {"timestamp_utc": timestamp(), "frames": frames, "updates": updates, "elapsed_seconds": elapsed,
                "frames_per_second": frames / max(elapsed, 1e-6), "rounds": env.rounds,
-               "wins": env.wins, "draws": env.draws, "scenario": env.scenario, **metrics}
+               "wins": env.wins, "draws": env.draws, "scenario": env.scenario,
+               "arena_steps": frames, "simulated_ticks": frames,
+               "learner_agent_decisions": frames * spec.team_size, "all_player_decisions": frames * spec.players,
+               "behavior": env.telemetry.copy(), **metrics}
         with (directory / "metrics.jsonl").open("a", encoding="utf-8") as stream:  # Retain every update record.
             stream.write(json.dumps(row) + "\n")  # One complete structured record per line.
         if updates % config.log_interval == 0:  # Console/file logging cadence is explicit in saved configuration.

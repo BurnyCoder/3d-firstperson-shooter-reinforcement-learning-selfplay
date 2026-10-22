@@ -25,22 +25,23 @@ LOGGER = logging.getLogger(__name__)  # Local: viewer output joins the run's tim
 class ViewSession:
     """Local: coordinate a single native window session; global: leave all gameplay in shared Simulation."""
 
-    def __init__(self, mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person=False, policy=None):
+    def __init__(self, mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person=False, policy=None, experiment=None):
         """Local: prepare match and policy before rendering; global: keep provenance explicit and replayable."""
         from ursina import Entity, camera, mouse  # Local: avoid importing a display engine for headless training.
         from ministrike.view.hud import MatchHUD  # Local: defer GUI-only modules until after the window exists.
         from ministrike.view.scene import ArenaScene  # Local: defer graphics primitives until the app is initialized.
 
         self.mode, self.seed = mode, seed  # Local: preserve the original match mode and reproducible seed.
-        self.human = int(team) * 5  # Local: a human replaces one of the requested team's five permanent slots.
-        self.control_state = ViewControlState.create(mode, team, spectator_first_person)  # Local: separate selection from ownership.
-        self.simulation = Simulation(num_envs=1, seed=seed)  # Local: one authoritative arena feeds the native viewer.
+        self.policy = policy if policy is not None else self._load_policy(checkpoint, experiment)
+        selected = experiment or getattr(getattr(self.policy, "spec", None), "identity", None)  # Local: infer checkpoint game.
+        self.simulation = Simulation(num_envs=1, seed=seed, experiment=selected, config=getattr(self.policy, "rules", None))
+        self.human = int(team) * self.simulation.team_size  # Local: match-specific human slot.
+        self.control_state = ViewControlState.create(mode, team, spectator_first_person, self.simulation.team_size)
         self.observations = self.simulation.reset(seed=seed, scenario="standard")  # Local: record a known initial state.
-        self.policy = policy if policy is not None else self._load_policy(checkpoint)  # Local: reuse pre-window-loaded weights.
         self.controls = HumanControls()  # Local: aggregate mouse movement until the next fixed tick.
-        self.arena = ArenaScene()  # Local: shared map arrays provide all visible obstacles.
+        self.arena = ArenaScene(self.simulation.spec)  # Local: shared map arrays provide all visible obstacles.
         policy_label = f"CHECKPOINT / {Path(checkpoint).stem[:24]}" if checkpoint else "SCRIPTED BASELINE / UNTRAINED"
-        self.hud = MatchHUD(mode, policy_label, self.human)  # Local: expose policy provenance in the visible interface.
+        self.hud = MatchHUD(mode, policy_label, self.human, self.simulation.spec)  # Local: match-aware provenance/HUD.
         self.scores = [0, 0]  # Local: retain team round wins across resets inside this window session.
         self.round_number = 1  # Local: the HUD uses one-based numbering for human readers.
         self.round_deadline = None  # Local: a short presentation intermission follows a terminal simulation state.
@@ -63,11 +64,14 @@ class ViewSession:
         LOGGER.info("view_started mode=%s seed=%s policy=%s", mode, seed, policy_label)  # Local: provenance in logs.
 
     @staticmethod
-    def _load_policy(checkpoint):
+    def _load_policy(checkpoint, experiment=None):
         """Local: load explicit learned weights or a baseline; global: never silently substitute failed checkpoints."""
         if checkpoint:  # Local: missing or incompatible user-selected checkpoints must surface as normal errors.
             from ministrike.learning.checkpoint import PolicyCheckpoint  # Local: load torch only for learned inference.
-            return PolicyCheckpoint(checkpoint)  # Local: the shared wrapper decodes categorical actions for gameplay.
+            return PolicyCheckpoint(checkpoint, experiment)  # Local: fail explicitly on mismatched requested match.
+        if experiment == "duel-fixed-v1":
+            from ministrike.policies.duel import DuelScriptedPolicy
+            return DuelScriptedPolicy()  # Local: explicitly labeled evaluation baseline for pre-training play.
         return ScriptedPolicy()  # Local: the deterministic scripted baseline makes the initial game immediately usable.
 
     def update(self):
@@ -188,7 +192,7 @@ class ViewSession:
         application.base.graphicsEngine.renderFrame()  # Local: flush the newest synchronized entities to the framebuffer.
         if not application.base.win.saveScreenshot(Filename.from_os_specific(str(path))):
             raise RuntimeError(f"Could not save screenshot to {path}")  # Local: do not claim a capture that failed.
-        metadata = {"seed": self.seed, "mode": self.mode, "ticks": self.total_ticks,
+        metadata = {"seed": self.seed, "mode": self.mode, "ticks": self.total_ticks, "experiment": self.simulation.spec.identity,
                     "round": self.round_number, "controlled": self.control_state.controlled,
                     "selected": self.control_state.selected, "snapshot": self.simulation.snapshot(arena=0)}  # Local: provenance.
         if self.replay is not None:  # Local: bounded debug captures include untruncated inputs for deterministic verification.
@@ -198,13 +202,13 @@ class ViewSession:
         return str(path)  # Local: the CLI can print the real file path to its user.
 
 
-def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screenshot_path=None, spectator_first_person=False):
+def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screenshot_path=None, spectator_first_person=False, experiment=None):
     """Local: launch the native viewer phases; global: provide one small public play/watch entry point."""
     if mode not in {"play", "watch"} or team not in {0, 1}:  # Local: fail early on unsupported public options.
         raise ValueError("mode must be play/watch and team must be 0/1")  # Local: keep user errors explicit.
     if seconds is not None and (not math.isfinite(seconds) or seconds <= 0):  # Local: bounded debug duration must be valid.
         raise ValueError("seconds must be a finite positive number")  # Local: reject accidental indefinite smoke runs.
-    policy = ViewSession._load_policy(checkpoint)  # Local: load torch's native DLLs before Panda3D opens a Windows graphics context.
+    policy = ViewSession._load_policy(checkpoint, experiment)  # Local: load native torch DLLs before Panda3D.
     # Global: native import-order failure context: https://github.com/pytorch/pytorch/issues/166628
     from panda3d.core import loadPrcFileData  # Local: configure the native graphics engine only for GUI commands.
     loadPrcFileData("", "audio-library-name null")  # Local: no sound assets are needed; avoid unavailable audio drivers.
@@ -216,7 +220,7 @@ def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screens
     window.exit_button.visible = False  # Local: F10 and the native titlebar are the documented exits.
     window.fps_counter.enabled = False  # Local: keep debugging counters out of the playable game's interface.
     try:  # Local: always release native resources, including on a policy-loading or screenshot error.
-        session = ViewSession(mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person, policy)  # Local: phases.
+        session = ViewSession(mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person, policy, experiment)
         while not session.finished:  # Local: documented manual loop permits returning normally to the CLI.
             app.step()  # Local: Ursina dispatches input/update callbacks and draws the next frame.
             time.sleep(0.001)  # Local: yield briefly to the OS rather than saturating a CPU with event-loop polling.

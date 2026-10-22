@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "active_protocol": "docs/duel-protocol.md",
+  "roadmap": "docs/experiment-roadmap.md",
+  "experiments": {
+    "A-CAL": {"status": "runnable", "purpose": "Bounded two-player throughput calibration; diagnostic weights never deploy"},
+    "A-PILOT-R0": {"status": "blocked", "prerequisite": "Published calibration selection and equal pilot arena-step target"},
+    "A-PILOT-R1": {"status": "blocked", "prerequisite": "R0 fails validation gate; diagnosis and frozen matched configuration published"},
+    "A-PILOT-R2": {"status": "blocked", "prerequisite": "R1 fails validation gate; diagnosis and frozen matched configuration published"},
+    "A-CONFIRM": {"status": "blocked", "prerequisite": "Qualifying pilot, power analysis, selected reward and equal targets published"},
+    "A-DIAG": {"status": "blocked", "prerequisite": "Specific intervention/control/configuration published as dated amendment"},
+    "LEGACY-5V5": {"status": "deferred", "prerequisite": "No restart authorized; retain original deadlines and evidence"}
+  }
+}

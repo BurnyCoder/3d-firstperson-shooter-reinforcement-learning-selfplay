@@ -48,6 +48,7 @@ class TwoTickSimulation:
     def reset(self, **kwargs):
         """Local: satisfy seeded reset interface. Global: fixture timing remains deterministic."""
         self.ticks = 0  # Local: reset begins the prescribed two-tick trajectory.
+        return self.observe()  # Local: match the simulator's canonical reset-observation return contract.
 
     def observe(self):
         """Local: return legal actor input dimensions. Global: zero policies do not inspect hidden simulator state."""
@@ -59,7 +60,8 @@ class TwoTickSimulation:
         arena = self.ticks - 1  # Local: match fixed array slot to its unique terminal transition.
         events = [{"arena": arena, "type": "plant", "team": 0}] if arena < self.num_envs else []  # Local: preserve explicit team attribution.
         return SimpleNamespace(terminated=np.arange(self.num_envs) < self.ticks,
-                               winner=np.zeros(self.num_envs, dtype=int), events=events)  # Local: attack wins are deterministic.
+                               winner=np.zeros(self.num_envs, dtype=int), events=events,
+                               observations=self.observe())  # Local: attack wins and canonical post-step observations are deterministic.
 
 
 class ZeroPolicy:

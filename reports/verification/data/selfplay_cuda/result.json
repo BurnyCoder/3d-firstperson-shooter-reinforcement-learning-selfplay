@@ -1,0 +1,17 @@
+{
+  "condition": "selfplay",
+  "seed": 111,
+  "frames": 8192,
+  "updates": 4,
+  "source_revision": "7a2f4eaebe04c76fb0417532be3a5ad7e5cd2170",
+  "execution_revision": "7a2f4eaebe04c76fb0417532be3a5ad7e5cd2170",
+  "elapsed_seconds": 12.438000000000102,
+  "frames_per_second": 658.6267888728038,
+  "complete": true,
+  "stop_reason": "frames",
+  "checkpoint": "runs\\verification\\selfplay_cuda\\model.pt",
+  "initial_checkpoint": "runs\\verification\\selfplay_cuda\\initial.pt",
+  "rounds": 0,
+  "wins": 0,
+  "draws": 0
+}

@@ -25,7 +25,7 @@ LOGGER = logging.getLogger(__name__)  # Local: viewer output joins the run's tim
 class ViewSession:
     """Local: coordinate a single native window session; global: leave all gameplay in shared Simulation."""
 
-    def __init__(self, mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person=False):
+    def __init__(self, mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person=False, policy=None):
         """Local: prepare match and policy before rendering; global: keep provenance explicit and replayable."""
         from ursina import Entity, camera, mouse  # Local: avoid importing a display engine for headless training.
         from ministrike.view.hud import MatchHUD  # Local: defer GUI-only modules until after the window exists.
@@ -36,7 +36,7 @@ class ViewSession:
         self.control_state = ViewControlState.create(mode, team, spectator_first_person)  # Local: separate selection from ownership.
         self.simulation = Simulation(num_envs=1, seed=seed)  # Local: one authoritative arena feeds the native viewer.
         self.observations = self.simulation.reset(seed=seed, scenario="standard")  # Local: record a known initial state.
-        self.policy = self._load_policy(checkpoint)  # Local: select learned weights or a clearly named fixed baseline.
+        self.policy = policy if policy is not None else self._load_policy(checkpoint)  # Local: reuse pre-window-loaded weights.
         self.controls = HumanControls()  # Local: aggregate mouse movement until the next fixed tick.
         self.arena = ArenaScene()  # Local: shared map arrays provide all visible obstacles.
         policy_label = f"CHECKPOINT / {Path(checkpoint).stem[:24]}" if checkpoint else "SCRIPTED BASELINE / UNTRAINED"
@@ -204,6 +204,8 @@ def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screens
         raise ValueError("mode must be play/watch and team must be 0/1")  # Local: keep user errors explicit.
     if seconds is not None and (not math.isfinite(seconds) or seconds <= 0):  # Local: bounded debug duration must be valid.
         raise ValueError("seconds must be a finite positive number")  # Local: reject accidental indefinite smoke runs.
+    policy = ViewSession._load_policy(checkpoint)  # Local: load torch's native DLLs before Panda3D opens a Windows graphics context.
+    # Global: native import-order failure context: https://github.com/pytorch/pytorch/issues/166628
     from panda3d.core import loadPrcFileData  # Local: configure the native graphics engine only for GUI commands.
     loadPrcFileData("", "audio-library-name null")  # Local: no sound assets are needed; avoid unavailable audio drivers.
     from ursina import Ursina, color, mouse, window  # Local: keep training/import checks independent of a display server.
@@ -214,7 +216,7 @@ def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screens
     window.exit_button.visible = False  # Local: F10 and the native titlebar are the documented exits.
     window.fps_counter.enabled = False  # Local: keep debugging counters out of the playable game's interface.
     try:  # Local: always release native resources, including on a policy-loading or screenshot error.
-        session = ViewSession(mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person)  # Local: phases.
+        session = ViewSession(mode, checkpoint, seed, team, seconds, screenshot_path, spectator_first_person, policy)  # Local: phases.
         while not session.finished:  # Local: documented manual loop permits returning normally to the CLI.
             app.step()  # Local: Ursina dispatches input/update callbacks and draws the next frame.
             time.sleep(0.001)  # Local: yield briefly to the OS rather than saturating a CPU with event-loop polling.

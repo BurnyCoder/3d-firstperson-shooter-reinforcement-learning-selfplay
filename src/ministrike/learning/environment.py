@@ -20,6 +20,7 @@ class ArenaEnv(EnvBase):
         """Local: initialize independent arenas/specs; global: fixed MAPPO interface."""
         super().__init__(device="cpu", batch_size=[num_envs])  # NumPy physics resides on CPU.
         self.sim = Simulation(num_envs=num_envs, seed=seed)  # Own authoritative arena states.
+        self._observation = self.sim.observe()  # Cache the authoritative full-team observation between transitions.
         self.rng = np.random.default_rng(seed + 1009)  # Role draws have a dedicated stream.
         self.condition = condition  # Self-play or fixed scripted control.
         self.pool = pool  # Snapshot pool owns immutable opponent weights.
@@ -57,14 +58,15 @@ class ArenaEnv(EnvBase):
         teams = 1 - self.roles if opponent else self.roles  # Roles remain fixed within a round.
         return teams[:, None] * 5 + np.arange(5)[None, :]  # Broadcast team-relative player IDs.
 
-    def current_tensordict(self):
+    def current_tensordict(self, observation=None):
         """Local: copy observations/alive flags; global: no NumPy rollout aliasing."""
+        self._observation = self.sim.observe() if observation is None else observation.copy()  # Explicit reads also refresh test interventions.
         batch = np.arange(self.batch_size[0])[:, None]  # One row per arena.
         selected = self._indices()  # Select each arena's assigned learner team.
-        observation = self.sim.observe()[batch, selected].copy()  # Fancy indexing owns storage.
+        selected_observation = self._observation[batch, selected].copy()  # Fancy indexing owns independent rollout storage.
         alive = self.sim.alive[batch, selected].copy()[..., None]  # Alive-before-step actor mask.
         done = torch.tensor(self.sim.done.copy()[:, None], dtype=torch.bool)  # Round termination only.
-        agents = TensorDict({"observation": torch.from_numpy(observation),
+        agents = TensorDict({"observation": torch.from_numpy(selected_observation),
                              "alive": torch.from_numpy(alive)}, [self.batch_size[0], 5])
         return TensorDict({"agents": agents, "done": done, "terminated": done.clone()}, self.batch_size)
 
@@ -74,13 +76,13 @@ class ArenaEnv(EnvBase):
         mask = np.ones(self.batch_size[0], dtype=bool) if requested is None else requested.cpu().numpy().reshape(-1)
         self.roles[mask] = self.rng.integers(0, 2, size=int(mask.sum()))  # Reassign sides per new round.
         self.opponent_ids[mask] = self.pool.choose(int(mask.sum()))  # Freeze opponent identity until termination.
-        self.sim.reset(scenario=self.scenario, mask=mask)  # Other arenas retain all state/history.
+        observation = self.sim.reset(scenario=self.scenario, mask=mask)  # Other arenas retain all state/history.
         self.pool.prune(self.opponent_ids)  # Retain snapshots still used by unfinished rounds.
-        return self.current_tensordict()  # The library merges only requested reset slices.
+        return self.current_tensordict(observation)  # Reuse the simulator's computed frame; merge requested reset slices.
 
     def _step(self, tensordict):
         """Local: combine both teams then advance once; global: simultaneous game dynamics."""
-        observation = self.sim.observe()  # Opponents receive the same local visibility contract.
+        observation = self._observation  # Reuse the previous authoritative observation, avoiding duplicate visibility geometry.
         arenas = np.arange(self.batch_size[0])[:, None]  # Advanced indexing selects each team.
         learner_indices = self._indices()  # Team assignment cannot change inside this transition.
         opponent_indices = self._indices(opponent=True)  # Other five slots form the frozen opposition.
@@ -90,7 +92,7 @@ class ArenaEnv(EnvBase):
         controls[arenas, opponent_indices] = (self.fixed_policy.act(opponent_observation)
             if self.condition == "fixed" else self.pool.act(opponent_observation, self.opponent_ids))
         result = self.sim.step(controls)  # All ten controls enter the same fixed simulation tick.
-        state = self.current_tensordict()  # Capture terminal observations before any reset.
+        state = self.current_tensordict(result.observations)  # Capture terminal observations before any reset or extra geometry pass.
         reward = result.rewards[np.arange(self.batch_size[0]), self.roles]  # Team reward persists after death.
         state["agents", "reward"] = torch.tensor(reward[:, None, None], dtype=torch.float32).expand(-1, 5, 1).clone()
         self.rounds += int(result.terminated.sum())  # Count every completed arena once.
@@ -108,6 +110,7 @@ class ArenaEnv(EnvBase):
     def restore(self, state):
         """Local: restore in-progress arenas; global: preserve trajectory/opponent continuity."""
         self.sim.load_state_dict(state["sim"])  # Restore dynamics and observation history.
+        self._observation = self.sim.observe()  # A restored simulator owns a fresh matching observation cache.
         self.roles = state["roles"].copy()  # Resume each arena on its original learner side.
         self.opponent_ids = state["opponent_ids"].copy()  # Preserve frozen per-round opponents.
         self.rng.bit_generator.state = state["rng"]  # Continue role draws exactly.

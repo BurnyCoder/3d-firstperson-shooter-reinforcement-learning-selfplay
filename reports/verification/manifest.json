@@ -1,0 +1,9 @@
+{
+  "generated_at_utc": "20261022T194926.779895Z",
+  "input_dir": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\verification",
+  "experiments": 2,
+  "comparison_status": "pending",
+  "summary": "reports\\verification\\summary.md",
+  "paper": "reports\\verification\\paper.pdf",
+  "figure": "reports\\verification\\learning_curves.png"
+}

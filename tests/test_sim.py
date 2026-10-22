@@ -242,3 +242,20 @@ def test_dropped_bomb_can_be_recovered_at_scripted_stopping_distance():
     sim.positions[0, 1] = SITES[0] + np.array([-.85, 0, 0])  # Local: scripted navigation stops within0.9m.
     sim.step(neutral(sim))  # Local: automatic pickup occurs through ordinary game mechanics.
     assert sim.bomb_carrier[0] == 1  # Local: the arriving attacker recovers the bomb without tighter navigation.
+
+
+def test_reset_and_step_return_fresh_independent_observation_arrays():
+    """Local: cached construction returns exact owned observations. Global: avoiding duplicate vision work cannot alter policy inputs."""
+    sim = Simulation(3, seed=54)  # Local: multiple arenas expose partial reset and copy ownership errors.
+    for scenario in ("combat", "objective", "standard"):  # Local: every curriculum branch shares the optimized output path.
+        reset_observations = sim.reset(seed=54, scenario=scenario)  # Local: capture authoritative reset output.
+        np.testing.assert_array_equal(reset_observations, sim.observe())  # Local: reusing the existing frame is bit-identical to recomputation.
+        reset_observations[:] = -123  # Local: a caller may mutate its returned buffer.
+        assert not np.any(sim.observe() == -123)  # Local: returned data never aliases persistent observation history.
+        result = sim.step(neutral(sim))  # Local: ordinary step output uses already resolved frames.
+        np.testing.assert_array_equal(result.observations, sim.observe())  # Local: subsequent public reads observe the same transition.
+        result.observations[:] = -123  # Local: corrupt only caller-owned transition data.
+        assert not np.any(sim.observe() == -123)  # Local: step output also owns independent storage.
+    sim.positions[2, 0, 0] += .1  # Local: deliberate test intervention modifies an arena excluded from the next reset.
+    partial = sim.reset(mask=np.array([True, False, False]))  # Local: optimize selected reset without hiding fresh unselected state.
+    np.testing.assert_array_equal(partial, sim.observe())  # Local: reset return remains fresh across the entire batch.

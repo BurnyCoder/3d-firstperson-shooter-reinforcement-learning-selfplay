@@ -107,7 +107,7 @@ class Simulation:
         self.bomb_position[planted] = SITES[0]  # Local: planted curriculum bomb is fixed at site A.
         frame = make_frame(self)  # Local: reset initializes history without fictitious pre-reset observations.
         self.history[ids] = frame[ids, :, None]  # Local: repeat initial frame into all history slots.
-        return self.observe()  # Local: caller receives its own array, never a mutable state view.
+        return self._stack_observations(frame)  # Local: reuse computed vision while returning fresh independently owned observations.
 
     def _reset_scenario(self, ids, scenario):
         """Local: implement prescribed starts. Global: both experimental conditions use identical curricula."""
@@ -148,8 +148,12 @@ class Simulation:
 
     def observe(self):
         """Local: obtain independent history with fresh current frame. Global: observation reads never advance RNG/time."""
+        return self._stack_observations(make_frame(self))  # Local: explicit reads remain fresh after deliberate state interventions.
+
+    def _stack_observations(self, frame):
+        """Local: combine owned history with an already computed frame. Global: reset and explicit reads share exact output semantics."""
         history = self.history.copy()  # Local: external controllers cannot corrupt stored history.
-        history[:, :, -1] = make_frame(self)  # Local: current state remains inspectable after deliberate test interventions.
+        history[:, :, -1] = frame  # Local: refresh all returned current frames without mutating unselected arena history.
         return history.reshape(self.num_envs, 10, -1)  # Local: flatten oldest-to-newest four-frame actor input.
 
     def snapshot(self, arena=0):

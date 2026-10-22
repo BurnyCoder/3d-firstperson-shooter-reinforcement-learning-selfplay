@@ -1,0 +1,13 @@
+{
+  "status": "pending",
+  "pairs": [],
+  "excluded": [
+    "Seed 111: require exactly one run per condition",
+    "Seed 222: require exactly one run per condition",
+    "Seed 333: require exactly one run per condition"
+  ],
+  "mean_difference": null,
+  "ci95": null,
+  "practical_threshold": 0.1,
+  "analysis": "paired training-seed Student-t interval"
+}

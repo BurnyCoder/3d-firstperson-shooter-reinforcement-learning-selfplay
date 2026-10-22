@@ -67,3 +67,17 @@ def test_restoring_environment_pool_and_rng_replays_actions_exactly():
     actual = collect_batch(restored, make_actor(actor), 3)  # Cold cache creation must not consume RNG.
     assert torch.equal(expected["agents", "action"], actual["agents", "action"])
     assert torch.equal(expected["next", "agents", "observation"], actual["next", "agents", "observation"])
+
+
+def test_cached_transition_matches_fresh_simulator_observation_and_does_not_alias():
+    """Local: compare cached/fresh frames after actions; global: performance changes cannot change training evidence."""
+    actor = ActorNetwork()  # Deterministic construction is sufficient because comparison uses the same transition.
+    env = ArenaEnv(2, 23, "selfplay", SnapshotPool(actor, 23))  # Two arenas exercise independent team selection.
+    state = env.reset()  # Cache receives the same complete observation as a fresh reset.
+    state["agents", "action"] = torch.zeros(2, 5, 6, dtype=torch.long)  # Explicit legal control categories.
+    transition = env.step(state)  # Production path consumes the cached pre-state and result observations.
+    cached = transition["next", "agents", "observation"].clone()  # Retain an independent reference.
+    refreshed = env.current_tensordict()  # Recompute geometry explicitly as the uncached path previously did.
+    assert torch.equal(cached, refreshed["agents", "observation"])  # Every scalar must be unchanged.
+    env._observation.fill(999)  # A later cache overwrite must not mutate already collected observations.
+    assert torch.equal(cached, transition["next", "agents", "observation"])

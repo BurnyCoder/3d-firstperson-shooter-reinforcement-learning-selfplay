@@ -1,0 +1,11 @@
+{
+  "root": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\diagnostics\\20261022T212222.513121Z",
+  "source_revision": "6acbafcf6afabdaa80f8464aff26850137d11dfb",
+  "intent": "Read-only exploratory training audit; no final-test seeds; snapshots frozen before diagnostics.",
+  "checkpoints": {
+    "fixed_seed111\\initial.pt": "e083538b1d2fa043ad64817943d36727687b9de2e610dd1e309c35a092cc79c0",
+    "fixed_seed111\\model.pt": "88d9f3c0b3404c74e358e145b1c26e13341dbf8cd171f8b16c2ab07c674f2da8",
+    "selfplay_seed111\\initial.pt": "f7ee26eba533ac66d518d508b50e9b5d6d77e8a752eeafc2500738414f3f771f",
+    "selfplay_seed111\\model.pt": "4fe46c11d6291474b0be8b11aa0e5b76a89a6ffedf2bfd86047b9695cbd83b23"
+  }
+}

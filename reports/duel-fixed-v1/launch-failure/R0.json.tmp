@@ -1,0 +1,39 @@
+{
+  "name": "pilots/R0",
+  "status": "failed",
+  "config": "configs/duel-pilot-R0.json",
+  "indices": [
+    0
+  ],
+  "started_utc": "2026-10-22T23:39:08.149944+00:00",
+  "workers": [
+    {
+      "pid": 58476,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs/duel-pilot-R0.json",
+        "--index",
+        "0"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\pilots\\R0\\seed5201"
+    }
+  ],
+  "telemetry": [
+    {
+      "timestamp_utc": "20261022T233908.173122Z",
+      "cpu_percent": 36.9,
+      "ram_available_fraction": 0.2802947516117363,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2101.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7422402159244265
+    }
+  ],
+  "error": "PermissionError(13, 'Access is denied')",
+  "wall_seconds": 0.11000000000058208,
+  "aggregate_arena_steps_per_second": 0.0
+}

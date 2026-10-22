@@ -1,0 +1,9 @@
+{
+  "process_id": 7684,
+  "launched_utc": "2026-10-22T23:38:58.7347077Z",
+  "command": "cmd.exe /d /c .venv\\Scripts\\python.exe -u -c \"from ministrike.experiments.staged import run_group; run_group('configs/duel-pilot-R0.json', [0], 'pilots/R0')\" 1>runs\\duel-fixed-v1\\pilot-R0.stdout.log 2>runs\\duel-fixed-v1\\pilot-R0.stderr.log",
+  "source_revision": "c2c29788876c985c920c0058e78fea107fe433a2",
+  "config": "configs/duel-pilot-R0.json",
+  "launch_method": "WMI Win32_Process.Create; hidden console and job breakaway",
+  "group_receipt": "runs/duel-fixed-v1/pilots/R0.json"
+}

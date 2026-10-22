@@ -12,6 +12,7 @@ from ministrike.learning.models import ActorNetwork, FactorizedCategorical
 from ministrike.sim.constants import ACTION_NVECS, OBS_DIM, decode_actions
 from ministrike.sim.specs import match_spec  # Local: validate the full match-specific interface before loading.
 from ministrike.sim.constants import GameConfig  # Local: gameplay retains original checkpoint rules.
+from ministrike.records import replace_artifact  # Local: share bounded Windows file-sharing recovery with JSON artifacts.
 
 
 def encode_state(value):
@@ -44,7 +45,7 @@ def save_checkpoint(path, state):
     destination.parent.mkdir(parents=True, exist_ok=True)  # Create only requested output directories.
     temporary = destination.with_suffix(destination.suffix + ".tmp")  # Same filesystem enables replacement.
     torch.save(encode_state(state), temporary)  # Save only tensors and supported primitive containers.
-    temporary.replace(destination)  # Publish the completed checkpoint in one filesystem operation.
+    replace_artifact(temporary, destination)  # Publish the complete checkpoint; brief reader locks do not discard training.
 
 
 def load_checkpoint(path):

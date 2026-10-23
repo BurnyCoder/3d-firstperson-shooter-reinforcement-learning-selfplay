@@ -59,3 +59,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 2026-10-23 [zero-update pilot launch recovery](amendments/2026-10-23-pilot-launch-recovery.md): preserve Windows status-file replacement failure; add bounded atomic-replacement retries before the first R0 optimizer update. Same clock, reward, seed and step target.
 
 2026-10-23 [R0 diagnosis and R1 resolution](amendments/2026-10-23-R0-diagnosis.md): R0 completed but failed its validation gate; preserve its negative result and run the already registered R1 candidate at the identical step budget and initialization.
+
+2026-10-23 [R1 diagnosis and R2 resolution](amendments/2026-10-23-R1-diagnosis.md): R1 improved random-opponent performance but still failed the unchanged primary gate. Publish its evidence and resolve the already registered R2 potential-shaping pilot; confirmation remains blocked.

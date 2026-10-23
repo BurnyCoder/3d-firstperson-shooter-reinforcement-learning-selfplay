@@ -1,0 +1,8 @@
+{
+  "source_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+  "implementation_tree": "d50fd12eb459f0f06dbc6556634c923f8ad4f211",
+  "config": "configs/duel-pilot-R1.json",
+  "sha256": "4f3a49da0386abf38cab0495ba331d33feb8504b3d678b7af858718061c11540",
+  "registration": "A-PILOT-R1",
+  "checked_utc": "2026-10-23T00:06:41.991058+00:00"
+}

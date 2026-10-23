@@ -1,0 +1,2596 @@
+{
+  "name": "pilots/R1",
+  "status": "complete",
+  "config": "configs/duel-pilot-R1.json",
+  "indices": [
+    0
+  ],
+  "started_utc": "2026-10-23T00:06:32.134351+00:00",
+  "workers": [
+    {
+      "pid": 31312,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs/duel-pilot-R1.json",
+        "--index",
+        "0"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\pilots\\R1\\seed5201"
+    }
+  ],
+  "telemetry": [
+    {
+      "timestamp_utc": "20261023T000632.160411Z",
+      "cpu_percent": 27.6,
+      "ram_available_fraction": 0.2444582990606221,
+      "gpu_percent": 16.0,
+      "gpu_used_mib": 2268.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7217519322782481
+    },
+    {
+      "timestamp_utc": "20261023T000634.236829Z",
+      "cpu_percent": 27.0,
+      "ram_available_fraction": 0.23440962744471397,
+      "gpu_percent": 30.0,
+      "gpu_used_mib": 2311.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7164765059501901
+    },
+    {
+      "timestamp_utc": "20261023T000636.302768Z",
+      "cpu_percent": 32.1,
+      "ram_available_fraction": 0.2315719627026801,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2460.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6981965403018034
+    },
+    {
+      "timestamp_utc": "20261023T000638.388490Z",
+      "cpu_percent": 27.0,
+      "ram_available_fraction": 0.2309595924582206,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2226.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7269046742730954
+    },
+    {
+      "timestamp_utc": "20261023T000640.463991Z",
+      "cpu_percent": 33.6,
+      "ram_available_fraction": 0.2307183483109803,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2225.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.727027358606306
+    },
+    {
+      "timestamp_utc": "20261023T000642.546152Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.21725923986406015,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2383.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7076432339590235
+    },
+    {
+      "timestamp_utc": "20261023T000644.622083Z",
+      "cpu_percent": 24.7,
+      "ram_available_fraction": 0.19876653573282724,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2502.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6930437983069562
+    },
+    {
+      "timestamp_utc": "20261023T000646.695253Z",
+      "cpu_percent": 26.7,
+      "ram_available_fraction": 0.18783878506523277,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2491.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6943933259722733
+    },
+    {
+      "timestamp_utc": "20261023T000648.766141Z",
+      "cpu_percent": 30.1,
+      "ram_available_fraction": 0.18749580411852496,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2505.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6926757453073242
+    },
+    {
+      "timestamp_utc": "20261023T000650.862252Z",
+      "cpu_percent": 26.1,
+      "ram_available_fraction": 0.19046798074871704,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000652.947073Z",
+      "cpu_percent": 26.8,
+      "ram_available_fraction": 0.19003325392177087,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000655.021839Z",
+      "cpu_percent": 22.2,
+      "ram_available_fraction": 0.19014059538324496,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000657.126060Z",
+      "cpu_percent": 27.4,
+      "ram_available_fraction": 0.19012658372822847,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2505.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6926757453073242
+    },
+    {
+      "timestamp_utc": "20261023T000659.193618Z",
+      "cpu_percent": 26.0,
+      "ram_available_fraction": 0.18997196816113354,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000701.286792Z",
+      "cpu_percent": 25.7,
+      "ram_available_fraction": 0.18993054239847612,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000703.372475Z",
+      "cpu_percent": 26.5,
+      "ram_available_fraction": 0.19062430208250963,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000705.450738Z",
+      "cpu_percent": 28.8,
+      "ram_available_fraction": 0.19051671694007874,
+      "gpu_percent": 14.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000707.544743Z",
+      "cpu_percent": 30.1,
+      "ram_available_fraction": 0.19137069685321378,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000709.627587Z",
+      "cpu_percent": 34.2,
+      "ram_available_fraction": 0.18997562337548568,
+      "gpu_percent": 14.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000711.711119Z",
+      "cpu_percent": 27.9,
+      "ram_available_fraction": 0.18978262805769341,
+      "gpu_percent": 34.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000713.790299Z",
+      "cpu_percent": 25.7,
+      "ram_available_fraction": 0.18956611752756916,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000715.859390Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.18972451014949462,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000717.935144Z",
+      "cpu_percent": 28.4,
+      "ram_available_fraction": 0.1899071490266225,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2495.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6939025886394308
+    },
+    {
+      "timestamp_utc": "20261023T000720.024366Z",
+      "cpu_percent": 34.4,
+      "ram_available_fraction": 0.1901739796743277,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2496.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.69377990430622
+    },
+    {
+      "timestamp_utc": "20261023T000722.103417Z",
+      "cpu_percent": 38.3,
+      "ram_available_fraction": 0.18728331432418802,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2500.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6932891669733775
+    },
+    {
+      "timestamp_utc": "20261023T000724.187908Z",
+      "cpu_percent": 27.3,
+      "ram_available_fraction": 0.18971963653035845,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000726.281566Z",
+      "cpu_percent": 31.7,
+      "ram_available_fraction": 0.18972877456623877,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2511.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6919396393080604
+    },
+    {
+      "timestamp_utc": "20261023T000728.367423Z",
+      "cpu_percent": 24.6,
+      "ram_available_fraction": 0.19007394864155785,
+      "gpu_percent": 31.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000730.443299Z",
+      "cpu_percent": 58.9,
+      "ram_available_fraction": 0.17791512178016736,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2726.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6655625076677708
+    },
+    {
+      "timestamp_utc": "20261023T000732.517275Z",
+      "cpu_percent": 46.5,
+      "ram_available_fraction": 0.1779680005477948,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2740.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6638449270028217
+    },
+    {
+      "timestamp_utc": "20261023T000734.600910Z",
+      "cpu_percent": 35.8,
+      "ram_available_fraction": 0.17759443764100752,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2552.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6869095816464237
+    },
+    {
+      "timestamp_utc": "20261023T000736.679091Z",
+      "cpu_percent": 30.0,
+      "ram_available_fraction": 0.17858682833760972,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2553.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6867868973132132
+    },
+    {
+      "timestamp_utc": "20261023T000738.741691Z",
+      "cpu_percent": 21.5,
+      "ram_available_fraction": 0.17900669062619062,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2564.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6854373696478959
+    },
+    {
+      "timestamp_utc": "20261023T000740.823229Z",
+      "cpu_percent": 23.4,
+      "ram_available_fraction": 0.17947882248000688,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2555.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6865415286467917
+    },
+    {
+      "timestamp_utc": "20261023T000742.900713Z",
+      "cpu_percent": 35.4,
+      "ram_available_fraction": 0.17553338410832203,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2549.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6872776346460556
+    },
+    {
+      "timestamp_utc": "20261023T000744.984873Z",
+      "cpu_percent": 36.4,
+      "ram_available_fraction": 0.17404571186700674,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2549.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6872776346460556
+    },
+    {
+      "timestamp_utc": "20261023T000747.056353Z",
+      "cpu_percent": 27.9,
+      "ram_available_fraction": 0.17554605551807606,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2540.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6883817936449516
+    },
+    {
+      "timestamp_utc": "20261023T000749.128404Z",
+      "cpu_percent": 25.5,
+      "ram_available_fraction": 0.175666312070261,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2527.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6899766899766899
+    },
+    {
+      "timestamp_utc": "20261023T000751.230093Z",
+      "cpu_percent": 50.0,
+      "ram_available_fraction": 0.18131386192525256,
+      "gpu_percent": 29.0,
+      "gpu_used_mib": 2519.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6909581646423752
+    },
+    {
+      "timestamp_utc": "20261023T000753.328313Z",
+      "cpu_percent": 36.7,
+      "ram_available_fraction": 0.18153293110542332,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2517.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6912035333087965
+    },
+    {
+      "timestamp_utc": "20261023T000755.401379Z",
+      "cpu_percent": 28.3,
+      "ram_available_fraction": 0.1815613199368915,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2489.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6946386946386947
+    },
+    {
+      "timestamp_utc": "20261023T000757.479521Z",
+      "cpu_percent": 25.6,
+      "ram_available_fraction": 0.1824252907692557,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2496.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.69377990430622
+    },
+    {
+      "timestamp_utc": "20261023T000759.547128Z",
+      "cpu_percent": 26.1,
+      "ram_available_fraction": 0.182375945375502,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2492.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6942706416390627
+    },
+    {
+      "timestamp_utc": "20261023T000801.630335Z",
+      "cpu_percent": 20.0,
+      "ram_available_fraction": 0.18191660677191815,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2479.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6958655379708012
+    },
+    {
+      "timestamp_utc": "20261023T000803.716944Z",
+      "cpu_percent": 30.8,
+      "ram_available_fraction": 0.18216223717638103,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2533.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.689240583977426
+    },
+    {
+      "timestamp_utc": "20261023T000805.791161Z",
+      "cpu_percent": 26.0,
+      "ram_available_fraction": 0.181964490079931,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2525.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6902220586431113
+    },
+    {
+      "timestamp_utc": "20261023T000807.885229Z",
+      "cpu_percent": 21.0,
+      "ram_available_fraction": 0.1826570313591805,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2523.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6904674273095326
+    },
+    {
+      "timestamp_utc": "20261023T000809.970278Z",
+      "cpu_percent": 23.9,
+      "ram_available_fraction": 0.18285672790328497,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2523.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6904674273095326
+    },
+    {
+      "timestamp_utc": "20261023T000812.047331Z",
+      "cpu_percent": 22.3,
+      "ram_available_fraction": 0.18285831182950424,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2522.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6905901116427432
+    },
+    {
+      "timestamp_utc": "20261023T000814.131894Z",
+      "cpu_percent": 26.7,
+      "ram_available_fraction": 0.18587142686044014,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2504.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.692798429640535
+    },
+    {
+      "timestamp_utc": "20261023T000816.206102Z",
+      "cpu_percent": 29.1,
+      "ram_available_fraction": 0.19002618717402342,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2510.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6920623236412711
+    },
+    {
+      "timestamp_utc": "20261023T000818.306721Z",
+      "cpu_percent": 29.8,
+      "ram_available_fraction": 0.18997306472543918,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000820.387332Z",
+      "cpu_percent": 28.1,
+      "ram_available_fraction": 0.190391099406844,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000822.472939Z",
+      "cpu_percent": 33.8,
+      "ram_available_fraction": 0.18889063391529626,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2630.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6773402036559931
+    },
+    {
+      "timestamp_utc": "20261023T000824.551245Z",
+      "cpu_percent": 37.8,
+      "ram_available_fraction": 0.18879243048970246,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2594.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6817568396515765
+    },
+    {
+      "timestamp_utc": "20261023T000826.626345Z",
+      "cpu_percent": 27.5,
+      "ram_available_fraction": 0.18781137095759184,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2520.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6908354803091645
+    },
+    {
+      "timestamp_utc": "20261023T000828.708425Z",
+      "cpu_percent": 24.3,
+      "ram_available_fraction": 0.18802544467814802,
+      "gpu_percent": 26.0,
+      "gpu_used_mib": 2483.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6953748006379585
+    },
+    {
+      "timestamp_utc": "20261023T000830.807867Z",
+      "cpu_percent": 38.0,
+      "ram_available_fraction": 0.187503358228186,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2494.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6940252729726414
+    },
+    {
+      "timestamp_utc": "20261023T000832.901967Z",
+      "cpu_percent": 30.1,
+      "ram_available_fraction": 0.18798621204410187,
+      "gpu_percent": 17.0,
+      "gpu_used_mib": 2498.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6935345356397988
+    },
+    {
+      "timestamp_utc": "20261023T000834.979447Z",
+      "cpu_percent": 30.8,
+      "ram_available_fraction": 0.18811451006786148,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2495.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6939025886394308
+    },
+    {
+      "timestamp_utc": "20261023T000837.066604Z",
+      "cpu_percent": 29.9,
+      "ram_available_fraction": 0.18713101372618277,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2485.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6951294319715373
+    },
+    {
+      "timestamp_utc": "20261023T000839.149436Z",
+      "cpu_percent": 25.5,
+      "ram_available_fraction": 0.1870068582786889,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000841.221262Z",
+      "cpu_percent": 27.1,
+      "ram_available_fraction": 0.18754051957409928,
+      "gpu_percent": 14.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000843.299262Z",
+      "cpu_percent": 24.8,
+      "ram_available_fraction": 0.18753406202874387,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000845.379802Z",
+      "cpu_percent": 37.4,
+      "ram_available_fraction": 0.18794308051474679,
+      "gpu_percent": 13.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000847.461633Z",
+      "cpu_percent": 26.4,
+      "ram_available_fraction": 0.1883004386379063,
+      "gpu_percent": 14.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000849.554318Z",
+      "cpu_percent": 27.7,
+      "ram_available_fraction": 0.1850147664567802,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000851.629498Z",
+      "cpu_percent": 29.4,
+      "ram_available_fraction": 0.18819760527413315,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2487.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6948840633051159
+    },
+    {
+      "timestamp_utc": "20261023T000853.721603Z",
+      "cpu_percent": 27.3,
+      "ram_available_fraction": 0.18884993919550924,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2489.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6946386946386947
+    },
+    {
+      "timestamp_utc": "20261023T000855.790820Z",
+      "cpu_percent": 31.9,
+      "ram_available_fraction": 0.18839352476340712,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2480.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6957428536375905
+    },
+    {
+      "timestamp_utc": "20261023T000857.865626Z",
+      "cpu_percent": 26.0,
+      "ram_available_fraction": 0.1884484748191674,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2480.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6957428536375905
+    },
+    {
+      "timestamp_utc": "20261023T000859.937399Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.18834978403166,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2579.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6835971046497362
+    },
+    {
+      "timestamp_utc": "20261023T000902.012033Z",
+      "cpu_percent": 34.3,
+      "ram_available_fraction": 0.18811414454642628,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2576.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6839651576493682
+    },
+    {
+      "timestamp_utc": "20261023T000904.084512Z",
+      "cpu_percent": 32.5,
+      "ram_available_fraction": 0.1885930994670332,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2499.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6934118513065881
+    },
+    {
+      "timestamp_utc": "20261023T000906.159510Z",
+      "cpu_percent": 35.3,
+      "ram_available_fraction": 0.18789068910903298,
+      "gpu_percent": 14.0,
+      "gpu_used_mib": 2497.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6936572199730094
+    },
+    {
+      "timestamp_utc": "20261023T000908.250009Z",
+      "cpu_percent": 58.0,
+      "ram_available_fraction": 0.17497657312201484,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2597.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6813887866519446
+    },
+    {
+      "timestamp_utc": "20261023T000910.328019Z",
+      "cpu_percent": 36.7,
+      "ram_available_fraction": 0.17170966437456298,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2594.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6817568396515765
+    },
+    {
+      "timestamp_utc": "20261023T000912.406022Z",
+      "cpu_percent": 45.4,
+      "ram_available_fraction": 0.17756860745958583,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2594.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6817568396515765
+    },
+    {
+      "timestamp_utc": "20261023T000914.481573Z",
+      "cpu_percent": 30.2,
+      "ram_available_fraction": 0.17831366198502752,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2526.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6900993743099006
+    },
+    {
+      "timestamp_utc": "20261023T000916.565930Z",
+      "cpu_percent": 25.3,
+      "ram_available_fraction": 0.17941412518597427,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2529.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6897313213102687
+    },
+    {
+      "timestamp_utc": "20261023T000918.632494Z",
+      "cpu_percent": 26.6,
+      "ram_available_fraction": 0.1804244264329019,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2526.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6900993743099006
+    },
+    {
+      "timestamp_utc": "20261023T000920.707848Z",
+      "cpu_percent": 27.7,
+      "ram_available_fraction": 0.17899267897117413,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2516.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6913262176420072
+    },
+    {
+      "timestamp_utc": "20261023T000922.799636Z",
+      "cpu_percent": 31.9,
+      "ram_available_fraction": 0.17943690935543585,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2510.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6920623236412711
+    },
+    {
+      "timestamp_utc": "20261023T000924.875107Z",
+      "cpu_percent": 23.8,
+      "ram_available_fraction": 0.17988601335883372,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000926.963251Z",
+      "cpu_percent": 25.1,
+      "ram_available_fraction": 0.18094712208525593,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2499.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6934118513065881
+    },
+    {
+      "timestamp_utc": "20261023T000929.041444Z",
+      "cpu_percent": 28.7,
+      "ram_available_fraction": 0.18128669149856844,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2499.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6934118513065881
+    },
+    {
+      "timestamp_utc": "20261023T000931.129990Z",
+      "cpu_percent": 23.4,
+      "ram_available_fraction": 0.18052725979667505,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2506.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6925530609741136
+    },
+    {
+      "timestamp_utc": "20261023T000933.205905Z",
+      "cpu_percent": 19.7,
+      "ram_available_fraction": 0.18091666196565487,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2500.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6932891669733775
+    },
+    {
+      "timestamp_utc": "20261023T000935.284293Z",
+      "cpu_percent": 21.2,
+      "ram_available_fraction": 0.18059037316448842,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2504.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.692798429640535
+    },
+    {
+      "timestamp_utc": "20261023T000937.367836Z",
+      "cpu_percent": 22.6,
+      "ram_available_fraction": 0.18040298250870276,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2514.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6915715863084284
+    },
+    {
+      "timestamp_utc": "20261023T000939.450997Z",
+      "cpu_percent": 29.4,
+      "ram_available_fraction": 0.17977002122339295,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2499.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6934118513065881
+    },
+    {
+      "timestamp_utc": "20261023T000941.521634Z",
+      "cpu_percent": 21.8,
+      "ram_available_fraction": 0.1800529348142475,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2498.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6935345356397988
+    },
+    {
+      "timestamp_utc": "20261023T000943.609973Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.180903137672552,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2512.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6918169549748496
+    },
+    {
+      "timestamp_utc": "20261023T000945.697560Z",
+      "cpu_percent": 22.3,
+      "ram_available_fraction": 0.180548947401831,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2498.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6935345356397988
+    },
+    {
+      "timestamp_utc": "20261023T000947.801238Z",
+      "cpu_percent": 23.7,
+      "ram_available_fraction": 0.18098927889078378,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2503.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6929211139737456
+    },
+    {
+      "timestamp_utc": "20261023T000949.883639Z",
+      "cpu_percent": 23.2,
+      "ram_available_fraction": 0.18097904429059783,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2500.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6932891669733775
+    },
+    {
+      "timestamp_utc": "20261023T000951.971642Z",
+      "cpu_percent": 22.2,
+      "ram_available_fraction": 0.18114194501022424,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2492.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6942706416390627
+    },
+    {
+      "timestamp_utc": "20261023T000954.050936Z",
+      "cpu_percent": 21.7,
+      "ram_available_fraction": 0.18112537470516127,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2490.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6945160103054839
+    },
+    {
+      "timestamp_utc": "20261023T000956.123524Z",
+      "cpu_percent": 17.9,
+      "ram_available_fraction": 0.18096576367845177,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T000958.233819Z",
+      "cpu_percent": 23.0,
+      "ram_available_fraction": 0.18099147201939506,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2481.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6956201693043798
+    },
+    {
+      "timestamp_utc": "20261023T001000.312929Z",
+      "cpu_percent": 22.6,
+      "ram_available_fraction": 0.18082247927584844,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2486.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6950067476383266
+    },
+    {
+      "timestamp_utc": "20261023T001002.382568Z",
+      "cpu_percent": 27.0,
+      "ram_available_fraction": 0.18093725300650518,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2486.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6950067476383266
+    },
+    {
+      "timestamp_utc": "20261023T001004.459209Z",
+      "cpu_percent": 29.3,
+      "ram_available_fraction": 0.17998701911543083,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2480.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6957428536375905
+    },
+    {
+      "timestamp_utc": "20261023T001006.540660Z",
+      "cpu_percent": 22.1,
+      "ram_available_fraction": 0.17999164905361018,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2485.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6951294319715373
+    },
+    {
+      "timestamp_utc": "20261023T001008.628138Z",
+      "cpu_percent": 26.9,
+      "ram_available_fraction": 0.1812306448785025,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2484.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6952521163047478
+    },
+    {
+      "timestamp_utc": "20261023T001010.706250Z",
+      "cpu_percent": 25.9,
+      "ram_available_fraction": 0.18200640320450207,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2479.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6958655379708012
+    },
+    {
+      "timestamp_utc": "20261023T001012.788486Z",
+      "cpu_percent": 26.4,
+      "ram_available_fraction": 0.1817554118189894,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2490.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6945160103054839
+    },
+    {
+      "timestamp_utc": "20261023T001014.887106Z",
+      "cpu_percent": 29.9,
+      "ram_available_fraction": 0.18225751643049312,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2493.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.694147957305852
+    },
+    {
+      "timestamp_utc": "20261023T001016.963057Z",
+      "cpu_percent": 23.8,
+      "ram_available_fraction": 0.18158008337056575,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2480.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6957428536375905
+    },
+    {
+      "timestamp_utc": "20261023T001019.039674Z",
+      "cpu_percent": 29.8,
+      "ram_available_fraction": 0.18164380594077115,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2480.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6957428536375905
+    },
+    {
+      "timestamp_utc": "20261023T001021.122132Z",
+      "cpu_percent": 24.0,
+      "ram_available_fraction": 0.1839653544162848,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2494.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6940252729726414
+    },
+    {
+      "timestamp_utc": "20261023T001023.196279Z",
+      "cpu_percent": 29.5,
+      "ram_available_fraction": 0.18261889528943998,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2613.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6794258373205742
+    },
+    {
+      "timestamp_utc": "20261023T001025.269112Z",
+      "cpu_percent": 39.9,
+      "ram_available_fraction": 0.17756872930006423,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2859.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6492454913507545
+    },
+    {
+      "timestamp_utc": "20261023T001027.352962Z",
+      "cpu_percent": 34.4,
+      "ram_available_fraction": 0.17755191531404443,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2982.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6341553183658446
+    },
+    {
+      "timestamp_utc": "20261023T001029.436925Z",
+      "cpu_percent": 29.1,
+      "ram_available_fraction": 0.17908856742767823,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2954.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6375904796957428
+    },
+    {
+      "timestamp_utc": "20261023T001031.529387Z",
+      "cpu_percent": 25.2,
+      "ram_available_fraction": 0.17901473209776528,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2608.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6800392589866274
+    },
+    {
+      "timestamp_utc": "20261023T001033.624209Z",
+      "cpu_percent": 24.7,
+      "ram_available_fraction": 0.17895271529425755,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2578.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6837197889829469
+    },
+    {
+      "timestamp_utc": "20261023T001035.710309Z",
+      "cpu_percent": 28.2,
+      "ram_available_fraction": 0.17880565383682367,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2561.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6858054226475279
+    },
+    {
+      "timestamp_utc": "20261023T001037.807320Z",
+      "cpu_percent": 22.8,
+      "ram_available_fraction": 0.17883477371116227,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2558.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6861734756471598
+    },
+    {
+      "timestamp_utc": "20261023T001039.908158Z",
+      "cpu_percent": 24.7,
+      "ram_available_fraction": 0.17882453911097632,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2620.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6785670469880996
+    },
+    {
+      "timestamp_utc": "20261023T001041.985684Z",
+      "cpu_percent": 20.2,
+      "ram_available_fraction": 0.1785510072369589,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2561.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6858054226475279
+    },
+    {
+      "timestamp_utc": "20261023T001044.065346Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.17892152413178608,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2566.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6851920009814747
+    },
+    {
+      "timestamp_utc": "20261023T001046.150959Z",
+      "cpu_percent": 20.7,
+      "ram_available_fraction": 0.1793776948829314,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2566.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6851920009814747
+    },
+    {
+      "timestamp_utc": "20261023T001048.240842Z",
+      "cpu_percent": 20.5,
+      "ram_available_fraction": 0.17980888833600386,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2572.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6844558949822108
+    },
+    {
+      "timestamp_utc": "20261023T001050.326978Z",
+      "cpu_percent": 25.8,
+      "ram_available_fraction": 0.17884513015182663,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2719.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6664212980002453
+    },
+    {
+      "timestamp_utc": "20261023T001052.418215Z",
+      "cpu_percent": 22.8,
+      "ram_available_fraction": 0.17909587785638248,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2631.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6772175193227825
+    },
+    {
+      "timestamp_utc": "20261023T001054.495906Z",
+      "cpu_percent": 24.4,
+      "ram_available_fraction": 0.17863544268849302,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2646.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6753772543246228
+    },
+    {
+      "timestamp_utc": "20261023T001056.593550Z",
+      "cpu_percent": 18.2,
+      "ram_available_fraction": 0.17922624716827498,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2616.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6790577843209422
+    },
+    {
+      "timestamp_utc": "20261023T001058.677616Z",
+      "cpu_percent": 21.9,
+      "ram_available_fraction": 0.17864969802446629,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2633.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6769721506563612
+    },
+    {
+      "timestamp_utc": "20261023T001100.760510Z",
+      "cpu_percent": 20.9,
+      "ram_available_fraction": 0.17878481911501656,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2634.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6768494663231506
+    },
+    {
+      "timestamp_utc": "20261023T001102.847982Z",
+      "cpu_percent": 21.9,
+      "ram_available_fraction": 0.17874972905723616,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2656.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6741504109925163
+    },
+    {
+      "timestamp_utc": "20261023T001104.935813Z",
+      "cpu_percent": 32.4,
+      "ram_available_fraction": 0.1767704304855599,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2863.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6487547540179119
+    },
+    {
+      "timestamp_utc": "20261023T001107.007549Z",
+      "cpu_percent": 46.7,
+      "ram_available_fraction": 0.17670768263918174,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 3023.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6291252607042082
+    },
+    {
+      "timestamp_utc": "20261023T001109.082581Z",
+      "cpu_percent": 26.9,
+      "ram_available_fraction": 0.17756032230705432,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2901.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6440927493559072
+    },
+    {
+      "timestamp_utc": "20261023T001111.176098Z",
+      "cpu_percent": 23.8,
+      "ram_available_fraction": 0.1767682373569486,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2873.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6475279106858054
+    },
+    {
+      "timestamp_utc": "20261023T001113.248599Z",
+      "cpu_percent": 19.8,
+      "ram_available_fraction": 0.17785310497665963,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2628.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6775855723224145
+    },
+    {
+      "timestamp_utc": "20261023T001115.328060Z",
+      "cpu_percent": 24.1,
+      "ram_available_fraction": 0.17842843571568426,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2615.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6791804686541529
+    },
+    {
+      "timestamp_utc": "20261023T001117.402304Z",
+      "cpu_percent": 28.9,
+      "ram_available_fraction": 0.17829940664905422,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2591.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6821248926512085
+    },
+    {
+      "timestamp_utc": "20261023T001119.480948Z",
+      "cpu_percent": 25.4,
+      "ram_available_fraction": 0.17877239138621934,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2563.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6855600539811066
+    },
+    {
+      "timestamp_utc": "20261023T001121.557626Z",
+      "cpu_percent": 25.9,
+      "ram_available_fraction": 0.17814393819861046,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2555.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6865415286467917
+    },
+    {
+      "timestamp_utc": "20261023T001123.649435Z",
+      "cpu_percent": 19.4,
+      "ram_available_fraction": 0.1786206999906061,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2560.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6859281069807386
+    },
+    {
+      "timestamp_utc": "20261023T001125.755159Z",
+      "cpu_percent": 22.6,
+      "ram_available_fraction": 0.17819523304001864,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2575.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6840878419825789
+    },
+    {
+      "timestamp_utc": "20261023T001127.848528Z",
+      "cpu_percent": 23.3,
+      "ram_available_fraction": 0.17843014148238193,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2570.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.684701263648632
+    },
+    {
+      "timestamp_utc": "20261023T001129.935089Z",
+      "cpu_percent": 25.5,
+      "ram_available_fraction": 0.17809666409298963,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2552.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6869095816464237
+    },
+    {
+      "timestamp_utc": "20261023T001132.031032Z",
+      "cpu_percent": 24.0,
+      "ram_available_fraction": 0.17826797180562592,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2544.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.687891056312109
+    },
+    {
+      "timestamp_utc": "20261023T001134.132320Z",
+      "cpu_percent": 23.6,
+      "ram_available_fraction": 0.17865396244121046,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2536.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6888725309777941
+    },
+    {
+      "timestamp_utc": "20261023T001136.226638Z",
+      "cpu_percent": 20.4,
+      "ram_available_fraction": 0.1783190229660773,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2541.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.688259109311741
+    },
+    {
+      "timestamp_utc": "20261023T001138.316187Z",
+      "cpu_percent": 24.0,
+      "ram_available_fraction": 0.1778230103784938,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2548.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6874003189792663
+    },
+    {
+      "timestamp_utc": "20261023T001140.394579Z",
+      "cpu_percent": 19.0,
+      "ram_available_fraction": 0.1776778983687144,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2530.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.689608636977058
+    },
+    {
+      "timestamp_utc": "20261023T001142.487625Z",
+      "cpu_percent": 24.3,
+      "ram_available_fraction": 0.17796666030253233,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2530.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.689608636977058
+    },
+    {
+      "timestamp_utc": "20261023T001144.563886Z",
+      "cpu_percent": 19.7,
+      "ram_available_fraction": 0.17800175036031277,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2522.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6905901116427432
+    },
+    {
+      "timestamp_utc": "20261023T001146.657125Z",
+      "cpu_percent": 25.3,
+      "ram_available_fraction": 0.17778926056597583,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2553.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6867868973132132
+    },
+    {
+      "timestamp_utc": "20261023T001148.750245Z",
+      "cpu_percent": 25.1,
+      "ram_available_fraction": 0.17784993712422112,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2558.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6861734756471598
+    },
+    {
+      "timestamp_utc": "20261023T001150.846348Z",
+      "cpu_percent": 19.1,
+      "ram_available_fraction": 0.17818109954452374,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2553.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6867868973132132
+    },
+    {
+      "timestamp_utc": "20261023T001152.925907Z",
+      "cpu_percent": 34.7,
+      "ram_available_fraction": 0.17378850661709547,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2567.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.685069316648264
+    },
+    {
+      "timestamp_utc": "20261023T001155.039470Z",
+      "cpu_percent": 19.0,
+      "ram_available_fraction": 0.1744128172284386,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2557.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6862961599803705
+    },
+    {
+      "timestamp_utc": "20261023T001157.111658Z",
+      "cpu_percent": 26.9,
+      "ram_available_fraction": 0.17408092376526554,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2579.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6835971046497362
+    },
+    {
+      "timestamp_utc": "20261023T001159.198664Z",
+      "cpu_percent": 40.4,
+      "ram_available_fraction": 0.1733373313255647,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2571.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6845785793154214
+    },
+    {
+      "timestamp_utc": "20261023T001201.294728Z",
+      "cpu_percent": 34.3,
+      "ram_available_fraction": 0.17214378199911715,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2571.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6845785793154214
+    },
+    {
+      "timestamp_utc": "20261023T001203.371263Z",
+      "cpu_percent": 38.7,
+      "ram_available_fraction": 0.1701390187674544,
+      "gpu_percent": 24.0,
+      "gpu_used_mib": 2580.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6834744203165255
+    },
+    {
+      "timestamp_utc": "20261023T001205.447419Z",
+      "cpu_percent": 27.0,
+      "ram_available_fraction": 0.16984111879775612,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2565.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6853146853146853
+    },
+    {
+      "timestamp_utc": "20261023T001207.523809Z",
+      "cpu_percent": 36.4,
+      "ram_available_fraction": 0.1694101690256405,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2611.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6796712059869955
+    },
+    {
+      "timestamp_utc": "20261023T001209.596525Z",
+      "cpu_percent": 31.1,
+      "ram_available_fraction": 0.1690595121287932,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2585.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6828609986504723
+    },
+    {
+      "timestamp_utc": "20261023T001211.681758Z",
+      "cpu_percent": 32.5,
+      "ram_available_fraction": 0.16822039675402345,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2602.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6807753649858913
+    },
+    {
+      "timestamp_utc": "20261023T001213.766282Z",
+      "cpu_percent": 27.2,
+      "ram_available_fraction": 0.16919950683847962,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2580.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6834744203165255
+    },
+    {
+      "timestamp_utc": "20261023T001215.847754Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.169123356539477,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2540.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6883817936449516
+    },
+    {
+      "timestamp_utc": "20261023T001217.927515Z",
+      "cpu_percent": 26.3,
+      "ram_available_fraction": 0.16878634577621096,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2578.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6837197889829469
+    },
+    {
+      "timestamp_utc": "20261023T001220.011933Z",
+      "cpu_percent": 22.5,
+      "ram_available_fraction": 0.16875113387795215,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2569.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6848239479818428
+    },
+    {
+      "timestamp_utc": "20261023T001222.101555Z",
+      "cpu_percent": 21.2,
+      "ram_available_fraction": 0.17008821128795987,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2511.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6919396393080604
+    },
+    {
+      "timestamp_utc": "20261023T001224.172125Z",
+      "cpu_percent": 26.1,
+      "ram_available_fraction": 0.17094121647726768,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2516.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6913262176420072
+    },
+    {
+      "timestamp_utc": "20261023T001226.266608Z",
+      "cpu_percent": 26.7,
+      "ram_available_fraction": 0.1709501108321912,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2560.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6859281069807386
+    },
+    {
+      "timestamp_utc": "20261023T001228.342531Z",
+      "cpu_percent": 24.6,
+      "ram_available_fraction": 0.17066207994124366,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2567.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.685069316648264
+    },
+    {
+      "timestamp_utc": "20261023T001230.423490Z",
+      "cpu_percent": 30.0,
+      "ram_available_fraction": 0.16958074569540635,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2637.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6764814133235186
+    },
+    {
+      "timestamp_utc": "20261023T001232.489979Z",
+      "cpu_percent": 49.9,
+      "ram_available_fraction": 0.1643478189884243,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2775.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.659550975340449
+    },
+    {
+      "timestamp_utc": "20261023T001234.567009Z",
+      "cpu_percent": 59.5,
+      "ram_available_fraction": 0.1599309798057936,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2856.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6496135443503864
+    },
+    {
+      "timestamp_utc": "20261023T001236.678894Z",
+      "cpu_percent": 52.9,
+      "ram_available_fraction": 0.1565993737643091,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2985.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6337872653662127
+    },
+    {
+      "timestamp_utc": "20261023T001238.767598Z",
+      "cpu_percent": 38.8,
+      "ram_available_fraction": 0.15280733255493514,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2964.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6363636363636364
+    },
+    {
+      "timestamp_utc": "20261023T001240.856855Z",
+      "cpu_percent": 39.8,
+      "ram_available_fraction": 0.14859213936406337,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2933.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6401668506931665
+    },
+    {
+      "timestamp_utc": "20261023T001242.959402Z",
+      "cpu_percent": 38.5,
+      "ram_available_fraction": 0.14426205060205644,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2941.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6391853760274813
+    },
+    {
+      "timestamp_utc": "20261023T001245.035974Z",
+      "cpu_percent": 32.3,
+      "ram_available_fraction": 0.14315793218675757,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 3042.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6267942583732058
+    },
+    {
+      "timestamp_utc": "20261023T001247.128670Z",
+      "cpu_percent": 26.8,
+      "ram_available_fraction": 0.14415592754536638,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2986.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6336645810330022
+    },
+    {
+      "timestamp_utc": "20261023T001249.213891Z",
+      "cpu_percent": 24.8,
+      "ram_available_fraction": 0.14515136425392872,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2767.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6605324500061343
+    },
+    {
+      "timestamp_utc": "20261023T001251.283672Z",
+      "cpu_percent": 25.7,
+      "ram_available_fraction": 0.14502245702777708,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2754.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6621273463378727
+    },
+    {
+      "timestamp_utc": "20261023T001253.376818Z",
+      "cpu_percent": 24.0,
+      "ram_available_fraction": 0.14564847340581785,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2738.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.664090295669243
+    },
+    {
+      "timestamp_utc": "20261023T001255.454059Z",
+      "cpu_percent": 29.4,
+      "ram_available_fraction": 0.1456348272722366,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2739.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6639676113360324
+    },
+    {
+      "timestamp_utc": "20261023T001257.529076Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.14645347344663442,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2751.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6624953993375047
+    },
+    {
+      "timestamp_utc": "20261023T001259.605400Z",
+      "cpu_percent": 33.0,
+      "ram_available_fraction": 0.14576921731991643,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2736.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6643356643356644
+    },
+    {
+      "timestamp_utc": "20261023T001301.696445Z",
+      "cpu_percent": 26.6,
+      "ram_available_fraction": 0.1456589516869606,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2737.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6642129800024537
+    },
+    {
+      "timestamp_utc": "20261023T001303.785183Z",
+      "cpu_percent": 27.1,
+      "ram_available_fraction": 0.14670836372745602,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2741.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6637222426696111
+    },
+    {
+      "timestamp_utc": "20261023T001305.868700Z",
+      "cpu_percent": 25.8,
+      "ram_available_fraction": 0.1464383652273123,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2739.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6639676113360324
+    },
+    {
+      "timestamp_utc": "20261023T001307.940477Z",
+      "cpu_percent": 23.6,
+      "ram_available_fraction": 0.14635015272094765,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2735.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.664458348668875
+    },
+    {
+      "timestamp_utc": "20261023T001310.037904Z",
+      "cpu_percent": 26.8,
+      "ram_available_fraction": 0.15069888307615042,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2725.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6656851920009814
+    },
+    {
+      "timestamp_utc": "20261023T001312.111883Z",
+      "cpu_percent": 34.7,
+      "ram_available_fraction": 0.1560308660920751,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2729.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6651944546681389
+    },
+    {
+      "timestamp_utc": "20261023T001314.195098Z",
+      "cpu_percent": 31.0,
+      "ram_available_fraction": 0.1574172888958365,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2721.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6661759293338241
+    },
+    {
+      "timestamp_utc": "20261023T001316.268875Z",
+      "cpu_percent": 33.7,
+      "ram_available_fraction": 0.15874084201274136,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2726.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6655625076677708
+    },
+    {
+      "timestamp_utc": "20261023T001318.346678Z",
+      "cpu_percent": 26.6,
+      "ram_available_fraction": 0.16408208490502474,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2726.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6655625076677708
+    },
+    {
+      "timestamp_utc": "20261023T001320.417066Z",
+      "cpu_percent": 29.2,
+      "ram_available_fraction": 0.1626627651720942,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2737.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6642129800024537
+    },
+    {
+      "timestamp_utc": "20261023T001322.500743Z",
+      "cpu_percent": 25.9,
+      "ram_available_fraction": 0.16298089066120755,
+      "gpu_percent": 13.0,
+      "gpu_used_mib": 2792.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.657465341675868
+    },
+    {
+      "timestamp_utc": "20261023T001324.588190Z",
+      "cpu_percent": 30.0,
+      "ram_available_fraction": 0.16246440887325214,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2798.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6567292356766041
+    },
+    {
+      "timestamp_utc": "20261023T001326.673262Z",
+      "cpu_percent": 37.8,
+      "ram_available_fraction": 0.1603028369458832,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2931.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6404122193595878
+    },
+    {
+      "timestamp_utc": "20261023T001328.751203Z",
+      "cpu_percent": 26.6,
+      "ram_available_fraction": 0.16154548798512766,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2936.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6397987976935345
+    },
+    {
+      "timestamp_utc": "20261023T001330.846386Z",
+      "cpu_percent": 29.4,
+      "ram_available_fraction": 0.16183839249521137,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2990.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6331738437001595
+    },
+    {
+      "timestamp_utc": "20261023T001332.931829Z",
+      "cpu_percent": 24.6,
+      "ram_available_fraction": 0.1618012311492981,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2797.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6568519200098147
+    },
+    {
+      "timestamp_utc": "20261023T001335.003448Z",
+      "cpu_percent": 22.4,
+      "ram_available_fraction": 0.16146933768612504,
+      "gpu_percent": 13.0,
+      "gpu_used_mib": 2891.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6453195926880138
+    },
+    {
+      "timestamp_utc": "20261023T001337.083409Z",
+      "cpu_percent": 23.9,
+      "ram_available_fraction": 0.16120933010521046,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2842.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6513311250153355
+    },
+    {
+      "timestamp_utc": "20261023T001339.156279Z",
+      "cpu_percent": 26.7,
+      "ram_available_fraction": 0.16041931644323762,
+      "gpu_percent": 12.0,
+      "gpu_used_mib": 2878.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6469144890197522
+    },
+    {
+      "timestamp_utc": "20261023T001341.244145Z",
+      "cpu_percent": 28.2,
+      "ram_available_fraction": 0.16119410004540993,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2852.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.650104281683229
+    },
+    {
+      "timestamp_utc": "20261023T001343.316479Z",
+      "cpu_percent": 29.1,
+      "ram_available_fraction": 0.16079129542380566,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2920.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6417617470249048
+    },
+    {
+      "timestamp_utc": "20261023T001345.395514Z",
+      "cpu_percent": 25.6,
+      "ram_available_fraction": 0.17492186674721136,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 3008.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6309655257023679
+    },
+    {
+      "timestamp_utc": "20261023T001347.467617Z",
+      "cpu_percent": 23.6,
+      "ram_available_fraction": 0.1749004228230122,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2717.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6666666666666667
+    },
+    {
+      "timestamp_utc": "20261023T001349.560617Z",
+      "cpu_percent": 24.7,
+      "ram_available_fraction": 0.17781301945926464,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2733.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6647037173352963
+    },
+    {
+      "timestamp_utc": "20261023T001351.644355Z",
+      "cpu_percent": 35.9,
+      "ram_available_fraction": 0.1753205287925499,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2763.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6610231873389768
+    },
+    {
+      "timestamp_utc": "20261023T001353.712255Z",
+      "cpu_percent": 48.1,
+      "ram_available_fraction": 0.167777750295981,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2927.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6409029566924304
+    },
+    {
+      "timestamp_utc": "20261023T001355.782360Z",
+      "cpu_percent": 42.8,
+      "ram_available_fraction": 0.1671436924463655,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 3311.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.5937921727395412
+    },
+    {
+      "timestamp_utc": "20261023T001357.871578Z",
+      "cpu_percent": 26.1,
+      "ram_available_fraction": 0.16748606419068132,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 3144.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6142804563857196
+    },
+    {
+      "timestamp_utc": "20261023T001359.942650Z",
+      "cpu_percent": 31.1,
+      "ram_available_fraction": 0.16790653568165423,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 3056.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6250766777082566
+    },
+    {
+      "timestamp_utc": "20261023T001402.029473Z",
+      "cpu_percent": 24.6,
+      "ram_available_fraction": 0.17004203374664467,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 3136.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6152619310514047
+    },
+    {
+      "timestamp_utc": "20261023T001404.115910Z",
+      "cpu_percent": 23.4,
+      "ram_available_fraction": 0.17039817346502015,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2946.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6385719543614281
+    },
+    {
+      "timestamp_utc": "20261023T001406.209667Z",
+      "cpu_percent": 24.3,
+      "ram_available_fraction": 0.1710491671411338,
+      "gpu_percent": 34.0,
+      "gpu_used_mib": 2888.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6456876456876457
+    },
+    {
+      "timestamp_utc": "20261023T001408.286646Z",
+      "cpu_percent": 25.1,
+      "ram_available_fraction": 0.171165890319445,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2939.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6394307446939026
+    },
+    {
+      "timestamp_utc": "20261023T001410.364156Z",
+      "cpu_percent": 24.4,
+      "ram_available_fraction": 0.17136436845876546,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2902.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6439700650226966
+    },
+    {
+      "timestamp_utc": "20261023T001412.441630Z",
+      "cpu_percent": 43.5,
+      "ram_available_fraction": 0.16859834591803327,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2756.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6618819776714513
+    },
+    {
+      "timestamp_utc": "20261023T001414.507315Z",
+      "cpu_percent": 37.6,
+      "ram_available_fraction": 0.16807053296558627,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2754.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6621273463378727
+    },
+    {
+      "timestamp_utc": "20261023T001416.588170Z",
+      "cpu_percent": 45.0,
+      "ram_available_fraction": 0.16700028620328378,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2763.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6610231873389768
+    },
+    {
+      "timestamp_utc": "20261023T001418.673769Z",
+      "cpu_percent": 44.9,
+      "ram_available_fraction": 0.16579309074325493,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2777.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6593056066740277
+    },
+    {
+      "timestamp_utc": "20261023T001420.785794Z",
+      "cpu_percent": 40.3,
+      "ram_available_fraction": 0.1654414591225804,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2741.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6637222426696111
+    },
+    {
+      "timestamp_utc": "20261023T001422.868818Z",
+      "cpu_percent": 27.3,
+      "ram_available_fraction": 0.16672054046486773,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2709.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6676481413323518
+    },
+    {
+      "timestamp_utc": "20261023T001424.947130Z",
+      "cpu_percent": 37.9,
+      "ram_available_fraction": 0.1675756169423084,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2705.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6681388786651945
+    },
+    {
+      "timestamp_utc": "20261023T001427.024937Z",
+      "cpu_percent": 33.0,
+      "ram_available_fraction": 0.166606985138995,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2702.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6685069316648264
+    },
+    {
+      "timestamp_utc": "20261023T001429.128129Z",
+      "cpu_percent": 31.0,
+      "ram_available_fraction": 0.16729855169441726,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2700.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6687523003312477
+    },
+    {
+      "timestamp_utc": "20261023T001431.212753Z",
+      "cpu_percent": 24.9,
+      "ram_available_fraction": 0.16715660753707637,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2695.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6693657219973009
+    },
+    {
+      "timestamp_utc": "20261023T001433.304283Z",
+      "cpu_percent": 23.4,
+      "ram_available_fraction": 0.16762922675280625,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2692.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6697337749969329
+    },
+    {
+      "timestamp_utc": "20261023T001435.393208Z",
+      "cpu_percent": 27.3,
+      "ram_available_fraction": 0.16708265036668501,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2730.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6650717703349283
+    },
+    {
+      "timestamp_utc": "20261023T001437.481345Z",
+      "cpu_percent": 33.4,
+      "ram_available_fraction": 0.16612266923733832,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2768.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6604097656729235
+    },
+    {
+      "timestamp_utc": "20261023T001439.555678Z",
+      "cpu_percent": 37.4,
+      "ram_available_fraction": 0.1632281049918897,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2912.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6427432216905902
+    },
+    {
+      "timestamp_utc": "20261023T001441.646086Z",
+      "cpu_percent": 36.0,
+      "ram_available_fraction": 0.18925250013615674,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2814.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6547662863452337
+    },
+    {
+      "timestamp_utc": "20261023T001443.741656Z",
+      "cpu_percent": 33.9,
+      "ram_available_fraction": 0.18933888503534532,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2735.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.664458348668875
+    },
+    {
+      "timestamp_utc": "20261023T001445.823064Z",
+      "cpu_percent": 29.2,
+      "ram_available_fraction": 0.19026255770212758,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2714.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6670347196662987
+    },
+    {
+      "timestamp_utc": "20261023T001447.908178Z",
+      "cpu_percent": 31.3,
+      "ram_available_fraction": 0.19092073996646705,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2710.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6675254569991412
+    },
+    {
+      "timestamp_utc": "20261023T001449.995033Z",
+      "cpu_percent": 28.5,
+      "ram_available_fraction": 0.19001327208331256,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2762.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6611458716721874
+    },
+    {
+      "timestamp_utc": "20261023T001452.074789Z",
+      "cpu_percent": 30.1,
+      "ram_available_fraction": 0.18991957675541973,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2733.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6647037173352963
+    },
+    {
+      "timestamp_utc": "20261023T001454.162623Z",
+      "cpu_percent": 25.1,
+      "ram_available_fraction": 0.1894541461279157,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2734.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6645810330020856
+    },
+    {
+      "timestamp_utc": "20261023T001456.239549Z",
+      "cpu_percent": 29.7,
+      "ram_available_fraction": 0.18910616972159328,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2702.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6685069316648264
+    },
+    {
+      "timestamp_utc": "20261023T001458.322009Z",
+      "cpu_percent": 30.0,
+      "ram_available_fraction": 0.1899179928292005,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2691.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6698564593301435
+    },
+    {
+      "timestamp_utc": "20261023T001500.393156Z",
+      "cpu_percent": 29.4,
+      "ram_available_fraction": 0.1881731153379739,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2789.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6578333946755
+    },
+    {
+      "timestamp_utc": "20261023T001502.481510Z",
+      "cpu_percent": 28.6,
+      "ram_available_fraction": 0.18772985967753944,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2799.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6566065513433934
+    },
+    {
+      "timestamp_utc": "20261023T001504.569911Z",
+      "cpu_percent": 26.7,
+      "ram_available_fraction": 0.1881932190169106,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2801.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6563611826769722
+    },
+    {
+      "timestamp_utc": "20261023T001506.645314Z",
+      "cpu_percent": 28.7,
+      "ram_available_fraction": 0.1808619555908514,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2782.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6586921850079746
+    },
+    {
+      "timestamp_utc": "20261023T001508.723373Z",
+      "cpu_percent": 38.1,
+      "ram_available_fraction": 0.18501988375687317,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2716.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6667893509998772
+    },
+    {
+      "timestamp_utc": "20261023T001510.796456Z",
+      "cpu_percent": 31.6,
+      "ram_available_fraction": 0.18640715944398342,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2731.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6649490860017175
+    },
+    {
+      "timestamp_utc": "20261023T001512.875556Z",
+      "cpu_percent": 30.3,
+      "ram_available_fraction": 0.18615068523694256,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2685.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6705925653294074
+    },
+    {
+      "timestamp_utc": "20261023T001514.969117Z",
+      "cpu_percent": 29.8,
+      "ram_available_fraction": 0.18664255524826034,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2711.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6674027726659306
+    },
+    {
+      "timestamp_utc": "20261023T001517.058273Z",
+      "cpu_percent": 35.3,
+      "ram_available_fraction": 0.18505692326230805,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2679.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6713286713286714
+    },
+    {
+      "timestamp_utc": "20261023T001519.137245Z",
+      "cpu_percent": 32.0,
+      "ram_available_fraction": 0.18854862769241565,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2679.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6713286713286714
+    },
+    {
+      "timestamp_utc": "20261023T001521.226319Z",
+      "cpu_percent": 30.3,
+      "ram_available_fraction": 0.18773948507533336,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2689.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6701018279965648
+    },
+    {
+      "timestamp_utc": "20261023T001523.312206Z",
+      "cpu_percent": 34.6,
+      "ram_available_fraction": 0.1863947317151862,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2774.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6596736596736597
+    },
+    {
+      "timestamp_utc": "20261023T001525.407831Z",
+      "cpu_percent": 35.6,
+      "ram_available_fraction": 0.1851273470588257,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2788.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6579560790087107
+    },
+    {
+      "timestamp_utc": "20261023T001527.493711Z",
+      "cpu_percent": 31.3,
+      "ram_available_fraction": 0.18471723200851714,
+      "gpu_percent": 37.0,
+      "gpu_used_mib": 2768.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6604097656729235
+    },
+    {
+      "timestamp_utc": "20261023T001529.567018Z",
+      "cpu_percent": 33.9,
+      "ram_available_fraction": 0.1830340057993631,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2778.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6591829223408171
+    },
+    {
+      "timestamp_utc": "20261023T001531.641399Z",
+      "cpu_percent": 30.4,
+      "ram_available_fraction": 0.1816156607902598,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2786.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6582014476751319
+    },
+    {
+      "timestamp_utc": "20261023T001533.710361Z",
+      "cpu_percent": 34.4,
+      "ram_available_fraction": 0.18048315354349273,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2785.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6583241320083426
+    },
+    {
+      "timestamp_utc": "20261023T001535.787861Z",
+      "cpu_percent": 28.8,
+      "ram_available_fraction": 0.17943666567447905,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2769.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6602870813397129
+    },
+    {
+      "timestamp_utc": "20261023T001537.868920Z",
+      "cpu_percent": 29.7,
+      "ram_available_fraction": 0.17798652030051224,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2762.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6611458716721874
+    },
+    {
+      "timestamp_utc": "20261023T001539.939010Z",
+      "cpu_percent": 35.1,
+      "ram_available_fraction": 0.1769015308403228,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2769.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6602870813397129
+    },
+    {
+      "timestamp_utc": "20261023T001542.030007Z",
+      "cpu_percent": 33.1,
+      "ram_available_fraction": 0.18306873033570828,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2796.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6569746043430253
+    },
+    {
+      "timestamp_utc": "20261023T001544.102795Z",
+      "cpu_percent": 31.0,
+      "ram_available_fraction": 0.18375725087917044,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2812.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.655011655011655
+    },
+    {
+      "timestamp_utc": "20261023T001546.190690Z",
+      "cpu_percent": 28.5,
+      "ram_available_fraction": 0.18628434424175197,
+      "gpu_percent": 4.0,
+      "gpu_used_mib": 2799.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6566065513433934
+    },
+    {
+      "timestamp_utc": "20261023T001548.263217Z",
+      "cpu_percent": 30.2,
+      "ram_available_fraction": 0.18558680750288792,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2779.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6590602380076065
+    },
+    {
+      "timestamp_utc": "20261023T001550.342935Z",
+      "cpu_percent": 27.0,
+      "ram_available_fraction": 0.1851713314715296,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2686.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6704698809961969
+    },
+    {
+      "timestamp_utc": "20261023T001552.422862Z",
+      "cpu_percent": 35.4,
+      "ram_available_fraction": 0.1824224884382524,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2805.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6558704453441295
+    },
+    {
+      "timestamp_utc": "20261023T001554.502360Z",
+      "cpu_percent": 34.9,
+      "ram_available_fraction": 0.18204502663615618,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2938.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6395534290271132
+    },
+    {
+      "timestamp_utc": "20261023T001556.576744Z",
+      "cpu_percent": 38.3,
+      "ram_available_fraction": 0.18222449766084559,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2911.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6428659060238008
+    },
+    {
+      "timestamp_utc": "20261023T001558.684501Z",
+      "cpu_percent": 38.5,
+      "ram_available_fraction": 0.1806915007615639,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2792.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.657465341675868
+    },
+    {
+      "timestamp_utc": "20261023T001600.761799Z",
+      "cpu_percent": 36.2,
+      "ram_available_fraction": 0.17919006054618894,
+      "gpu_percent": 10.0,
+      "gpu_used_mib": 2772.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.659919028340081
+    },
+    {
+      "timestamp_utc": "20261023T001602.841133Z",
+      "cpu_percent": 26.5,
+      "ram_available_fraction": 0.17920979870369041,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2713.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6671574039995092
+    },
+    {
+      "timestamp_utc": "20261023T001604.914674Z",
+      "cpu_percent": 28.0,
+      "ram_available_fraction": 0.17859255484009473,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2728.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6653171390013495
+    },
+    {
+      "timestamp_utc": "20261023T001607.003959Z",
+      "cpu_percent": 36.2,
+      "ram_available_fraction": 0.18017148559973478,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2748.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6628634523371366
+    },
+    {
+      "timestamp_utc": "20261023T001609.090588Z",
+      "cpu_percent": 33.1,
+      "ram_available_fraction": 0.18059341917644853,
+      "gpu_percent": 9.0,
+      "gpu_used_mib": 2744.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6633541896699792
+    },
+    {
+      "timestamp_utc": "20261023T001611.170313Z",
+      "cpu_percent": 33.7,
+      "ram_available_fraction": 0.17973907374187825,
+      "gpu_percent": 11.0,
+      "gpu_used_mib": 2779.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6590602380076065
+    },
+    {
+      "timestamp_utc": "20261023T001613.237103Z",
+      "cpu_percent": 42.1,
+      "ram_available_fraction": 0.176959161386608,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2727.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6654398233345602
+    },
+    {
+      "timestamp_utc": "20261023T001615.317678Z",
+      "cpu_percent": 32.0,
+      "ram_available_fraction": 0.17550731024594354,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2727.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6654398233345602
+    },
+    {
+      "timestamp_utc": "20261023T001617.408570Z",
+      "cpu_percent": 35.6,
+      "ram_available_fraction": 0.18810634675580842,
+      "gpu_percent": 3.0,
+      "gpu_used_mib": 2617.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6789350999877315
+    }
+  ],
+  "results": [
+    {
+      "condition": "selfplay",
+      "seed": 5201,
+      "frames": 1245184,
+      "updates": 152,
+      "source_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+      "execution_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+      "elapsed_seconds": 574.844000000001,
+      "frames_per_second": 2166.1250704538934,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\initial.pt",
+      "rounds": 4481,
+      "wins": 1752,
+      "draws": 2183,
+      "loss": -0.043499871875004224,
+      "gradient_norm": 0.7087284065783024,
+      "entropy": 5.462409555912018,
+      "critic_loss": 0.015074450726388022,
+      "policy_loss": -0.003950228604177634,
+      "approx_kl": 0.010618140697867299,
+      "clip_fraction": 0.137939453125
+    }
+  ],
+  "exit_codes": [
+    0
+  ],
+  "wall_seconds": 587.3590000000004,
+  "aggregate_arena_steps_per_second": 2119.9709206805364
+}

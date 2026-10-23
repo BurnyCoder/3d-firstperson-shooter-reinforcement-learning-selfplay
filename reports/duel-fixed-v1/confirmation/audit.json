@@ -1,0 +1,1257 @@
+{
+  "checkpoints_verified_from_bytes": [
+    "5101/initial.pt",
+    "5101/model.pt",
+    "5102/initial.pt",
+    "5102/model.pt",
+    "5103/initial.pt",
+    "5103/model.pt"
+  ],
+  "metrics": {
+    "5101": {
+      "rows": 667,
+      "finite_optimizer_metrics": true,
+      "result": {
+        "condition": "selfplay",
+        "seed": 5101,
+        "frames": 5464064,
+        "updates": 667,
+        "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "elapsed_seconds": 2957.813000000002,
+        "frames_per_second": 1847.332471660648,
+        "complete": true,
+        "stop_reason": "frames",
+        "checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5101\\model.pt",
+        "initial_checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5101\\initial.pt",
+        "rounds": 176465,
+        "wins": 106467,
+        "draws": 30032,
+        "loss": 0.06639067471648256,
+        "gradient_norm": 3.844711056600014,
+        "entropy": 2.0136251263320446,
+        "critic_loss": 0.0777117710094899,
+        "policy_loss": 0.008815153438869553,
+        "approx_kl": 0.020157379660910617,
+        "clip_fraction": 0.17435709635416666
+      }
+    },
+    "5102": {
+      "rows": 667,
+      "finite_optimizer_metrics": true,
+      "result": {
+        "condition": "selfplay",
+        "seed": 5102,
+        "frames": 5464064,
+        "updates": 667,
+        "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "elapsed_seconds": 2941.0930000000008,
+        "frames_per_second": 1857.8344853426936,
+        "complete": true,
+        "stop_reason": "frames",
+        "checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5102\\model.pt",
+        "initial_checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5102\\initial.pt",
+        "rounds": 238033,
+        "wins": 135811,
+        "draws": 54860,
+        "loss": 0.05216232122620568,
+        "gradient_norm": 4.134171896924575,
+        "entropy": 1.8941110149025917,
+        "critic_loss": 0.05790154209050039,
+        "policy_loss": 0.013201888131637437,
+        "approx_kl": 0.03199958926658534,
+        "clip_fraction": 0.2515055338541667
+      }
+    },
+    "5103": {
+      "rows": 667,
+      "finite_optimizer_metrics": true,
+      "result": {
+        "condition": "selfplay",
+        "seed": 5103,
+        "frames": 5464064,
+        "updates": 667,
+        "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "elapsed_seconds": 2882.5940000000046,
+        "frames_per_second": 1895.5371446689999,
+        "complete": true,
+        "stop_reason": "frames",
+        "checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5103\\model.pt",
+        "initial_checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5103\\initial.pt",
+        "rounds": 142999,
+        "wins": 83293,
+        "draws": 26503,
+        "loss": 0.04849682404892519,
+        "gradient_norm": 3.8959147930145264,
+        "entropy": 1.604969119032224,
+        "critic_loss": 0.054057045839726925,
+        "policy_loss": 0.010489469364983961,
+        "approx_kl": 0.01929518350273914,
+        "clip_fraction": 0.18216959635416666
+      }
+    }
+  },
+  "selection": {
+    "candidates": [
+      {
+        "seed": 5101,
+        "checkpoint": "runs/duel-fixed-v1/confirmation/seed5101/model.pt",
+        "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+        "initial_sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+        "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "arena_steps": 5464064,
+        "score": 0.75
+      },
+      {
+        "seed": 5102,
+        "checkpoint": "runs/duel-fixed-v1/confirmation/seed5102/model.pt",
+        "checkpoint_sha256": "66a3e6342a79eed81e5d92ff3a5c3c588e1b59fa0e2226c63b7376d1f03ac1a1",
+        "initial_sha256": "4167b41f716c53afb394e556b68115e6b5a4056c28e71fd10dbac44696f3fcb2",
+        "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "arena_steps": 5464064,
+        "score": 0.748046875
+      },
+      {
+        "seed": 5103,
+        "checkpoint": "runs/duel-fixed-v1/confirmation/seed5103/model.pt",
+        "checkpoint_sha256": "a77e9541e91ec40a8e76d746a0d61c2e1b84bea08099dc679417d2c82659abdd",
+        "initial_sha256": "d1ee259e42a78a1e77af6d468a567be5fbfce86394d9efdff8bdc4f9eae0672d",
+        "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+        "arena_steps": 5464064,
+        "score": 0.7493489583333334
+      }
+    ],
+    "selected": {
+      "seed": 5101,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5101/model.pt",
+      "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+      "initial_sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064,
+      "score": 0.75
+    },
+    "rule": "highest primary validation mean; exact ties choose lower seed",
+    "final_test_accessed": false,
+    "frozen_utc": "2026-10-23T07:58:18.828799+00:00"
+  },
+  "all_24_summaries_reproduced": true,
+  "all_four_analyses_reproduced": true,
+  "selection_before_final_test": true,
+  "created_utc": "20261023T090729.750851Z",
+  "report_source_revision": "2182721fdecffbccfacb84ceecd88489033c7536",
+  "raw_inputs": {
+    "data/analysis.json": "56a1f4ef1666d8c84b54988053d1e9c916f1030c1409dc8493f3ad61a9ac3e89",
+    "data/evaluation-logs/20261023T075442.106863Z.log": "8e84561ed447ba459b7e80bf4d857c5f4ffca905e8a83ec90246e556c3aaaf63",
+    "data/evaluation-receipt.json": "9978a4a84b848306269c60f7877d986f9778e76b421fb26c8074bd2f50b839db",
+    "data/group-0.json": "51c6769989a29272e9346cf65b28f7371df0c28da9e82b7e0dd61729264aff23",
+    "data/group-1.json": "667ca314c527a240fbd5eb7ec40802adb76a2aacc0e585737e823e9faaa1fb75",
+    "data/group-2.json": "3b1cd55dc3a832cb75d09e05f6f3133e50a8dace27da20e78a0e0fe7938bd4f1",
+    "data/launch-verification.json": "6bd45f37c6691826109e57be7668d3c90fa709fb984d191c0d387506f3a17c78",
+    "data/preflight-suite.json": "1760513445e87508df8ae085888cc6952bb28ba4698557224a51a8fd79cb71fe",
+    "data/publication.json": "ca3f28f32852a673b06d5b1a570c3b2829b29a88bea1bbae7e7e451ebcdc71a1",
+    "data/seed5101/config.json": "4555ea2b991cbf9e09ea81cfd5b07e4cc899b93df2d43fdb390fa56b9ad79cb0",
+    "data/seed5101/final_test.json": "5b91832c1e66dcce58ad188658e35d2330c9cfb1a2c7c46d8e7f30968809e666",
+    "data/seed5101/final_test_stochastic.json": "6f1bd1b5c4dcfe331dae644e5a774ed2b0f4bb92271b73be78cf03ad279e4d40",
+    "data/seed5101/final_validation.json": "207da4a2691eb0e660682009f21d36c439bd49f9e4bdc984bdc4a8b2569048ea",
+    "data/seed5101/final_validation_stochastic.json": "87684032ad83167bb0609df5eec2681009dea5e8eab1b55d441a9289955a4c9d",
+    "data/seed5101/initial_test.json": "7feb53f8e7340c2113c9fdcbc46910c0d44bd57bed81f4bac2091aac977cc620",
+    "data/seed5101/initial_test_stochastic.json": "d75cb4896dde898775f916d0a4913a7f3579f38cd2b11fec0698840f258cbfba",
+    "data/seed5101/initial_validation.json": "772d57dbc4187b18076e824e39f47401c44674461cefd66f31cf9226a59bbbc8",
+    "data/seed5101/initial_validation_stochastic.json": "1ae42c43131911b4cecb043fe3ee5071c68cf00737396a60fa4a2d264b4e83f0",
+    "data/seed5101/logs/20261023T051741.435566Z.log": "a6ad68d51f4284736a48ba9640bebefa4adc39cf2a5d13b530bf11a6f245abeb",
+    "data/seed5101/metrics.jsonl": "67fa03ee8a9d61be699cb4aa1c6674bc2f91730748377b0f2e3b9c86848128bf",
+    "data/seed5101/preflight.json": "0cca909b46e9476a0f4aa905fce86209731c76cdc5620df064413f95ed5205a8",
+    "data/seed5101/release-context.json": "88526906e62c45d781344f179dc0b42d7dd7ebbb2d0b1c87d7974148ffd85596",
+    "data/seed5101/result.json": "edaad88f75e2ade635337d16a99ab3ad5c760411324f72fc145f9c86aec5abc3",
+    "data/seed5101/worker-20261023T051732.346174Z.log": "a6ad68d51f4284736a48ba9640bebefa4adc39cf2a5d13b530bf11a6f245abeb",
+    "data/seed5102/config.json": "bea1b30c9521950d042adeb48e3aef69a336bbd43c73362d8004a6eff8857fb7",
+    "data/seed5102/final_test.json": "0d3a51000bbc5ad6f408350ccd8554d85de61886b6259cda9933d39227d05408",
+    "data/seed5102/final_test_stochastic.json": "6eb10da5df2b424deed04791190e74412249256a8afac83ee100cc0079891d41",
+    "data/seed5102/final_validation.json": "19ecf05c41d5db360e15755913e0d2e17d5c9e9e28185b76e72c35bc75c4507d",
+    "data/seed5102/final_validation_stochastic.json": "dfa8fa8cce633ca2395faf731297240943874242441ec0162a18acb25b4614fd",
+    "data/seed5102/initial_test.json": "48bc5f4a40d72559edc3792612d8a87bfcc5e945b9b4a1fd20716cd85522df0f",
+    "data/seed5102/initial_test_stochastic.json": "68d404970c15bd1fb6b256ec015efa1fb50d55eb1aa8ed3d10413058711328cd",
+    "data/seed5102/initial_validation.json": "ad3c7b9b9e2ed16e6fc2a71147334bc8b7fdca46ef0c7cf251953b6517346a00",
+    "data/seed5102/initial_validation_stochastic.json": "369581f46b453a4e6770907101ce98c36eb7f09b1b8dee650eb411b2f0dacf27",
+    "data/seed5102/logs/20261023T060713.505701Z.log": "9ae57f095e7d3f636a859fa26aa05508c90408dc9aa4afde3697f6a18c61b848",
+    "data/seed5102/metrics.jsonl": "578ff879deb6de369e96046147b865e9825bc537fbf0415ebfdc4293af7ff1b6",
+    "data/seed5102/preflight.json": "b0a9145021bb9b054fed38db4ebdebbe5655dd23dc8d59b149fc6a9395a35523",
+    "data/seed5102/release-context.json": "a37147b4a90a6423d22ed652acffc210bd624b0bfb86835c11017cd8183d66ef",
+    "data/seed5102/result.json": "ee4b6db0ad21b6925802a483453f2087bfe0facabc952eb860ad856848cbcffe",
+    "data/seed5102/worker-20261023T060705.288696Z.log": "9ae57f095e7d3f636a859fa26aa05508c90408dc9aa4afde3697f6a18c61b848",
+    "data/seed5103/config.json": "ba71a3a2cd13d16f230d69aac64fa044c110dd148ae84ee64d4e0675aca65d57",
+    "data/seed5103/final_test.json": "90ca84680ef9405520f8c1ce99adad6de460dd579bc6485e671f3ec3aaf8d8a5",
+    "data/seed5103/final_test_stochastic.json": "7f2a5e7a2d87bd51e7e6ab8cc866f205deee9e9ff51fbca8510ed3a3de7a12fa",
+    "data/seed5103/final_validation.json": "af64d3cef7039edd217486ed6e7f917d7bd92f2980ce5feb45e04879a84c93e3",
+    "data/seed5103/final_validation_stochastic.json": "6f271ad61b040a896aae40d252e72b07caf37e538f6bddc5ac72ac9687f6f131",
+    "data/seed5103/initial_test.json": "30f8ac090ade44ca9d0e9191d70ec378bd1ab63072f28e05b8fa98a0141bd226",
+    "data/seed5103/initial_test_stochastic.json": "cdf27013be720bba8200a572a42af4c3401105a74f5eeb59b85c12dbb875b0b8",
+    "data/seed5103/initial_validation.json": "a9f3541c285772eeca30be8db5b9f05f4d6808ecbb54f1946be10dcc1726a2e4",
+    "data/seed5103/initial_validation_stochastic.json": "2322cd97a55593278e251929e8354035f1bc39ec72478ff00a9e8fb5674febad",
+    "data/seed5103/logs/20261023T065627.673397Z.log": "50150ff62c76b0a752a4a7f02bb62ee2faf552083a754e2bacaf53197c03aec7",
+    "data/seed5103/metrics.jsonl": "0629b20c3f6d8f7b7a301f1fce15d9f54406695d07d43f726b9a833f9d8dfb8a",
+    "data/seed5103/preflight.json": "3f9ab24927b380cdc9c50667dfb6c5b826c3c09afddbbaba006264412d812cbf",
+    "data/seed5103/release-context.json": "a37147b4a90a6423d22ed652acffc210bd624b0bfb86835c11017cd8183d66ef",
+    "data/seed5103/result.json": "c9975a6211b24121728067e11a10acd89b98557e2e26faf7dd5ddac28b3c1bfc",
+    "data/seed5103/worker-20261023T065619.492752Z.log": "50150ff62c76b0a752a4a7f02bb62ee2faf552083a754e2bacaf53197c03aec7",
+    "data/selection.json": "ff0773ca006c05bf30282eabba4287aeebbb78d74f0be1c4dc16d8030dc39146",
+    "data/execution/manifest.json": "5d84ff0352c2a9a1fc79732da25e6b2e0f9a85d8a636f2f8d9b5e84d365e5674",
+    "data/execution/launch.json": "19ae346484947c3b1f90e1867a19ea43e8cbdcb39fb65bb46a29d45f23606a64",
+    "data/execution/confirmation.stdout.log": "a4518f0b72ef914cb9a92f588506c3e4b69cdea77cce710b0fd8559abbcdeb71",
+    "data/execution/confirmation.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/execution/duel-confirmation.json": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d"
+  },
+  "figures": {
+    "test-deterministic-breakdown.png": "cd4230ea0ec7f5e8d8baaefa6232326c3f71b275677a291d375c9d1dc1e60a48",
+    "test-deterministic-breakdown.svg": "ee07037204c9858253f30675e2d398a6cb52ca0749553b204d91ca96ee1c8acc",
+    "test-deterministic.png": "33be73d559515769d270422bba7f9a8bdf7ae1c3f3c5e2095696b348bf72c93a",
+    "test-deterministic.svg": "8fb69473564a1613e1ac70098ffaa54c4cdc9ee00f7ce7148ce120a7c238c69f",
+    "test-stochastic-breakdown.png": "29671f1b47aaaae07493a7230b5f1f613176b815997e396ddd5c45f5ba91d680",
+    "test-stochastic-breakdown.svg": "f391c728e2a23f7e5d35a056dd2cc50c73679ec843234f6c11c8a0d746672576",
+    "test-stochastic.png": "c7778d405d6e88f7bfb72a9ab28f7d7b07ae746883df5333205e8cc4d30cefb7",
+    "test-stochastic.svg": "a320c78c4d733584177e9786ede5c2c733c47a50173dff037987c2fb88a1e51f",
+    "uncertainty.png": "b61a67705304bd75d2120a05a34201cffff7baf5ec9f86e0477edce02761f0a3",
+    "uncertainty.svg": "2d74119c6d2a1c277ee860684f9a52a05b37c8e135e15bf8440f9dde33b05f1d",
+    "validation-deterministic-breakdown.png": "aec2ee3f7d50f078ced9eae206efc6f4fee85c31ff43c01fb0f86244b123d2a5",
+    "validation-deterministic-breakdown.svg": "8c2a634c92b31b829739cc42751b205ea6d95d2828888aa254fcf4f19f3257e3",
+    "validation-deterministic.png": "a5449ab9d4dee03dd0d28c11ab30c5aee0eaf7ce5b3d9546bc9535f3b74ffc19",
+    "validation-deterministic.svg": "18d8c0225fa4534c4e7eba1209d8acd37b12bce26b5802a8a4d8d89b1269a039",
+    "validation-stochastic-breakdown.png": "24b20d02644652073951da171d75a54d7dcf973e96179238e7d2b8ff133611aa",
+    "validation-stochastic-breakdown.svg": "5c9b01a774ca4802bac80da09599128b7714b6f87b9c493e18dd1f8ffdf1793c",
+    "validation-stochastic.png": "59b9e29efc5b0ad44208063bebb0a379918b9ffa3ef1ab374f73df97b8c253cd",
+    "validation-stochastic.svg": "159325b34e744c184f73b7006c1beea557b96120800aade5766ecfed1d47a838",
+    "curves/a-confirm.png": "f1c147d799e7cd9d88e19a0699df1a183276fa5e13f48478f2b60f6654da3579",
+    "curves/a-confirm.svg": "c8b50d5bdb370a4ccc0441ad5b8e2680fe610f1dd199982d3b65e14d11bdc0ec",
+    "curves/seed5101.png": "015c6da343e65aafaa5461e075f3304bcb34e3e4b3275322d8dc2df1f96b8f33",
+    "curves/seed5101.svg": "d7897c9fd344ffcad84ffd8d24b1d0498ac7924a06a71c0854826816e330ddb2",
+    "curves/seed5102.png": "53d2632de72131ffb8fe5310cef7bff4befa0e03afe4ac89b9528e2f72dd3673",
+    "curves/seed5102.svg": "3c8c1a1c737003b93d1c43ee03dbef03724511c4e0970b983a5cc95df73d88e3",
+    "curves/seed5103.png": "d4f241a14dd8b179a234fe59b2865f706775bd671f8ca0b295d5072932a11cab",
+    "curves/seed5103.svg": "94634a9b216445e0675e002c3671656b4b92ab95fd4b8d729a73b12e6551db4f",
+    "native/ministrike-20261023T080428Z.png": "c8ad9084bd06be7427d65a7d626880a5c74f63adb8871242671a0c8e211ce530",
+    "native/ministrike-20261023T080900Z.png": "3cab1e282a441388f592b0f359504997edc43324e83ea4334ea7b9eefd111693",
+    "native/ministrike-20261023T080920Z.png": "d36461c39e49912e37f8af58a5877845b226229e10751978fb811f2c30416c2e",
+    "native/ministrike-20261023T080937Z.png": "3cab1e282a441388f592b0f359504997edc43324e83ea4334ea7b9eefd111693",
+    "native/ministrike-20261023T081023Z.png": "0149101b480157afe096a3e43ab783055969dfc59f580d03e34b5f89ea27a5ca",
+    "native/ministrike-20261023T081224Z.png": "6e17076d6a42e1f48c2ed169d5c3930ac4a44bd14b2db28fa8d3d2469d55884a",
+    "native/native-exit-fixed.png": "3301e842b09b832d5b535d5303f2fe564178e95ee10370e8b24358cc38002ce4",
+    "native/native-play-final.png": "c2d3fe02ac004e9bb2439e1c2bccc2da4a44f8bf33e464660fa27ff6cf93956d",
+    "native/native-watch-final-verified.png": "d51b452b763bf61c5e01bb2e05dc82e7346e9809dde1f907c2fdf73080f220cb",
+    "curves/training/a-confirm-behavior.png": "f395c45356e7509c1dcac5c772ccf67844e761145f2890312bbb3f1efde90711",
+    "curves/training/a-confirm-behavior.svg": "8998df60bc58cc56d7636ebdeaf16ca8b21c4015cff82ca0fbe2200969cd4408",
+    "curves/training/a-confirm-combat.png": "6e19436119980343720e108c707d38b9ca8d0e129efae7acc343ca46fcf927ea",
+    "curves/training/a-confirm-combat.svg": "111201f9184fa86a1730cb7df1829e86744787a20c44a5644b3893c3408a81c9",
+    "curves/training/a-confirm-optimization.png": "0c87f44523b92ee2c792b70f7257bb9fcaddd9429dcf16789b336ca0e89e411e",
+    "curves/training/a-confirm-optimization.svg": "b4d9dfe320950df5628b068e39611595bfd5b8002d93b50eaea9e2f2b99325c8",
+    "curves/training/a-confirm-rewards.png": "252dc13ce67d92ef96ba7e392fdcd848ec8d69b62812dbc52500f5d23e0679b3",
+    "curves/training/a-confirm-rewards.svg": "e44e1b6e25a6583b99dc2f0169a42f300138c3e3d54dbebfe0dae95b3bf966d8",
+    "curves/training/a-confirm-selfplay-outcomes.png": "08fb92f5bb00382fada56e8c4c4dc28c65733a2a2652dcf8304726511e310fcd",
+    "curves/training/a-confirm-selfplay-outcomes.svg": "7a74abe8826da50679bcb3040236c7033a5fc98ac84457403e890b4836b6020c",
+    "curves/training/seed5101-behavior.png": "5cde73073d1d079864d3359bbdf410a5a68aab9d33bee1a7960946d904470169",
+    "curves/training/seed5101-behavior.svg": "e9c3de991542d5b75eb7573f258fe116fdc308881ab034e34ed23f25271a11e4",
+    "curves/training/seed5101-combat.png": "b6647758169b025c4e88fe3eecd6bc87eaac319e7670538cf8ce3c21164f334f",
+    "curves/training/seed5101-combat.svg": "22d7596173af3753a08f321122894818e3997aff870a37e6a6ca00dc87794436",
+    "curves/training/seed5101-optimization.png": "dd941d8238753fb721b6040ba3eae3c2872d189658f0dfe8d51b4ee34bdbde33",
+    "curves/training/seed5101-optimization.svg": "aa959fef6be0cba46a0807788b98ff7e831bdcaf3249eb37df778ec6f96e062a",
+    "curves/training/seed5101-rewards.png": "b2d35628de9f518b4a75893eb0d1e6e1ebabd8d92bc41745c2bdb4742f58dcce",
+    "curves/training/seed5101-rewards.svg": "c9fcb22d3d8b4c518db30be6cc1b07df3d7313e1a8c8c240ccb5e2641ec9ec49",
+    "curves/training/seed5101-selfplay-outcomes.png": "fe9366354d4e6804459b172dc5c3f37de8b02dffa838b98892d32d162fa535a4",
+    "curves/training/seed5101-selfplay-outcomes.svg": "d8bf142a825b5dc39e0abbb3f06886ffae06bb76d72a8f35309f817691c9ae14",
+    "curves/training/seed5102-behavior.png": "f29408b583e3413c076a1e16b6e12dfc57a9fbb96b169b0005941ecad3cecf74",
+    "curves/training/seed5102-behavior.svg": "fe876853e8a4d167700ec1c6a777ce608e61c4a84138fafad9747d357029260e",
+    "curves/training/seed5102-combat.png": "e850350eefd3113a9be4990e080a7fcb27df92fd8db15336cb50c4c112cb01c3",
+    "curves/training/seed5102-combat.svg": "e517ff3fb0286f7248e8a3e5a482172d3ff0a927db71fef02509854d8332da91",
+    "curves/training/seed5102-optimization.png": "0bedff943d55ed65ff415e629c05f51ad23808f8341922637b7c17ba82ac2670",
+    "curves/training/seed5102-optimization.svg": "7a0db15613e94c460588b1afaa9fa0ae2b4ff5ba233481febc908e1d1d9495a2",
+    "curves/training/seed5102-rewards.png": "6124638cfa9de5fecd92660d3e95821173beac2285b6534ea00b521d766cde7d",
+    "curves/training/seed5102-rewards.svg": "1129a9b2134ee64018931e5a1ccf16c892ccabdb81256b21cc8f66e6f1c2288e",
+    "curves/training/seed5102-selfplay-outcomes.png": "618ab4bd6ba7dafddad419eed602f90a49952e38c39dbfa51e5fcc0d4f52b804",
+    "curves/training/seed5102-selfplay-outcomes.svg": "30069fc604a014b2dc3f367fc81b6894fd19bc8741a83ec7966aa23bfd5154ce",
+    "curves/training/seed5103-behavior.png": "54e5d916e23458b94173b5f68fab740808dcbe4c8fe08e1fcd5c233e99dd01d8",
+    "curves/training/seed5103-behavior.svg": "f50cd9ba7a093bf6f3df857166c6c976fdcca9f1c6be70a5937fcf9488af5525",
+    "curves/training/seed5103-combat.png": "61d61a10f0f5a2b9d2f2306664641bcc364d992927a37cc414fa39fcec1a3697",
+    "curves/training/seed5103-combat.svg": "eee00d9acb6bc959736f0ede3d22df669e715790836028d07dffc40e967f918a",
+    "curves/training/seed5103-optimization.png": "8524075d7621529b1e401459928e365b70f4ef96525f5e9d5bca8b96e0218bc3",
+    "curves/training/seed5103-optimization.svg": "0a6ee3abb99a0e6666cdb818dfba82529bf24f3c06a728c8a51ccb89a0005cb4",
+    "curves/training/seed5103-rewards.png": "5e8eabacb118f628acbe82999394fcc2ee13f4c3d2c1aa8cce21bb32ac978bf6",
+    "curves/training/seed5103-rewards.svg": "f1debf37e5285990e0fa5ed6c483060046cd2725bfccd5521e648579578769bc",
+    "curves/training/seed5103-selfplay-outcomes.png": "0fcf9a8d435776f74bdfc635c47ad7f1c2d2721e37f69d44438c13f86a3c7476",
+    "curves/training/seed5103-selfplay-outcomes.svg": "a9927078f2ff6c44c7f8984d7dcce92aefffdf231659a4505034981f14732540"
+  },
+  "plotted_summaries": {
+    "validation": {
+      "deterministic": {
+        "5101": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.007692307692307693
+          },
+          "final": {
+            "score": 0.75,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 2,
+                "wins": 2,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.25,
+                "side_scores": [
+                  0.5,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 1,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 1.0
+          }
+        },
+        "5102": {
+          "initial": {
+            "score": 0.3359375,
+            "baselines": {
+              "random": {
+                "score": 0.5078125,
+                "side_scores": [
+                  0.5078125,
+                  0.5078125
+                ],
+                "matches": 256,
+                "wins": 4,
+                "draws": 252,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.023076923076923078
+          },
+          "final": {
+            "score": 0.748046875,
+            "baselines": {
+              "random": {
+                "score": 0.994140625,
+                "side_scores": [
+                  1.0,
+                  0.98828125
+                ],
+                "matches": 256,
+                "wins": 253,
+                "draws": 3,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.75,
+                "side_scores": [
+                  1.0,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 1,
+                "draws": 1,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.5,
+                "side_scores": [
+                  1.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 1,
+                "draws": 0,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 0.9846153846153847
+          }
+        },
+        "5103": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.007692307692307693
+          },
+          "final": {
+            "score": 0.7493489583333334,
+            "baselines": {
+              "random": {
+                "score": 0.998046875,
+                "side_scores": [
+                  0.99609375,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 255,
+                "draws": 1,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 2,
+                "wins": 2,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.25,
+                "side_scores": [
+                  0.0,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 1,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 0.9961538461538462
+          }
+        }
+      },
+      "stochastic": {
+        "5101": {
+          "initial": {
+            "score": 0.3326822916666667,
+            "baselines": {
+              "random": {
+                "score": 0.498046875,
+                "side_scores": [
+                  0.49609375,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 255,
+                "losses": 1
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3346354166666667
+          },
+          "final": {
+            "score": 0.7194010416666666,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.158203125,
+                "side_scores": [
+                  0.2890625,
+                  0.02734375
+                ],
+                "matches": 256,
+                "wins": 2,
+                "draws": 77,
+                "losses": 177
+              }
+            },
+            "elimination_fraction": 1.0
+          }
+        },
+        "5102": {
+          "initial": {
+            "score": 0.333984375,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.50390625,
+                  0.49609375
+                ],
+                "matches": 256,
+                "wins": 1,
+                "draws": 254,
+                "losses": 1
+              },
+              "initial": {
+                "score": 0.501953125,
+                "side_scores": [
+                  0.50390625,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 1,
+                "draws": 255,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3372395833333333
+          },
+          "final": {
+            "score": 0.8131510416666666,
+            "baselines": {
+              "random": {
+                "score": 0.99609375,
+                "side_scores": [
+                  1.0,
+                  0.9921875
+                ],
+                "matches": 256,
+                "wins": 254,
+                "draws": 2,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.443359375,
+                "side_scores": [
+                  0.828125,
+                  0.05859375
+                ],
+                "matches": 256,
+                "wins": 95,
+                "draws": 37,
+                "losses": 124
+              }
+            },
+            "elimination_fraction": 0.9973958333333334
+          }
+        },
+        "5103": {
+          "initial": {
+            "score": 0.3326822916666667,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.49609375,
+                  0.50390625
+                ],
+                "matches": 256,
+                "wins": 1,
+                "draws": 254,
+                "losses": 1
+              },
+              "initial": {
+                "score": 0.498046875,
+                "side_scores": [
+                  0.49609375,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 255,
+                "losses": 1
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3372395833333333
+          },
+          "final": {
+            "score": 0.716796875,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.150390625,
+                "side_scores": [
+                  0.00390625,
+                  0.296875
+                ],
+                "matches": 256,
+                "wins": 25,
+                "draws": 27,
+                "losses": 204
+              }
+            },
+            "elimination_fraction": 1.0
+          }
+        }
+      }
+    },
+    "test": {
+      "deterministic": {
+        "5101": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.007692307692307693
+          },
+          "final": {
+            "score": 0.75,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 2,
+                "wins": 2,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.25,
+                "side_scores": [
+                  0.5,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 1,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 1.0
+          }
+        },
+        "5102": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.50390625,
+                  0.49609375
+                ],
+                "matches": 256,
+                "wins": 2,
+                "draws": 252,
+                "losses": 2
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.023076923076923078
+          },
+          "final": {
+            "score": 0.7473958333333334,
+            "baselines": {
+              "random": {
+                "score": 0.9921875,
+                "side_scores": [
+                  1.0,
+                  0.984375
+                ],
+                "matches": 256,
+                "wins": 252,
+                "draws": 4,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.75,
+                "side_scores": [
+                  1.0,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 1,
+                "draws": 1,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.5,
+                "side_scores": [
+                  1.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 1,
+                "draws": 0,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 0.9807692307692307
+          }
+        },
+        "5103": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 0,
+                "losses": 2
+              }
+            },
+            "elimination_fraction": 0.007692307692307693
+          },
+          "final": {
+            "score": 0.7486979166666666,
+            "baselines": {
+              "random": {
+                "score": 0.99609375,
+                "side_scores": [
+                  0.9921875,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 254,
+                "draws": 2,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 2,
+                "wins": 2,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.25,
+                "side_scores": [
+                  0.0,
+                  0.5
+                ],
+                "matches": 2,
+                "wins": 0,
+                "draws": 1,
+                "losses": 1
+              }
+            },
+            "elimination_fraction": 0.9923076923076923
+          }
+        }
+      },
+      "stochastic": {
+        "5101": {
+          "initial": {
+            "score": 0.3326822916666667,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.498046875,
+                "side_scores": [
+                  0.49609375,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 255,
+                "losses": 1
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3346354166666667
+          },
+          "final": {
+            "score": 0.7194010416666666,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.158203125,
+                "side_scores": [
+                  0.3046875,
+                  0.01171875
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 81,
+                "losses": 175
+              }
+            },
+            "elimination_fraction": 1.0
+          }
+        },
+        "5102": {
+          "initial": {
+            "score": 0.33203125,
+            "baselines": {
+              "random": {
+                "score": 0.49609375,
+                "side_scores": [
+                  0.49609375,
+                  0.49609375
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 254,
+                "losses": 2
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3359375
+          },
+          "final": {
+            "score": 0.787109375,
+            "baselines": {
+              "random": {
+                "score": 0.99609375,
+                "side_scores": [
+                  1.0,
+                  0.9921875
+                ],
+                "matches": 256,
+                "wins": 254,
+                "draws": 2,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.99609375,
+                "side_scores": [
+                  1.0,
+                  0.9921875
+                ],
+                "matches": 256,
+                "wins": 254,
+                "draws": 2,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.369140625,
+                "side_scores": [
+                  0.71484375,
+                  0.0234375
+                ],
+                "matches": 256,
+                "wins": 77,
+                "draws": 35,
+                "losses": 144
+              }
+            },
+            "elimination_fraction": 0.9947916666666666
+          }
+        },
+        "5103": {
+          "initial": {
+            "score": 0.3333333333333333,
+            "baselines": {
+              "random": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.5,
+                "side_scores": [
+                  0.5,
+                  0.5
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 256,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.0,
+                "side_scores": [
+                  0.0,
+                  0.0
+                ],
+                "matches": 256,
+                "wins": 0,
+                "draws": 0,
+                "losses": 256
+              }
+            },
+            "elimination_fraction": 0.3333333333333333
+          },
+          "final": {
+            "score": 0.7161458333333334,
+            "baselines": {
+              "random": {
+                "score": 1.0,
+                "side_scores": [
+                  1.0,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 256,
+                "draws": 0,
+                "losses": 0
+              },
+              "initial": {
+                "score": 0.998046875,
+                "side_scores": [
+                  0.99609375,
+                  1.0
+                ],
+                "matches": 256,
+                "wins": 255,
+                "draws": 1,
+                "losses": 0
+              },
+              "scripted": {
+                "score": 0.150390625,
+                "side_scores": [
+                  0.0078125,
+                  0.29296875
+                ],
+                "matches": 256,
+                "wins": 20,
+                "draws": 37,
+                "losses": 199
+              }
+            },
+            "elimination_fraction": 0.9986979166666666
+          }
+        }
+      }
+    }
+  }
+}

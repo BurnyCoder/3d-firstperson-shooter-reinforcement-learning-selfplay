@@ -1,6 +1,6 @@
 # Evidence and claim index
 
-This index maps claims to records. A registration is not a result. Stage A pilot evidence is exploratory; confirmation remains conditional. See [sources](sources.md) for methodological citations and [roadmap](experiment-roadmap.md) for planned work.
+This index maps claims to records. A registration is not a result. Stage A exploration and confirmation are complete; the moving-script acceptance gate failed. See [sources](sources.md) for methodological citations, [final experiment summary](../reports/summary.md) for outcomes and [roadmap](experiment-roadmap.md) for unexecuted future work.
 
 | Claim class | Canonical evidence / reproducible route | Status |
 |---|---|---|
@@ -17,11 +17,11 @@ This index maps claims to records. A registration is not a result. Stage A pilot
 |Stage A elapsed budget/source identity |`runs/duel-fixed-v1/manifest.json`, launch preflight and dated amendments |No clock before published optimizer-bearing experiment |
 |Calibration and reward selection |[nine-cell resolution](amendments/2026-10-23-duel-calibration.md), [raw records and hashes](../reports/duel-fixed-v1/calibration/), [R0](../reports/duel-fixed-v1/pilot-R0.md), [R1](../reports/duel-fixed-v1/pilot-R1.md), [R2](../reports/duel-fixed-v1/pilot-R2.md) |Calibration and all pilots complete; all pilots failed their primary gate; later representation diagnostic separately qualifies confirmation |
 |Loss, reward, activity and validation plots |[plotting guide](experiment-plots.md), [exact curve inputs and hashes](../reports/duel-fixed-v1/losses/evidence.json), [derived telemetry](../reports/duel-fixed-v1/losses/training/README.md), adjacent validation JSON receipts |Raw update curves and counter-difference rates; primary/secondary validation and spawn ends separated; one exploratory training seed, no independent-model interval |
-|Confirmation and learning quality |Per-run config, initial/model checkpoints, SHA256, metrics and initial/final validation/test JSON |Pending; seed and checkpoint identity required beside any reported number |
+|Confirmation and learning quality |[All three model reports](../reports/duel-fixed-v1/confirmation/README.md), [raw/hash audit](../reports/duel-fixed-v1/confirmation/audit.json), [analysis](../reports/duel-fixed-v1/confirmation/data/analysis.json) |All 24 endpoints complete; mean primary test improvement 0.415365, model t interval [0.412130,0.418599]; script median 0.25 fails 0.55 gate |
 |Statistical interpretation |Raw paired rows, power calculation, analysis script and report |Separate match and independent-model uncertainty; no pseudo-replicated deterministic trajectories |
-|Deployment behavior |Frozen validation selection, native screenshots/replays of selected checkpoint, replay parity test |Pending trained Stage A model; `docs/images/duel-*-baseline.png` depicts scripted duel baselines, older images depict legacy5v5 |
+|Deployment behavior |[Frozen validation selection](../reports/duel-fixed-v1/confirmation/data/selection.json), [native captures/parity](../reports/duel-fixed-v1/confirmation/native/README.md) |Selected seed5101 before test access; nine exact replay checks, both spectator views and ownership transitions; native WASD/mouse-aim delivery remains a disclosed test limitation |
 |Failed Stage A launch |[recovery amendment](amendments/2026-10-23-pilot-launch-recovery.md), [original receipts/errors](../reports/duel-fixed-v1/launch-failure/) |Zero-update status-file failure preserved; clock unchanged |
-|Public artifact identity |Git commits/PR/checks, HF commit IDs and collection items |Publish all confirmation outcomes, label failed acceptance experimental |
+|Public artifact identity |[Hub receipts and byte verification](../reports/publication/README.md), [exact cards](../reports/publication/cards/), [PR5](https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay/pull/5) |15 new public repositories, 150 files matched, 17 collection entries including prior smoke models; confirmation artifacts labeled experimental |
 
 Every generated table/figure/report must identify raw input paths+hashes, config/seeds, source revision, checkpoint hashes and the command regenerating it. Put lengthy derivations here or in protocol/architecture docs rather than duplicating them across README/model cards. Claims without evidence remain explicitly pending, inferred or removed.
 

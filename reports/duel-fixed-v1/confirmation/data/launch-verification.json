@@ -1,0 +1,16 @@
+{
+  "verified_utc": "2026-10-23T05:19:02.546821+00:00",
+  "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+  "group": "confirmation/group-0.json",
+  "seed": 5101,
+  "frames": 172032,
+  "previous_frames": 163840,
+  "metrics_advancing": true,
+  "finite_metrics": true,
+  "resolved_device": "cuda",
+  "resolved_inference_device": "cuda",
+  "stderr_empty": true,
+  "ci": "both Windows checks passed on 64c366cd43c9739d3596712a4dd277675ecea8aa",
+  "source_freeze": true,
+  "note": "Outer CLI log contains unused parser defaults; published run configuration controls actual CUDA training."
+}

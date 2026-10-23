@@ -1,0 +1,17 @@
+{
+  "archived_deferred": true,
+  "complete": false,
+  "stop_reason": "deferred_by_user",
+  "condition": "selfplay",
+  "seed": 333,
+  "frames": 2211840,
+  "updates": 1080,
+  "elapsed_seconds": 4163.875455000001,
+  "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+  "saved_at_utc": "20261022T215017.250886Z",
+  "checkpoint_sha256": {
+    "initial.pt": "a9e79c7081c333bea1274db8ff2f1a6246a5e523617e09aa70faf227043e9e3c",
+    "model.pt": "27d92eacea3e0378d810db5fd107974bbb157526fc8795cf98760ffa687e7f2a"
+  },
+  "metrics_sha256": "ad1a6c9c6202f873dcc3af73ac4f560ed0a7bfb51a04e79a631eaf0094856794"
+}

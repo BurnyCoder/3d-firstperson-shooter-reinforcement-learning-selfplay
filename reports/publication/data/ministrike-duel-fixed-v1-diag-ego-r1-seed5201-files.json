@@ -1,0 +1,302 @@
+[
+  {
+    "path": ".gitattributes",
+    "size": 1519,
+    "blob_id": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+    "last_commit": {
+      "oid": "046e67cfb0d9e19accd65769af5808ded870947d",
+      "title": "initial commit",
+      "date": "2026-10-23T08:26:05+00:00"
+    },
+    "security": {
+      "safe": true,
+      "status": "safe",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "README.md",
+    "size": 5402,
+    "blob_id": "2bab89fcab195e7a757cc920238573f1696bde6c",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "config.json",
+    "size": 937,
+    "blob_id": "2f01431fdc43ee0e4fe6708d3049f6f6f9742b7d",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_validation.json",
+    "size": 299402,
+    "blob_id": "867512290b339d37bf74112a8f2351aee4fb48e8",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_validation_stochastic.json",
+    "size": 487566,
+    "blob_id": "11c84a0be186a88793a8381a3a0f065b9421c93b",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial.pt",
+    "size": 953973,
+    "blob_id": "d5da1df658c4ebad85d0c5398093b17969ac4ed9",
+    "lfs": {
+      "size": 953973,
+      "sha256": "173f7fdefce9de1bc4cc4c242f3da4e4e26c8de2b97b4c8ddd825c36394157a1",
+      "pointer_size": 131
+    },
+    "xet_hash": "37287d83193220c31e31046272b0514c065a1a40b0fd093d60145b3c1a147411",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_validation.json",
+    "size": 2705491,
+    "blob_id": "72c68bcbaddd1cc05999e653f7e62b79e0c63796",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_validation_stochastic.json",
+    "size": 2887774,
+    "blob_id": "a99c398a70043380225e9791bf97e1ea497f1d55",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "metrics.jsonl",
+    "size": 543329,
+    "blob_id": "96c947fe97608cf27ac535c6a9a7a4f2f6c6c6eb",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "model.pt",
+    "size": 3849653,
+    "blob_id": "ca653bae77bcaf19378665e288ae474048bbe117",
+    "lfs": {
+      "size": 3849653,
+      "sha256": "79665c155698f57de9cda2ddd38bcaed4fc2e2423abbdf97561384be9ad74002",
+      "pointer_size": 132
+    },
+    "xet_hash": "5013c8c303ff578bcd61150d93450b634b14eb3657475fd44fa49f45f8ce9e33",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "release-context.json",
+    "size": 196,
+    "blob_id": "9022bf91493e1b84d9582c8105fa915710e7c91d",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "result.json",
+    "size": 866,
+    "blob_id": "191e4a82b159899be53213880ea725a06689c98d",
+    "last_commit": {
+      "oid": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "title": "Publish 4980736 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:26:09+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  }
+]

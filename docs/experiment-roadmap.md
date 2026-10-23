@@ -2,6 +2,8 @@
 
 Registration date: 2026-10-23. Read this, [active Stage A protocol](duel-protocol.md), and the newest `runs/duel-fixed-v1/manifest.json` before acting. If no manifest exists, no new compute clock has started. **Only Stage A has a newly authorized 12-hour budget.** Every future entry is a plan, not spending authorization. Preserve original [5v5 protocol](protocol.md), [learning audit](learning-audit.md), raw runs and amendments. Do not resume that deferred suite.
 
+**Latest measured status:** all Stage A training and all 24 confirmation evaluation endpoints are complete. Mean primary improvement is 0.415365, but median moving-script score 0.25 fails the 0.55 acceptance gate. Artifacts are experimental; no later stage or additional tuning is authorized by this result. [Final confirmation report](../reports/duel-fixed-v1/confirmation/README.md), [full experiment ledger](../reports/summary.md). Historical status statements below are dated sequence records, not instructions to repeat completed work.
+
 Sources are in the [shared bibliography](sources.md); measured evidence belongs in the [index](evidence-index.md). User requirements define the progression. Numerical choices are engineering decisions, not guarantees from research. All stages use original assets and one simulation. No human data, scripted training, imitation learning or pretrained gameplay policies. Scripted controllers are frozen evaluation/test controls only.
 
 ## Shared fields inherited by every catalogue entry
@@ -67,6 +69,8 @@ Future agents must add every proposed architecture/reward/diagnostic variant her
 Confirmation training subsequently completed for all three seeds at the registered equal targets. [Evaluation execution](amendments/2026-10-23-confirmation-evaluation.md) resolves the existing A-EVAL orchestration without changing its analysis or allowance. No benchmark-quality conclusion follows from training completion alone.
 
 ## Execution status, 2026-10-23
+
+This section retains the chronological amendments. Its early statements such as "confirmation remains blocked" describe the decision at that point; the current outcome is summarized at the top and in the final record below.
 
 The registration tables above retain their prospective wording. Calibration and R0/R1/R2 are now complete. All three matched pilots failed the primary validation gate; [R2's report](../reports/duel-fixed-v1/pilot-R2.md) and the [post-pilot amendment](amendments/2026-10-23-R2-diagnosis.md) close this selection sequence. Confirmation remains blocked. The [action-mode intervention](amendments/2026-10-23-action-mode-diagnostic.md) now resolves the next diagnostic's exact controls and allowance; consult its latest receipt for execution status. Saved [loss, reward and evaluation figures](experiment-plots.md) show measured outcomes without replacing the registered decision rule.
 

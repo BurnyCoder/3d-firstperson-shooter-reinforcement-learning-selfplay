@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "experiment": "duel-fixed-v1",
+  "status": "release_in_progress",
+  "started_utc": "2026-10-22T23:30:52.627932+00:00",
+  "deadline_utc": "2026-10-23T11:30:52.627932+00:00",
+  "source_revision": "6db495937074e63876863b364654aef36a904345",
+  "budget_seconds": 43200,
+  "active_protocol": "docs/duel-protocol.md",
+  "roadmap": "docs/experiment-roadmap.md",
+  "runs": [
+    {
+      "id": "A-PILOT-R0",
+      "path": "runs/duel-fixed-v1/pilots/R0/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.012369791666666685
+    },
+    {
+      "id": "A-PILOT-R1",
+      "path": "runs/duel-fixed-v1/pilots/R1/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.06315104166666669
+    },
+    {
+      "id": "A-PILOT-R2",
+      "path": "runs/duel-fixed-v1/pilots/R2/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.052734375
+    },
+    {
+      "id": "A-DIAG-DURATION-R1",
+      "path": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/control/seed5201",
+      "status": "complete_failed_recipe_screen",
+      "target_frames": 4980736,
+      "frames": 4980736,
+      "improvement": 0.08723958333333337,
+      "report": "reports/duel-fixed-v1/duration-entropy-v1/README.md"
+    },
+    {
+      "id": "A-DIAG-ENTROPY-R1",
+      "path": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/low-entropy/seed5201",
+      "status": "complete_failed_recipe_screen",
+      "target_frames": 4980736,
+      "frames": 4980736,
+      "improvement": 0.041015625,
+      "report": "reports/duel-fixed-v1/duration-entropy-v1/README.md"
+    },
+    {
+      "id": "A-DIAG-RESUME-1",
+      "path": "runs/duel-fixed-v1/diagnostics/resume-v1",
+      "status": "complete_exact_state_match",
+      "target_executed_arena_steps": 768,
+      "report": "runs/duel-fixed-v1/diagnostics/resume-v1/audit.json"
+    },
+    {
+      "id": "A-DIAG-EGO-R1",
+      "path": "runs/duel-fixed-v1/diagnostics/egocentric-v1/seed5201",
+      "status": "complete_passed_recipe_screen",
+      "target_executed_arena_steps": 4980736,
+      "execution_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+      "frames": 4980736,
+      "external_improvement": 0.619140625,
+      "improvement": 0.6666666666666666,
+      "report": "reports/duel-fixed-v1/egocentric-v1/README.md"
+    },
+    {
+      "id": "A-CONFIRM-5101",
+      "registration": "A-CONFIRM",
+      "seed": 5101,
+      "path": "runs/duel-fixed-v1/confirmation/seed5101",
+      "status": "complete_evaluated_experimental",
+      "target_executed_arena_steps": 5464064,
+      "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "frames": 5464064,
+      "updates": 667,
+      "elapsed_seconds": 2957.813000000002
+    },
+    {
+      "id": "A-CONFIRM-5102",
+      "registration": "A-CONFIRM",
+      "seed": 5102,
+      "path": "runs/duel-fixed-v1/confirmation/seed5102",
+      "status": "complete_evaluated_experimental",
+      "target_executed_arena_steps": 5464064,
+      "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "frames": 5464064,
+      "updates": 667,
+      "elapsed_seconds": 2941.0930000000008
+    },
+    {
+      "id": "A-CONFIRM-5103",
+      "registration": "A-CONFIRM",
+      "seed": 5103,
+      "path": "runs/duel-fixed-v1/confirmation/seed5103",
+      "status": "complete_evaluated_experimental",
+      "target_executed_arena_steps": 5464064,
+      "execution_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "frames": 5464064,
+      "updates": 667,
+      "elapsed_seconds": 2882.5940000000046
+    }
+  ],
+  "amendments": [
+    "docs/amendments/2026-10-23-duel-calibration.md",
+    "docs/amendments/2026-10-23-pilot-launch-recovery.md",
+    "docs/amendments/2026-10-23-R0-diagnosis.md",
+    "docs/amendments/2026-10-23-R1-diagnosis.md",
+    "docs/amendments/2026-10-23-R2-diagnosis.md",
+    "docs/amendments/2026-10-23-action-mode-diagnostic.md",
+    "docs/amendments/2026-10-23-duration-entropy-diagnostic.md",
+    "docs/amendments/2026-10-23-egocentric-diagnostic.md",
+    "docs/amendments/2026-10-23-confirmation-resolution.md",
+    "docs/amendments/2026-10-23-confirmation-evaluation.md"
+  ],
+  "legacy_suite": "deferred; never resume automatically",
+  "active_group": "runs\\duel-fixed-v1\\confirmation\\evaluation-receipt.json",
+  "diagnostics": [
+    {
+      "id": "A-DIAG-ACTION-MODES-1",
+      "status": "complete_failed_diagnostic_threshold",
+      "path": "runs/duel-fixed-v1/diagnostics/action-modes-v1/receipt.json",
+      "primary_effect": 0.016927083333333336,
+      "report": "reports/duel-fixed-v1/action-modes-v1.md"
+    }
+  ],
+  "last_updated_utc": "20261023T084911.837974Z",
+  "confirmation_eligible": true,
+  "final_test_accessed": true,
+  "confirmation_resolution": {
+    "resolved_utc": "2026-10-23T05:08:00.134460+00:00",
+    "confirmation_cap_utc": "2026-10-23T09:30:52.627932+00:00",
+    "overall_deadline_utc": "2026-10-23T11:30:52.627932+00:00",
+    "launch_not_after_utc": "2026-10-23T05:30:00+00:00",
+    "available_seconds": 15772.493472,
+    "calibrated_arena_steps_per_second": 1300.936954105218,
+    "reserve_fraction": 0.2,
+    "equal_arena_steps": 5464064,
+    "updates_per_model": 667,
+    "expected_total_seconds_at_calibration": 12600.296999999142,
+    "selected_recipe": "egocentric-v1/R1/entropy-0.01",
+    "qualification_analysis": "reports/duel-fixed-v1/egocentric-v1/data/egocentric/analysis.json",
+    "power_sensitivity": "reports/duel-fixed-v1/power.json"
+  },
+  "final_test_started_utc": "2026-10-23T07:58:18.849864+00:00",
+  "release": {
+    "selected_seed": 5101,
+    "acceptance": false,
+    "unmet_criterion": "median moving-script score 0.25 < 0.55",
+    "evaluation_complete": true,
+    "new_training_authorized": false
+  }
+}

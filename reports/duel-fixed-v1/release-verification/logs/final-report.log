@@ -1,0 +1,9 @@
+2026-10-23 09:06:54,517Z INFO root | command {'command': 'report', 'input': WindowsPath('runs/duel-fixed-v1'), 'output': WindowsPath('reports/duel-fixed-v1')}
+2026-10-23 09:07:07,903Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\seed5101 (667 updates)
+2026-10-23 09:07:08,496Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\seed5102 (667 updates)
+2026-10-23 09:07:09,082Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\seed5103 (667 updates)
+2026-10-23 09:07:13,149Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\training\seed5101 (5 views)
+2026-10-23 09:07:16,480Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\training\seed5102 (5 views)
+2026-10-23 09:07:19,337Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\training\seed5103 (5 views)
+2026-10-23 09:07:22,733Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\reports\duel-fixed-v1\confirmation\curves\training\a-confirm (5 views)
+2026-10-23 09:07:29,918Z INFO root | Confirmation report: 60 raw files; 75 figures; acceptance=False

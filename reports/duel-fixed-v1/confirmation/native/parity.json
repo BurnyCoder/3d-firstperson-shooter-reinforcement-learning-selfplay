@@ -1,0 +1,115 @@
+{
+  "source_revision": "2182721fdecffbccfacb84ceecd88489033c7536",
+  "checkpoint": "runs\\duel-fixed-v1\\confirmation\\seed5101\\model.pt",
+  "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+  "captures": {
+    "ministrike-20261023T080428Z.replay.json": {
+      "ticks": 306,
+      "round": 17,
+      "mode": "watch",
+      "controlled": null,
+      "followed": null,
+      "paused": null,
+      "done": true,
+      "exact_parity": true,
+      ".json_sha256": "824ec3cc02338a3df38338182fb27c86a1bd0bf7b0410dba10e1aaecfee5826e",
+      ".png_sha256": "c8ad9084bd06be7427d65a7d626880a5c74f63adb8871242671a0c8e211ce530"
+    },
+    "ministrike-20261023T080900Z.replay.json": {
+      "ticks": 397,
+      "round": 23,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": true,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "9bc881441d117d6124d9f7b2a3b9e1da0aab5109b34f27cd46302b107686f05b",
+      ".png_sha256": "3cab1e282a441388f592b0f359504997edc43324e83ea4334ea7b9eefd111693"
+    },
+    "ministrike-20261023T080920Z.replay.json": {
+      "ticks": 397,
+      "round": 23,
+      "mode": "watch",
+      "controlled": 1,
+      "followed": 1,
+      "paused": true,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "1290c1ef013c11e5832b481eebf0bb16c3883c9d5be5579e43c164de8aad4830",
+      ".png_sha256": "d36461c39e49912e37f8af58a5877845b226229e10751978fb811f2c30416c2e"
+    },
+    "ministrike-20261023T080937Z.replay.json": {
+      "ticks": 397,
+      "round": 23,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": true,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "9bc881441d117d6124d9f7b2a3b9e1da0aab5109b34f27cd46302b107686f05b",
+      ".png_sha256": "3cab1e282a441388f592b0f359504997edc43324e83ea4334ea7b9eefd111693"
+    },
+    "ministrike-20261023T081023Z.replay.json": {
+      "ticks": 530,
+      "round": 30,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": false,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "79fe40a4c537143327ee8a2666d3f5db500734ead2c20050c351eddd4f54d313",
+      ".png_sha256": "0149101b480157afe096a3e43ab783055969dfc59f580d03e34b5f89ea27a5ca"
+    },
+    "ministrike-20261023T081224Z.replay.json": {
+      "ticks": 465,
+      "round": 17,
+      "mode": "play",
+      "controlled": 1,
+      "followed": 1,
+      "paused": true,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "587d2d519e37244465f8201a4c07371f5c97d7ebe9791c8f24f4b372f9a1752c",
+      ".png_sha256": "6e17076d6a42e1f48c2ed169d5c3930ac4a44bd14b2db28fa8d3d2469d55884a"
+    },
+    "native-watch-final-verified.replay.json": {
+      "ticks": 641,
+      "round": 36,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": false,
+      "done": true,
+      "exact_parity": true,
+      ".json_sha256": "0e69911360a9939ce274109fd4bf508b191f8bf09885d6740f444792aa3f8fc2",
+      ".png_sha256": "d51b452b763bf61c5e01bb2e05dc82e7346e9809dde1f907c2fdf73080f220cb"
+    },
+    "native-play-final.replay.json": {
+      "ticks": 644,
+      "round": 23,
+      "mode": "play",
+      "controlled": null,
+      "followed": 0,
+      "paused": false,
+      "done": true,
+      "exact_parity": true,
+      ".json_sha256": "e3a35230f073dbeb309364ded326f00b21c1a1f97dd20dc6a9ba8eb34bbb403a",
+      ".png_sha256": "c2d3fe02ac004e9bb2439e1c2bccc2da4a44f8bf33e464660fa27ff6cf93956d"
+    },
+    "native-exit-fixed.replay.json": {
+      "ticks": 162,
+      "round": 9,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": false,
+      "done": true,
+      "exact_parity": true,
+      ".json_sha256": "510b62bf9aa4c2e202010b9127994689e37f41ef3236497e8c85aec999a7fd11",
+      ".png_sha256": "3301e842b09b832d5b535d5303f2fe564178e95ee10370e8b24358cc38002ce4"
+    }
+  }
+}

@@ -9,3 +9,6 @@ reports/**/data/** -text -whitespace
 reports/**/raw/** -text -whitespace
 reports/**/*.svg -text -whitespace
 reports/duel-fixed-v1/launch-failure/** -text -whitespace
+reports/duel-fixed-v1/confirmation/native/** -text -whitespace
+reports/publication/cards/** -text -whitespace
+reports/duel-fixed-v1/release-verification/** -text -whitespace

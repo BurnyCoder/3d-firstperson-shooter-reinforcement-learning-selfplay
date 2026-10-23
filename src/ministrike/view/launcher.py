@@ -28,7 +28,7 @@ class LauncherWindow:
         body = tk.Frame(root, bg="#18252f", padx=32, pady=25)  # Local: consistent outer spacing frames all three choices.
         body.pack(fill="both", expand=True)  # Local: occupy the complete fixed-size native content area.
         tk.Label(body, text="MINISTRIKE", bg="#18252f", fg="#e1ebee", font=("Segoe UI", 27, "bold")).pack(anchor="w")
-        tk.Label(body, text="5v5  /  TWO BOMB SITES  /  LOCAL SELF-PLAY LAB", bg="#18252f", fg="#9badb9",
+        tk.Label(body, text="LOCAL SELF-PLAY LAB  /  CHECKPOINT SELECTS ARENA AND RULES", bg="#18252f", fg="#9badb9",
                  font=("Segoe UI", 10)).pack(anchor="w", pady=(0, 20))  # Local: communicate the runnable game's scope.
         tk.Label(body, text="BOT POLICY", bg="#18252f", fg="#9badb9", font=("Segoe UI", 9, "bold")).pack(anchor="w")
         row = tk.Frame(body, bg="#18252f")  # Local: keep the path entry and native file picker on one line.
@@ -50,13 +50,13 @@ class LauncherWindow:
             "watch", "#4ccabe", "#65dacd", tk, first_person=True,
         )  # Local: this spectator option starts without human input ownership.
         self.play_button = self._card(  # Local: the final action replaces one bot with the human player from spawn.
-            cards, 2, "Play first-person", "Take one operator's place in the match.\nMove, aim, shoot, plant and defuse.",
+            cards, 2, "Play first-person", "Take one operator's place in the match.\nMove, aim, shoot and reload.",
             "play", "#f29e4f", "#ffb66f", tk,
         )  # Local: native FPS input starts only after the launcher is closed.
         options = tk.Frame(body, bg="#18252f")  # Local: team choice matters only when selecting human play.
         options.pack(anchor="w", pady=(0, 14))  # Local: place the optional team choice directly below the action cards.
         tk.Label(options, text="YOUR TEAM", bg="#18252f", fg="#9badb9", font=("Segoe UI", 9, "bold")).pack(side="left")
-        for value, text, tint in ((0, "Attackers", "#f29e4f"), (1, "Defenders", "#4ccabe")):
+        for value, text, tint in ((0, "Team 0", "#f29e4f"), (1, "Team 1", "#4ccabe")):
             tk.Radiobutton(options, text=text, variable=self.team, value=value, bg="#18252f", fg=tint,
                            selectcolor="#101a23", activebackground="#18252f", activeforeground=tint,
                            font=("Segoe UI", 10)).pack(side="left", padx=(15, 0))  # Local: explicit canonical team IDs.

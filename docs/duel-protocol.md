@@ -61,3 +61,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 2026-10-23 [R0 diagnosis and R1 resolution](amendments/2026-10-23-R0-diagnosis.md): R0 completed but failed its validation gate; preserve its negative result and run the already registered R1 candidate at the identical step budget and initialization.
 
 2026-10-23 [R1 diagnosis and R2 resolution](amendments/2026-10-23-R1-diagnosis.md): R1 improved random-opponent performance but still failed the unchanged primary gate. Publish its evidence and resolve the already registered R2 potential-shaping pilot; confirmation remains blocked.
+
+2026-10-23 [R2 result and diagnostic boundary](amendments/2026-10-23-R2-diagnosis.md): all three pilots completed and failed primary selection. Preserve both evaluation modes and loss graphs; no confirmation or unspecified additional optimizer experiment follows from these results.

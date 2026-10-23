@@ -10,7 +10,7 @@ This is an implementation/release checklist, not a learning result. Follow [regi
 - [ ] Native arena watch, first-person watch, human play, takeover/hand-back and rendered/headless replay parity.
 - [x] [Historical audit](../reports/learning-audit/summary.md) resolved with negative outcomes and uncertainty, original suite deferred without deadline changes.
 - [x] [Bounded duel hardware calibration](amendments/2026-10-23-duel-calibration.md); selected execution and equal pilot targets published with this amendment.
-- [ ] Reward pilots executed in registered order, identical initial actor hashes and equal step targets verified.
+- [x] Reward pilots executed in registered order, identical initial actor/critic hashes and equal step targets verified: [R0](../reports/duel-fixed-v1/pilot-R0.md), [R1](../reports/duel-fixed-v1/pilot-R1.md), [R2](../reports/duel-fixed-v1/pilot-R2.md). All failed selection; this is completeness, not acceptance.
 - [ ] Qualifying validation improvement or documented diagnostic fallback; no unpromising confirmation suite.
 - [ ] Power sensitivity and resolved three-seed confirmation settings published before confirmation.
 - [ ] All three fresh independent seeds completed or explicitly failed/partial within absolute deadline.

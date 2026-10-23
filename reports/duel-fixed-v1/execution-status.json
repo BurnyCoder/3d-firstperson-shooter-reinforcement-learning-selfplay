@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "experiment": "duel-fixed-v1",
+  "status": "diagnosis_required_all_pilots_failed_gate",
+  "started_utc": "2026-10-22T23:30:52.627932+00:00",
+  "deadline_utc": "2026-10-23T11:30:52.627932+00:00",
+  "source_revision": "6db495937074e63876863b364654aef36a904345",
+  "budget_seconds": 43200,
+  "active_protocol": "docs/duel-protocol.md",
+  "roadmap": "docs/experiment-roadmap.md",
+  "runs": [
+    {
+      "id": "A-PILOT-R0",
+      "path": "runs/duel-fixed-v1/pilots/R0/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.012369791666666685
+    },
+    {
+      "id": "A-PILOT-R1",
+      "path": "runs/duel-fixed-v1/pilots/R1/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.06315104166666669
+    },
+    {
+      "id": "A-PILOT-R2",
+      "path": "runs/duel-fixed-v1/pilots/R2/seed5201",
+      "status": "complete_failed_validation_gate",
+      "improvement": 0.052734375
+    }
+  ],
+  "amendments": [
+    "docs/amendments/2026-10-23-duel-calibration.md",
+    "docs/amendments/2026-10-23-pilot-launch-recovery.md",
+    "docs/amendments/2026-10-23-R0-diagnosis.md",
+    "docs/amendments/2026-10-23-R1-diagnosis.md",
+    "docs/amendments/2026-10-23-R2-diagnosis.md"
+  ],
+  "legacy_suite": "deferred; never resume automatically",
+  "active_group": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\duel-fixed-v1\\pilots\\R2.json"
+}

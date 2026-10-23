@@ -6,7 +6,7 @@
     "A-CAL": {"status": "complete", "purpose": "Nine cells completed; see reports/duel-fixed-v1/calibration/selection.json; do not repeat"},
     "A-PILOT-R0": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R0.md"},
     "A-PILOT-R1": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R1.md"},
-    "A-PILOT-R2": {"status": "runnable", "prerequisite": "R1 diagnosis in docs/amendments/2026-10-23-R1-diagnosis.md; matched configs/duel-pilot-R2.json"},
+    "A-PILOT-R2": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R2.md"},
     "A-CONFIRM": {"status": "blocked", "prerequisite": "Qualifying pilot, power analysis, selected reward and equal targets published"},
     "A-DIAG": {"status": "blocked", "prerequisite": "Specific intervention/control/configuration published as dated amendment"},
     "LEGACY-5V5": {"status": "deferred", "prerequisite": "No restart authorized; retain original deadlines and evidence"}

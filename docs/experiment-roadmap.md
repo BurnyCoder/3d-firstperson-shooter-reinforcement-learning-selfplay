@@ -54,3 +54,7 @@ The complete frozen fields, decision rules and numerical settings for these entr
 | T-A-B / T-B-D / T-E-F / T-G-H |Does transfer beat scratch at matched target compute? |Separate inherited-vs-scratch init, report source+target compute and checkpoints, compatible-interface migration, disjoint target-test seeds; never replace main scratch experiment |
 
 Future agents must add every proposed architecture/reward/diagnostic variant here **and** freeze its executable config/protocol before optimizer work. A broad row is not permission to improvise hyperparameters or a new budget. Publish amendments, record actual execution separately in the manifest, and link measured findings rather than editing a prior hypothesis to match outcomes.
+
+## Execution status, 2026-10-23
+
+The registration tables above retain their prospective wording. Calibration and R0/R1/R2 are now complete. All three matched pilots failed the primary validation gate; [R2's report](../reports/duel-fixed-v1/pilot-R2.md) and the [post-pilot amendment](amendments/2026-10-23-R2-diagnosis.md) close this selection sequence. Confirmation remains blocked. The next diagnostic must resolve its intervention, controls and allowance before execution. Saved [loss and evaluation figures](experiment-plots.md) show measured outcomes without replacing the registered decision rule.

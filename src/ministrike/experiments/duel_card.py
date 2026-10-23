@@ -19,9 +19,12 @@ def make_duel_card(run, result, config):
             with (run / name).open("rb") as stream:
                 hashes[name] = hashlib.file_digest(stream, "sha256").hexdigest()
     revision = result.get("source_revision", config.get("source_revision", "unavailable"))
-    source = "https://github.com/BurnyCoder/counter-strike-reinforcement-learning-selfplay"
+    source = "https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay"
     context_path = run / "release-context.json"
     context = json.loads(context_path.read_text(encoding="utf-8")) if context_path.exists() else {"status": "pending"}
+    validation_path = run / "final_validation.json"
+    validation = json.loads(validation_path.read_text(encoding="utf-8")) if validation_path.exists() else {}
+    diagnostic = config.get("registration", "").startswith("A-DIAG")
     return f"""---
 license: mit
 library_name: pytorch
@@ -34,6 +37,7 @@ tags:
 # MiniStrike fixed-spawn duel, seed {result['seed']}
 
 Author: Libor Burian. **Experimental research checkpoint** for an original 1v1 elimination game.
+{'**Diagnostic only: never use this model as the deployment checkpoint.**' if diagnostic else '**Engineering acceptance is not implied by completing training.**'}
 Source revision: [`{revision}`]({source}/tree/{revision}). Registration: `{config.get('registration', 'unavailable')}`.
 
 ## Method and architecture
@@ -45,6 +49,9 @@ controls: movement, yaw, pitch, firing and reload. A separate critic has two 256
 layers and receives the active learner team's observations; for 1v1 this is one player's input.
 TorchRL supplies PPO loss, collection and GAE. Opponents are immutable learned snapshots,
 sampled 50% latest / 50% history at round boundaries, with the initial policy retained permanently.
+Actor preprocessing is **{config.get('observation_transform', 'identity')}**: egocentric-v1 rotates already-visible
+relative coordinates into each observation frame's right/up/forward basis; identity retains world axes.
+The critic retains original coordinates. No extra hidden information, aiming or navigation is supplied.
 
 Reward `{config.get('reward', 'unavailable')}` and all coefficients are engineering choices in the
 [active protocol]({source}/blob/{revision}/docs/duel-protocol.md), not published optima. Exact
@@ -56,6 +63,7 @@ optimizer/rollout/hardware settings are in `config.json`. Training recorded **{r
 Final-test status: **{evaluation.get('status', 'pending')}**. Equal-opponent/side round score:
 **{summary.get('score', 'pending')}**. Baseline breakdown: `{json.dumps(summary.get('baselines', {}), sort_keys=True)}`.
 Elimination fraction: **{summary.get('elimination_fraction', 'pending')}**.
+Final validation summary (selection evidence, not final testing): `{json.dumps(validation.get('summary', {}), sort_keys=True)}`.
 Win/draw/loss score is 1/0.5/0 against random, corresponding initial and moving quantized scripted
 evaluation controls. Raw paired worlds and identities are in `initial_test.json` and `final_test.json`
 when available; stochastic behavior is separately labeled. Validation files concern model selection,
@@ -76,7 +84,7 @@ uv run csrl watch --experiment duel-fixed-v1 --first-person --checkpoint PATH/mo
 uv run csrl play --experiment duel-fixed-v1 --checkpoint PATH/model.pt
 ```
 
-Tab selects a living bot; V switches spectator camera; F takes over or hands control back without
+Tab selects a living bot; V/F1 switches spectator camera; F/F2 takes over or hands control back without
 resetting the round. The arena is 14 × 14 metres, with fixed starts six metres apart, 20 Hz simulation,
 20-second rounds, no respawns/objectives, and simultaneous lethal shots/timeouts drawing.
 `initial.pt` is the untouched model baseline; `model.pt` is the recorded endpoint. Checkpoints

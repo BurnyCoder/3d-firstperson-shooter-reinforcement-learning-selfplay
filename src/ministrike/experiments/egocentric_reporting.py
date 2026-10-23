@@ -22,7 +22,7 @@ def copy_records(root, destination):
     """Local: copy allowlisted raw evidence; global: model binaries and credentials are never included in the Git report bundle."""
     hashes = {}
     for path in sorted(Path(root).rglob("*")):
-        if path.is_file() and path.suffix in {".json", ".jsonl", ".log"}:
+        if path.is_file() and path.suffix in {".json", ".jsonl", ".log"} and "publication" not in path.relative_to(root).parts:
             target = Path(destination) / path.relative_to(root)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)  # Local: full logs and traces survive unchanged.

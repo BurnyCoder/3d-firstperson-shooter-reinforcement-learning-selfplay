@@ -15,6 +15,7 @@ import numpy as np  # Local: arithmetic on independent training-seed differences
 from scipy.stats import t  # Local: maintained Student-t quantiles; global: explicit interval assumptions.
 
 from ministrike.records import timestamp, write_json  # Shared provenance and atomic JSON output.
+from ministrike.experiments.loss_plots import parse_metrics, save_loss_gallery  # Local: reuse strict evidence parsing and per-run figures.
 
 SOURCES = {  # Local: primary sources; global: separate external methodology from local evidence.
     "MAPPO": "https://arxiv.org/abs/2103.01955",
@@ -49,12 +50,7 @@ def discover_runs(input_dir):
         metrics, warnings = [], []  # Keep complete metric rows and disclose any interrupted last write.
         metrics_path = path.parent / "metrics.jsonl"  # Raw logger output is separate from summarized results.
         if metrics_path.exists():  # Missing metrics remain explicitly unavailable.
-            for line_number, line in enumerate(metrics_path.read_text(encoding="utf-8").splitlines(), 1):
-                if line.strip():  # Ignore only empty separators, never failed measurements.
-                    try:
-                        metrics.append(json.loads(line))  # Retain every valid update in its recorded order.
-                    except json.JSONDecodeError:
-                        warnings.append(f"metrics.jsonl line {line_number} is incomplete or malformed")
+            metrics, warnings = parse_metrics(metrics_path.read_bytes())  # Local: share missingness/order checks with loss plots.
         records.append({"name": name, "path": path.parent, "result": result, "primary": primary,
                         "config": _read_json(path.parent / "config.json") or {}, "metrics": metrics,
                         "evaluation": _read_json(path.parent / "evaluation.json"),
@@ -432,6 +428,7 @@ def create_reports(input_dir, output_dir):
     """Local: discover, summarize, preserve, and render; global: one auditable reporting command."""
     destination = Path(output_dir)  # Caller decides where generated public reports belong.
     destination.mkdir(parents=True, exist_ok=True)  # Create only the requested artifact tree.
+    save_loss_gallery(input_dir, destination / "losses")  # Local: include logged losses even for deferred runs without a result.json.
     records = discover_runs(input_dir)  # Ground every empirical statement in recorded input artifacts.
     suite = _preserve_suite(input_dir, destination)  # Local: copied protocol and paper appendix share one exact manifest snapshot.
     comparison = paired_training_comparison(records)  # Freeze inclusion rules before inspecting their scores.

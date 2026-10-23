@@ -1,8 +1,10 @@
 """Local: test takeover transitions without a window; global: switching input must preserve the running match."""
 
 import numpy as np  # Local: use the simulator's ten-slot alive-mask convention.
+from types import SimpleNamespace  # Local: isolate native-shortcut dispatch from graphics.
 
 from ministrike.view.state import ViewControlState  # Local: import only presentation-control state, never graphics.
+from ministrike.view.app import ViewSession  # Local: this module defers graphics imports until a window is opened.
 
 
 def test_takeover_and_hand_back_preserve_selected_bot():
@@ -53,3 +55,18 @@ def test_camera_toggle_cannot_reveal_hidden_opponents_while_human():
     state = ViewControlState.create("play", team=0, first_person=False)  # Local: begin controlling the attacker slot.
     state.toggle_view()  # Local: V is deliberately ignored while the human owns a live operator.
     assert state.first_person and state.followed == 0  # Local: camera remains at the actual player's eyes.
+
+
+def test_function_key_aliases_use_the_same_live_ownership_transitions():
+    """Local: support alternate native keys; global: aliases cannot reset or otherwise mutate the match."""
+    alive = np.ones((1, 2), dtype=bool)  # Local: the smallest supported combat match.
+    state = ViewControlState.create("watch", team_size=1)
+    session = SimpleNamespace(control_state=state, simulation=SimpleNamespace(alive=alive),
+                              controls=SimpleNamespace(clear=lambda: None), _sync_mouse=lambda: None)
+    ViewSession.input(session, "f1")  # Local: the alternate camera key uses the normal V branch.
+    assert state.followed == 0 and state.controlled is None
+    ViewSession.input(session, "f2")  # Local: the alternate ownership key uses the normal F branch.
+    assert state.controlled == 0
+    ViewSession.input(session, "f2")  # Local: returning ownership preserves the same selection.
+    assert state.controlled is None and state.followed == 0
+    np.testing.assert_array_equal(alive, np.ones((1, 2), dtype=bool))

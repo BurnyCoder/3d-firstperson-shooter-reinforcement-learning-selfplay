@@ -1,0 +1,154 @@
+{
+  "reward": "R2",
+  "seed": 5201,
+  "assessed_utc": "20261023T004432.411661Z",
+  "source_revision": "e0a2420e2b57e10b5ccf1448d91d8ecf967a8a1c",
+  "initial_actor_sha256": "6fe51f088e16ef414a224ddb01a2495706b314cc3a7eda88477b7b0fb6780935",
+  "initial_critic_sha256": "dd07316b6ca535c9bb37771cb625a0726b081764604091fbb8a37ba815572870",
+  "initial_checkpoint_sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+  "final_checkpoint_sha256": "495446a1142be875a43a6012377af4daa062a7e293b0d141e0c8c8b5ae1d6d79",
+  "complete_equal_budget": true,
+  "initial": {
+    "score": 0.3333333333333333,
+    "baselines": {
+      "random": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 256,
+        "wins": 0,
+        "draws": 256,
+        "losses": 0
+      },
+      "initial": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 2,
+        "losses": 0
+      },
+      "scripted": {
+        "score": 0.0,
+        "side_scores": [
+          0.0,
+          0.0
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    "elimination_fraction": 0.007692307692307693
+  },
+  "final": {
+    "score": 0.3860677083333333,
+    "baselines": {
+      "random": {
+        "score": 0.658203125,
+        "side_scores": [
+          0.73828125,
+          0.578125
+        ],
+        "matches": 256,
+        "wins": 81,
+        "draws": 175,
+        "losses": 0
+      },
+      "initial": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 2,
+        "losses": 0
+      },
+      "scripted": {
+        "score": 0.0,
+        "side_scores": [
+          0.0,
+          0.0
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    "elimination_fraction": 0.3192307692307692
+  },
+  "improvement": 0.052734375,
+  "numerical_gate_passed": false,
+  "match_uncertainty": {
+    "ci95": [
+      0.044270833333333336,
+      0.061197916666666664
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "diagnostics": {
+    "initial": {
+      "random": {
+        "damage_per_round": 9.1796875,
+        "shots_per_round": 25.84765625,
+        "hits_per_shot": 0.014205833459271573,
+        "reload_occupancy": 0.437333984375,
+        "aim_saturation": 0.947275390625,
+        "seconds_per_round": 20.0
+      },
+      "initial": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 25.0,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.44625,
+        "aim_saturation": 0.9475,
+        "seconds_per_round": 20.0
+      },
+      "scripted": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 7.5,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.32857142857142857,
+        "aim_saturation": 0.4,
+        "seconds_per_round": 1.75
+      }
+    },
+    "final": {
+      "random": {
+        "damage_per_round": 56.73828125,
+        "shots_per_round": 27.96875,
+        "hits_per_shot": 0.08114525139664805,
+        "reload_occupancy": 0.07694813656502476,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 14.98828125
+      },
+      "initial": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 30.0,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.0,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 20.0
+      },
+      "scripted": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 5.0,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.0,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 0.7250000000000001
+      }
+    }
+  },
+  "scope": "Exploratory seed5201 selection; correctness review remains a separate prerequisite"
+}

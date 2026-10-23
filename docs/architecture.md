@@ -8,11 +8,13 @@ World coordinates are XYZ with Y up. Positive yaw turns from +Z toward +X; posit
 
 Physical controls have seven fields: forward,strafe,yaw increment,pitch increment,fire,reload,interact. Learned categorical controls decode into the same representation as human input. The actor cannot invoke scripted pathfinding or target locking.
 
-The simulation batches arenas in NumPy. `ArenaEnv` adapts its five learner slots to TorchRL; the opposite team runs a fixed snapshot for each round. The actor sees one player's observations. The critic combines the five learner observations only during optimization. Full trajectories keep shape `[arena,time,player,...]` until GAE; minibatch shuffling preserves the player group.
+The simulation batches arenas in NumPy. `MatchSpec` in `sim/specs.py` selects the map, player/team count, observation dimensions and active categorical heads. `ArenaEnv` adapts one learner slot for `duel-fixed-v1` or five for `legacy-5v5-v1`; the opposite team runs a fixed snapshot for each round. The actor sees one player's observations. The critic combines the learner team's observations only during optimization. For a duel, the separate critic has the same information as its one actor. Full trajectories keep shape `[arena,time,player,...]` until GAE; minibatch shuffling preserves the player group. This follows the [TorchRL multi-agent interface](https://docs.pytorch.org/rl/stable/tutorials/multiagent_ppo.html).
+
+Stage A uses a14×14metre flat interior and fixed six-metre-separated spawns. Its full rules, version identifiers, observation/reward changes and engineering defaults are centralized in [the active registration](duel-protocol.md). The original tactical map and bomb rules below are retained for legacy checkpoints; they are not silently substituted into a duel.
 
 ## Observation schema
 
-Each frame has96float32features; four frames, oldest to newest, produce384features. Positions/distances use documented30m normalization.
+Each frame has `36 + 6 * players` float32 features; four frames, oldest to newest, produce192 inputs for the two-player duel or384 for legacy5v5. Positions/distances retain30m normalization. The public objective fields below are zeroed in deathmatch. `sim/observations.py` is authoritative; tests verify hidden dynamic fields and independent arena histories.
 
 |Indices|Information|
 |---|---|
@@ -20,11 +22,11 @@ Each frame has96float32features; four frames, oldest to newest, produce384featur
 |16–21|Known bomb-relative position, planted flag, bomb clock, information-valid flag|
 |22–27|Two public bomb-site relative positions|
 |28–35|Eight waist-height horizontal obstacle-distance rays|
-|36–95|Ten fixed player slots: relative XYZ, visibility flag, same-team flag, visible teammate health|
+|36 onward|One six-field row per player: relative XYZ, visibility flag, same-team flag, visible teammate health; two rows for duel, ten for legacy5v5|
 
 Enemy dynamic data are zeroed unless in field of view and unobstructed. Enemy health is never supplied. Public team identity is fixed even when a player is hidden. Unplanted enemy carrier information is hidden; planting announces the bomb position. Dead players retain useful public clock/objective information. Geometry rays include known walls rather than secretly detecting enemies behind cover.
 
-## Combat and objectives
+## Shared combat and legacy objectives
 
 Defaults are explicitly serialized from game configuration:100health,25damage, rifle6rounds/second, magazine30,reserve90,reload2seconds, movement5m/second, round60seconds,bomb25seconds,plant2seconds,defuse3seconds. These are MiniStrike design values, not claims of exact Counter-Strike mechanics.
 
@@ -32,13 +34,17 @@ Shots use actual3D direction and the nearest obstruction; teammates block shots 
 
 Completed defuse wins over explosion on the same tick. Completed plant takes precedence over pre-plant round timeout. A planted bomb survives attacker elimination. Mutual full elimination before planting is a draw; otherwise elimination and objective rules determine the winner. Ordinary round expiration is terminal game logic, not an artificial training truncation.
 
-Outcome reward is±1per team, draw0. Combat shaping is bounded by0.10for damage and planting adds0.10; opposite teams receive opposite rewards. Shaping changes the training objective and is not claimed policy-invariant. Evaluation uses actual round outcomes, never shaped return.
+Legacy outcome reward is±1per team, draw0. Legacy combat shaping is bounded by0.10for damage and planting adds0.10; opposite teams receive opposite rewards. This changes the training objective and is not claimed policy-invariant. The duel instead uses the separately versioned R0/R1/R2 definitions in [the active registration](duel-protocol.md), implemented in `sim/rewards.py`. R2's individual potential terms need not be zero-sum. Evaluation always uses actual round outcomes, never shaped return.
 
 ## Replays, cameras, and checkpoint identity
 
 Finite viewer runs save screenshots and action replays; replaying the same seed/actions headlessly must reproduce the full final snapshot. Free camera, first-person bot camera, and human takeover all read the same world. Taking over or handing back changes only the action provider for one slot; it cannot respawn, heal, refill ammunition, or reset objectives.
 
 Checkpoints include actor/critic/optimizer, environment/observation history, roles, opponent pool and identities, random generators, used budget, source revision, and action/observation schema. Loading uses PyTorch's restricted weights-only format with explicit conversion of NumPy values. Use project-produced checkpoints and retain their configuration/model card.
+
+Stage A preflight compares resolved configuration to committed/pushed source, checks runnable registration and the unique absolute budget manifest. Resume also checks the implementation-tree identity. Keep source files unchanged while a worker runs; changing documentation does not change that tree. JSON and checkpoint publication use bounded retries around standard-library atomic replacement for transient Windows sharing denial, preserving old and temporary versions on persistent failure. See [the recovery amendment](amendments/2026-10-23-pilot-launch-recovery.md) for the observed incident and tests.
+
+Registered `milestone_updates` optionally retain full training-state checkpoints at exact completed update numbers for duration comparisons. They use the existing serializer, do not add opponent snapshots or consume RNG, and are empty by default for legacy configurations. `tests/test_training_milestones.py` uses no-op collection/optimizer fixtures to verify persistence, resume and invalid-registration rejection without a gameplay optimization experiment. The main checkpoint and all original elapsed accounting remain authoritative for recovery.
 
 ## Primary implementation sources
 

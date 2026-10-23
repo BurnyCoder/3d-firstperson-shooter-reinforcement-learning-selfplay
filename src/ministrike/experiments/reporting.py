@@ -10,11 +10,13 @@ from pathlib import Path  # Local: isolate report paths; global: reproducible po
 import re  # Local: small Markdown presentation adapter; global: one paper source for Markdown/PDF.
 import shutil  # Local: copy raw evidence; global: preserve original JSON/JSONL bytes.
 from xml.sax.saxutils import escape  # Local: escape PDF paragraph markup; global: safe artifact rendering.
+from urllib.parse import urljoin  # Local: resolve paper-relative evidence links against their public source location.
 
 import numpy as np  # Local: arithmetic on independent training-seed differences.
 from scipy.stats import t  # Local: maintained Student-t quantiles; global: explicit interval assumptions.
 
 from ministrike.records import timestamp, write_json  # Shared provenance and atomic JSON output.
+from ministrike.experiments.loss_plots import parse_metrics, save_loss_gallery  # Local: reuse strict evidence parsing and per-run figures.
 
 SOURCES = {  # Local: primary sources; global: separate external methodology from local evidence.
     "MAPPO": "https://arxiv.org/abs/2103.01955",
@@ -49,12 +51,7 @@ def discover_runs(input_dir):
         metrics, warnings = [], []  # Keep complete metric rows and disclose any interrupted last write.
         metrics_path = path.parent / "metrics.jsonl"  # Raw logger output is separate from summarized results.
         if metrics_path.exists():  # Missing metrics remain explicitly unavailable.
-            for line_number, line in enumerate(metrics_path.read_text(encoding="utf-8").splitlines(), 1):
-                if line.strip():  # Ignore only empty separators, never failed measurements.
-                    try:
-                        metrics.append(json.loads(line))  # Retain every valid update in its recorded order.
-                    except json.JSONDecodeError:
-                        warnings.append(f"metrics.jsonl line {line_number} is incomplete or malformed")
+            metrics, warnings = parse_metrics(metrics_path.read_bytes())  # Local: share missingness/order checks with loss plots.
         records.append({"name": name, "path": path.parent, "result": result, "primary": primary,
                         "config": _read_json(path.parent / "config.json") or {}, "metrics": metrics,
                         "evaluation": _read_json(path.parent / "evaluation.json"),
@@ -370,7 +367,7 @@ def _paper_sections(records, comparison, suite=None):
     ]  # One source of paper content keeps Markdown and PDF claims synchronized.
 
 
-def _render_pdf(markdown, destination, figure_path):
+def _render_pdf(markdown, destination, figure_path=None):
     """Local: render the same paper text with ReportLab; global: avoid divergent Markdown/PDF claims."""
     from reportlab.lib import colors  # Small publication palette for readable tables.
     from reportlab.lib.pagesizes import A4  # Explicit portable print geometry.
@@ -386,7 +383,10 @@ def _render_pdf(markdown, destination, figure_path):
     def rich(text):
         """Local: escape text and retain source links; global: safe readable PDF provenance."""
         escaped = escape(text.replace("`", ""))  # Literal code markers do not belong in rendered prose.
-        return re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<link href="\2" color="#235789">\1</link>', escaped)
+        escaped = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", escaped)  # Local: retain intentional emphasis in the shared source.
+        output = Path(destination).resolve()  # Local: temporary external report paths retain relative links instead of raising.
+        public_path = "https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay/blob/main/" + output.relative_to(Path.cwd()).as_posix() if output.is_relative_to(Path.cwd()) else ""
+        return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda match: f'<link href="{urljoin(public_path, match[2])}" color="#235789">{match[1]}</link>', escaped)  # Local: standard URL joining keeps exported evidence references clickable; https://docs.python.org/3.12/library/urllib.parse.html .
 
     def flush():
         """Local: finish pending blocks; global: preserve source order and avoid splitting paragraphs."""
@@ -414,7 +414,17 @@ def _render_pdf(markdown, destination, figure_path):
             story.append(Paragraph(rich(line.lstrip("# ")), styles["Title" if level == 1 else "Heading2"]))
         elif line.startswith("!["):
             flush()  # The figure sits at its explicit source position.
-            story.append(Image(str(figure_path), width=width, height=width * 4 / 11))  # Match the saved figure aspect ratio.
+            match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", line)  # Local: resolve each actual figure from the paper's directory.
+            path = Path(destination).parent / match[2] if match else Path(figure_path)
+            if not path.exists() and figure_path is not None:
+                path = Path(figure_path)  # Local: retain the legacy single-figure report interface.
+            item = Image(str(path))  # Local: ReportLab reads the saved raster dimensions; no fixed-aspect distortion.
+            scale = min(width / item.imageWidth, 340 / item.imageHeight)  # Local: leave room for captions on an A4 page.
+            item.drawWidth, item.drawHeight = item.imageWidth * scale, item.imageHeight * scale
+            item.keepWithNext = True  # Local: keep each scientific figure beside its explanatory caption.
+            story.append(item)
+            if match and match[1]:
+                story.append(Paragraph(rich(match[1]), styles["BodyText"]))  # Local: preserve the claim/interpretation adjacent to its figure.
         elif not line.strip():
             flush()  # Blank lines delimit generated paragraphs/tables.
         else:
@@ -425,13 +435,19 @@ def _render_pdf(markdown, destination, figure_path):
     document = SimpleDocTemplate(str(destination), pagesize=A4, rightMargin=44, leftMargin=44,
                                  topMargin=44, bottomMargin=44, title="MiniStrike self-play experiment",
                                  author="Libor Burian")
-    document.build(story)  # Rendering is invoked only by the explicit report command.
+    def page_footer(canvas, doc):
+        """Local: label each page; global: exported evidence remains navigable outside the source repository."""
+        canvas.setFont("Helvetica", 8)
+        canvas.drawString(44, 25, "MiniStrike / Libor Burian")
+        canvas.drawRightString(A4[0] - 44, 25, str(doc.page))
+    document.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
 
 
 def create_reports(input_dir, output_dir):
     """Local: discover, summarize, preserve, and render; global: one auditable reporting command."""
     destination = Path(output_dir)  # Caller decides where generated public reports belong.
     destination.mkdir(parents=True, exist_ok=True)  # Create only the requested artifact tree.
+    save_loss_gallery(input_dir, destination / "losses")  # Local: include logged losses even for deferred runs without a result.json.
     records = discover_runs(input_dir)  # Ground every empirical statement in recorded input artifacts.
     suite = _preserve_suite(input_dir, destination)  # Local: copied protocol and paper appendix share one exact manifest snapshot.
     comparison = paired_training_comparison(records)  # Freeze inclusion rules before inspecting their scores.

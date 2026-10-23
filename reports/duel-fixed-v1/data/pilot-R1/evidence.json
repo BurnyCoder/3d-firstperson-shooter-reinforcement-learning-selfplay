@@ -1,0 +1,17 @@
+{
+  "assessment.json": "163bd78d82b7b6e4c88514b63d4fe0081268236f0192dd72de68864bdbc58dda",
+  "config.json": "152650c6d9315ab50cfe169c74f229aecd8c3979cc9a9a91cdcf9822e026eac5",
+  "final_validation.json": "7bccbf0d95a582a0e9e60c5ba0cbe044c0625a4bff2d3004e87af2868738faf0",
+  "final_validation_stochastic.json": "b5c11b5dbdca3cfc7ef39c595bd3062aa0862f0fe41f8b318a1272ae50b4a260",
+  "initial_validation.json": "2697e3b54b997c2cbb199d14be8fa9fc5b5e8bb7b2a5cd81a54aee1577b64cd0",
+  "initial_validation_stochastic.json": "f21c641c858bc25b98df310584eba4ec2617248022b38603a23125e697af472d",
+  "metrics.jsonl": "7f472915d3b3541d5acfb3d93f569e0f3e9113dea5ec26e03881fabbab0b0626",
+  "preflight.json": "94721239969277cf553ef3c96c78c28a38356c682b9492ffa4ac60e5f4e44cca",
+  "result.json": "031e5cc4e5efc56eacfe096eca6aa0f1109c25354bc8a207afa103b38f77d4c0",
+  "worker-20261023T000632.147189Z.log": "36fa090d08bc2264dff3a18fccfda275e23277da6a6156f1bb1362bdb935125a",
+  "group.json": "cef1a433201a96c4685dc4132f581331b1fea2b05ebe54274d6378318e1c9808",
+  "checkpoints": {
+    "initial.pt": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de",
+    "model.pt": "c97392916f6fa4a968564b90d7928c7e223b6d5e97fab0ea67ae85ee0f440b77"
+  }
+}

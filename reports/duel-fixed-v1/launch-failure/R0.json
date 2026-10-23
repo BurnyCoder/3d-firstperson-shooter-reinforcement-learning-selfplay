@@ -1,0 +1,26 @@
+{
+  "name": "pilots/R0",
+  "status": "running",
+  "config": "configs/duel-pilot-R0.json",
+  "indices": [
+    0
+  ],
+  "started_utc": "2026-10-22T23:39:08.149944+00:00",
+  "workers": [
+    {
+      "pid": 58476,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs/duel-pilot-R0.json",
+        "--index",
+        "0"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\pilots\\R0\\seed5201"
+    }
+  ],
+  "telemetry": []
+}

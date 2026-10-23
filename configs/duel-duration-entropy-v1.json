@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md",
+  "initial_actor_sha256": "6fe51f088e16ef414a224ddb01a2495706b314cc3a7eda88477b7b0fb6780935",
+  "initial_critic_sha256": "dd07316b6ca535c9bb37771cb625a0726b081764604091fbb8a37ba815572870",
+  "groups": ["diagnostics/duration-R1", "diagnostics/entropy-R1"],
+  "validation": {"seed_base": 3000000, "pairs": 128, "num_envs": 32, "max_seconds": 900},
+  "runs": [
+    {
+      "output_dir": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/control/seed5201",
+      "experiment": "duel-fixed-v1",
+      "registration": "A-DIAG-DURATION-R1",
+      "condition": "selfplay",
+      "seed": 5201,
+      "num_envs": 64,
+      "total_frames": 4980736,
+      "max_seconds": 4800,
+      "device": "cuda",
+      "inference_device": "cuda",
+      "torch_threads": 1,
+      "reward": "R1",
+      "entropy_coefficient": 0.01,
+      "milestone_updates": [152]
+    },
+    {
+      "output_dir": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/low-entropy/seed5201",
+      "experiment": "duel-fixed-v1",
+      "registration": "A-DIAG-ENTROPY-R1",
+      "condition": "selfplay",
+      "seed": 5201,
+      "num_envs": 64,
+      "total_frames": 4980736,
+      "max_seconds": 4800,
+      "device": "cuda",
+      "inference_device": "cuda",
+      "torch_threads": 1,
+      "reward": "R1",
+      "entropy_coefficient": 0.001,
+      "milestone_updates": [152]
+    }
+  ]
+}

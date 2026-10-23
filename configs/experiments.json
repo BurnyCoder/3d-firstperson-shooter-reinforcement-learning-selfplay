@@ -3,12 +3,18 @@
   "active_protocol": "docs/duel-protocol.md",
   "roadmap": "docs/experiment-roadmap.md",
   "experiments": {
-    "A-CAL": {"status": "runnable", "purpose": "Bounded two-player throughput calibration; diagnostic weights never deploy"},
-    "A-PILOT-R0": {"status": "blocked", "prerequisite": "Published calibration selection and equal pilot arena-step target"},
-    "A-PILOT-R1": {"status": "blocked", "prerequisite": "R0 fails validation gate; diagnosis and frozen matched configuration published"},
-    "A-PILOT-R2": {"status": "blocked", "prerequisite": "R1 fails validation gate; diagnosis and frozen matched configuration published"},
-    "A-CONFIRM": {"status": "blocked", "prerequisite": "Qualifying pilot, power analysis, selected reward and equal targets published"},
+    "A-CAL": {"status": "complete", "purpose": "Nine cells completed; see reports/duel-fixed-v1/calibration/selection.json; do not repeat"},
+    "A-PILOT-R0": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R0.md"},
+    "A-PILOT-R1": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R1.md"},
+    "A-PILOT-R2": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R2.md"},
+    "A-CONFIRM": {"status": "complete", "protocol": "docs/amendments/2026-10-23-confirmation-resolution.md", "config": "configs/duel-confirmation.json", "outcome": "All 5101/5102/5103 reached 5,464,064 steps and 667 updates; all evaluations complete; mean primary improvement 0.415364583; moving-script median 0.25 fails 0.55 gate; experimental"},
+    "A-EVAL": {"status": "complete", "protocol": "docs/amendments/2026-10-23-confirmation-evaluation.md", "config": "configs/duel-confirmation.json", "outcome": "All 24 endpoints complete; seed5101 frozen by validation before final tests; all models published; no further tuning or automatic progression"},
     "A-DIAG": {"status": "blocked", "prerequisite": "Specific intervention/control/configuration published as dated amendment"},
+    "A-DIAG-ACTION-MODES-1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-action-mode-diagnostic.md", "config": "configs/duel-action-modes-v1.json", "outcome": "Mean learner-only effect 0.0169271 below 0.10; 774 reproduced rows exact; see reports/duel-fixed-v1/action-modes-v1.md"},
+    "A-DIAG-DURATION-R1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "outcome": "Duration gain 0.02408854 below 0.10; recipe screen failed; never retrain completed control"},
+    "A-DIAG-ENTROPY-R1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "outcome": "Low-minus-control -0.04622396; recipe screen failed; all twelve endpoints preserved"},
+    "A-DIAG-RESUME-1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-egocentric-diagnostic.md", "config": "configs/duel-resume-control.json", "outcome": "All 12 exact production-state comparisons passed; 768 new arena steps; diagnostic only; see reports/duel-fixed-v1/egocentric-v1/resume.md"},
+    "A-DIAG-EGO-R1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-egocentric-diagnostic.md", "config": "configs/duel-egocentric-R1.json", "outcome": "External gain 0.619140625 and own-initial gain 2/3; all final primary scores 1, elimination 1; recipe screen passed; one diagnostic seed, never deployment"},
     "LEGACY-5V5": {"status": "deferred", "prerequisite": "No restart authorized; retain original deadlines and evidence"}
   }
 }

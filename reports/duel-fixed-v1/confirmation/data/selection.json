@@ -1,0 +1,43 @@
+{
+  "candidates": [
+    {
+      "seed": 5101,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5101/model.pt",
+      "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+      "initial_sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064,
+      "score": 0.75
+    },
+    {
+      "seed": 5102,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5102/model.pt",
+      "checkpoint_sha256": "66a3e6342a79eed81e5d92ff3a5c3c588e1b59fa0e2226c63b7376d1f03ac1a1",
+      "initial_sha256": "4167b41f716c53afb394e556b68115e6b5a4056c28e71fd10dbac44696f3fcb2",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064,
+      "score": 0.748046875
+    },
+    {
+      "seed": 5103,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5103/model.pt",
+      "checkpoint_sha256": "a77e9541e91ec40a8e76d746a0d61c2e1b84bea08099dc679417d2c82659abdd",
+      "initial_sha256": "d1ee259e42a78a1e77af6d468a567be5fbfce86394d9efdff8bdc4f9eae0672d",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064,
+      "score": 0.7493489583333334
+    }
+  ],
+  "selected": {
+    "seed": 5101,
+    "checkpoint": "runs/duel-fixed-v1/confirmation/seed5101/model.pt",
+    "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+    "initial_sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+    "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+    "arena_steps": 5464064,
+    "score": 0.75
+  },
+  "rule": "highest primary validation mean; exact ties choose lower seed",
+  "final_test_accessed": false,
+  "frozen_utc": "2026-10-23T07:58:18.828799+00:00"
+}

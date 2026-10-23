@@ -1,0 +1,12 @@
+{
+  "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+  "launched_utc": "2026-10-23T04:13:46.1328751Z",
+  "config": "configs/duel-egocentric-R1.json",
+  "stdout": "runs/duel-fixed-v1/egocentric.stdout.log",
+  "stderr": "runs/duel-fixed-v1/egocentric.stderr.log",
+  "resume_control": "configs/duel-resume-control.json",
+  "command": "cmd.exe /d /c .venv\\Scripts\\python.exe -u scripts\\run_egocentric_diagnostic.py 1>runs\\duel-fixed-v1\\egocentric.stdout.log 2>runs\\duel-fixed-v1\\egocentric.stderr.log",
+  "launch_method": "hidden WMI job breakaway",
+  "group_receipt": "runs/duel-fixed-v1/diagnostics/egocentric-R1.json",
+  "process_id": 16164
+}

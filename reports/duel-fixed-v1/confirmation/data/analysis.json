@@ -1,0 +1,223 @@
+{
+  "validation": {
+    "deterministic": {
+      "status": "complete",
+      "models": [
+        {
+          "seed": 5101,
+          "improvement": 0.4166666666666667,
+          "match_uncertainty": {
+            "ci95": [
+              0.41666666666666663,
+              0.41666666666666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5102,
+          "improvement": 0.412109375,
+          "match_uncertainty": {
+            "ci95": [
+              0.40885416666666663,
+              0.41471354166666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5103,
+          "improvement": 0.41601562500000006,
+          "match_uncertainty": {
+            "ci95": [
+              0.41471354166666663,
+              0.41666666666666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        }
+      ],
+      "mean_improvement": 0.4149305555555556,
+      "model_ci95": [
+        0.40880764306277073,
+        0.42105346804834043
+      ],
+      "acceptance": false,
+      "median_final_scores": {
+        "random": 0.998046875,
+        "initial": 1.0,
+        "scripted": 0.25
+      },
+      "elimination_fraction": 0.9935897435897436,
+      "hypothesis_point_estimate_met": true
+    },
+    "stochastic": {
+      "status": "complete",
+      "models": [
+        {
+          "seed": 5101,
+          "improvement": 0.38671874999999994,
+          "match_uncertainty": {
+            "ci95": [
+              0.3782552083333333,
+              0.3951822916666667
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5102,
+          "improvement": 0.47916666666666663,
+          "match_uncertainty": {
+            "ci95": [
+              0.46940104166666663,
+              0.48893229166666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5103,
+          "improvement": 0.3841145833333333,
+          "match_uncertainty": {
+            "ci95": [
+              0.37239583333333337,
+              0.3958333333333333
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        }
+      ],
+      "mean_improvement": 0.4166666666666666,
+      "model_ci95": [
+        0.2821698688473516,
+        0.5511634644859815
+      ],
+      "acceptance": false,
+      "median_final_scores": {
+        "random": 1.0,
+        "initial": 1.0,
+        "scripted": 0.158203125
+      },
+      "elimination_fraction": 0.9991319444444445,
+      "hypothesis_point_estimate_met": true
+    }
+  },
+  "selection_sha256": "ff0773ca006c05bf30282eabba4287aeebbb78d74f0be1c4dc16d8030dc39146",
+  "test": {
+    "deterministic": {
+      "status": "complete",
+      "models": [
+        {
+          "seed": 5101,
+          "improvement": 0.4166666666666667,
+          "match_uncertainty": {
+            "ci95": [
+              0.41666666666666663,
+              0.41666666666666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5102,
+          "improvement": 0.41406250000000006,
+          "match_uncertainty": {
+            "ci95": [
+              0.41015625,
+              0.41731770833333337
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5103,
+          "improvement": 0.4153645833333333,
+          "match_uncertainty": {
+            "ci95": [
+              0.4134114583333333,
+              0.41666666666666663
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        }
+      ],
+      "mean_improvement": 0.4153645833333333,
+      "model_ci95": [
+        0.4121300290211585,
+        0.41859913764550816
+      ],
+      "acceptance": false,
+      "median_final_scores": {
+        "random": 0.99609375,
+        "initial": 1.0,
+        "scripted": 0.25
+      },
+      "elimination_fraction": 0.9910256410256411,
+      "hypothesis_point_estimate_met": true
+    },
+    "stochastic": {
+      "status": "complete",
+      "models": [
+        {
+          "seed": 5101,
+          "improvement": 0.38671874999999994,
+          "match_uncertainty": {
+            "ci95": [
+              0.37955729166666663,
+              0.3938802083333333
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5102,
+          "improvement": 0.455078125,
+          "match_uncertainty": {
+            "ci95": [
+              0.44335937499999994,
+              0.46614583333333337
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        },
+        {
+          "seed": 5103,
+          "improvement": 0.38281250000000006,
+          "match_uncertainty": {
+            "ci95": [
+              0.3717447916666667,
+              0.3938802083333333
+            ],
+            "resamples": 5000,
+            "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+          }
+        }
+      ],
+      "mean_improvement": 0.408203125,
+      "model_ci95": [
+        0.3072430521877726,
+        0.5091631978122274
+      ],
+      "acceptance": false,
+      "median_final_scores": {
+        "random": 1.0,
+        "initial": 0.998046875,
+        "scripted": 0.158203125
+      },
+      "elimination_fraction": 0.997829861111111,
+      "hypothesis_point_estimate_met": true
+    }
+  }
+}

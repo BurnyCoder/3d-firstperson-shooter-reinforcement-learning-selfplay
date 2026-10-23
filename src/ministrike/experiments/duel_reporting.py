@@ -10,6 +10,8 @@ import shutil  # Local: copy exact raw bytes into the versioned report bundle.
 
 from ministrike.experiments.duel_analysis import model_comparison, paired_power
 from ministrike.experiments.duel_evaluation import file_hash
+from ministrike.experiments.loss_plots import save_loss_gallery  # Local: graphs use the same reusable evidence workflow as manual plotting.
+from ministrike.experiments.evaluation_plots import plot_pilot_evaluations  # Local: pilot plots remain separate from confirmation statistics.
 from ministrike.experiments.registration import read_json
 from ministrike.experiments.reporting import _render_pdf  # Local: reuse tested source/PDF layout and attribution.
 from ministrike.records import write_json
@@ -18,10 +20,18 @@ from ministrike.records import write_json
 def create_duel_reports(root, destination):
     """Local: discover evidence, analyze and render; global: include incomplete/failed runs and every reward candidate."""
     root, destination = Path(root), Path(destination)
+    if (root / "confirmation/analysis.json").exists():
+        from ministrike.experiments.confirmation_reporting import publish_confirmation_evidence
+        analysis = publish_confirmation_evidence(root / "confirmation", destination / "confirmation")
+        if (destination / "paper.md").exists():
+            _render_pdf((destination / "paper.md").read_text(encoding="utf-8"), destination / "paper.pdf")
+        return analysis  # Local: preserve handwritten historical interpretation when regenerating the completed release.
     destination.mkdir(parents=True, exist_ok=True)
+    save_loss_gallery(root, destination / "losses")  # Local: save every run's recorded loss terms without optimizing a policy.
+    plot_pilot_evaluations(root, destination / "losses")  # Local: retain primary and secondary validation as different figures.
     records, table, evidence = [], [], {}
     for config_path in sorted(root.rglob("config.json")):
-        if "publication" in config_path.parts or "recovery" in config_path.parts:
+        if {"publication", "recovery", "execution_amendments"}.intersection(config_path.parts):
             continue  # Local: copied/archived files are evidence, not independently trained models.
         folder = config_path.parent
         name = "__".join(folder.relative_to(root).parts)
@@ -55,6 +65,8 @@ def create_duel_reports(root, destination):
                   "timing fixtures, reward pilots are exploratory selection, and confirmation models are separate scratch seeds. "
                   "Do not infer a cause for failure without an intervention; fixed-layout behavior does not establish generalization. "
                   "Incomplete/failed runs remain included. No diagnostic checkpoint becomes a deployment model.\n")
+        if (destination / "losses" / f"{name}.png").exists():
+            report += f"\n## Loss graphs\n\n![Recorded loss diagnostics](losses/{name}.png)\n\n[Vector figure](losses/{name}.svg); [data and interpretation](losses/README.md).\n"
         (destination / f"{name}.md").write_text(report, encoding="utf-8")
     comparison = model_comparison(records)
     write_json(destination / "comparison.json", comparison)
@@ -70,6 +82,7 @@ def create_duel_reports(root, destination):
                "and treats repeated deterministic fixed-layout trajectories as one observation per side.\n\n"
                "Historical evidence: [deferred5v5 protocol](../../docs/protocol.md), [learning audit](../../docs/learning-audit.md), "
                "[ten hardware probes](../performance/summary.md). These used different tasks/settings and are not Stage A replications.\n")
+    summary += "\n[All loss graphs and raw plotting evidence](losses/README.md).\n"
     (destination / "summary.md").write_text(summary, encoding="utf-8")
     paper = ("# MiniStrike: staged self-play in a fixed-spawn rifle duel\n\nLibor Burian\n\n"
              "## Abstract\n\nThis report records a registered12-hour investigation of scratch self-play in a small original shooter. "

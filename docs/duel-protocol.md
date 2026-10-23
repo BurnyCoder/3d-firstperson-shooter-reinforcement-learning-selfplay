@@ -53,3 +53,31 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 ## Amendments
 
 2026-10-23 registration: original six-run 5v5 suite is deferred by user direction; its immutable deadlines/accounting remain historical. No Stage A budget is charged before the first published optimizer-bearing experiment. Resolved calibration, source identity, execution times and any deviations must be appended here or linked as dated files under `docs/amendments/` before dependent execution.
+
+2026-10-23 [calibration resolution](amendments/2026-10-23-duel-calibration.md): all nine cells complete; CUDA inference/optimization, 64 arenas, one worker/thread selected under memory-headroom constraints. Equal pilot target1,245,184 arena steps; R0 configuration published before execution. Original registration above remains unchanged.
+
+2026-10-23 [zero-update pilot launch recovery](amendments/2026-10-23-pilot-launch-recovery.md): preserve Windows status-file replacement failure; add bounded atomic-replacement retries before the first R0 optimizer update. Same clock, reward, seed and step target.
+
+2026-10-23 [R0 diagnosis and R1 resolution](amendments/2026-10-23-R0-diagnosis.md): R0 completed but failed its validation gate; preserve its negative result and run the already registered R1 candidate at the identical step budget and initialization.
+
+2026-10-23 [R1 diagnosis and R2 resolution](amendments/2026-10-23-R1-diagnosis.md): R1 improved random-opponent performance but still failed the unchanged primary gate. Publish its evidence and resolve the already registered R2 potential-shaping pilot; confirmation remains blocked.
+
+2026-10-23 [R2 result and diagnostic boundary](amendments/2026-10-23-R2-diagnosis.md): all three pilots completed and failed primary selection. Preserve both evaluation modes and loss graphs; no confirmation or unspecified additional optimizer experiment follows from these results.
+
+2026-10-23 [registered action-mode diagnostic](amendments/2026-10-23-action-mode-diagnostic.md): freeze a 2x2 learner/opponent inference-mode intervention with existing weights, validation seeds, 900-second cap and 24 fixed-seed traces. No optimizer, confirmation authorization, primary-gate relaxation or clock extension.
+
+2026-10-23 [registered duration/entropy diagnostics](amendments/2026-10-23-duration-entropy-diagnostic.md): after the mode intervention failed its diagnostic threshold, compare a fourfold-duration R1 control against matched entropy0.001, both scratch seed5201 with immutable early endpoints. No game/reward/architecture changes or new budget. Diagnostic checkpoints cannot deploy; a stricter recipe screen precedes any separately resolved fresh-seed confirmation.
+
+2026-10-23 [observer-coordinate and resume registration](amendments/2026-10-23-egocentric-diagnostic.md): duration and entropy comparisons completed and failed their gates. The next isolated change rotates already-visible actor inputs into the observer basis, retaining PPO, network widths, reward and outputs. A tiny production resume control must pass first. Cross-representation analysis excludes the changed corresponding-initial opponent; the own-initial recipe screen remains unchanged. [Architecture/algorithm/input/output source review](shooter-rl-design-review.md) records the user's expanded design authorization and separately deferred alternatives.
+
+2026-10-23 [confirmation resolution](amendments/2026-10-23-confirmation-resolution.md): the observer-coordinate diagnostic passed its pre-specified screen and exact real resume check. Freeze the qualified R1/egocentric/PPO recipe for fresh5101/5102/5103 at5,464,064arena steps each, using the remaining original window, calibrated throughput and20%reserve at resolution. No diagnostic weights transfer. Validation selects among final confirmation checkpoints before final-test access; original hypotheses, acceptance thresholds and deadlines remain unchanged.
+
+2026-10-23 [confirmation evaluation execution](amendments/2026-10-23-confirmation-evaluation.md): all three equal-budget trainers completed. Publish a resumable orchestration wrapper around the existing evaluator/analysis; freeze validation selection before all final-test endpoints. The original overall deadline and all statistical decisions remain unchanged.
+
+2026-10-23 measured closure: [all three confirmation models and 24 endpoints are complete](../reports/duel-fixed-v1/confirmation/README.md). Mean primary improvement 0.415365 meets the 0.20 point target; median script score 0.25 fails the 0.55 engineering gate. Seed 5101 was frozen by validation before testing. No final-test tuning, seed replacement or deadline extension followed. Models are experimental and later stages remain deferred.
+
+## Replication after completion
+
+Use committed raw data and the report scripts for analysis-only reproduction; no model optimization or new evaluation is required. Download any initial/final pair from the [public archive](../reports/publication/README.md) for gameplay or explicitly labeled local evaluation. These operations do not justify overwriting canonical evaluation files or reusing final-test observations for tuning.
+
+For a new independent training replication, first authorize a separate allowance and register a new stable experiment identity in `configs/experiments.json`, with a new output directory, seed namespace and absolute manifest clock. Copy the chosen resolved run configuration as a new file; freeze the match, observation transform, reward, model/optimizer settings, step target, evaluation seeds and stopping rules. Publish the new protocol/config/implementation and run preflight before optimization. The archived confirmation config and old manifest remain unchanged. The orchestration entry points are `csrl train --experiment duel-fixed-v1 --suite --run-config CONFIG` and, for the same interrupted identity only, `--resume MANIFEST`; inspect `csrl train --help` for the supported options. An old completed registration is deliberately not a fresh spending authorization.

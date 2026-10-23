@@ -1,0 +1,134 @@
+{
+  "groups": [
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5101",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5101",
+          "frames": 5464064,
+          "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)\nUploading... 15/15 files checked, 2/2 uploaded (4.79MB transferred), 0 committed in 0 commit(s), validating 100%\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5101/commit/0e90981c242c94f99f10baa1b8e529ecc4d2a18a\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5102",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5102",
+          "frames": 5464064,
+          "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5102/commit/a4b7b64d7cad275c18388b44af61a5522b94809f\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5103",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5103",
+          "frames": 5464064,
+          "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5103/commit/a23d5d186bf5c58cc51933973def62c8419698ed\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201",
+          "frames": 1245184,
+          "receipt": "Found 12 files to upload\nUploading... 12/12 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201/commit/9c87d1e1837f1e0b49a55c4b27e505a3c8ad9be9\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201",
+          "frames": 1245184,
+          "receipt": "Found 12 files to upload\nUploading... 12/12 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201/commit/7ee916548c38b6a18e04c2f790e5df9745268abe\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201",
+          "frames": 1245184,
+          "receipt": "Found 12 files to upload\nUploading... 12/12 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201/commit/6c8d2d1abe092c02a34b7e981c2d0db3719dd6b7\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201",
+          "frames": 4980736,
+          "receipt": "Found 11 files to upload\nUploading... 11/11 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201/commit/e870c6e80da3826867be37afa3e0cb2f70cd5f70\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201",
+          "frames": 4980736,
+          "receipt": "Found 11 files to upload\nUploading... 11/11 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201/commit/be5db0afee23eb415df8cdb0e883a633d9ebe21f\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201",
+          "frames": 4980736,
+          "receipt": "Found 11 files to upload\nUploading... 11/11 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201/commit/12e7ae97cb2e79eb54290f25b8fe5ede7b673685\"}"
+        }
+      ]
+    },
+    {
+      "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+      "models": [
+        {
+          "repository": "BurnyCoder/ministrike-fixed-seed111",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed111",
+          "frames": 2682880,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-fixed-seed111/commit/caefd470fd9cd7ac207bb94cc83886122f7fc1ca\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-fixed-seed222",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed222",
+          "frames": 2682880,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-fixed-seed222/commit/fb9a75daebf339417c82453e1212a5ec42fffabe\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-fixed-seed333",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed333",
+          "frames": 2662400,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-fixed-seed333/commit/26420add9baa880bc877c8b33af3947cf67c5905\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-selfplay-seed111",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed111",
+          "frames": 3604480,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-selfplay-seed111/commit/fac9ed8f096fd2713c26cac83e97132a1a896c26\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-selfplay-seed222",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed222",
+          "frames": 1904640,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-selfplay-seed222/commit/b52fb237a1a2eabbd078d0a27b6327ecbc4c473f\"}"
+        },
+        {
+          "repository": "BurnyCoder/ministrike-selfplay-seed333",
+          "url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed333",
+          "frames": 2211840,
+          "receipt": "Found 6 files to upload\nUploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-selfplay-seed333/commit/becaf168695661cb8e6113ab420b7e4078b7b6e5\"}"
+        }
+      ]
+    }
+  ]
+}

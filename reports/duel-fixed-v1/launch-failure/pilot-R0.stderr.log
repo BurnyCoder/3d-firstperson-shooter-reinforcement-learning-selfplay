@@ -1,0 +1,16 @@
+ERROR:root:Registered group failed: pilots/R0
+Traceback (most recent call last):
+  File "C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\experiments\staged.py", line 107, in run_group
+    write_json(result_path, receipt)
+  File "C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\records.py", line 27, in write_json
+    os.replace(temporary, destination)  # Readers see either the previous or next complete file.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\duel-fixed-v1\\pilots\\R0.json.tmp' -> 'C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\duel-fixed-v1\\pilots\\R0.json'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\experiments\staged.py", line 124, in run_group
+    write_json(result_path, receipt)
+  File "C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike\records.py", line 27, in write_json
+    os.replace(temporary, destination)  # Readers see either the previous or next complete file.
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [WinError 5] Access is denied: 'C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\duel-fixed-v1\\pilots\\R0.json.tmp' -> 'C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\duel-fixed-v1\\pilots\\R0.json'

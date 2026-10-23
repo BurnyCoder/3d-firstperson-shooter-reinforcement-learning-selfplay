@@ -121,11 +121,11 @@ class MatchHUD:
         self.notice.text = "PAUSED" if paused else notice  # Local: pause state takes precedence over victory messages.
         self.subnotice.text = "ESC TO RESUME  /  F10 TO QUIT" if paused else ("NEXT ROUND IN A MOMENT" if notice else "")
         if controlled is not None:  # Local: human ownership exposes both combat keys and the immediate hand-back action.
-            self.hint.text = "WASD MOVE   MOUSE AIM   LMB FIRE   R RELOAD   HOLD E INTERACT   F HAND BACK   ESC PAUSE   F10 QUIT"
+            self.hint.text = "WASD MOVE   MOUSE AIM   LMB FIRE   R RELOAD   HOLD E INTERACT   F/F2 HAND BACK   ESC PAUSE   F10 QUIT"
         elif followed is not None:  # Local: first-person bot watching exposes selection, camera choice, and takeover.
-            self.hint.text = "TAB NEXT BOT   V FREE CAMERA   F TAKE OVER THIS BOT   ESC PAUSE   F12 SCREENSHOT   F10 QUIT"
+            self.hint.text = "TAB NEXT BOT   V/F1 FREE CAMERA   F/F2 TAKE OVER   ESC PAUSE   F12 SCREENSHOT   F10 QUIT"
         else:  # Local: free camera controls are cosmetic and never change a selected bot's movement.
-            self.hint.text = "WASD FLY   Q/E DOWN/UP   RMB LOOK   TAB NEXT BOT   V FIRST PERSON   F TAKE OVER   ESC PAUSE   F10 QUIT"
+            self.hint.text = "WASD FLY   Q/E DOWN/UP   RMB LOOK   TAB NEXT BOT   V/F1 FIRST PERSON   F/F2 TAKE OVER   ESC PAUSE   F10 QUIT"
         if not simulation.spec.bomb and controlled is not None:
             self.hint.text = self.hint.text.replace("   HOLD E INTERACT", "")  # Local: do not advertise disabled duel actions.
         for index, dot in enumerate(self.dots):  # Local: update only the small retained marker objects.

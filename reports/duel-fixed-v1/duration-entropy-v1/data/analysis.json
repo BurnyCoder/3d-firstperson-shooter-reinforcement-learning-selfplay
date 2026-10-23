@@ -1,0 +1,369 @@
+{
+  "deployment_eligible": false,
+  "recipes": {
+    "control": {
+      "improvement": 0.08723958333333337,
+      "final": {
+        "score": 0.4205729166666667,
+        "baselines": {
+          "random": {
+            "score": 0.76171875,
+            "side_scores": [
+              0.9609375,
+              0.5625
+            ],
+            "matches": 256,
+            "wins": 134,
+            "draws": 122,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.5230769230769231
+      },
+      "screen_passed": false,
+      "match_uncertainty": {
+        "ci95": [
+          0.08138020833333333,
+          0.09309895833333333
+        ],
+        "resamples": 5000,
+        "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+      }
+    },
+    "low-entropy": {
+      "improvement": 0.041015625,
+      "final": {
+        "score": 0.3743489583333333,
+        "baselines": {
+          "random": {
+            "score": 0.623046875,
+            "side_scores": [
+              0.74609375,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 63,
+            "draws": 193,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.25
+      },
+      "screen_passed": false,
+      "match_uncertainty": {
+        "ci95": [
+          0.033854166666666664,
+          0.048177083333333336
+        ],
+        "resamples": 5000,
+        "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+      }
+    }
+  },
+  "eligible_recipe": null,
+  "scope": "one matched training seed; paired match uncertainty is conditional on fixed weights",
+  "duration": {
+    "delta": 0.024088541666666685,
+    "threshold_met": false,
+    "ci95": [
+      0.014322916666666666,
+      0.033854166666666664
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "entropy": {
+    "delta": -0.04622395833333337,
+    "threshold_met": false,
+    "ci95": [
+      -0.055989583333333336,
+      -0.037109375
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "secondary_summaries": {
+    "control": {
+      "initial": {
+        "score": 0.3326822916666667,
+        "baselines": {
+          "random": {
+            "score": 0.498046875,
+            "side_scores": [
+              0.49609375,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 255,
+            "losses": 1
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 256,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 0,
+            "losses": 256
+          }
+        },
+        "elimination_fraction": 0.3346354166666667
+      },
+      "early": {
+        "score": 0.5970052083333334,
+        "baselines": {
+          "random": {
+            "score": 0.892578125,
+            "side_scores": [
+              0.80859375,
+              0.9765625
+            ],
+            "matches": 256,
+            "wins": 201,
+            "draws": 55,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.8984375,
+            "side_scores": [
+              0.8359375,
+              0.9609375
+            ],
+            "matches": 256,
+            "wins": 204,
+            "draws": 52,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 0,
+            "losses": 256
+          }
+        },
+        "elimination_fraction": 0.8606770833333334
+      },
+      "final": {
+        "score": 0.6380208333333334,
+        "baselines": {
+          "random": {
+            "score": 0.95703125,
+            "side_scores": [
+              0.9765625,
+              0.9375
+            ],
+            "matches": 256,
+            "wins": 234,
+            "draws": 22,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.953125,
+            "side_scores": [
+              0.9609375,
+              0.9453125
+            ],
+            "matches": 256,
+            "wins": 232,
+            "draws": 24,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.00390625,
+            "side_scores": [
+              0.0078125,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 1,
+            "draws": 0,
+            "losses": 255
+          }
+        },
+        "elimination_fraction": 0.9401041666666666
+      }
+    },
+    "low-entropy": {
+      "initial": {
+        "score": 0.3326822916666667,
+        "baselines": {
+          "random": {
+            "score": 0.498046875,
+            "side_scores": [
+              0.49609375,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 255,
+            "losses": 1
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 256,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 0,
+            "losses": 256
+          }
+        },
+        "elimination_fraction": 0.3346354166666667
+      },
+      "early": {
+        "score": 0.4127604166666667,
+        "baselines": {
+          "random": {
+            "score": 0.63671875,
+            "side_scores": [
+              0.765625,
+              0.5078125
+            ],
+            "matches": 256,
+            "wins": 70,
+            "draws": 186,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.6015625,
+            "side_scores": [
+              0.6953125,
+              0.5078125
+            ],
+            "matches": 256,
+            "wins": 52,
+            "draws": 204,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 0,
+            "losses": 256
+          }
+        },
+        "elimination_fraction": 0.4921875
+      },
+      "final": {
+        "score": 0.4654947916666667,
+        "baselines": {
+          "random": {
+            "score": 0.69140625,
+            "side_scores": [
+              0.66015625,
+              0.72265625
+            ],
+            "matches": 256,
+            "wins": 98,
+            "draws": 158,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.705078125,
+            "side_scores": [
+              0.6640625,
+              0.74609375
+            ],
+            "matches": 256,
+            "wins": 105,
+            "draws": 151,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 0,
+            "losses": 256
+          }
+        },
+        "elimination_fraction": 0.59765625
+      }
+    }
+  }
+}

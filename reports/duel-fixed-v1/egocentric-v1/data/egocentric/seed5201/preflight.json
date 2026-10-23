@@ -1,0 +1,8 @@
+{
+  "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+  "implementation_tree": "e8108f554beb2cee2fd033e5aaf48475a6261572",
+  "config": "configs/duel-egocentric-R1.json",
+  "sha256": "d3b4262bcffe24926593444f4c3ac2b1c19ed432d5b5c91954d3cc4151e36daa",
+  "registration": "A-DIAG-EGO-R1",
+  "checked_utc": "2026-10-23T04:14:15.811597+00:00"
+}

@@ -18,13 +18,30 @@ def timestamp() -> str:
     return datetime.now(UTC).strftime("%Y%m%dT%H%M%S.%fZ")  # Microseconds prevent adjacent CLI runs colliding.
 
 
+def replace_artifact(temporary: Path, destination: Path) -> None:
+    """Local: tolerate brief sharing denial; global: never delete the last durable artifact.
+
+    Windows replace can fail while another handle is open: https://bugs.python.org/issue46003 .
+    Five retries over1.55s are an engineering bound; persistent access failures still raise.
+    """
+    for attempt in range(6):  # Local: one initial attempt and at most five retries, never an infinite wait.
+        try:
+            os.replace(temporary, destination)  # Local: retain the standard atomic replacement operation.
+            return  # Local: success publishes the fully written file exactly once.
+        except PermissionError:
+            if attempt == 5:
+                raise  # Local: preserve both old destination and completed temporary file for diagnosis.
+            logging.warning("Artifact replacement denied; retry %s/5: %s", attempt + 1, destination)
+            time.sleep(.05 * 2 ** attempt)  # Local: bounded backoff lets transient reader handles close.
+
+
 def write_json(path: str | Path, value: object) -> None:
     """Local: replace a complete JSON file. Global: interrupted runs retain the last valid manifest."""
     destination = Path(path)  # Normalize the interface once for every caller.
     destination.parent.mkdir(parents=True, exist_ok=True)  # Parent creation is idempotent on resume.
     temporary = destination.with_suffix(destination.suffix + ".tmp")  # Keep the rename on one filesystem.
     temporary.write_text(json.dumps(value, indent=2, default=str, allow_nan=False) + "\n", encoding="utf-8")  # Reject invalid metrics.
-    os.replace(temporary, destination)  # Readers see either the previous or next complete file.
+    replace_artifact(temporary, destination)  # Readers see either the previous or next complete file.
 
 
 def configure_logging(directory: Path, level: str = "INFO") -> Path:

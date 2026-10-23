@@ -1,0 +1,444 @@
+{
+  "created_utc": "20261023T011641.292396Z",
+  "plot_source_revision": "02da1a15d7d4101dbe263f844db60083b42e3c5d",
+  "records": [
+    {
+      "label": "R0",
+      "seed": 5201,
+      "initial": {
+        "score": 0.3333333333333333,
+        "baselines": {
+          "random": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 256,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.007692307692307693
+      },
+      "final": {
+        "score": 0.345703125,
+        "baselines": {
+          "random": {
+            "score": 0.537109375,
+            "side_scores": [
+              0.54296875,
+              0.53125
+            ],
+            "matches": 256,
+            "wins": 19,
+            "draws": 237,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.08076923076923077
+      },
+      "delta": 0.012369791666666685,
+      "interval": [
+        0.007161458333333333,
+        0.018229166666666668
+      ]
+    },
+    {
+      "label": "R1",
+      "seed": 5201,
+      "initial": {
+        "score": 0.3333333333333333,
+        "baselines": {
+          "random": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 256,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.007692307692307693
+      },
+      "final": {
+        "score": 0.396484375,
+        "baselines": {
+          "random": {
+            "score": 0.689453125,
+            "side_scores": [
+              0.53125,
+              0.84765625
+            ],
+            "matches": 256,
+            "wins": 97,
+            "draws": 159,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.38076923076923075
+      },
+      "delta": 0.06315104166666669,
+      "interval": [
+        0.055338541666666664,
+        0.0703125
+      ]
+    },
+    {
+      "label": "R2",
+      "seed": 5201,
+      "initial": {
+        "score": 0.3333333333333333,
+        "baselines": {
+          "random": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 256,
+            "wins": 0,
+            "draws": 256,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.007692307692307693
+      },
+      "final": {
+        "score": 0.3860677083333333,
+        "baselines": {
+          "random": {
+            "score": 0.658203125,
+            "side_scores": [
+              0.73828125,
+              0.578125
+            ],
+            "matches": 256,
+            "wins": 81,
+            "draws": 175,
+            "losses": 0
+          },
+          "initial": {
+            "score": 0.5,
+            "side_scores": [
+              0.5,
+              0.5
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 2,
+            "losses": 0
+          },
+          "scripted": {
+            "score": 0.0,
+            "side_scores": [
+              0.0,
+              0.0
+            ],
+            "matches": 2,
+            "wins": 0,
+            "draws": 0,
+            "losses": 2
+          }
+        },
+        "elimination_fraction": 0.3192307692307692
+      },
+      "delta": 0.052734375,
+      "interval": [
+        0.044270833333333336,
+        0.061197916666666664
+      ]
+    }
+  ],
+  "evidence": {
+    "R0": {
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/pilots/R0/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 1245184,
+        "max_seconds": 1200,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "ecd8e3b05a5f42963dc5359e259f4bdf376ff4c8",
+        "experiment": "duel-fixed-v1",
+        "reward": "R0",
+        "inference_device": "cuda",
+        "registration": "A-PILOT-R0",
+        "run_config": "configs\\duel-pilot-R0.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "inputs": {
+        "runs\\duel-fixed-v1\\pilots\\R0\\seed5201\\initial_validation.json": "23c54b43c73909d0efab22cd49ab3429f3bc4c8ac6a2ea0b6229ab7dcfef9e74",
+        "runs\\duel-fixed-v1\\pilots\\R0\\seed5201\\final_validation.json": "6568c5463663f616d17d06ff02659cbee403bf68fbfd6104f4e744c985a99b19"
+      },
+      "endpoint_identities": [
+        {
+          "checkpoint_sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041",
+          "initial_sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "466166d42a0da5950c0f735a919b9ac1bd712dab",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        },
+        {
+          "checkpoint_sha256": "63a54c05f8d03a712ba3d1fd92cf15644c4221afda6f4facf00c2a2e7b9fe6d9",
+          "initial_sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "466166d42a0da5950c0f735a919b9ac1bd712dab",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        }
+      ]
+    },
+    "R1": {
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/pilots/R1/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 1245184,
+        "max_seconds": 1200,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+        "experiment": "duel-fixed-v1",
+        "reward": "R1",
+        "inference_device": "cuda",
+        "registration": "A-PILOT-R1",
+        "run_config": "configs\\duel-pilot-R1.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "inputs": {
+        "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\initial_validation.json": "2697e3b54b997c2cbb199d14be8fa9fc5b5e8bb7b2a5cd81a54aee1577b64cd0",
+        "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\final_validation.json": "7bccbf0d95a582a0e9e60c5ba0cbe044c0625a4bff2d3004e87af2868738faf0"
+      },
+      "endpoint_identities": [
+        {
+          "checkpoint_sha256": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de",
+          "initial_sha256": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        },
+        {
+          "checkpoint_sha256": "c97392916f6fa4a968564b90d7928c7e223b6d5e97fab0ea67ae85ee0f440b77",
+          "initial_sha256": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "367c10828b4eb08a22d5997e47e9906b19efe512",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        }
+      ]
+    },
+    "R2": {
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/pilots/R2/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 1245184,
+        "max_seconds": 1200,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "e0a2420e2b57e10b5ccf1448d91d8ecf967a8a1c",
+        "experiment": "duel-fixed-v1",
+        "reward": "R2",
+        "inference_device": "cuda",
+        "registration": "A-PILOT-R2",
+        "run_config": "configs\\duel-pilot-R2.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "inputs": {
+        "runs\\duel-fixed-v1\\pilots\\R2\\seed5201\\initial_validation.json": "44ecbe689aee8bed14f4ec3be84021be7e124b2894642210ffbe54f7da38d65e",
+        "runs\\duel-fixed-v1\\pilots\\R2\\seed5201\\final_validation.json": "b61a4abe4fc45f701e7ce4fa1f86b0c0e8a744b85bc48a662b0a5f7ac6266c68"
+      },
+      "endpoint_identities": [
+        {
+          "checkpoint_sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+          "initial_sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "e0a2420e2b57e10b5ccf1448d91d8ecf967a8a1c",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        },
+        {
+          "checkpoint_sha256": "495446a1142be875a43a6012377af4daa062a7e293b0d141e0c8c8b5ae1d6d79",
+          "initial_sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+          "seed_base": 3000000,
+          "pairs": 128,
+          "stochastic": false,
+          "source_revision": "e0a2420e2b57e10b5ccf1448d91d8ecf967a8a1c",
+          "experiment": "duel-fixed-v1",
+          "num_envs": 32
+        }
+      ]
+    }
+  },
+  "uncertainty": "paired match bootstrap; one training seed"
+}

@@ -33,6 +33,10 @@ The final update recorded finite policy loss −0.003950, critic loss 0.015074, 
 
 ## Secondary stochastic behavior
 
+![R1 recorded loss diagnostics](losses/pilots__R1__seed5201.png)
+
+[SVG](losses/pilots__R1__seed5201.svg), [all pilot curves and evaluations](../../docs/experiment-plots.md). These are raw update averages; metric definitions and source hashes accompany the figures.
+
 The separately registered stochastic evaluation is substantially stronger than deterministic deployment. Both endpoints use 128 paired seeds per opponent and both spawn ends, 768 matches each. [Initial stochastic rounds](data/pilot-R1/initial_validation_stochastic.json), [final stochastic rounds](data/pilot-R1/final_validation_stochastic.json).
 
 | Opponent | Initial stochastic score | Final stochastic score | Final wins / draws / losses |

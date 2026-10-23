@@ -1,0 +1,21 @@
+{
+  "condition": "fixed",
+  "seed": 8001,
+  "frames": 8192,
+  "updates": 4,
+  "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+  "execution_revision": "74b57fe47b5624d1a470c5ab49516553112f42c6",
+  "elapsed_seconds": 9.171000000000276,
+  "frames_per_second": 893.2504634172667,
+  "complete": true,
+  "stop_reason": "frames",
+  "checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_fixed\\model.pt",
+  "initial_checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_fixed\\initial.pt",
+  "rounds": 192,
+  "wins": 0,
+  "draws": 0,
+  "loss": -0.07757029682397842,
+  "gradient_norm": 0.20433401502668858,
+  "entropy": 7.459938446680705,
+  "critic_loss": 0.00023897340846209167
+}

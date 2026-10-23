@@ -1,0 +1,100 @@
+{
+  "created_utc": "20261023T005707.482024Z",
+  "plot_source_revision": "2427f54835431bac4182ea8728e16d7e04cbf274",
+  "method": "raw update averages; no smoothing; missing/nonfinite values are gaps",
+  "comparisons": [
+    "legacy"
+  ],
+  "runs": {
+    "selfplay_cpu": {
+      "label": "selfplay_cpu / seed 111",
+      "status": "complete",
+      "group": "legacy",
+      "source_path": "C:/Users/Happy/Documents/projects/counter-strike-reinforcement-learning-selfplay/runs/verification/selfplay_cpu/metrics.jsonl",
+      "source_revision": "a4f8ee7d9451cef61834d71db52c114399f4008b",
+      "metrics_sha256": "7567b717d12dfa72ed920250355ed737c4132abe8a2d18aa304eb515f12fff34",
+      "rows": 16,
+      "last_arena_steps": 32768,
+      "missing_or_nonfinite": {
+        "loss": 0,
+        "policy_loss": 16,
+        "critic_loss": 0,
+        "entropy": 0
+      },
+      "warnings": [],
+      "config": {
+        "output_dir": "runs\\verification\\selfplay_cpu",
+        "condition": "selfplay",
+        "seed": 111,
+        "num_envs": 16,
+        "total_frames": 32768,
+        "max_seconds": 288.0,
+        "device": "cpu",
+        "resume": "runs\\verification\\selfplay_cpu\\model.pt",
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "log_interval": 1,
+        "torch_threads": 4,
+        "source_revision": "a4f8ee7d9451cef61834d71db52c114399f4008b"
+      },
+      "checkpoint_sha256": {
+        "initial.pt": "eb31b8a2f4f8ab7816241219ac4aee369ac4a71ed7437d2cabab1ba8d77eaa29",
+        "model.pt": "24aac4777cc475869fc2ed15d2797f3b7193ce0b362e146c1c55cb3067bd7da8"
+      }
+    },
+    "selfplay_cuda": {
+      "label": "selfplay_cuda / seed 111",
+      "status": "complete",
+      "group": "legacy",
+      "source_path": "C:/Users/Happy/Documents/projects/counter-strike-reinforcement-learning-selfplay/runs/verification/selfplay_cuda/metrics.jsonl",
+      "source_revision": "7a2f4eaebe04c76fb0417532be3a5ad7e5cd2170",
+      "metrics_sha256": "f6f89dfe8845895300d419dcd423b32e27fed1b4b25c8f29db81ed667f3c61d0",
+      "rows": 4,
+      "last_arena_steps": 8192,
+      "missing_or_nonfinite": {
+        "loss": 0,
+        "policy_loss": 4,
+        "critic_loss": 0,
+        "entropy": 0
+      },
+      "warnings": [],
+      "config": {
+        "output_dir": "runs\\verification\\selfplay_cuda",
+        "condition": "selfplay",
+        "seed": 111,
+        "num_envs": 16,
+        "total_frames": 8192,
+        "max_seconds": 180.0,
+        "device": "cuda",
+        "resume": "runs\\verification\\selfplay_cuda\\model.pt",
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "log_interval": 1,
+        "torch_threads": 4,
+        "source_revision": "7a2f4eaebe04c76fb0417532be3a5ad7e5cd2170"
+      },
+      "checkpoint_sha256": {
+        "initial.pt": "878cfcf0eeae176634d75c52ef162926f951ca54704c014fff8b1444ade3903c",
+        "model.pt": "0ad68979adfc65bc3427abc10fbcb5c53362f41c3d1a7609060509cb01537bd3"
+      }
+    }
+  }
+}

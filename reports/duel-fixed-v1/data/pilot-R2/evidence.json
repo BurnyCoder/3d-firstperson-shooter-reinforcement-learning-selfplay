@@ -1,0 +1,17 @@
+{
+  "assessment.json": "ca01a0ac8e52f6a54ac5411408ed62247826c9d1f8b080433176f4063508c2d9",
+  "config.json": "91df04abdfa894ff510c3fd5a70ee75dd4d0d7a1d4321ab6079c8e0c6d8e653c",
+  "final_validation.json": "b61a4abe4fc45f701e7ce4fa1f86b0c0e8a744b85bc48a662b0a5f7ac6266c68",
+  "final_validation_stochastic.json": "5a2d674fea09228254e6b5729ca57a7247d547dfb8bdcbfa7eb992c5231c5f0f",
+  "initial_validation.json": "44ecbe689aee8bed14f4ec3be84021be7e124b2894642210ffbe54f7da38d65e",
+  "initial_validation_stochastic.json": "23ecf0f923c3eef3c6702d842b3e436e5e7b67ce4f318a9401b65c73d935139e",
+  "metrics.jsonl": "9f10a43258170134e667745582d73d33171a588195be645179a79e9d285aa08b",
+  "preflight.json": "331028834c31ce23157e9e8e7870bfa39a33b31e1c27f5e6e74f2a5064e60093",
+  "result.json": "8212a3aa86a74f861d847135bd27fc043ecb2e607913b471805ea52145213a94",
+  "worker-20261023T002811.561800Z.log": "aa6db8ee97cb9666fa3db619ba7e9199f97defe54a4ab0527b1fa61f0c4b163d",
+  "group.json": "7602ea36dcc418a79951289b876dcadc60c8d1a9966e4b63acffe74cfe83f72a",
+  "checkpoints": {
+    "initial.pt": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+    "model.pt": "495446a1142be875a43a6012377af4daa062a7e293b0d141e0c8c8b5ae1d6d79"
+  }
+}

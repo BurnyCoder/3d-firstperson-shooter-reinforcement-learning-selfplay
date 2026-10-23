@@ -1,0 +1,1094 @@
+{
+  "checked_utc": "2026-10-23T01:49:11.252161+00:00",
+  "source_revision": "f8690f06cf16f5484f0266664c8e14b65993aca3",
+  "reproduction": [
+    {
+      "cell": "R0-DD",
+      "rows": 2,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R0\\seed5201\\final_validation.json",
+      "previous_sha256": "6568c5463663f616d17d06ff02659cbee403bf68fbfd6104f4e744c985a99b19"
+    },
+    {
+      "cell": "R0-SS",
+      "rows": 256,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R0\\seed5201\\final_validation_stochastic.json",
+      "previous_sha256": "51f9403914e307c82331227df46d262dacfa7b0330e0a9ccd1f17a84b0759439"
+    },
+    {
+      "cell": "R1-DD",
+      "rows": 2,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\final_validation.json",
+      "previous_sha256": "7bccbf0d95a582a0e9e60c5ba0cbe044c0625a4bff2d3004e87af2868738faf0"
+    },
+    {
+      "cell": "R1-SS",
+      "rows": 256,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R1\\seed5201\\final_validation_stochastic.json",
+      "previous_sha256": "b5c11b5dbdca3cfc7ef39c595bd3062aa0862f0fe41f8b318a1272ae50b4a260"
+    },
+    {
+      "cell": "R2-DD",
+      "rows": 2,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R2\\seed5201\\final_validation.json",
+      "previous_sha256": "b61a4abe4fc45f701e7ce4fa1f86b0c0e8a744b85bc48a662b0a5f7ac6266c68"
+    },
+    {
+      "cell": "R2-SS",
+      "rows": 256,
+      "exact": true,
+      "previous_path": "runs\\duel-fixed-v1\\pilots\\R2\\seed5201\\final_validation_stochastic.json",
+      "previous_sha256": "5a2d674fea09228254e6b5729ca57a7247d547dfb8bdcbfa7eb992c5231c5f0f"
+    }
+  ],
+  "analysis_exact": true,
+  "cells": {
+    "R0-DD": {
+      "score": 0.5,
+      "baselines": {
+        "initial": {
+          "score": 0.5,
+          "side_scores": [
+            0.5,
+            0.5
+          ],
+          "matches": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.0,
+      "mean_damage": 25.0,
+      "mean_seconds": 20.0,
+      "mean_shots": 31.0,
+      "accuracy": 0.03225806451612903,
+      "reload_ticks": 0.05125,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R0-DS": {
+      "score": 0.548828125,
+      "baselines": {
+        "initial": {
+          "score": 0.548828125,
+          "side_scores": [
+            0.5625,
+            0.53515625
+          ],
+          "matches": 256,
+          "wins": 25,
+          "draws": 231,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.09765625,
+      "mean_damage": 32.6171875,
+      "mean_seconds": 19.1173828125,
+      "mean_shots": 16.41015625,
+      "accuracy": 0.07950487979052606,
+      "reload_ticks": 0.15779364738815502,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R0-SD": {
+      "score": 0.455078125,
+      "baselines": {
+        "initial": {
+          "score": 0.455078125,
+          "side_scores": [
+            0.41015625,
+            0.5
+          ],
+          "matches": 256,
+          "wins": 37,
+          "draws": 159,
+          "losses": 60
+        }
+      },
+      "elimination_fraction": 0.3828125,
+      "mean_damage": 21.97265625,
+      "mean_seconds": 16.9140625,
+      "mean_shots": 34.5390625,
+      "accuracy": 0.025446731508708437,
+      "reload_ticks": 0.5036951501154734,
+      "aim_saturated_ticks": 2.309468822170901e-05,
+      "inactive_ticks": 0.0014780600461893765
+    },
+    "R0-SS": {
+      "score": 0.546875,
+      "baselines": {
+        "initial": {
+          "score": 0.546875,
+          "side_scores": [
+            0.50390625,
+            0.58984375
+          ],
+          "matches": 256,
+          "wins": 24,
+          "draws": 232,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.09375,
+      "mean_damage": 26.66015625,
+      "mean_seconds": 19.183984375,
+      "mean_shots": 30.875,
+      "accuracy": 0.03453947368421053,
+      "reload_ticks": 0.6551281790230294,
+      "aim_saturated_ticks": 0.00011199120360000814,
+      "inactive_ticks": 0.0012522652766182728
+    },
+    "R1-DD": {
+      "score": 0.5,
+      "baselines": {
+        "initial": {
+          "score": 0.5,
+          "side_scores": [
+            0.5,
+            0.5
+          ],
+          "matches": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.0,
+      "mean_damage": 37.5,
+      "mean_seconds": 20.0,
+      "mean_shots": 38.5,
+      "accuracy": 0.03896103896103896,
+      "reload_ticks": 0.05125,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R1-DS": {
+      "score": 0.69921875,
+      "baselines": {
+        "initial": {
+          "score": 0.69921875,
+          "side_scores": [
+            0.54296875,
+            0.85546875
+          ],
+          "matches": 256,
+          "wins": 102,
+          "draws": 154,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.3984375,
+      "mean_damage": 64.0625,
+      "mean_seconds": 12.994140625,
+      "mean_shots": 24.06640625,
+      "accuracy": 0.10647622139263106,
+      "reload_ticks": 0.0,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R1-SD": {
+      "score": 0.572265625,
+      "baselines": {
+        "initial": {
+          "score": 0.572265625,
+          "side_scores": [
+            0.53125,
+            0.61328125
+          ],
+          "matches": 256,
+          "wins": 37,
+          "draws": 219,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.14453125,
+      "mean_damage": 39.55078125,
+      "mean_seconds": 18.3314453125,
+      "mean_shots": 52.32421875,
+      "accuracy": 0.030235162374020158,
+      "reload_ticks": 0.2755788060560214,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.001353122303078087
+    },
+    "R1-SS": {
+      "score": 0.8984375,
+      "baselines": {
+        "initial": {
+          "score": 0.8984375,
+          "side_scores": [
+            0.8359375,
+            0.9609375
+          ],
+          "matches": 256,
+          "wins": 204,
+          "draws": 52,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.796875,
+      "mean_damage": 89.6484375,
+      "mean_seconds": 10.25078125,
+      "mean_shots": 33.84765625,
+      "accuracy": 0.10594345066358915,
+      "reload_ticks": 0.24740873409038946,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.002572212483804588
+    },
+    "R2-DD": {
+      "score": 0.5,
+      "baselines": {
+        "initial": {
+          "score": 0.5,
+          "side_scores": [
+            0.5,
+            0.5
+          ],
+          "matches": 2,
+          "wins": 0,
+          "draws": 2,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.0,
+      "mean_damage": 0.0,
+      "mean_seconds": 20.0,
+      "mean_shots": 30.0,
+      "accuracy": 0.0,
+      "reload_ticks": 0.0,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R2-DS": {
+      "score": 0.728515625,
+      "baselines": {
+        "initial": {
+          "score": 0.728515625,
+          "side_scores": [
+            0.81640625,
+            0.640625
+          ],
+          "matches": 256,
+          "wins": 117,
+          "draws": 139,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.45703125,
+      "mean_damage": 63.8671875,
+      "mean_seconds": 12.7701171875,
+      "mean_shots": 26.21875,
+      "accuracy": 0.09743742550655542,
+      "reload_ticks": 0.09247051985990241,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0
+    },
+    "R2-SD": {
+      "score": 0.5234375,
+      "baselines": {
+        "initial": {
+          "score": 0.5234375,
+          "side_scores": [
+            0.48828125,
+            0.55859375
+          ],
+          "matches": 256,
+          "wins": 19,
+          "draws": 230,
+          "losses": 7
+        }
+      },
+      "elimination_fraction": 0.1015625,
+      "mean_damage": 23.046875,
+      "mean_seconds": 18.887500000000003,
+      "mean_shots": 49.7734375,
+      "accuracy": 0.01852142520797363,
+      "reload_ticks": 0.5028333884844474,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0020371442753143614
+    },
+    "R2-SS": {
+      "score": 0.81640625,
+      "baselines": {
+        "initial": {
+          "score": 0.81640625,
+          "side_scores": [
+            0.9375,
+            0.6953125
+          ],
+          "matches": 256,
+          "wins": 162,
+          "draws": 94,
+          "losses": 0
+        }
+      },
+      "elimination_fraction": 0.6328125,
+      "mean_damage": 82.03125,
+      "mean_seconds": 14.0603515625,
+      "mean_shots": 36.09765625,
+      "accuracy": 0.09089925332756195,
+      "reload_ticks": 0.5333731542318966,
+      "aim_saturated_ticks": 0.0,
+      "inactive_ticks": 0.0016530303240772895
+    }
+  },
+  "trace_summaries": [
+    {
+      "cell": "R0-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.4825,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 10.283660363392297,
+      "stationary_fraction": 0.7368421052631579
+    },
+    {
+      "cell": "R0-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.0525,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.945,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R0-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.7627495101013,
+      "stationary_fraction": 0.3508771929824561
+    },
+    {
+      "cell": "R0-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.98,
+      "fire_request_fraction": 0.9375,
+      "reload_request_fraction": 0.075,
+      "empty_magazine_fraction": 0.645,
+      "distance_metres": 15.07992348750969,
+      "stationary_fraction": 0.8220551378446115
+    },
+    {
+      "cell": "R0-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 0.2325,
+      "reload_request_fraction": 0.2075,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.211752466626073,
+      "stationary_fraction": 0.7919799498746867
+    },
+    {
+      "cell": "R0-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.4175,
+      "fire_request_fraction": 0.56,
+      "reload_request_fraction": 0.46,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 90.74999810343257,
+      "stationary_fraction": 0.09022556390977443
+    },
+    {
+      "cell": "R0-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.125,
+      "fire_request_fraction": 0.5625,
+      "reload_request_fraction": 0.4625,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 91.74999875690366,
+      "stationary_fraction": 0.08020050125313283
+    },
+    {
+      "cell": "R0-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.06,
+      "fire_request_fraction": 0.0075,
+      "reload_request_fraction": 1.0,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047256,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R0-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 245,
+      "visible_fraction": 0.11836734693877551,
+      "fire_request_fraction": 0.7224489795918367,
+      "reload_request_fraction": 0.06938775510204082,
+      "empty_magazine_fraction": 0.35918367346938773,
+      "distance_metres": 30.55678483135288,
+      "stationary_fraction": 0.11475409836065574
+    },
+    {
+      "cell": "R0-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 245,
+      "visible_fraction": 0.07755102040816327,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.9183673469387755,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.7786885245901639
+    },
+    {
+      "cell": "R0-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.650493443687225,
+      "stationary_fraction": 0.2681704260651629
+    },
+    {
+      "cell": "R0-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.7475,
+      "fire_request_fraction": 0.4975,
+      "reload_request_fraction": 0.4425,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 68.71683342182237,
+      "stationary_fraction": 0.11779448621553884
+    },
+    {
+      "cell": "R0-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.9975,
+      "fire_request_fraction": 0.4125,
+      "reload_request_fraction": 0.89,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 84.53297325987081,
+      "stationary_fraction": 0.11027568922305764
+    },
+    {
+      "cell": "R0-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.37,
+      "fire_request_fraction": 0.56,
+      "reload_request_fraction": 0.46,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 90.74999828045966,
+      "stationary_fraction": 0.09022556390977443
+    },
+    {
+      "cell": "R0-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.6075,
+      "fire_request_fraction": 0.5575,
+      "reload_request_fraction": 0.4475,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 90.999998483251,
+      "stationary_fraction": 0.08771929824561403
+    },
+    {
+      "cell": "R0-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.775,
+      "fire_request_fraction": 0.56,
+      "reload_request_fraction": 0.205,
+      "empty_magazine_fraction": 0.3375,
+      "distance_metres": 61.81765696648561,
+      "stationary_fraction": 0.05513784461152882
+    },
+    {
+      "cell": "R1-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.6025,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 28.39199030295765,
+      "stationary_fraction": 0.6290726817042607
+    },
+    {
+      "cell": "R1-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.035,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.9625,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R1-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.7627495101013,
+      "stationary_fraction": 0.3508771929824561
+    },
+    {
+      "cell": "R1-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.915,
+      "fire_request_fraction": 0.965,
+      "reload_request_fraction": 0.05,
+      "empty_magazine_fraction": 0.6175,
+      "distance_metres": 44.24999847615098,
+      "stationary_fraction": 0.556390977443609
+    },
+    {
+      "cell": "R1-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 35.250000761037704,
+      "stationary_fraction": 0.6466165413533834
+    },
+    {
+      "cell": "R1-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.3275,
+      "fire_request_fraction": 0.56,
+      "reload_request_fraction": 0.46,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 90.74999820953157,
+      "stationary_fraction": 0.09022556390977443
+    },
+    {
+      "cell": "R1-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 51,
+      "visible_fraction": 0.47058823529411764,
+      "fire_request_fraction": 0.5686274509803921,
+      "reload_request_fraction": 0.43137254901960786,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 11.74999948894893,
+      "stationary_fraction": 0.06
+    },
+    {
+      "cell": "R1-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 51,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 11.749999346651041,
+      "stationary_fraction": 0.06
+    },
+    {
+      "cell": "R1-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.8425,
+      "fire_request_fraction": 0.77,
+      "reload_request_fraction": 0.0225,
+      "empty_magazine_fraction": 0.575,
+      "distance_metres": 56.93528050962026,
+      "stationary_fraction": 0.12781954887218044
+    },
+    {
+      "cell": "R1-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.0425,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.955,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R1-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.650493443687225,
+      "stationary_fraction": 0.2681704260651629
+    },
+    {
+      "cell": "R1-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.8375,
+      "fire_request_fraction": 0.72,
+      "reload_request_fraction": 0.2025,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 83.1789235231364,
+      "stationary_fraction": 0.13283208020050125
+    },
+    {
+      "cell": "R1-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 43,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 0.9534883720930233,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 9.000000245479807,
+      "stationary_fraction": 0.14285714285714285
+    },
+    {
+      "cell": "R1-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 43,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 0.5813953488372093,
+      "reload_request_fraction": 0.4418604651162791,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 9.49999933787359,
+      "stationary_fraction": 0.09523809523809523
+    },
+    {
+      "cell": "R1-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.425,
+      "fire_request_fraction": 0.555,
+      "reload_request_fraction": 0.4525,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 91.49999536206171,
+      "stationary_fraction": 0.08270676691729323
+    },
+    {
+      "cell": "R1-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.7525,
+      "fire_request_fraction": 0.7325,
+      "reload_request_fraction": 0.2125,
+      "empty_magazine_fraction": 0.205,
+      "distance_metres": 87.97688263237507,
+      "stationary_fraction": 0.11278195488721804
+    },
+    {
+      "cell": "R2-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.9525,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 19.554630337045012,
+      "stationary_fraction": 0.7944862155388471
+    },
+    {
+      "cell": "R2-DD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.05,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.9475,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R2-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.650493443687225,
+      "stationary_fraction": 0.2681704260651629
+    },
+    {
+      "cell": "R2-DD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.8825,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 15.876376761965057,
+      "stationary_fraction": 0.631578947368421
+    },
+    {
+      "cell": "R2-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.91,
+      "fire_request_fraction": 0.9425,
+      "reload_request_fraction": 0.0525,
+      "empty_magazine_fraction": 0.62,
+      "distance_metres": 16.935342917770694,
+      "stationary_fraction": 0.8270676691729323
+    },
+    {
+      "cell": "R2-DS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.1,
+      "fire_request_fraction": 0.56,
+      "reload_request_fraction": 0.465,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 90.24999790201292,
+      "stationary_fraction": 0.09523809523809523
+    },
+    {
+      "cell": "R2-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 48,
+      "visible_fraction": 0.9375,
+      "fire_request_fraction": 0.5625,
+      "reload_request_fraction": 0.4375,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 10.999999382635353,
+      "stationary_fraction": 0.06382978723404255
+    },
+    {
+      "cell": "R2-DS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 48,
+      "visible_fraction": 1.0,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 7.742038264828399,
+      "stationary_fraction": 0.2553191489361702
+    },
+    {
+      "cell": "R2-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.5125,
+      "fire_request_fraction": 0.5525,
+      "reload_request_fraction": 0.43,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 70.26299734461033,
+      "stationary_fraction": 0.10526315789473684
+    },
+    {
+      "cell": "R2-SD",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.0425,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.955,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 12.255207122047311,
+      "stationary_fraction": 0.8646616541353384
+    },
+    {
+      "cell": "R2-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 400,
+      "visible_fraction": 0.02,
+      "fire_request_fraction": 1.0,
+      "reload_request_fraction": 0.0,
+      "empty_magazine_fraction": 0.755,
+      "distance_metres": 22.650493443687225,
+      "stationary_fraction": 0.2681704260651629
+    },
+    {
+      "cell": "R2-SD",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 400,
+      "visible_fraction": 0.6725,
+      "fire_request_fraction": 0.7925,
+      "reload_request_fraction": 0.0775,
+      "empty_magazine_fraction": 0.3325,
+      "distance_metres": 64.63089416844261,
+      "stationary_fraction": 0.19548872180451127
+    },
+    {
+      "cell": "R2-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 104,
+      "visible_fraction": 0.4807692307692308,
+      "fire_request_fraction": 0.625,
+      "reload_request_fraction": 0.25961538461538464,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 23.773325894697816,
+      "stationary_fraction": 0.02912621359223301
+    },
+    {
+      "cell": "R2-SS",
+      "side": 0,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 104,
+      "visible_fraction": 0.4423076923076923,
+      "fire_request_fraction": 0.5192307692307693,
+      "reload_request_fraction": 0.40384615384615385,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 23.249999360137778,
+      "stationary_fraction": 0.0970873786407767
+    },
+    {
+      "cell": "R2-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "opponent",
+      "ticks": 238,
+      "visible_fraction": 0.2815126050420168,
+      "fire_request_fraction": 0.5336134453781513,
+      "reload_request_fraction": 0.39915966386554624,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 54.749999944459645,
+      "stationary_fraction": 0.0759493670886076
+    },
+    {
+      "cell": "R2-SS",
+      "side": 1,
+      "seed": 3000000,
+      "controller": "learner",
+      "ticks": 238,
+      "visible_fraction": 0.907563025210084,
+      "fire_request_fraction": 0.6386554621848739,
+      "reload_request_fraction": 0.3235294117647059,
+      "empty_magazine_fraction": 0.0,
+      "distance_metres": 47.351456661070955,
+      "stationary_fraction": 0.12236286919831224
+    }
+  ],
+  "inputs": [
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\analysis.json",
+      "sha256": "9c3450fe3c63a5fadcb3137388ef5f697aeb16af03283a8734209574c5916d1c"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\config.json",
+      "sha256": "220243f4473bc2914699a53522e085c0667690ee7e9825c23dd322037f20e13f"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\logs\\20261023T013212.563244Z.log",
+      "sha256": "8bde7cad0e06a7ac807786178c2e9dcfc521753012459e9ec836d58038645bf3"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R0-DD.json",
+      "sha256": "6f6388858665bbdb7258b4bfbae99e1dfeff89610cd92287cc9035a1eb60cffb"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R0-DS.json",
+      "sha256": "7a50f5d5de2e59d4faf73d2c7b4eb877195ad614cd9fce06188f227f0afb496d"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R0-SD.json",
+      "sha256": "72f6608a55b002a05fde23831eea14135e0855a480a69920ede271bfc6b94b8f"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R0-SS.json",
+      "sha256": "7552ebde6aaeab601a6aa83649d4c66e68e32376a41b9d1a6b0aa29ae4a34265"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R1-DD.json",
+      "sha256": "c33832043db2e713af87bc9e3bb17be40095847e2bd5cbb2e82cd64f10b3d7b2"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R1-DS.json",
+      "sha256": "e12bc67309156cb62abe0615bf002013a7cb4843aeaf579a0f362bffcfbe77af"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R1-SD.json",
+      "sha256": "1fe31236b34ddd44e3f957405b5c37c68f49d2b22eff421baf5fcad38396ac33"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R1-SS.json",
+      "sha256": "b222e155000ac61efa133a238a42f8a0444a8f7decd92e31f5291384662c3955"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R2-DD.json",
+      "sha256": "4f77952e7f01c96dc47c6469d1050d6b634298a8509579e3a3eeb86468194b32"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R2-DS.json",
+      "sha256": "bb138aeab82f972f817426a65d34a821ff4fc18e62bc19f06f38ea5467d499d8"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R2-SD.json",
+      "sha256": "b67080e95a4bfe52e856009782fdc90259aa2391470d000e018d20725c57f38f"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\R2-SS.json",
+      "sha256": "4201256df7098d27f0cd6b7044862ec057919f2178fab5203efc6ef943699272"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\data\\action-modes-v1\\receipt.json",
+      "sha256": "8ba5f6fa2f999dab6e2b5a774fdc6cc7d9d5055279654cfe9b4d7d907f91bc22"
+    }
+  ],
+  "figures": [
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\mode-comparison.png",
+      "sha256": "7305195f9b70a9f601a146d68a07d8d9226d65001655bab400c91130df51aabd"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\mode-comparison.svg",
+      "sha256": "ff1dd2cec5d7981bb74067d2e4824e5e84a8eff611d3a70ae42982b8f34b647e"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R0-end0.png",
+      "sha256": "24b84b60790f3bb36f89a1381e2b9c3a0eac973be30e1af7caf672ef2d6928e3"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R0-end0.svg",
+      "sha256": "df1713344948912e99ce7209635ed58016814f8988f99b63817beccdbed0749a"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R0-end1.png",
+      "sha256": "6a832b2bbddc4e7dc91fea0013b09a77d461a548a8ddb9ad7e26aa75dfd5fdd6"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R0-end1.svg",
+      "sha256": "16bad6753861ee52509d19fb4b18b2d477f0c4e70c4014778cddb7d4a55c3193"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R1-end0.png",
+      "sha256": "252ff06675326b719d455f511e28362c3dbde75d7c973b6ee890b6851eb42d0b"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R1-end0.svg",
+      "sha256": "dafc5598896f538fbfa6778cb7cac0ac8a8fe13659fa4a9e443d73c76be315fe"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R1-end1.png",
+      "sha256": "38be2174cb2e2b371ca2d8b59dec50b4e7c4c7283430d5c59bfc61547f645fbd"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R1-end1.svg",
+      "sha256": "af32e5abac472d280282467d51de134f51c850e1bec37e74ee76b21e5dc5f808"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R2-end0.png",
+      "sha256": "73913a09dbd3d496b6cf66b55f35f38a800df07e0ece03d91c16dcd14061b867"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R2-end0.svg",
+      "sha256": "04d244cd24a28fd33bbe5e49dc2c7f2277cc39b92bb4d9cb43c53a9c1bf19d08"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R2-end1.png",
+      "sha256": "064dbb16c59679e373054c7239a3998f4ecd1f9e0565eeaa9b9e4dd3887a2989"
+    },
+    {
+      "path": "reports\\duel-fixed-v1\\action-modes-v1\\trace-R2-end1.svg",
+      "sha256": "5899a10e910cbd4f8407f55877f2322108bb69f2b51863af4dd6fa71fdef1926"
+    }
+  ],
+  "visual_verification": {
+    "checked_utc": "2026-10-23T01:55:03.146529+00:00",
+    "png_figures_inspected": 7,
+    "result": "All six trace figures and corrected comparison inspected; mean/errorbar unobscured, common map/time/health scales, all fixed trace selections included."
+  }
+}

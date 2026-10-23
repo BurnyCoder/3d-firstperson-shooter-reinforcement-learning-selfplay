@@ -1,0 +1,398 @@
+[
+  {
+    "path": ".gitattributes",
+    "size": 1519,
+    "blob_id": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+    "last_commit": {
+      "oid": "06e1e49cde4e3c004043c56dea99392df9e55fac",
+      "title": "initial commit",
+      "date": "2026-10-23T08:24:06+00:00"
+    },
+    "security": {
+      "safe": true,
+      "status": "safe",
+      "av_scan": {
+        "status": "safe",
+        "message": "No security issues detected",
+        "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "README.md",
+    "size": 6123,
+    "blob_id": "fcc95248962fbf6e859c090293a6721376704c0a",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "config.json",
+    "size": 906,
+    "blob_id": "99e85eefb3eb715cb5f8f0cbe209c88a3269a956",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_test.json",
+    "size": 265459,
+    "blob_id": "b7996a109bd7cb242b7468f7dc64588f0a9480e4",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_test_stochastic.json",
+    "size": 465824,
+    "blob_id": "2084bdaee65d074b97090aba7a39556db14f132a",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_validation.json",
+    "size": 254641,
+    "blob_id": "e531fa0af8de8c014272d85b802b69d65f339994",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "final_validation_stochastic.json",
+    "size": 499377,
+    "blob_id": "4373e1be780172a3fc976fd4b6dc2c235c580cec",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial.pt",
+    "size": 953973,
+    "blob_id": "333723746696d845042fc3deedb3deaa61f84a23",
+    "lfs": {
+      "size": 953973,
+      "sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+      "pointer_size": 131
+    },
+    "xet_hash": "640e34187dfce2bf42a610035e25a64d230417764867bc6d5ee40d3ba045af38",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_test.json",
+    "size": 2670365,
+    "blob_id": "a15bdfc149fc1236e44264ee3e983478654157f9",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_test_stochastic.json",
+    "size": 2881130,
+    "blob_id": "df92849af765b1b081fc34f55295424fb543734c",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_validation.json",
+    "size": 2672340,
+    "blob_id": "d821fd2a498ddeb07a77036a6a018058f21ebebd",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "initial_validation_stochastic.json",
+    "size": 2888851,
+    "blob_id": "09d8819340dcd05b9189cdd9713c1ee73d51bb77",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "metrics.jsonl",
+    "size": 597081,
+    "blob_id": "240b4a3b861f98f56b07f74ea083ea758d206d3a",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "model.pt",
+    "size": 3849589,
+    "blob_id": "4e0a1c6b48877dfe530277c9fc244571d1ce3a75",
+    "lfs": {
+      "size": 3849589,
+      "sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+      "pointer_size": 132
+    },
+    "xet_hash": "b6831750407e68421b63078088aec8187199298c72c5ef0619a5a7a9165757ca",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "release-context.json",
+    "size": 656,
+    "blob_id": "4b30f3432cc426f3c7be7ee7ab81f90832f2a906",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  },
+  {
+    "path": "result.json",
+    "size": 836,
+    "blob_id": "386c256557922f69132609cd672093586237833b",
+    "last_commit": {
+      "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "title": "Publish 5464064 transition endpoint and measured evidence",
+      "date": "2026-10-23T08:24:33+00:00"
+    },
+    "security": {
+      "safe": false,
+      "status": "queued",
+      "av_scan": {
+        "status": "safe",
+        "message": "",
+        "version": "1.5.4/28161"
+      },
+      "pickle_import_scan": {
+        "status": "unscanned",
+        "pickleImports": [],
+        "version": "0.0.0"
+      }
+    }
+  }
+]

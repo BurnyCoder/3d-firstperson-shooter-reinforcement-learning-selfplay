@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "status": "deferred_by_user",
+  "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+  "output_dir": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite",
+  "started_utc": "2026-10-22T19:52:04.715873+00:00",
+  "deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+  "max_hours": 11.67605212,
+  "num_envs": 16,
+  "evaluation_pairs": 128,
+  "hypothesis": "Historical self-play increases fixed-benchmark mean round score by at least 0.10 over fixed-opponent training.",
+  "power_sensitivity": [
+    {
+      "assumed_run_sd": 0.05,
+      "effect": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "seeds_per_condition": 6,
+      "achieved_power": 0.8764177714119886
+    },
+    {
+      "assumed_run_sd": 0.1,
+      "effect": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "seeds_per_condition": 17,
+      "achieved_power": 0.8070367151472198
+    },
+    {
+      "assumed_run_sd": 0.2,
+      "effect": 0.1,
+      "alpha": 0.05,
+      "target_power": 0.8,
+      "seeds_per_condition": 64,
+      "achieved_power": 0.8014595579222542
+    }
+  ],
+  "calibration": [
+    {
+      "condition": "selfplay",
+      "seed": 8001,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "execution_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "elapsed_seconds": 9.844000000000051,
+      "frames_per_second": 832.1820398212066,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cpu_selfplay\\model.pt",
+      "initial_checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cpu_selfplay\\initial.pt",
+      "rounds": 0,
+      "wins": 0,
+      "draws": 0,
+      "loss": -0.0788653214306881,
+      "gradient_norm": 0.2104219595591227,
+      "entropy": 7.436708589394887,
+      "critic_loss": 2.0854112866193947e-05,
+      "device": "cpu"
+    },
+    {
+      "condition": "fixed",
+      "seed": 8001,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "execution_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "elapsed_seconds": 11.391000000000531,
+      "frames_per_second": 719.1642524799945,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cpu_fixed\\model.pt",
+      "initial_checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cpu_fixed\\initial.pt",
+      "rounds": 196,
+      "wins": 0,
+      "draws": 0,
+      "loss": -0.07867388559194903,
+      "gradient_norm": 0.21146496012806892,
+      "entropy": 7.466882089773814,
+      "critic_loss": 0.0002904027945381434,
+      "device": "cpu"
+    },
+    {
+      "condition": "selfplay",
+      "seed": 8001,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "execution_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "elapsed_seconds": 9.155999999999949,
+      "frames_per_second": 894.7138488422942,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_selfplay\\model.pt",
+      "initial_checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_selfplay\\initial.pt",
+      "rounds": 0,
+      "wins": 0,
+      "draws": 0,
+      "loss": -0.07832753914408386,
+      "gradient_norm": 0.20505889070530733,
+      "entropy": 7.441265642642975,
+      "critic_loss": 2.530476020486579e-05,
+      "device": "cuda"
+    },
+    {
+      "condition": "fixed",
+      "seed": 8001,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+      "execution_revision": "74b57fe47b5624d1a470c5ab49516553112f42c6",
+      "elapsed_seconds": 9.171000000000276,
+      "frames_per_second": 893.2504634172667,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_fixed\\model.pt",
+      "initial_checkpoint": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\calibration\\calibration_cuda_fixed\\initial.pt",
+      "rounds": 192,
+      "wins": 0,
+      "draws": 0,
+      "loss": -0.07757029682397842,
+      "gradient_norm": 0.20433401502668858,
+      "entropy": 7.459938446680705,
+      "critic_loss": 0.00023897340846209167,
+      "device": "cuda"
+    }
+  ],
+  "runs": {},
+  "training_seeds": [
+    111,
+    222,
+    333
+  ],
+  "validation_seed_base": 1000000,
+  "test_seed_base": 2000000,
+  "evaluation_baselines": [
+    "random",
+    "rush",
+    "guard"
+  ],
+  "run_order": [
+    [
+      "selfplay",
+      111
+    ],
+    [
+      "fixed",
+      111
+    ],
+    [
+      "fixed",
+      222
+    ],
+    [
+      "selfplay",
+      222
+    ],
+    [
+      "selfplay",
+      333
+    ],
+    [
+      "fixed",
+      333
+    ]
+  ],
+  "device": "cuda",
+  "total_frames": 4167680,
+  "per_run_seconds": 32901.07288,
+  "execution_amendments": [
+    {
+      "timestamp_utc": "20261022T202743.567605Z",
+      "reason": "User requested maximum practical GPU use; throughput-only concurrent calibration",
+      "execution_revision": "d1eccacec7b00b0ecdc03e95ce5de4bfaa726e67",
+      "old_pid": 26216,
+      "run": "selfplay_seed111",
+      "frames": 1433600,
+      "updates": 700,
+      "original_checkpoint_sha256": "742f2e4ed34af8b1dcac3445d016b9a46c744f9b2836efe562d8895e6e61d893",
+      "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\20261022T202743.530683Z",
+      "workers_before": 1,
+      "workers_after": 6,
+      "torch_threads": 1,
+      "per_run_seconds_before": 5832.454619861111,
+      "per_run_seconds_after": 32901.07288,
+      "training_deadline_utc": "2026-10-23T05:35:52.872233+00:00",
+      "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+      "unchanged": "weights, optimizer, simulator, RNGs, actor/critic architecture, PPO settings, arena count, rollout length, frozen total frames and hypothesis"
+    }
+  ],
+  "execution_workers": 6,
+  "torch_threads": 1,
+  "training_deadline_utc": "2026-10-23T05:35:52.872233+00:00",
+  "execution_interruptions": [
+    {
+      "timestamp_utc": "20261022T203431.762754Z",
+      "reason": "All six worker processes and parent disappeared without a logged traceback; cause unconfirmed. Preserve attempt logs and resume durable checkpoints.",
+      "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\interrupted-20261022T203431.465548Z",
+      "runs": [
+        {
+          "run": "fixed_seed111",
+          "checkpoint_source": "initial.pt",
+          "restored_frames": 0,
+          "restored_updates": 0,
+          "archived_uncheckpointed_records": 4,
+          "charged_elapsed_seconds": 19.42200000000048
+        },
+        {
+          "run": "fixed_seed222",
+          "checkpoint_source": "initial.pt",
+          "restored_frames": 0,
+          "restored_updates": 0,
+          "archived_uncheckpointed_records": 4,
+          "charged_elapsed_seconds": 19.375
+        },
+        {
+          "run": "fixed_seed333",
+          "checkpoint_source": "initial.pt",
+          "restored_frames": 0,
+          "restored_updates": 0,
+          "archived_uncheckpointed_records": 4,
+          "charged_elapsed_seconds": 19.32799999999952
+        },
+        {
+          "run": "selfplay_seed111",
+          "checkpoint_source": "model.pt",
+          "restored_frames": 1433600,
+          "restored_updates": 700,
+          "archived_uncheckpointed_records": 4,
+          "charged_elapsed_seconds": 2117.366639
+        },
+        {
+          "run": "selfplay_seed222",
+          "checkpoint_source": "initial.pt",
+          "restored_frames": 0,
+          "restored_updates": 0,
+          "archived_uncheckpointed_records": 6,
+          "charged_elapsed_seconds": 19.42200000000048
+        },
+        {
+          "run": "selfplay_seed333",
+          "checkpoint_source": "initial.pt",
+          "restored_frames": 0,
+          "restored_updates": 0,
+          "archived_uncheckpointed_records": 6,
+          "charged_elapsed_seconds": 19.20300000000134
+        }
+      ],
+      "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00"
+    },
+    {
+      "timestamp_utc": "20261022T204123.628008Z",
+      "reason": "Worker termination recorded as BrokenProcessPool; user reported Codex restart. Runtime termination cause not independently established. Recover durable checkpoints and launch independently through Windows WMI.",
+      "prior_error": "BrokenProcessPool('A process in the process pool was terminated abruptly while the future was running or pending.')",
+      "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\interrupted-20261022T204123.366201Z",
+      "runs": [
+        {
+          "run": "fixed_seed111",
+          "restored_frames": 40960,
+          "restored_updates": 20,
+          "archived_uncheckpointed_records": 3,
+          "charged_elapsed_seconds": 111.125
+        },
+        {
+          "run": "fixed_seed222",
+          "restored_frames": 40960,
+          "restored_updates": 20,
+          "archived_uncheckpointed_records": 2,
+          "charged_elapsed_seconds": 109.03100000000086
+        },
+        {
+          "run": "fixed_seed333",
+          "restored_frames": 40960,
+          "restored_updates": 20,
+          "archived_uncheckpointed_records": 0,
+          "charged_elapsed_seconds": 104.82799999999952
+        },
+        {
+          "run": "selfplay_seed111",
+          "restored_frames": 1474560,
+          "restored_updates": 720,
+          "archived_uncheckpointed_records": 4,
+          "charged_elapsed_seconds": 2209.2576389999995
+        },
+        {
+          "run": "selfplay_seed222",
+          "restored_frames": 40960,
+          "restored_updates": 20,
+          "archived_uncheckpointed_records": 9,
+          "charged_elapsed_seconds": 110.53199999999924
+        },
+        {
+          "run": "selfplay_seed333",
+          "restored_frames": 40960,
+          "restored_updates": 20,
+          "archived_uncheckpointed_records": 9,
+          "charged_elapsed_seconds": 110.375
+        }
+      ],
+      "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00"
+    }
+  ],
+  "execution_pauses": [
+    {
+      "timestamp_utc": "20261022T204907.777816Z",
+      "reason": "Bounded six-worker CPU thread calibration; all learners stopped at exact periodic checkpoint boundaries to release RAM and avoid paging-confounded timing",
+      "archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\thread-calibration-20261022T204829.071912Z",
+      "restored_frames": {
+        "selfplay_seed111": 1699840,
+        "fixed_seed111": 286720,
+        "fixed_seed222": 286720,
+        "selfplay_seed222": 286720,
+        "selfplay_seed333": 286720,
+        "fixed_seed333": 266240
+      },
+      "overall_deadline_utc": "2026-10-23T07:32:38.503505+00:00",
+      "resumed_utc": "20261022T205227.146217Z",
+      "stopped_seconds": 199.064155,
+      "selected_threads": 1,
+      "selection": "six_threads_1 3026.17 vs six_threads_2 2774.65 arena steps/s; same six-worker standard-start calibration"
+    }
+  ],
+  "error": "RuntimeError('[enforce fail at alloc_cpu.cpp:117] data. DefaultCPUAllocator: not enough memory: you tried to allocate 15728640 bytes.')",
+  "recovery_archive": "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\runs\\suite\\execution_amendments\\learning-audit-memory-recovery-20261022T215011.900411Z",
+  "deferral": {
+    "utc": "20261022T232354Z",
+    "previous_status": "learning_audit_recovery",
+    "reason": "Approved staged roadmap: separate fixed-spawn 1v1 budget; no restart or deadline extension",
+    "archive": "runs\\suite\\execution_amendments\\staged-deferral-20261022T232354Z"
+  }
+}

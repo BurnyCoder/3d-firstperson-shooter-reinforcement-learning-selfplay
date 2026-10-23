@@ -1,0 +1,400 @@
+2026-10-23 08:31:25,006Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-staged-shooter-self-play-6ada65970d163e293d48f3ad", "title": "MiniStrike staged shooter self-play", "owner": {"_id": "654a930b718c1ebb7ccf06a8", "avatarUrl": "https://cdn-avatars.huggingface.co/v1/production/uploads/654a930b718c1ebb7ccf06a8/tSo6HS_889FhXorfYY3vF.jpeg", "fullname": "Burny", "name": "BurnyCoder", "type": "user", "isPro": false, "isHf": false, "isHfAdmin": false, "isMod": false, "followerCount": 11, "isUserFollowing": false}, "items": [{"item_object_id": "6ada68958e8d07dfba505985", "item_id": "BurnyCoder/ministrike-selfplay-cpu", "item_type": "model", "position": 0}, {"item_object_id": "6ada68d05bc18ea51c10ce41", "item_id": "BurnyCoder/ministrike-selfplay-cuda", "item_type": "model", "position": 1}, {"item_object_id": "6adb19c93f49aca82f5dfeb8", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-seed5101", "item_type": "model", "position": 2}, {"item_object_id": "6adb19ddd1462de67356d7ae", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-seed5102", "item_type": "model", "position": 3}, {"item_object_id": "6adb19f1fac67e93d6e18c34", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-seed5103", "item_type": "model", "position": 4}, {"item_object_id": "6adb19f95d99a63158252362", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201", "item_type": "model", "position": 5}, {"item_object_id": "6adb1a02e10fd5801143723b", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201", "item_type": "model", "position": 6}, {"item_object_id": "6adb1a0bc9fff2f6dbdc2f87", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201", "item_type": "model", "position": 7}, {"item_object_id": "6adb1a13754754e2f2fc602c", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201", "item_type": "model", "position": 8}, {"item_object_id": "6adb1a1cf9df2d8969893e6f", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201", "item_type": "model", "position": 9}, {"item_object_id": "6adb1a26e7666d8b83d07c3d", "item_id": "BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201", "item_type": "model", "position": 10}, {"item_object_id": "6adb1a39e7666d8b83d07fd0", "item_id": "BurnyCoder/ministrike-fixed-seed111", "item_type": "model", "position": 11}, {"item_object_id": "6adb1a4481f72523605130a0", "item_id": "BurnyCoder/ministrike-fixed-seed222", "item_type": "model", "position": 12}, {"item_object_id": "6adb1a4ea517b426dee3d376", "item_id": "BurnyCoder/ministrike-fixed-seed333", "item_type": "model", "position": 13}, {"item_object_id": "6adb1a59be2997203f8335d7", "item_id": "BurnyCoder/ministrike-selfplay-seed111", "item_type": "model", "position": 14}, {"item_object_id": "6adb1a63be2997203f83380b", "item_id": "BurnyCoder/ministrike-selfplay-seed222", "item_type": "model", "position": 15}, {"item_object_id": "6adb1a6ed1462de67356f57e", "item_id": "BurnyCoder/ministrike-selfplay-seed333", "item_type": "model", "position": 16}], "last_updated": "2026-10-23T08:27:28.242000+00:00", "position": 0, "private": false, "theme": "pink", "upvotes": 0, "description": "Fixed-spawn duel self-play: all confirmation and exploratory pairs, plus deferred 5v5 archives. Experimental; moving-script acceptance failed."}
+2026-10-23 08:31:26,675Z INFO ministrike.experiments.publishing | hf {"id": "BurnyCoder/ministrike-duel-fixed-v1-seed5101", "private": false, "sha": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a"}
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf [
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     "path": ".gitattributes",
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     "size": 1519,
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     "blob_id": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "oid": "06e1e49cde4e3c004043c56dea99392df9e55fac",
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "title": "initial commit",
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:06+00:00"
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "safe": true,
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "status": "safe",
+2026-10-23 08:31:28,573Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "message": "No security issues detected",
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "reportLink": "https://fdtn.ai/ai-supply-chain/hugging-face?utm_source=huggingface"
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,575Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     "path": "README.md",
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     "size": 6123,
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     "blob_id": "fcc95248962fbf6e859c090293a6721376704c0a",
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,576Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf     "path": "config.json",
+2026-10-23 08:31:28,577Z INFO ministrike.experiments.publishing | hf     "size": 906,
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf     "blob_id": "99e85eefb3eb715cb5f8f0cbe209c88a3269a956",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,578Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf     "path": "final_test.json",
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf     "size": 265459,
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf     "blob_id": "b7996a109bd7cb242b7468f7dc64588f0a9480e4",
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,579Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,580Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     "path": "final_test_stochastic.json",
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     "size": 465824,
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     "blob_id": "2084bdaee65d074b97090aba7a39556db14f132a",
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,581Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     "path": "final_validation.json",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     "size": 254641,
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     "blob_id": "e531fa0af8de8c014272d85b802b69d65f339994",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,582Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,583Z INFO ministrike.experiments.publishing | hf     "path": "final_validation_stochastic.json",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf     "size": 499377,
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf     "blob_id": "4373e1be780172a3fc976fd4b6dc2c235c580cec",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,584Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "path": "initial.pt",
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "size": 953973,
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "blob_id": "333723746696d845042fc3deedb3deaa61f84a23",
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "lfs": {
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf       "size": 953973,
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf       "sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf       "pointer_size": 131
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "xet_hash": "640e34187dfce2bf42a610035e25a64d230417764867bc6d5ee40d3ba045af38",
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,585Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,586Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     "path": "initial_test.json",
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     "size": 2670365,
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     "blob_id": "a15bdfc149fc1236e44264ee3e983478654157f9",
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,587Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,588Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     "path": "initial_test_stochastic.json",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     "size": 2881130,
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     "blob_id": "df92849af765b1b081fc34f55295424fb543734c",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,589Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     "path": "initial_validation.json",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     "size": 2672340,
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     "blob_id": "d821fd2a498ddeb07a77036a6a018058f21ebebd",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,590Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf     "path": "initial_validation_stochastic.json",
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf     "size": 2888851,
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf     "blob_id": "09d8819340dcd05b9189cdd9713c1ee73d51bb77",
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,591Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     "path": "metrics.jsonl",
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     "size": 597081,
+2026-10-23 08:31:28,592Z INFO ministrike.experiments.publishing | hf     "blob_id": "240b4a3b861f98f56b07f74ea083ea758d206d3a",
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,594Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,595Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "path": "model.pt",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "size": 3849589,
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "blob_id": "4e0a1c6b48877dfe530277c9fc244571d1ce3a75",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "lfs": {
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "size": 3849589,
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "pointer_size": 132
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "xet_hash": "b6831750407e68421b63078088aec8187199298c72c5ef0619a5a7a9165757ca",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,596Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,597Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     "path": "release-context.json",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     "size": 656,
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     "blob_id": "4b30f3432cc426f3c7be7ee7ab81f90832f2a906",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,598Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf   },
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf   {
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     "path": "result.json",
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     "size": 836,
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     "blob_id": "386c256557922f69132609cd672093586237833b",
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     "last_commit": {
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       "oid": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       "title": "Publish 5464064 transition endpoint and measured evidence",
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf       "date": "2026-10-23T08:24:33+00:00"
+2026-10-23 08:31:28,599Z INFO ministrike.experiments.publishing | hf     },
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf     "security": {
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf       "safe": false,
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf       "status": "queued",
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf       "av_scan": {
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "status": "safe",
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "message": "",
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "version": "1.5.4/28161"
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf       },
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf       "pickle_import_scan": {
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "status": "unscanned",
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "pickleImports": [],
+2026-10-23 08:31:28,600Z INFO ministrike.experiments.publishing | hf         "version": "0.0.0"
+2026-10-23 08:31:28,601Z INFO ministrike.experiments.publishing | hf       }
+2026-10-23 08:31:28,601Z INFO ministrike.experiments.publishing | hf     }
+2026-10-23 08:31:28,601Z INFO ministrike.experiments.publishing | hf   }
+2026-10-23 08:31:28,601Z INFO ministrike.experiments.publishing | hf ]

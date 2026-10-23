@@ -1,0 +1,18 @@
+{
+  "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+  "launched_utc": "2026-10-23T05:17:21.8018570+00:00",
+  "config": "configs/duel-confirmation.json",
+  "command": "cmd.exe /d /c .venv\\Scripts\\python.exe -u -m ministrike.app train --experiment duel-fixed-v1 --suite --run-config configs/duel-confirmation.json 1>runs\\duel-fixed-v1\\confirmation.stdout.log 2>runs\\duel-fixed-v1\\confirmation.stderr.log",
+  "launch_method": "hidden WMI job breakaway",
+  "process_id": 59944,
+  "return_value": 0,
+  "stdout": "runs/duel-fixed-v1/confirmation.stdout.log",
+  "stderr": "runs/duel-fixed-v1/confirmation.stderr.log",
+  "groups": [
+    "confirmation/group-0.json",
+    "confirmation/group-1.json",
+    "confirmation/group-2.json"
+  ],
+  "source_freeze": "Keep tracked source/config/docs/HEAD stable through all three serial workers",
+  "launcher_documentation": "https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/create-method-in-class-win32-process"
+}

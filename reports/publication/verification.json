@@ -1,0 +1,727 @@
+{
+  "verified_utc": "20261023T083250.450348Z",
+  "collection": "BurnyCoder/ministrike-staged-shooter-self-play-6ada65970d163e293d48f3ad",
+  "models": [
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5101",
+      "commit": "0e90981c242c94f99f10baa1b8e529ecc4d2a18a",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "a3dd4808a69306124a9f19e0934ffc5ee9e991ac26e669f537e5a7a9303dd593",
+          "bytes": 6123
+        },
+        "config.json": {
+          "sha256": "4555ea2b991cbf9e09ea81cfd5b07e4cc899b93df2d43fdb390fa56b9ad79cb0",
+          "bytes": 906
+        },
+        "final_test.json": {
+          "sha256": "5b91832c1e66dcce58ad188658e35d2330c9cfb1a2c7c46d8e7f30968809e666",
+          "bytes": 265459
+        },
+        "final_test_stochastic.json": {
+          "sha256": "6f1bd1b5c4dcfe331dae644e5a774ed2b0f4bb92271b73be78cf03ad279e4d40",
+          "bytes": 465824
+        },
+        "final_validation.json": {
+          "sha256": "207da4a2691eb0e660682009f21d36c439bd49f9e4bdc984bdc4a8b2569048ea",
+          "bytes": 254641
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "87684032ad83167bb0609df5eec2681009dea5e8eab1b55d441a9289955a4c9d",
+          "bytes": 499377
+        },
+        "initial.pt": {
+          "sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+          "bytes": 953973
+        },
+        "initial_test.json": {
+          "sha256": "7feb53f8e7340c2113c9fdcbc46910c0d44bd57bed81f4bac2091aac977cc620",
+          "bytes": 2670365
+        },
+        "initial_test_stochastic.json": {
+          "sha256": "d75cb4896dde898775f916d0a4913a7f3579f38cd2b11fec0698840f258cbfba",
+          "bytes": 2881130
+        },
+        "initial_validation.json": {
+          "sha256": "772d57dbc4187b18076e824e39f47401c44674461cefd66f31cf9226a59bbbc8",
+          "bytes": 2672340
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "1ae42c43131911b4cecb043fe3ee5071c68cf00737396a60fa4a2d264b4e83f0",
+          "bytes": 2888851
+        },
+        "metrics.jsonl": {
+          "sha256": "67fa03ee8a9d61be699cb4aa1c6674bc2f91730748377b0f2e3b9c86848128bf",
+          "bytes": 597081
+        },
+        "model.pt": {
+          "sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+          "bytes": 3849589
+        },
+        "release-context.json": {
+          "sha256": "88526906e62c45d781344f179dc0b42d7dd7ebbb2d0b1c87d7974148ffd85596",
+          "bytes": 656
+        },
+        "result.json": {
+          "sha256": "edaad88f75e2ade635337d16a99ab3ad5c760411324f72fc145f9c86aec5abc3",
+          "bytes": 836
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5102",
+      "commit": "a4b7b64d7cad275c18388b44af61a5522b94809f",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "af08dda537f21547b1f3e5a8aa1f732b3772ebef6f25006ce42d8618234ff54f",
+          "bytes": 6201
+        },
+        "config.json": {
+          "sha256": "bea1b30c9521950d042adeb48e3aef69a336bbd43c73362d8004a6eff8857fb7",
+          "bytes": 906
+        },
+        "final_test.json": {
+          "sha256": "0d3a51000bbc5ad6f408350ccd8554d85de61886b6259cda9933d39227d05408",
+          "bytes": 879148
+        },
+        "final_test_stochastic.json": {
+          "sha256": "6eb10da5df2b424deed04791190e74412249256a8afac83ee100cc0079891d41",
+          "bytes": 484430
+        },
+        "final_validation.json": {
+          "sha256": "19ecf05c41d5db360e15755913e0d2e17d5c9e9e28185b76e72c35bc75c4507d",
+          "bytes": 841944
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "dfa8fa8cce633ca2395faf731297240943874242441ec0162a18acb25b4614fd",
+          "bytes": 507774
+        },
+        "initial.pt": {
+          "sha256": "4167b41f716c53afb394e556b68115e6b5a4056c28e71fd10dbac44696f3fcb2",
+          "bytes": 953973
+        },
+        "initial_test.json": {
+          "sha256": "48bc5f4a40d72559edc3792612d8a87bfcc5e945b9b4a1fd20716cd85522df0f",
+          "bytes": 2613890
+        },
+        "initial_test_stochastic.json": {
+          "sha256": "68d404970c15bd1fb6b256ec015efa1fb50d55eb1aa8ed3d10413058711328cd",
+          "bytes": 2900709
+        },
+        "initial_validation.json": {
+          "sha256": "ad3c7b9b9e2ed16e6fc2a71147334bc8b7fdca46ef0c7cf251953b6517346a00",
+          "bytes": 2616021
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "369581f46b453a4e6770907101ce98c36eb7f09b1b8dee650eb411b2f0dacf27",
+          "bytes": 2889854
+        },
+        "metrics.jsonl": {
+          "sha256": "578ff879deb6de369e96046147b865e9825bc537fbf0415ebfdc4293af7ff1b6",
+          "bytes": 598435
+        },
+        "model.pt": {
+          "sha256": "66a3e6342a79eed81e5d92ff3a5c3c588e1b59fa0e2226c63b7376d1f03ac1a1",
+          "bytes": 3849653
+        },
+        "release-context.json": {
+          "sha256": "a37147b4a90a6423d22ed652acffc210bd624b0bfb86835c11017cd8183d66ef",
+          "bytes": 657
+        },
+        "result.json": {
+          "sha256": "ee4b6db0ad21b6925802a483453f2087bfe0facabc952eb860ad856848cbcffe",
+          "bytes": 837
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5103",
+      "commit": "a23d5d186bf5c58cc51933973def62c8419698ed",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "b7ce33ef494d74a80d818c631e792edb338f80960f8b9c73daf98903dad11830",
+          "bytes": 6210
+        },
+        "config.json": {
+          "sha256": "ba71a3a2cd13d16f230d69aac64fa044c110dd148ae84ee64d4e0675aca65d57",
+          "bytes": 906
+        },
+        "final_test.json": {
+          "sha256": "90ca84680ef9405520f8c1ce99adad6de460dd579bc6485e671f3ec3aaf8d8a5",
+          "bytes": 278211
+        },
+        "final_test_stochastic.json": {
+          "sha256": "7f2a5e7a2d87bd51e7e6ab8cc866f205deee9e9ff51fbca8510ed3a3de7a12fa",
+          "bytes": 515595
+        },
+        "final_validation.json": {
+          "sha256": "af64d3cef7039edd217486ed6e7f917d7bd92f2980ce5feb45e04879a84c93e3",
+          "bytes": 271986
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "6f271ad61b040a896aae40d252e72b07caf37e538f6bddc5ac72ac9687f6f131",
+          "bytes": 488621
+        },
+        "initial.pt": {
+          "sha256": "d1ee259e42a78a1e77af6d468a567be5fbfce86394d9efdff8bdc4f9eae0672d",
+          "bytes": 953909
+        },
+        "initial_test.json": {
+          "sha256": "30f8ac090ade44ca9d0e9191d70ec378bd1ab63072f28e05b8fa98a0141bd226",
+          "bytes": 2726331
+        },
+        "initial_test_stochastic.json": {
+          "sha256": "cdf27013be720bba8200a572a42af4c3401105a74f5eeb59b85c12dbb875b0b8",
+          "bytes": 2889634
+        },
+        "initial_validation.json": {
+          "sha256": "a9f3541c285772eeca30be8db5b9f05f4d6808ecbb54f1946be10dcc1726a2e4",
+          "bytes": 2727891
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "2322cd97a55593278e251929e8354035f1bc39ec72478ff00a9e8fb5674febad",
+          "bytes": 2889194
+        },
+        "metrics.jsonl": {
+          "sha256": "0629b20c3f6d8f7b7a301f1fce15d9f54406695d07d43f726b9a833f9d8dfb8a",
+          "bytes": 595527
+        },
+        "model.pt": {
+          "sha256": "a77e9541e91ec40a8e76d746a0d61c2e1b84bea08099dc679417d2c82659abdd",
+          "bytes": 3849589
+        },
+        "release-context.json": {
+          "sha256": "a37147b4a90a6423d22ed652acffc210bd624b0bfb86835c11017cd8183d66ef",
+          "bytes": 657
+        },
+        "result.json": {
+          "sha256": "c9975a6211b24121728067e11a10acd89b98557e2e26faf7dd5ddac28b3c1bfc",
+          "bytes": 838
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201",
+      "commit": "9c87d1e1837f1e0b49a55c4b27e505a3c8ad9be9",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "d58db69576aeeb6625d0de33fa510b0f5259bceb6f7676d23addc7ecfdf283f7",
+          "bytes": 8328
+        },
+        "assessment.json": {
+          "sha256": "66a3f05b0ef721f6a67e5d18174d7dca1c1f8ceaeb8e1cfc6c06976ccf44ff7d",
+          "bytes": 4130
+        },
+        "config.json": {
+          "sha256": "b1840f2674460ce533237dda4b767bdeb3cad1880842e639849a719dded318dd",
+          "bytes": 827
+        },
+        "final_validation.json": {
+          "sha256": "6568c5463663f616d17d06ff02659cbee403bf68fbfd6104f4e744c985a99b19",
+          "bytes": 105931
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "51f9403914e307c82331227df46d262dacfa7b0330e0a9ccd1f17a84b0759439",
+          "bytes": 310847
+        },
+        "initial.pt": {
+          "sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041",
+          "bytes": 953781
+        },
+        "initial_validation.json": {
+          "sha256": "23c54b43c73909d0efab22cd49ab3429f3bc4c8ac6a2ea0b6229ab7dcfef9e74",
+          "bytes": 105958
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "4adf1c5fc41dfb59f263f69f05041c5ae54902af4f83507b7e56943aca141be1",
+          "bytes": 308460
+        },
+        "metrics.jsonl": {
+          "sha256": "5054678a30c1e1eca5c8b902d464fdf40aeb438b260c04809db42a805327a42d",
+          "bytes": 131338
+        },
+        "model.pt": {
+          "sha256": "63a54c05f8d03a712ba3d1fd92cf15644c4221afda6f4facf00c2a2e7b9fe6d9",
+          "bytes": 4028206
+        },
+        "release-context.json": {
+          "sha256": "b8c832efe3724fd106af6889874720e6de0664fbc88debffdc7ba35e9d3aa860",
+          "bytes": 4608
+        },
+        "result.json": {
+          "sha256": "4f682ae91dfbc1decc77ac1ccef0dbdcefc0dbe6063c988865ab8ec759592360",
+          "bytes": 829
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201",
+      "commit": "7ee916548c38b6a18e04c2f790e5df9745268abe",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "59b1ece2348298473b0829fe87c8eb5c6c661e4c851c53c46b98ec085b69c1ec",
+          "bytes": 8312
+        },
+        "assessment.json": {
+          "sha256": "163bd78d82b7b6e4c88514b63d4fe0081268236f0192dd72de68864bdbc58dda",
+          "bytes": 4114
+        },
+        "config.json": {
+          "sha256": "152650c6d9315ab50cfe169c74f229aecd8c3979cc9a9a91cdcf9822e026eac5",
+          "bytes": 827
+        },
+        "final_validation.json": {
+          "sha256": "7bccbf0d95a582a0e9e60c5ba0cbe044c0625a4bff2d3004e87af2868738faf0",
+          "bytes": 107857
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "b5c11b5dbdca3cfc7ef39c595bd3062aa0862f0fe41f8b318a1272ae50b4a260",
+          "bytes": 316905
+        },
+        "initial.pt": {
+          "sha256": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de",
+          "bytes": 953781
+        },
+        "initial_validation.json": {
+          "sha256": "2697e3b54b997c2cbb199d14be8fa9fc5b5e8bb7b2a5cd81a54aee1577b64cd0",
+          "bytes": 105958
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "f21c641c858bc25b98df310584eba4ec2617248022b38603a23125e697af472d",
+          "bytes": 308460
+        },
+        "metrics.jsonl": {
+          "sha256": "7f472915d3b3541d5acfb3d93f569e0f3e9113dea5ec26e03881fabbab0b0626",
+          "bytes": 132670
+        },
+        "model.pt": {
+          "sha256": "c97392916f6fa4a968564b90d7928c7e223b6d5e97fab0ea67ae85ee0f440b77",
+          "bytes": 3849461
+        },
+        "release-context.json": {
+          "sha256": "32fd42330a819ef4574dc96ffdb2ee8b444e8307a29861debbeec8db9e344b66",
+          "bytes": 4592
+        },
+        "result.json": {
+          "sha256": "031e5cc4e5efc56eacfe096eca6aa0f1109c25354bc8a207afa103b38f77d4c0",
+          "bytes": 827
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201",
+      "commit": "6c8d2d1abe092c02a34b7e981c2d0db3719dd6b7",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "4c03e10c72e6e01ce4fde135896c802ef96db1385f9edae946d44dbd28a10165",
+          "bytes": 8308
+        },
+        "assessment.json": {
+          "sha256": "ca01a0ac8e52f6a54ac5411408ed62247826c9d1f8b080433176f4063508c2d9",
+          "bytes": 4103
+        },
+        "config.json": {
+          "sha256": "91df04abdfa894ff510c3fd5a70ee75dd4d0d7a1d4321ab6079c8e0c6d8e653c",
+          "bytes": 827
+        },
+        "final_validation.json": {
+          "sha256": "b61a4abe4fc45f701e7ce4fa1f86b0c0e8a744b85bc48a662b0a5f7ac6266c68",
+          "bytes": 107544
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "5a2d674fea09228254e6b5729ca57a7247d547dfb8bdcbfa7eb992c5231c5f0f",
+          "bytes": 316271
+        },
+        "initial.pt": {
+          "sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8",
+          "bytes": 953781
+        },
+        "initial_validation.json": {
+          "sha256": "44ecbe689aee8bed14f4ec3be84021be7e124b2894642210ffbe54f7da38d65e",
+          "bytes": 105958
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "23ecf0f923c3eef3c6702d842b3e436e5e7b67ce4f318a9401b65c73d935139e",
+          "bytes": 308460
+        },
+        "metrics.jsonl": {
+          "sha256": "9f10a43258170134e667745582d73d33171a588195be645179a79e9d285aa08b",
+          "bytes": 135302
+        },
+        "model.pt": {
+          "sha256": "495446a1142be875a43a6012377af4daa062a7e293b0d141e0c8c8b5ae1d6d79",
+          "bytes": 3849461
+        },
+        "release-context.json": {
+          "sha256": "8e5eb6017a25fe50d02dbbc26c3f7adbc81dfa970421287d014fc61440bdefe0",
+          "bytes": 4581
+        },
+        "result.json": {
+          "sha256": "8212a3aa86a74f861d847135bd27fc043ecb2e607913b471805ea52145213a94",
+          "bytes": 834
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201",
+      "commit": "e870c6e80da3826867be37afa3e0cb2f70cd5f70",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "073320f85ad4396152877a0cfc955c2229bf7f0b81201c877ee31d79b9cd64b3",
+          "bytes": 5450
+        },
+        "config.json": {
+          "sha256": "621abed40f860e15e4a6381a19a94c480c881c1774deaa4a2b0248dd9d0ff6ff",
+          "bytes": 917
+        },
+        "final_validation.json": {
+          "sha256": "b10d80ae56232126c96184022b74f0e3bd372dd0ab0809939a4db6338bd1b347",
+          "bytes": 107821
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "f51aa2be716d47ff117fc8ee2482819a6a36b4395a5c2102e0d8ad92e14f0c16",
+          "bytes": 316873
+        },
+        "initial.pt": {
+          "sha256": "0be96992f9170a06d970196f2e51974c151d8c8b6b8473a69da2aa6f73c400f9",
+          "bytes": 953909
+        },
+        "initial_validation.json": {
+          "sha256": "376ca015de9210107eccbf884584543ef5ebf4a4871ef69d3d04a833ad85163c",
+          "bytes": 106122
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "904031343cc4a62515912f3d45e28464cf2727027f6f6861e4e30a7279d645f8",
+          "bytes": 308623
+        },
+        "metrics.jsonl": {
+          "sha256": "1ea98a24f36b95145a4351971dfc4c147db4ce17ea4ffba250cc0483aa5d05ca",
+          "bytes": 544053
+        },
+        "model.pt": {
+          "sha256": "92364fabda4cb086ff03ce6ddb56be37c2154cd3d2ae657138b83afdc2a0c4b8",
+          "bytes": 3849589
+        },
+        "release-context.json": {
+          "sha256": "b095ba7caaae5f1bb56df6db3c28afafc8a2c93acf0f6375d81e853a2d9567d8",
+          "bytes": 196
+        },
+        "result.json": {
+          "sha256": "7a00af3fcac7999ede775d3ef301195ddfd250cf3017e1166d7bdf520a198971",
+          "bytes": 897
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201",
+      "commit": "be5db0afee23eb415df8cdb0e883a633d9ebe21f",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "445f103f4dbb24af3bdc4a1ced13b04445a6eab7de9ade5031fa28af4f748eb9",
+          "bytes": 5433
+        },
+        "config.json": {
+          "sha256": "88582cd84db188a5bead5535a7f206068db238e4ace66dd29b97fa019161c4f6",
+          "bytes": 921
+        },
+        "final_validation.json": {
+          "sha256": "22383d7498a30fc1468cec7cd2aab6d49853fdd29d67c8e9cd09e6ce3a327a3a",
+          "bytes": 106661
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "5f3952dea7b0e9cf9db29ed03db77c6db1b21aacd7b14070423838bbc28ee738",
+          "bytes": 316701
+        },
+        "initial.pt": {
+          "sha256": "4b175cd0cd1c2b7fc024a4e96d4eac721e8cbc9e3c6448952b2a82703c672b1d",
+          "bytes": 953909
+        },
+        "initial_validation.json": {
+          "sha256": "b89427782712fab8396824992b8bc8e266f2c20c3c28323ad59e04dd4a8ec0f8",
+          "bytes": 106122
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "35ca5c02c289fa5222947efa8a6c4f00d5916be72b821daeb74f79d1bd52e2e2",
+          "bytes": 308623
+        },
+        "metrics.jsonl": {
+          "sha256": "bbf8070d1a5271d144b1794281a33691ab08f6f9876934c2161ccc4da9dc05c8",
+          "bytes": 543603
+        },
+        "model.pt": {
+          "sha256": "d487c3efd1de99147528f162fb4bf82e4b9170c3c51ea5f27f176c7cfed447eb",
+          "bytes": 3849525
+        },
+        "release-context.json": {
+          "sha256": "b095ba7caaae5f1bb56df6db3c28afafc8a2c93acf0f6375d81e853a2d9567d8",
+          "bytes": 196
+        },
+        "result.json": {
+          "sha256": "b38a6774ebc108d0bfcccf6526430a2d0364b0bc8f5d507d7316ad581a8f7902",
+          "bytes": 898
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201",
+      "commit": "12e7ae97cb2e79eb54290f25b8fe5ede7b673685",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "f86dda672bc615e40588842711ef345551cc6bae7c800a75519b78b342c32b67",
+          "bytes": 5402
+        },
+        "config.json": {
+          "sha256": "9540324ca1b0203a885247324fb4c3f695d7c204b1f57d4bb7c7031c347190fa",
+          "bytes": 937
+        },
+        "final_validation.json": {
+          "sha256": "6e92a6700b4988c31330095026e3da288c4ca7318894984ae8bb7538a95b044b",
+          "bytes": 299402
+        },
+        "final_validation_stochastic.json": {
+          "sha256": "10bb2354559d1339c6e3e098824339f1aa103a9e2ef9e92fd484a11379086ae9",
+          "bytes": 487566
+        },
+        "initial.pt": {
+          "sha256": "173f7fdefce9de1bc4cc4c242f3da4e4e26c8de2b97b4c8ddd825c36394157a1",
+          "bytes": 953973
+        },
+        "initial_validation.json": {
+          "sha256": "1adc92621d040dafca25386952c651eca0be062bb07c58de46b44b17ad5ca10a",
+          "bytes": 2705491
+        },
+        "initial_validation_stochastic.json": {
+          "sha256": "f035442cb2e9acfde3a3a18fc0691c4882686f00444406ac81fea69b298a9fd6",
+          "bytes": 2887774
+        },
+        "metrics.jsonl": {
+          "sha256": "5c0d65c1bd52338c49a43a35795eabc02f236203e31166ea37dd0f45326e6beb",
+          "bytes": 543329
+        },
+        "model.pt": {
+          "sha256": "79665c155698f57de9cda2ddd38bcaed4fc2e2423abbdf97561384be9ad74002",
+          "bytes": 3849653
+        },
+        "release-context.json": {
+          "sha256": "b095ba7caaae5f1bb56df6db3c28afafc8a2c93acf0f6375d81e853a2d9567d8",
+          "bytes": 196
+        },
+        "result.json": {
+          "sha256": "9a306da46d7575c95a90e53dd57cfb4c67190137fe085672ef8afc37c9cb7cff",
+          "bytes": 866
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-fixed-seed111",
+      "commit": "caefd470fd9cd7ac207bb94cc83886122f7fc1ca",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "94d737da0dd8fdea6303cea3dac580605111d8280ffed2a3fb14b2f25a844328",
+          "bytes": 3691
+        },
+        "archive-status.json": {
+          "sha256": "cce187e3106cabb2a76808a57dae4b67acbcd0bd88a8c6dc5e9bb3072d4ad671",
+          "bytes": 623
+        },
+        "config.json": {
+          "sha256": "045e2c75237f1a584ca815ec4cb9fe670a034305352819d6b55352acb84354b6",
+          "bytes": 811
+        },
+        "initial.pt": {
+          "sha256": "e083538b1d2fa043ad64817943d36727687b9de2e610dd1e309c35a092cc79c0",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "12ce967d103aab261c69643031823cad03d5f1498ca6b389854baa2efbc43f65",
+          "bytes": 468205
+        },
+        "model.pt": {
+          "sha256": "ce45fc9aff423cc55b3da234e3061b9d64bcf8313079e2c5d2049621e70833b1",
+          "bytes": 10605878
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-fixed-seed222",
+      "commit": "fb9a75daebf339417c82453e1212a5ec42fffabe",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "24db57d615a9760248ba63e51f48fba26dfd4e4d7cd386697f334eb1b339e884",
+          "bytes": 3691
+        },
+        "archive-status.json": {
+          "sha256": "2bccbabfb033ab75585342321c652579b2ef9d3b6440c63dde6cf79bfc64819d",
+          "bytes": 624
+        },
+        "config.json": {
+          "sha256": "4ce14dad5c870537d2d38488ebf3d579855afbb4813bdfef30c7bedc66ba788c",
+          "bytes": 811
+        },
+        "initial.pt": {
+          "sha256": "20f610328242005a1c2951344ce2f1283ce6e022817d0d2f05a6f2eade698b06",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "04f2204dcc696f059b68045a095e7bf3673a0c79046d9be5355a4273b46d392c",
+          "bytes": 468965
+        },
+        "model.pt": {
+          "sha256": "d2a3426976d68f40bde13906bde17e7309a0cb08074f45186d8dd0e2bdf0bcd3",
+          "bytes": 10605942
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-fixed-seed333",
+      "commit": "26420add9baa880bc877c8b33af3947cf67c5905",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "71c93addb008f1fccdb5385f36d100b7fb2f29b6c35be129287c341c6be48860",
+          "bytes": 3691
+        },
+        "archive-status.json": {
+          "sha256": "161f50aeef0464f8ba66fdc0e6540b0e84c269cf48c1f4ae959ea57aa0a0e0e3",
+          "bytes": 623
+        },
+        "config.json": {
+          "sha256": "13af2111eda94125ce40c02c95d2ada7aead1c3bb72117d8493cfa558dbb033b",
+          "bytes": 811
+        },
+        "initial.pt": {
+          "sha256": "3fce292662807179543e2adc0a6054b3551612c7736ca563a6e5b77bdd26add9",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "52c5fd063ceb3f3042b2a15ece7d6d6f1e4cac93c8279c82b761ba6875838729",
+          "bytes": 464547
+        },
+        "model.pt": {
+          "sha256": "150f4537e9d1ae090ceb965762b987e7110170eedb398360d45b9a764354a18b",
+          "bytes": 10605878
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-selfplay-seed111",
+      "commit": "fac9ed8f096fd2713c26cac83e97132a1a896c26",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "f6ccabecd4d7147cd4db4f93b41512d9a40454ac390d26e22f85a9032899a640",
+          "bytes": 3706
+        },
+        "archive-status.json": {
+          "sha256": "cb590506a2754ee90407e83668f5b73b2cedf08a0cc154138b8c01121b4a9837",
+          "bytes": 626
+        },
+        "config.json": {
+          "sha256": "fca4e2d182c6a8965e81ffd3eec0d4348d75e395331d4efd30173fd3c18caee7",
+          "bytes": 813
+        },
+        "initial.pt": {
+          "sha256": "f7ee26eba533ac66d518d508b50e9b5d6d77e8a752eeafc2500738414f3f771f",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "74a1e985e0bd11d7ade344bf3bcf577501129aac3bcfc02fc9da03cb420c5197",
+          "bytes": 631589
+        },
+        "model.pt": {
+          "sha256": "8f51486605306191449b9296de0115464d830e26a2d8f74582ba7fa7c8eef285",
+          "bytes": 10883951
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-selfplay-seed222",
+      "commit": "b52fb237a1a2eabbd078d0a27b6327ecbc4c473f",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "5665f2e4a2845cdd3bcd395cf865d4f70e92c2c551bcd00523c12e2fe1cd0ade",
+          "bytes": 3705
+        },
+        "archive-status.json": {
+          "sha256": "597d03708ea346370670174c400eb540a626c2383724cc3747d4318623e454ce",
+          "bytes": 625
+        },
+        "config.json": {
+          "sha256": "c1eea69f6671cf0c7e0b9610934410f8c75e03afd6d27304dea3a85a85fd6aa0",
+          "bytes": 814
+        },
+        "initial.pt": {
+          "sha256": "b380bc3855328037c09bfbfc499133df69b07dca8742ad4d691f7a46c1d78277",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "9f5b9cbd617121d2ac7c7025d9595c85df0694d10865a3dd96ff75c2a1141c0d",
+          "bytes": 333374
+        },
+        "model.pt": {
+          "sha256": "75803b227d4dd63587604a1b6c8501399758ec024ab7863e680e320d114cd6f8",
+          "bytes": 10883951
+        }
+      }
+    },
+    {
+      "repository": "BurnyCoder/ministrike-selfplay-seed333",
+      "commit": "becaf168695661cb8e6113ab420b7e4078b7b6e5",
+      "public": true,
+      "in_collection": true,
+      "verified_files": {
+        "README.md": {
+          "sha256": "cf2682f3dadd6c9f0d2b7a71faf0db0ef4769a9796a1f3117814e2c17cf5c0cc",
+          "bytes": 3706
+        },
+        "archive-status.json": {
+          "sha256": "9ee70f6b972a18d8fd57897565cfbcace2195f52b89054994af0d349c75d9f94",
+          "bytes": 626
+        },
+        "config.json": {
+          "sha256": "49d2f1476ee0a90b3673c4520b4514fdd8fef9d5dd41ca564244d8e28cac1d9c",
+          "bytes": 814
+        },
+        "initial.pt": {
+          "sha256": "a9e79c7081c333bea1274db8ff2f1a6246a5e523617e09aa70faf227043e9e3c",
+          "bytes": 3070645
+        },
+        "metrics.jsonl": {
+          "sha256": "ad1a6c9c6202f873dcc3af73ac4f560ed0a7bfb51a04e79a631eaf0094856794",
+          "bytes": 386136
+        },
+        "model.pt": {
+          "sha256": "27d92eacea3e0378d810db5fd107974bbb157526fc8795cf98760ffa687e7f2a",
+          "bytes": 10605878
+        }
+      }
+    }
+  ],
+  "collection_items": 17
+}

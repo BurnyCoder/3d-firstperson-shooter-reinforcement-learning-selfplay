@@ -1,0 +1,16 @@
+{
+  "status": "experimental; engineering acceptance failed",
+  "unmet_criteria": [
+    "median moving-script score 0.25 < 0.55"
+  ],
+  "mean_primary_improvement": 0.4153645833333333,
+  "independent_model_ci95": [
+    0.4121300290211585,
+    0.41859913764550816
+  ],
+  "model_count": 3,
+  "selected_for_experimental_viewing": true,
+  "selection_sha256": "ff0773ca006c05bf30282eabba4287aeebbb78d74f0be1c4dc16d8030dc39146",
+  "final_test_access_after_frozen_validation_selection": true,
+  "report": "https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay/blob/main/reports/duel-fixed-v1/confirmation/README.md"
+}

@@ -1,0 +1,22 @@
+Title:           MiniStrike self-play experiment
+Subject:         (unspecified)
+Keywords:        
+Author:          Libor Burian
+Creator:         (unspecified)
+Producer:        ReportLab PDF Library - (opensource)
+CreationDate:    Fri Oct 23 11:07:30 2026 W. Europe Daylight Time
+ModDate:         Fri Oct 23 11:07:30 2026 W. Europe Daylight Time
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            none
+JavaScript:      no
+Pages:           10
+Encrypted:       no
+Page size:       595.276 x 841.89 pts (A4)
+Page rot:        0
+File size:       1672478 bytes
+Optimized:       no
+PDF version:     1.4

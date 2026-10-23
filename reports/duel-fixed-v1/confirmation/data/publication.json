@@ -1,0 +1,23 @@
+{
+  "collection": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad",
+  "models": [
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5101",
+      "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5101",
+      "frames": 5464064,
+      "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)\nUploading... 15/15 files checked, 2/2 uploaded (4.79MB transferred), 0 committed in 0 commit(s), validating 100%\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5101/commit/0e90981c242c94f99f10baa1b8e529ecc4d2a18a\"}"
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5102",
+      "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5102",
+      "frames": 5464064,
+      "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5102/commit/a4b7b64d7cad275c18388b44af61a5522b94809f\"}"
+    },
+    {
+      "repository": "BurnyCoder/ministrike-duel-fixed-v1-seed5103",
+      "url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5103",
+      "frames": 5464064,
+      "receipt": "Found 15 files to upload\nUploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)\n{\"url\": \"https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5103/commit/a23d5d186bf5c58cc51933973def62c8419698ed\"}"
+    }
+  ]
+}

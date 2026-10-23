@@ -1,0 +1,30 @@
+{
+  "checked_utc": "20261023T005848.761164Z",
+  "verification_revision": "2427f54835431bac4182ea8728e16d7e04cbf274",
+  "run_count": 33,
+  "png_count": 39,
+  "svg_count": 39,
+  "exact_staged_raw_files_verified": 105,
+  "missing_or_duplicate_labels": false,
+  "all_metric_snapshots_hash_verified": true,
+  "raw_plot_warnings": [],
+  "local_checks": [
+    "Full suite:81 passed in15.74s before final label/layout adjustments",
+    "Focused evidence/report tests:9 passed after shared hash-helper reuse",
+    "Ruff and staged whitespace checks passed",
+    "Executed plotting wrapper and reusable report phases against actual saved logs"
+  ],
+  "visual_inspection": [
+    "reward-pilot loss overlay",
+    "deterministic validation",
+    "stochastic validation",
+    "long-title calibration figure, corrected small-value axis labels",
+    "deferred six-run overlay with missing policy-loss panel"
+  ],
+  "limitations": [
+    "No learning-quality conclusion follows from loss curves",
+    "No final-test access",
+    "No new optimizer updates",
+    "Historical plots use canonical metrics, excluding archived recovery copies"
+  ]
+}

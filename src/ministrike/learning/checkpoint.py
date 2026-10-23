@@ -4,6 +4,7 @@ Source: https://docs.pytorch.org/docs/stable/notes/serialization.html
 """
 
 from pathlib import Path  # Local: atomic local checkpoint paths; global: recoverability.
+import hashlib  # Local: compare initialization tensors independently of checkpoint metadata.
 
 import numpy as np  # Local: serialize simulation arrays; global: NumPy state compatibility.
 import torch  # Local: tensor-only loading; global: avoid arbitrary pickle execution.
@@ -12,6 +13,7 @@ from ministrike.learning.models import ActorNetwork, FactorizedCategorical
 from ministrike.sim.constants import ACTION_NVECS, OBS_DIM, decode_actions
 from ministrike.sim.specs import match_spec  # Local: validate the full match-specific interface before loading.
 from ministrike.sim.constants import GameConfig  # Local: gameplay retains original checkpoint rules.
+from ministrike.records import replace_artifact  # Local: share bounded Windows file-sharing recovery with JSON artifacts.
 
 
 def encode_state(value):
@@ -44,12 +46,21 @@ def save_checkpoint(path, state):
     destination.parent.mkdir(parents=True, exist_ok=True)  # Create only requested output directories.
     temporary = destination.with_suffix(destination.suffix + ".tmp")  # Same filesystem enables replacement.
     torch.save(encode_state(state), temporary)  # Save only tensors and supported primitive containers.
-    temporary.replace(destination)  # Publish the completed checkpoint in one filesystem operation.
+    replace_artifact(temporary, destination)  # Publish the complete checkpoint; brief reader locks do not discard training.
 
 
 def load_checkpoint(path):
     """Local: restrict deserialization; global: downloadable models need no unsafe pickle code."""
     return decode_state(torch.load(path, map_location="cpu", weights_only=True))
+
+
+def parameter_hash(path, component="actor"):
+    """Local: hash names, types, shapes and exact CPU tensor bytes; global: matched runs must share initialization."""
+    digest = hashlib.sha256()  # Local: standard content fingerprint, not an approximate decimal comparison.
+    for name, tensor in sorted(load_checkpoint(path)[component].items()):
+        digest.update(f"{name}:{tensor.dtype}:{tuple(tensor.shape)}\n".encode())
+        digest.update(tensor.contiguous().numpy().tobytes())
+    return digest.hexdigest()
 
 
 class PolicyCheckpoint:
@@ -65,7 +76,10 @@ class PolicyCheckpoint:
             raise ValueError("Checkpoint observation dimension does not match this game")
         if tuple(state.get("schema", {}).get("action_nvecs", ACTION_NVECS)) != self.spec.action_nvecs:
             raise ValueError("Checkpoint control categories do not match this game")  # Prevent silent decoder mismatch.
-        self.actor = ActorNetwork(self.spec.observation_dim, self.spec.action_nvecs).eval().requires_grad_(False)
+        transform = state.get("config", {}).get("observation_transform", "identity")  # Local: legacy models retain world-relative coordinates.
+        if state.get("schema", {}).get("actor_observation_transform", "identity") != transform:
+            raise ValueError("Checkpoint actor observation transform metadata differs")
+        self.actor = ActorNetwork(self.spec.observation_dim, self.spec.action_nvecs, transform).eval().requires_grad_(False)
         self.actor.load_state_dict(state["actor"])  # Strict loading rejects missing/extra architecture keys.
         self.path = str(path)  # Expose provenance to reports and the renderer.
         rules = state.get("environment", {}).get("sim", {}).get("config")  # Local: legacy experiments keep exact rules.

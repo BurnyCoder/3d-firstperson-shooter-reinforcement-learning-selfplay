@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-10-23T05:16:41.601377+00:00",
+  "receipts": [
+    {
+      "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "implementation_tree": "7b1c3c27da8d0bfb342116e9adb97ca86cc2935f",
+      "config": "configs/duel-confirmation.json",
+      "sha256": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d",
+      "registration": "A-CONFIRM",
+      "checked_utc": "2026-10-23T05:16:39.309741+00:00"
+    },
+    {
+      "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "implementation_tree": "7b1c3c27da8d0bfb342116e9adb97ca86cc2935f",
+      "config": "configs/duel-confirmation.json",
+      "sha256": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d",
+      "registration": "A-CONFIRM",
+      "checked_utc": "2026-10-23T05:16:40.470764+00:00"
+    },
+    {
+      "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "implementation_tree": "7b1c3c27da8d0bfb342116e9adb97ca86cc2935f",
+      "config": "configs/duel-confirmation.json",
+      "sha256": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d",
+      "registration": "A-CONFIRM",
+      "checked_utc": "2026-10-23T05:16:41.594314+00:00"
+    }
+  ],
+  "power_sensitivity_exact": true,
+  "diagnostic_gate_passed": true,
+  "git_evidence_hashes_checked": 65
+}

@@ -1,0 +1,8 @@
+{
+  "source_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+  "implementation_tree": "7b1c3c27da8d0bfb342116e9adb97ca86cc2935f",
+  "config": "configs/duel-confirmation.json",
+  "sha256": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d",
+  "registration": "A-CONFIRM",
+  "checked_utc": "2026-10-23T06:56:28.781433+00:00"
+}

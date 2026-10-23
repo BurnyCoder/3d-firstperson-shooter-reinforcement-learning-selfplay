@@ -1,0 +1,66 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-23T07:54:43.348674+00:00",
+  "deadline_utc": "2026-10-23T11:30:52.627932+00:00",
+  "preflight": {
+    "source_revision": "8b1ae9d6b80c8df5084e57e810a5b00d7403ec34",
+    "implementation_tree": "61cf5cb10b6f5efd9f6773c8c3b9c63aac0d83ba",
+    "config": "configs/duel-confirmation.json",
+    "sha256": "baa52446137b95eddd9be90b0395f89bae0e14ced77ef00108582ffa896ee91d",
+    "registration": "A-EVAL",
+    "checked_utc": "2026-10-23T07:54:43.327947+00:00"
+  },
+  "checkpoints": [
+    {
+      "seed": 5101,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5101/model.pt",
+      "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+      "initial_sha256": "17ad69b2dcbc16c6f41862c777b0257af389ed2b95aed7d8eb033ee57277fa18",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064
+    },
+    {
+      "seed": 5102,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5102/model.pt",
+      "checkpoint_sha256": "66a3e6342a79eed81e5d92ff3a5c3c588e1b59fa0e2226c63b7376d1f03ac1a1",
+      "initial_sha256": "4167b41f716c53afb394e556b68115e6b5a4056c28e71fd10dbac44696f3fcb2",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064
+    },
+    {
+      "seed": 5103,
+      "checkpoint": "runs/duel-fixed-v1/confirmation/seed5103/model.pt",
+      "checkpoint_sha256": "a77e9541e91ec40a8e76d746a0d61c2e1b84bea08099dc679417d2c82659abdd",
+      "initial_sha256": "d1ee259e42a78a1e77af6d468a567be5fbfce86394d9efdff8bdc4f9eae0672d",
+      "training_revision": "64c366cd43c9739d3596712a4dd277675ecea8aa",
+      "arena_steps": 5464064
+    }
+  ],
+  "completed": [
+    "validation/5101/initial/deterministic",
+    "validation/5101/initial/stochastic",
+    "validation/5101/final/deterministic",
+    "validation/5101/final/stochastic",
+    "validation/5102/initial/deterministic",
+    "validation/5102/initial/stochastic",
+    "validation/5102/final/deterministic",
+    "validation/5102/final/stochastic",
+    "validation/5103/initial/deterministic",
+    "validation/5103/initial/stochastic",
+    "validation/5103/final/deterministic",
+    "validation/5103/final/stochastic",
+    "test/5101/initial/deterministic",
+    "test/5101/initial/stochastic",
+    "test/5101/final/deterministic",
+    "test/5101/final/stochastic",
+    "test/5102/initial/deterministic",
+    "test/5102/initial/stochastic",
+    "test/5102/final/deterministic",
+    "test/5102/final/stochastic",
+    "test/5103/initial/deterministic",
+    "test/5103/initial/stochastic",
+    "test/5103/final/deterministic",
+    "test/5103/final/stochastic"
+  ],
+  "finished_utc": "2026-10-23T08:01:51.732273+00:00"
+}

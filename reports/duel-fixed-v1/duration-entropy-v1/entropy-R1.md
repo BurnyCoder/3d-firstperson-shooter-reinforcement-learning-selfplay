@@ -1,0 +1,11 @@
+# A-DIAG-ENTROPY-R1
+
+**Complete; lowering entropy failed the hypothesis and recipe screen.** Scratchseed5201, R1 and4,980,736steps match the control; the only treatment is entropy coefficient0.001 instead of0.01. Motivation: test whether excessive stochasticity explains poor deterministic deployment. The [prospective protocol](../../../docs/amendments/2026-10-23-duration-entropy-diagnostic.md) fixes the contrast and thresholds; the[shared comparison](README.md) contains the methods, terminology and paired uncertainty.
+
+Primary score: initial0.33333333, early0.33854167, final0.37434896. Low-minus-control final **−0.04622396**, conditional match95%interval[−0.05598958,−0.03710938], opposite the proposed improvement. Own-initial change+0.041015625 fails+0.10. Final scores random0.623046875/initial0.5/script0; elimination25%. Random side scores0.74609375 and0.5. [Raw validation](data/low-entropy/seed5201/final_validation.json), [analysis](data/analysis.json).
+
+The608updates completed4,980,736arena steps in2398.875seconds,2076.280arena steps/s. Changed behavior changes simulation work, so this is not evidence that the lower coefficient is a generally faster optimizer setting. [Run result](data/low-entropy/seed5201/result.json), [raw metrics](data/low-entropy/seed5201/metrics.jsonl), [host telemetry](data/execution/entropy-R1.json).
+
+Initial actor/critic tensors equal the control's exactly. Final checkpoint SHA256: `d487c3efd1de99147528f162fb4bf82e4b9170c3c51ea5f27f176c7cfed447eb`. The[audit](audit.json) and[receipt](data/evaluation-receipt.json) retain every source/config/checkpoint identity and endpoint. Stochastic final aggregate0.46549479 also trails the control; scripted wins remain0/256. [Secondary records](data/low-entropy/seed5201/final_validation_stochastic.json).
+
+Lower final logged loss and action entropy did not translate to better benchmark performance. The result rejects this particular fixed-coefficient improvement at the tested exposure; one seed does not identify a general optimal entropy schedule or prove the cause of failure. No independent-model replication, final-test access or deployment follows. Preserve this negative outcome alongside the[complete figure gallery](README.md#figures-and-reproducibility).

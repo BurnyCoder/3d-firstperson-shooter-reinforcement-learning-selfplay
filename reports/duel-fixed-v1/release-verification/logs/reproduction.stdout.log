@@ -1,0 +1,8 @@
+2026-10-23 08:57:34,773Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\seed5101 (667 updates)
+2026-10-23 08:57:35,384Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\seed5102 (667 updates)
+2026-10-23 08:57:35,982Z INFO root | Loss figure saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\seed5103 (667 updates)
+2026-10-23 08:57:39,892Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\training\seed5101 (5 views)
+2026-10-23 08:57:43,245Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\training\seed5102 (5 views)
+2026-10-23 08:57:46,135Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\training\seed5103 (5 views)
+2026-10-23 08:57:49,460Z INFO root | Reward/activity figures saved: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\runs\reproduced-confirmation\curves\training\a-confirm (5 views)
+2026-10-23 08:57:56,392Z INFO root | Confirmation report: 60 raw files; 66 figures; acceptance=False

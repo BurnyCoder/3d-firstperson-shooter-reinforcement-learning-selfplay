@@ -6,6 +6,7 @@ Fixed-layout deterministic matches are counted once per side, never as 128 indep
 
 import hashlib  # Local: bind numerical results to exact checkpoint bytes.
 import logging  # Local: persist tournament progress through the shared timestamped handlers.
+from datetime import datetime, timezone  # Local: frozen diagnostics stop at their original absolute deadline.
 from pathlib import Path  # Local: evidence remains project-contained by CLI convention.
 
 import numpy as np  # Local: independent per-world random streams and transparent summaries.
@@ -16,6 +17,7 @@ from ministrike.policies.duel import DuelRandomPolicy, DuelScriptedPolicy  # Loc
 from ministrike.records import write_json, source_revision  # Local: atomic evidence and execution identity.
 from ministrike.sim.constants import DT, decode_actions  # Local: canonical action/tick contracts.
 from ministrike.sim.simulation import Simulation  # Local: same engine as training/rendering.
+from ministrike.experiments.duel_trace import trace_step  # Local: optional observation-only evidence, never an action input.
 
 
 def file_hash(path):
@@ -42,6 +44,8 @@ def summarize(rows):
     baselines = {}
     for baseline in ("random", "initial", "scripted"):
         group = [row for row in rows if row["baseline"] == baseline]
+        if not group:
+            continue  # Local: a diagnostic may explicitly select one baseline without inventing the other scores.
         sides = [float(np.mean([row["score"] for row in group if row["side"] == side])) for side in (0, 1)]
         baselines[baseline] = {"score": float(np.mean(sides)), "side_scores": sides, "matches": len(group),
                                "wins": sum(row["score"] == 1 for row in group),
@@ -51,14 +55,19 @@ def summarize(rows):
             "elimination_fraction": float(np.mean([row["reason"] == "elimination" for row in rows]))}
 
 
-def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, stochastic=False, num_envs=32):
+def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, stochastic=False, num_envs=32,
+                  *, initial_stochastic=None, baselines=("random", "initial", "scripted"), trace_first_seed=False, deadline=None):
     """Local: evaluate all three controls on paired worlds; global: persist every scheduled outcome and identity."""
     torch.set_num_threads(1)  # Local: tiny inference matrices avoid oversubscribed host thread pools.
+    if not baselines or len(set(baselines)) != len(baselines) or set(baselines) - {"random", "initial", "scripted"}:
+        raise ValueError("Select unique supported evaluation baselines")  # Local: fail instead of silently using a different opponent.
+    enemy_stochastic = stochastic if initial_stochastic is None else initial_stochastic  # Local: existing primary/secondary behavior is unchanged by default.
     actor = PolicyCheckpoint(checkpoint, "duel-fixed-v1")  # Local: reject incompatible legacy checkpoint dimensions.
     initial_actor = PolicyCheckpoint(initial, "duel-fixed-v1")  # Local: corresponding initialization, not another model.
     identity = {"checkpoint_sha256": file_hash(checkpoint), "initial_sha256": file_hash(initial),
                 "seed_base": seed_base, "pairs": pairs, "stochastic": stochastic,
-                "source_revision": source_revision(), "experiment": "duel-fixed-v1", "num_envs": num_envs}
+                "source_revision": source_revision(), "experiment": "duel-fixed-v1", "num_envs": num_envs,
+                "initial_stochastic": enemy_stochastic, "baselines": list(baselines), "trace_first_seed": trace_first_seed}
     output = Path(output)  # Local: explicit validation/final filenames prevent accidental overwrite.
     if output.exists():
         from ministrike.experiments.registration import read_json
@@ -68,11 +77,12 @@ def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, s
         if saved["status"] == "complete":
             return saved  # Local: already completed evidence is not retrained or unnecessarily replayed.
         rows = saved["rounds"]  # Local: completed batch records survive interruption.
+        traces = saved.get("traces", [])  # Local: completed trace batches survive the same restart.
     else:
-        rows = []
+        rows, traces = [], []
     completed = {(row["baseline"], row["side"], row["seed"]) for row in rows}
-    for baseline in ("random", "initial", "scripted"):
-        count = pairs if stochastic or baseline == "random" else 1  # Local: deterministic repeats provide no new information.
+    for baseline in baselines:
+        count = pairs if stochastic or baseline == "random" or (baseline == "initial" and enemy_stochastic) else 1  # Local: randomness in either controller produces distinct paired worlds.
         for side in (0, 1):
             for offset in range(0, count, num_envs):
                 seeds = list(range(seed_base + offset, seed_base + min(count, offset + num_envs)))
@@ -86,9 +96,15 @@ def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, s
                 counters = [{"hits": 0, "kills": 0, "reload_ticks": 0, "aim_saturated_ticks": 0,
                              "inactive_ticks": 0, "decisions": 0} for _ in seeds]
                 reasons = {}  # Local: record actual rule outcomes, never infer draws from a runner timeout.
+                trace = []  # Local: trace only the prospectively selected first seed, never a best-looking match.
                 for _ in range(400):
                     if sim.done.all():
                         break
+                    if deadline is not None and datetime.now(timezone.utc) >= deadline:
+                        interrupted = {"status": "budget_exhausted", "identity": identity, "rounds": rows, "traces": traces,
+                                       "unfinished_trace": {"baseline": baseline, "side": side, "seed": seeds[0], "steps": trace}}
+                        write_json(output, interrupted)  # Local: retain incomplete evidence; never manufacture a completed draw.
+                        return interrupted
                     controls = np.zeros((len(seeds), 2, 7), np.float32)
                     controls[:, side:side + 1] = policy_actions(actor, obs[:, side:side + 1], learner_rng, not stochastic)
                     enemy = 1 - side  # Local: swap roles without changing the paired seed stream.
@@ -96,11 +112,16 @@ def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, s
                     if baseline == "random":
                         controls[:, enemy] = np.stack([policy.act(row)[0] for policy, row in zip(randoms, enemy_obs, strict=True)])
                     elif baseline == "initial":
-                        controls[:, enemy:enemy + 1] = policy_actions(initial_actor, enemy_obs, enemy_rng, not stochastic)
+                        controls[:, enemy:enemy + 1] = policy_actions(initial_actor, enemy_obs, enemy_rng, not enemy_stochastic)
                     else:
                         controls[:, enemy:enemy + 1] = DuelScriptedPolicy().act(enemy_obs)
                     active = ~sim.done.copy()  # Local: count only genuine preterminal decisions.
+                    capture = trace_first_seed and seeds[0] == seed_base and active[0]
+                    if capture:
+                        trace.append(trace_step(sim, obs, controls, side))  # Local: copied diagnostic state cannot affect the chosen controls.
                     result = sim.step(controls)
+                    if capture:
+                        trace[-1]["events"] = [event for event in result.events if event["arena"] == 0]  # Local: link actual hits/shots/outcomes to the pre-action state.
                     obs = result.observations
                     for arena in np.flatnonzero(active):
                         counter = counters[arena]
@@ -125,8 +146,10 @@ def evaluate_duel(checkpoint, initial, output, seed_base=3_000_000, pairs=128, s
                                  "winner": int(sim.winner[arena]), "reason": reasons[arena],
                                  "seconds": float(sim.tick[arena] * DT), "damage": float(sim.damage_dealt[arena, side]),
                                  "shots": shots, "accuracy": counters[arena]["hits"] / max(shots, 1), **counters[arena]})
-                write_json(output, {"status": "running", "identity": identity, "rounds": rows})
+                if trace:
+                    traces.append({"baseline": baseline, "side": side, "seed": seeds[0], "steps": trace})
+                write_json(output, {"status": "running", "identity": identity, "rounds": rows, "traces": traces})
                 logging.info("duel_evaluation baseline=%s side=%s rounds=%s", baseline, side, len(rows))
-    result = {"status": "complete", "identity": identity, "rounds": rows, "summary": summarize(rows)}
+    result = {"status": "complete", "identity": identity, "rounds": rows, "summary": summarize(rows), "traces": traces}
     write_json(output, result)  # Local: summary is derived from the retained raw records.
     return result

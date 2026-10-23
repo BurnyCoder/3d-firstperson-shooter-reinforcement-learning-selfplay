@@ -1,0 +1,62 @@
+2026-10-23 08:24:04,941Z INFO ministrike.experiments.publishing | hf Found 15 files to upload
+2026-10-23 08:24:05,451Z INFO ministrike.experiments.publishing | hf Uploading... 15/15 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:24:35,564Z INFO ministrike.experiments.publishing | hf Uploading... 15/15 files checked, 2/2 uploaded (4.79MB transferred), 0 committed in 0 commit(s), validating 100%
+2026-10-23 08:24:36,986Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5101/commit/0e90981c242c94f99f10baa1b8e529ecc4d2a18a"}
+2026-10-23 08:24:38,627Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:24:40,680Z INFO ministrike.experiments.publishing | hf Found 15 files to upload
+2026-10-23 08:24:41,189Z INFO ministrike.experiments.publishing | hf Uploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:24:57,544Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5102/commit/a4b7b64d7cad275c18388b44af61a5522b94809f"}
+2026-10-23 08:24:59,184Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:01,456Z INFO ministrike.experiments.publishing | hf Found 15 files to upload
+2026-10-23 08:25:01,964Z INFO ministrike.experiments.publishing | hf Uploading... 15/15 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:17,209Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-seed5103/commit/a23d5d186bf5c58cc51933973def62c8419698ed"}
+2026-10-23 08:25:18,892Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:21,217Z INFO ministrike.experiments.publishing | hf Found 12 files to upload
+2026-10-23 08:25:21,719Z INFO ministrike.experiments.publishing | hf Uploading... 12/12 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:25,817Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r0-seed5201/commit/9c87d1e1837f1e0b49a55c4b27e505a3c8ad9be9"}
+2026-10-23 08:25:27,440Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:29,793Z INFO ministrike.experiments.publishing | hf Found 12 files to upload
+2026-10-23 08:25:30,308Z INFO ministrike.experiments.publishing | hf Uploading... 12/12 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:34,349Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r1-seed5201/commit/7ee916548c38b6a18e04c2f790e5df9745268abe"}
+2026-10-23 08:25:35,975Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:38,542Z INFO ministrike.experiments.publishing | hf Found 12 files to upload
+2026-10-23 08:25:39,054Z INFO ministrike.experiments.publishing | hf Uploading... 12/12 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:43,090Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-pilot-r2-seed5201/commit/6c8d2d1abe092c02a34b7e981c2d0db3719dd6b7"}
+2026-10-23 08:25:44,752Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:47,106Z INFO ministrike.experiments.publishing | hf Found 11 files to upload
+2026-10-23 08:25:47,610Z INFO ministrike.experiments.publishing | hf Uploading... 11/11 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:51,516Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-duration-r1-seed5201/commit/e870c6e80da3826867be37afa3e0cb2f70cd5f70"}
+2026-10-23 08:25:53,122Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:25:55,368Z INFO ministrike.experiments.publishing | hf Found 11 files to upload
+2026-10-23 08:25:55,873Z INFO ministrike.experiments.publishing | hf Uploading... 11/11 files checked, 0/0 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:25:59,992Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-entropy-r1-seed5201/commit/be5db0afee23eb415df8cdb0e883a633d9ebe21f"}
+2026-10-23 08:26:01,645Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:26:03,941Z INFO ministrike.experiments.publishing | hf Found 11 files to upload
+2026-10-23 08:26:04,446Z INFO ministrike.experiments.publishing | hf Uploading... 11/11 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:26:10,755Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-duel-fixed-v1-diag-ego-r1-seed5201/commit/12e7ae97cb2e79eb54290f25b8fe5ede7b673685"}
+2026-10-23 08:26:12,546Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:26:23,040Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:26:23,547Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:26:28,931Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed111/commit/caefd470fd9cd7ac207bb94cc83886122f7fc1ca"}
+2026-10-23 08:26:30,609Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:26:32,790Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:26:33,300Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:26:40,001Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed222/commit/fb9a75daebf339417c82453e1212a5ec42fffabe"}
+2026-10-23 08:26:41,680Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:26:43,817Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:26:44,330Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:26:50,594Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-fixed-seed333/commit/26420add9baa880bc877c8b33af3947cf67c5905"}
+2026-10-23 08:26:52,267Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:26:54,698Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:26:55,207Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:27:01,111Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed111/commit/fac9ed8f096fd2713c26cac83e97132a1a896c26"}
+2026-10-23 08:27:02,891Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:27:05,056Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:27:05,559Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:27:11,377Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed222/commit/b52fb237a1a2eabbd078d0a27b6327ecbc4c473f"}
+2026-10-23 08:27:13,068Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:27:15,442Z INFO ministrike.experiments.publishing | hf Found 6 files to upload
+2026-10-23 08:27:15,956Z INFO ministrike.experiments.publishing | hf Uploading... 6/6 files checked, 0/2 uploaded (0.00B transferred), 0 committed in 0 commit(s)
+2026-10-23 08:27:22,550Z INFO ministrike.experiments.publishing | hf {"url": "https://huggingface.co/BurnyCoder/ministrike-selfplay-seed333/commit/becaf168695661cb8e6113ab420b7e4078b7b6e5"}
+2026-10-23 08:27:24,173Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad"}
+2026-10-23 08:27:25,813Z INFO ministrike.experiments.publishing | hf {"slug": "BurnyCoder/ministrike-staged-shooter-self-play-6ada65970d163e293d48f3ad", "url": "https://huggingface.co/collections/BurnyCoder/ministrike-staged-shooter-self-play-6ada65970d163e293d48f3ad"}

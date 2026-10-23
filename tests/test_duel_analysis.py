@@ -32,3 +32,22 @@ def test_power_sensitivity_is_not_a_claim_of_adequacy():
     assert [row["assumed_sd"] for row in rows] == [.05, .10, .20]
     assert rows[0]["power"] > rows[1]["power"] > rows[2]["power"]
     assert all(row["models"] == 3 and 0 < row["power"] < 1 for row in rows)
+
+
+def test_registered_external_baseline_subset_excludes_changed_initial_policy():
+    """Local: known two-control contrast; global: a changed initial actor must not confound representation comparisons."""
+    before = {"rounds": [{"baseline": name, "side": side, "seed": 3000000, "score": 0.}
+                         for name in ("random", "initial", "scripted") for side in (0, 1)]}
+    after = {"rounds": [dict(row, score=1. if row["baseline"] == "initial" else .5) for row in before["rounds"]]}
+    assert paired_match_interval(before, after, baselines=("random", "scripted"))["ci95"] == [.5, .5]
+
+
+def test_representation_screen_does_not_substitute_external_improvement_for_scripted_skill():
+    """Local: a synthetic weak-control improvement fails the full screen; global: no favorable subset can qualify confirmation."""
+    from ministrike.experiments.egocentric_diagnostic import compare_egocentric
+
+    initial, final = evaluation(.5), evaluation(1.)
+    assert compare_egocentric(initial, initial, final)["screen_passed"]
+    final["summary"]["baselines"]["scripted"]["score"] = 0.
+    assert not compare_egocentric(initial, initial, final)["screen_passed"]
+    assert not compare_egocentric(initial, initial, final)["deployment_eligible"]

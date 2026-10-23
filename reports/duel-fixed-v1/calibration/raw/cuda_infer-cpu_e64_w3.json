@@ -1,0 +1,237 @@
+{
+  "name": "calibration/cuda_infer-cpu_e64_w3",
+  "status": "complete",
+  "config": "configs\\duel-calibration.json",
+  "indices": [
+    5,
+    6,
+    7
+  ],
+  "started_utc": "2026-10-22T23:32:03.193435+00:00",
+  "workers": [
+    {
+      "pid": 24352,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs\\duel-calibration.json",
+        "--index",
+        "5"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5290"
+    },
+    {
+      "pid": 56448,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs\\duel-calibration.json",
+        "--index",
+        "6"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5291"
+    },
+    {
+      "pid": 60160,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs\\duel-calibration.json",
+        "--index",
+        "7"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5292"
+    }
+  ],
+  "telemetry": [
+    {
+      "timestamp_utc": "20261022T233203.246901Z",
+      "cpu_percent": 28.3,
+      "ram_available_fraction": 0.2878900433544974,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2026.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7514415409152251
+    },
+    {
+      "timestamp_utc": "20261022T233205.325677Z",
+      "cpu_percent": 43.9,
+      "ram_available_fraction": 0.25778679451469294,
+      "gpu_percent": 19.0,
+      "gpu_used_mib": 2035.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7503373819163293
+    },
+    {
+      "timestamp_utc": "20261022T233207.405726Z",
+      "cpu_percent": 48.0,
+      "ram_available_fraction": 0.2556938187766655,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2187.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7316893632683106
+    },
+    {
+      "timestamp_utc": "20261022T233209.488730Z",
+      "cpu_percent": 41.5,
+      "ram_available_fraction": 0.2508177628309294,
+      "gpu_percent": 15.0,
+      "gpu_used_mib": 2055.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7478836952521163
+    },
+    {
+      "timestamp_utc": "20261022T233211.567339Z",
+      "cpu_percent": 37.9,
+      "ram_available_fraction": 0.2453803878011851,
+      "gpu_percent": 28.0,
+      "gpu_used_mib": 2042.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7494785915838547
+    },
+    {
+      "timestamp_utc": "20261022T233213.662128Z",
+      "cpu_percent": 36.7,
+      "ram_available_fraction": 0.2329631372850993,
+      "gpu_percent": 5.0,
+      "gpu_used_mib": 2467.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.697337749969329
+    },
+    {
+      "timestamp_utc": "20261022T233215.747593Z",
+      "cpu_percent": 45.5,
+      "ram_available_fraction": 0.11364926488156557,
+      "gpu_percent": 59.0,
+      "gpu_used_mib": 3056.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6250766777082566
+    },
+    {
+      "timestamp_utc": "20261022T233217.839650Z",
+      "cpu_percent": 44.1,
+      "ram_available_fraction": 0.11470598735076522,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 3030.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6282664703717336
+    },
+    {
+      "timestamp_utc": "20261022T233219.923921Z",
+      "cpu_percent": 40.0,
+      "ram_available_fraction": 0.11355191433932062,
+      "gpu_percent": 17.0,
+      "gpu_used_mib": 3030.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6282664703717336
+    },
+    {
+      "timestamp_utc": "20261022T233222.016280Z",
+      "cpu_percent": 41.3,
+      "ram_available_fraction": 0.11324463265278521,
+      "gpu_percent": 39.0,
+      "gpu_used_mib": 3017.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.629861366703472
+    },
+    {
+      "timestamp_utc": "20261022T233224.112498Z",
+      "cpu_percent": 40.2,
+      "ram_available_fraction": 0.11292967501611036,
+      "gpu_percent": 57.0,
+      "gpu_used_mib": 3009.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.6308428413691571
+    }
+  ],
+  "results": [
+    {
+      "condition": "selfplay",
+      "seed": 5290,
+      "frames": 32768,
+      "updates": 4,
+      "source_revision": "6db495937074e63876863b364654aef36a904345",
+      "execution_revision": "6db495937074e63876863b364654aef36a904345",
+      "elapsed_seconds": 11.8279999999977,
+      "frames_per_second": 2770.3753804537005,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5290\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5290\\initial.pt",
+      "rounds": 64,
+      "wins": 0,
+      "draws": 64,
+      "loss": -0.0702427145394419,
+      "gradient_norm": 0.3810839702685674,
+      "entropy": 6.74636946618557,
+      "critic_loss": 4.137547292278517e-05,
+      "policy_loss": -0.00282039784360677,
+      "approx_kl": 0.00630397885106504,
+      "clip_fraction": 0.0653076171875
+    },
+    {
+      "condition": "selfplay",
+      "seed": 5291,
+      "frames": 32768,
+      "updates": 4,
+      "source_revision": "6db495937074e63876863b364654aef36a904345",
+      "execution_revision": "6db495937074e63876863b364654aef36a904345",
+      "elapsed_seconds": 11.84400000000096,
+      "frames_per_second": 2766.6328942922446,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5291\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5291\\initial.pt",
+      "rounds": 64,
+      "wins": 0,
+      "draws": 64,
+      "loss": -0.07040355071755282,
+      "gradient_norm": 0.3884563883766532,
+      "entropy": 6.734705433249474,
+      "critic_loss": 3.18440019668742e-05,
+      "policy_loss": -0.0030883420064734914,
+      "approx_kl": 0.007582690527973075,
+      "clip_fraction": 0.06856282552083333
+    },
+    {
+      "condition": "selfplay",
+      "seed": 5292,
+      "frames": 32768,
+      "updates": 4,
+      "source_revision": "6db495937074e63876863b364654aef36a904345",
+      "execution_revision": "6db495937074e63876863b364654aef36a904345",
+      "elapsed_seconds": 11.703000000001339,
+      "frames_per_second": 2799.965820729407,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5292\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\calibration\\cuda_infer-cpu_e64_w3\\seed5292\\initial.pt",
+      "rounds": 64,
+      "wins": 0,
+      "draws": 64,
+      "loss": -0.07147866195797785,
+      "gradient_norm": 0.3902168295656641,
+      "entropy": 6.678213834762573,
+      "critic_loss": 2.8116899926544647e-05,
+      "policy_loss": -0.00472464212604488,
+      "approx_kl": 0.007696745645565291,
+      "clip_fraction": 0.103271484375
+    }
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0
+  ],
+  "wall_seconds": 23.01599999999962,
+  "aggregate_arena_steps_per_second": 4271.115745568371
+}

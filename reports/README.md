@@ -1,9 +1,19 @@
 # Experiment evidence
 
-The [verification summary](verification/summary.md) contains CPU and CUDA smoke runs, their raw evidence, individual reports, and a [PDF paper](verification/paper.pdf). Both initial/final smoke evaluations scored 0.167 over 24 rounds; these checks establish a working pipeline, not improved tactical competence. The six-run primary comparison is pending.
+Stage A fixed-spawn 1v1 training and evaluation are complete. The three fresh models improve primary test score by 0.415365 on average, but fail the moving-script engineering gate. Artifacts remain **experimental**; no later stage starts automatically. [Final confirmation report](duel-fixed-v1/confirmation/README.md), [all-experiment table and terminology](summary.md), [sourced paper](duel-fixed-v1/paper.pdf), [editable paper](duel-fixed-v1/paper.md).
 
-`uv run csrl report --input runs/suite --output reports` generates individual experiment reports, an aggregate table, measured learning curves, and a PDF paper naming Libor Burian as author. The suite preserves calibration, failed/timed-out runs, initial checkpoints, final checkpoints, and raw evaluation rounds. See the frozen analysis plan in [the protocol](../docs/protocol.md).
+The [confirmation gallery](duel-fixed-v1/confirmation/curves/README.md) and [behavior/reward gallery](duel-fixed-v1/confirmation/curves/training/README.md) retain every model's loss, reward, combat, activity and optimizer curves. [Test scores](duel-fixed-v1/confirmation/test-deterministic.png), [spawn-end outcomes](duel-fixed-v1/confirmation/test-deterministic-breakdown.png) and [uncertainty](duel-fixed-v1/confirmation/uncertainty.png) separate benchmark performance from training loss. [Plot guide](../docs/experiment-plots.md) provides raw-data hashes, units and reproduction commands.
 
-Implementation verification before training: simulation, baseline, learning-interface, and renderer tests; native 3D screenshots; exact rendered/headless replay comparison. These validate software behavior, not the learning hypothesis.
+The [publication archive](publication/README.md) verifies every new model repository's public status, collection membership and file bytes. [Native gameplay evidence](duel-fixed-v1/confirmation/native/README.md) covers arena and first-person watch, human ownership, takeover/hand-back and eight exact replay checks, with explicit physical-input test limitations.
 
-[Engineering verification notes](verification-notes.md) record issues, fixes, throughput measurements, and the limits of the smoke evidence. The final suite will report all six runs, calibration, and failed or incomplete outcomes under the unchanged analysis plan.
+Earlier reward pilots, sampling controls, duration/entropy interventions, the successful single-seed representation diagnostic, real resume control, all hardware probes, zero-update failure and deferred 5v5 work remain in the [canonical experiment summary](summary.md). It links each individual report without repeating their full explanations here. The [original 5v5 protocol](../docs/protocol.md) and its deadlines remain frozen; no completed or failed result was replaced.
+
+The [source bibliography](../docs/sources.md), [evidence index](../docs/evidence-index.md), [roadmap](../docs/experiment-roadmap.md) and [acceptance ledger](../docs/acceptance-stage-a.md) distinguish registrations, implementation checks, measured findings and unexecuted future work. Match intervals condition on fixed checkpoints; independent-model intervals describe retraining variability under their stated assumptions. Fixed deterministic trajectory repetitions are not independent evidence.
+
+```powershell
+uv run python scripts/report_confirmation.py --input reports/duel-fixed-v1/confirmation/data --output runs/reproduced-confirmation
+# On the original experiment workspace, also regenerate the editable paper's PDF:
+uv run csrl report --input runs/duel-fixed-v1 --output reports/duel-fixed-v1
+```
+
+These reporting commands perform no optimizer updates. The paper and generated figures require visual inspection after editing; a successful renderer exit is not a scientific or visual acceptance check.

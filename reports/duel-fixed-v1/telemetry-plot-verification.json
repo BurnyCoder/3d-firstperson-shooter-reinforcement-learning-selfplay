@@ -1,0 +1,56 @@
+{
+  "checked_utc": "2026-10-23T01:17:50.381770+00:00",
+  "plot_source_revision": "02da1a15d7d4101dbe263f844db60083b42e3c5d",
+  "canonical_run_count": 33,
+  "all_gallery_figures": {
+    "png": 61,
+    "svg": 61
+  },
+  "added_figures": 22,
+  "stage_a_snapshot_hashes_verified": 20,
+  "derived_series": [
+    {
+      "run": "pilots__R0__seed5201",
+      "rows": 152,
+      "reconstructed_reward_sums": {
+        "outcome": 534.0,
+        "damage": 118.375,
+        "potential": 0.0,
+        "total": 652.375
+      }
+    },
+    {
+      "run": "pilots__R1__seed5201",
+      "rows": 152,
+      "reconstructed_reward_sums": {
+        "outcome": 1206.0,
+        "damage": 548.375,
+        "potential": 0.0,
+        "total": 1754.375
+      }
+    },
+    {
+      "run": "pilots__R2__seed5201",
+      "rows": 152,
+      "reconstructed_reward_sums": {
+        "outcome": 1555.0,
+        "damage": 739.5,
+        "potential": -675.5617254180834,
+        "total": 1618.9382745819166
+      }
+    }
+  ],
+  "tests": "84 passed in 17.38s; Ruff passed",
+  "visual_inspection": [
+    "individual R2 reward and behavior",
+    "reward/combat/self-play/optimizer comparisons",
+    "both validation breakdowns",
+    "long-title calibration loss"
+  ],
+  "limitations": [
+    "No new optimizer or evaluation runs",
+    "No final-test access",
+    "One exploratory training seed, no retraining uncertainty",
+    "Self-play opponents change; reward definitions differ"
+  ]
+}

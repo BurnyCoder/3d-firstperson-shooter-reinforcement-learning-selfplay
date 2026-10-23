@@ -1,0 +1,118 @@
+{
+  "created_utc": "20261023T041024.777913Z",
+  "plot_source_revision": "0353890b7cd7c9eaf042a766bfdeb1572e6cf682",
+  "method": "raw update averages; no smoothing; missing/nonfinite values are gaps",
+  "comparisons": [
+    "duration-entropy"
+  ],
+  "runs": {
+    "control__seed5201": {
+      "label": "Entropy 0.01 / seed 5201",
+      "status": "complete",
+      "group": "duration-entropy",
+      "source_path": "C:/Users/Happy/Documents/projects/counter-strike-reinforcement-learning-selfplay/runs/duel-fixed-v1/diagnostics/duration-entropy-v1/control/seed5201/metrics.jsonl",
+      "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+      "metrics_sha256": "1ea98a24f36b95145a4351971dfc4c147db4ce17ea4ffba250cc0483aa5d05ca",
+      "rows": 608,
+      "last_arena_steps": 4980736,
+      "missing_or_nonfinite": {
+        "loss": 0,
+        "policy_loss": 0,
+        "critic_loss": 0,
+        "entropy": 0
+      },
+      "warnings": [],
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/control/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 4980736,
+        "max_seconds": 4800,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "milestone_updates": [
+          152
+        ],
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+        "experiment": "duel-fixed-v1",
+        "reward": "R1",
+        "inference_device": "cuda",
+        "registration": "A-DIAG-DURATION-R1",
+        "run_config": "configs\\duel-duration-entropy-v1.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "checkpoint_sha256": {
+        "initial.pt": "0be96992f9170a06d970196f2e51974c151d8c8b6b8473a69da2aa6f73c400f9",
+        "model.pt": "92364fabda4cb086ff03ce6ddb56be37c2154cd3d2ae657138b83afdc2a0c4b8"
+      }
+    },
+    "low-entropy__seed5201": {
+      "label": "Entropy 0.001 / seed 5201",
+      "status": "complete",
+      "group": "duration-entropy",
+      "source_path": "C:/Users/Happy/Documents/projects/counter-strike-reinforcement-learning-selfplay/runs/duel-fixed-v1/diagnostics/duration-entropy-v1/low-entropy/seed5201/metrics.jsonl",
+      "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+      "metrics_sha256": "bbf8070d1a5271d144b1794281a33691ab08f6f9876934c2161ccc4da9dc05c8",
+      "rows": 608,
+      "last_arena_steps": 4980736,
+      "missing_or_nonfinite": {
+        "loss": 0,
+        "policy_loss": 0,
+        "critic_loss": 0,
+        "entropy": 0
+      },
+      "warnings": [],
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/diagnostics/duration-entropy-v1/low-entropy/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 4980736,
+        "max_seconds": 4800,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.001,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "milestone_updates": [
+          152
+        ],
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+        "experiment": "duel-fixed-v1",
+        "reward": "R1",
+        "inference_device": "cuda",
+        "registration": "A-DIAG-ENTROPY-R1",
+        "run_config": "configs\\duel-duration-entropy-v1.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "checkpoint_sha256": {
+        "initial.pt": "4b175cd0cd1c2b7fc024a4e96d4eac721e8cbc9e3c6448952b2a82703c672b1d",
+        "model.pt": "d487c3efd1de99147528f162fb4bf82e4b9170c3c51ea5f27f176c7cfed447eb"
+      }
+    }
+  }
+}

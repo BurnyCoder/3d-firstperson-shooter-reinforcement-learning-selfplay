@@ -1,0 +1,98 @@
+2026-10-23 09:04:21,689Z INFO root | command {'command': 'watch', 'checkpoint': WindowsPath('runs/duel-fixed-v1/confirmation/seed5101/model.pt'), 'seed': 111, 'team': 0, 'seconds': 180.0, 'screenshot': WindowsPath('artifacts/screenshots/native-exit-fixed.png'), 'first_person': True, 'experiment': 'duel-fixed-v1'}
+info: Using primary monitor: Monitor(x=0, y=0, width=1920, height=1080, width_mm=531, height_mm=299, name='\\\\.\\DISPLAY6', is_primary=True)
+set window position: Vec2(240, 135)
+package_folder: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\.venv\Lib\site-packages\ursina
+asset_folder: C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\src\ministrike
+2026-10-23 09:04:33,855Z INFO ministrike.view.app | view_started mode=watch seed=111 policy=CHECKPOINT / model
+info: changed aspect ratio: 1.778 -> 1.778
+2026-10-23 09:04:33,928Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:33,929Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:34,448Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:34,614Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:34,615Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:34,761Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:34,762Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:34,763Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:34,763Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:37,267Z INFO ministrike.view.app | round_started round=2 seed=112
+2026-10-23 09:04:37,319Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:37,320Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:37,676Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:38,026Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:38,026Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:38,185Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:38,186Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:38,186Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:38,187Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:40,700Z INFO ministrike.view.app | round_started round=3 seed=113
+2026-10-23 09:04:40,769Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:40,771Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:41,118Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:41,454Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:41,454Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:41,605Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:41,606Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:41,607Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:41,607Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:44,116Z INFO ministrike.view.app | round_started round=4 seed=114
+2026-10-23 09:04:44,169Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:44,170Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:44,522Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:44,870Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:44,871Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:45,050Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:45,050Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:45,052Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:45,052Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:47,563Z INFO ministrike.view.app | round_started round=5 seed=115
+2026-10-23 09:04:47,632Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:47,633Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:47,971Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:48,321Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:48,322Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:48,475Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:48,476Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:48,476Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:48,477Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:50,985Z INFO ministrike.view.app | round_started round=6 seed=116
+2026-10-23 09:04:51,053Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:51,054Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:51,392Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:51,762Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:51,763Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:51,893Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:51,894Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:51,895Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:51,895Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:54,397Z INFO ministrike.view.app | round_started round=7 seed=117
+2026-10-23 09:04:54,454Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:54,455Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:54,800Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:55,150Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:55,152Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:55,299Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:55,300Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:55,300Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:55,301Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:04:57,817Z INFO ministrike.view.app | round_started round=8 seed=118
+2026-10-23 09:04:57,886Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:04:57,887Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:04:58,219Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:04:58,586Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:04:58,588Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:04:58,719Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:04:58,720Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:04:58,720Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:04:58,720Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:05:01,228Z INFO ministrike.view.app | round_started round=9 seed=119
+2026-10-23 09:05:01,286Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 1}
+2026-10-23 09:05:01,286Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 1}
+2026-10-23 09:05:01,633Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 8}
+2026-10-23 09:05:01,985Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 15}
+2026-10-23 09:05:01,987Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 15}
+2026-10-23 09:05:02,137Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 1, "attacker": 0, "victim": 1, "amount": 25.0, "value": 25.0, "team": 0, "tick": 18}
+2026-10-23 09:05:02,137Z INFO ministrike.view.app | match_event {"arena": 0, "type": "damage", "player": 0, "attacker": 1, "victim": 0, "amount": 25.0, "value": 25.0, "team": 1, "tick": 18}
+2026-10-23 09:05:02,139Z INFO ministrike.view.app | match_event {"arena": 0, "type": "kill", "player": 0, "team": 0, "tick": 18}
+2026-10-23 09:05:02,139Z INFO ministrike.view.app | match_event {"arena": 0, "type": "round_end", "winner": 1, "reason": "elimination", "tick": 18}
+2026-10-23 09:05:02,552Z INFO ministrike.view.app | screenshot_saved path=C:\Users\Happy\Documents\projects\counter-strike-reinforcement-learning-selfplay\artifacts\screenshots\native-exit-fixed.png ticks=162
+2026-10-23 09:05:02,553Z INFO ministrike.view.app | view_finished ticks=162 rounds=9

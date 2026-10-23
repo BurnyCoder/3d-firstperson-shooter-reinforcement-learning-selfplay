@@ -1,0 +1,21 @@
+{
+  "condition": "fixed",
+  "seed": 91001,
+  "frames": 65536,
+  "updates": 32,
+  "source_revision": "33e597b6639614141ba6b15ebbe2102ff30b1de9",
+  "execution_revision": "33e597b6639614141ba6b15ebbe2102ff30b1de9",
+  "elapsed_seconds": 145.07799999999952,
+  "frames_per_second": 451.72941452184494,
+  "complete": true,
+  "stop_reason": "frames",
+  "checkpoint": "runs\\diagnostics\\firing_seed91001\\model.pt",
+  "initial_checkpoint": "runs\\diagnostics\\firing_seed91001\\initial.pt",
+  "rounds": 30973,
+  "wins": 19917,
+  "draws": 0,
+  "loss": 0.055395372211933136,
+  "gradient_norm": 1.5065416768193245,
+  "entropy": 5.142077883084615,
+  "critic_loss": 0.11144003334144752
+}

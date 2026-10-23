@@ -81,7 +81,7 @@ def _capture(config, actor, critic, optimizer, pool, env, frames, updates, elaps
             "source_revision": config.source_revision, "saved_at_utc": timestamp(),
             "schema": {"observation_dim": spec.observation_dim, "frame_dim": spec.frame_dim,
                        "history_length": HISTORY_LENGTH, "action_nvecs": spec.action_nvecs, **asdict(spec),
-                       "reward": config.reward},
+                       "reward": config.reward, "actor_observation_transform": config.observation_transform},
             "actor": {key: value.detach().cpu() for key, value in actor.state_dict().items()},
             "critic": {key: value.detach().cpu() for key, value in critic.state_dict().items()},
             "optimizer": optimizer.state_dict(), "pool": pool.state_dict(), "environment": env.snapshot(),
@@ -121,7 +121,7 @@ def train_run(config, deadline_monotonic=None):
         raise FileExistsError(f"Run already exists: {directory}; use resume or a fresh output directory")
     (directory / "config.json").write_text(json.dumps(asdict(config), indent=2), encoding="utf-8")
     spec = match_spec(config.experiment)  # Local: derive every network/batch dimension from selected match.
-    actor_network = ActorNetwork(spec.observation_dim, spec.action_nvecs).to(config.device)
+    actor_network = ActorNetwork(spec.observation_dim, spec.action_nvecs, config.observation_transform).to(config.device)
     critic_network = CentralCritic(spec.observation_dim, spec.team_size).to(config.device)
     actor, critic = make_actor(actor_network), make_critic(critic_network)  # Named TorchRL interfaces.
     rollout_network = copy.deepcopy(actor_network).to(config.inference_device)  # Local: measured placement.
@@ -181,6 +181,9 @@ def train_run(config, deadline_monotonic=None):
             pool.prune(env.opponent_ids)  # Retain active old snapshots until those rounds complete.
             save_checkpoint(directory / "model.pt", _capture(config, actor_network, critic_network,
                             optimizer, pool, env, frames, updates, elapsed))
+        if updates in config.milestone_updates:  # Local: retain exact registered exposure without adding an opponent or changing RNG.
+            save_checkpoint(directory / "milestones" / f"update-{updates:06d}.pt",
+                            _capture(config, actor_network, critic_network, optimizer, pool, env, frames, updates, elapsed))
         elapsed = previous_elapsed + time.monotonic() - started  # Include any periodic checkpoint serialization.
         row = {"timestamp_utc": timestamp(), "frames": frames, "updates": updates, "elapsed_seconds": elapsed,
                "frames_per_second": frames / max(elapsed, 1e-6), "rounds": env.rounds,

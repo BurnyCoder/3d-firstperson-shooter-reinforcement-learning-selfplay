@@ -1,0 +1,236 @@
+{
+  "created_utc": "20261023T084321.977063Z",
+  "runs": [
+    {
+      "run": "fixed_seed111",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "fixed",
+        "seed": 111,
+        "frames": 2682880,
+        "updates": 1310,
+        "elapsed_seconds": 4168.479187000001,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T215021.107303Z",
+        "checkpoint_sha256": {
+          "initial.pt": "e083538b1d2fa043ad64817943d36727687b9de2e610dd1e309c35a092cc79c0",
+          "model.pt": "ce45fc9aff423cc55b3da234e3061b9d64bcf8313079e2c5d2049621e70833b1"
+        },
+        "metrics_sha256": "12ce967d103aab261c69643031823cad03d5f1498ca6b389854baa2efbc43f65"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T215021.142955Z",
+        "frames": 2682880,
+        "updates": 1310,
+        "elapsed_seconds": 4168.510187,
+        "frames_per_second": 643.6064396260524,
+        "rounds": 12575,
+        "wins": 0,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.077606337814359,
+        "gradient_norm": 0.46065734326839447,
+        "entropy": 7.15291957060496,
+        "critic_loss": 2.3341149410308995e-06
+      }
+    },
+    {
+      "run": "fixed_seed222",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "fixed",
+        "seed": 222,
+        "frames": 2682880,
+        "updates": 1310,
+        "elapsed_seconds": 4171.8600099999985,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T215026.597950Z",
+        "checkpoint_sha256": {
+          "initial.pt": "20f610328242005a1c2951344ce2f1283ce6e022817d0d2f05a6f2eade698b06",
+          "model.pt": "d2a3426976d68f40bde13906bde17e7309a0cb08074f45186d8dd0e2bdf0bcd3"
+        },
+        "metrics_sha256": "04f2204dcc696f059b68045a095e7bf3673a0c79046d9be5355a4273b46d392c"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T215026.634630Z",
+        "frames": 2682880,
+        "updates": 1310,
+        "elapsed_seconds": 4171.891009999999,
+        "frames_per_second": 643.084872919535,
+        "rounds": 13673,
+        "wins": 0,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.07761223414369549,
+        "gradient_norm": 0.430111825466156,
+        "entropy": 7.13911630709966,
+        "critic_loss": 1.3526147559635623e-05
+      }
+    },
+    {
+      "run": "fixed_seed333",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "fixed",
+        "seed": 333,
+        "frames": 2662400,
+        "updates": 1300,
+        "elapsed_seconds": 4180.338938999999,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T215039.271640Z",
+        "checkpoint_sha256": {
+          "initial.pt": "3fce292662807179543e2adc0a6054b3551612c7736ca563a6e5b77bdd26add9",
+          "model.pt": "150f4537e9d1ae090ceb965762b987e7110170eedb398360d45b9a764354a18b"
+        },
+        "metrics_sha256": "52c5fd063ceb3f3042b2a15ece7d6d6f1e4cac93c8279c82b761ba6875838729"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T215039.310037Z",
+        "frames": 2662400,
+        "updates": 1300,
+        "elapsed_seconds": 4180.385939,
+        "frames_per_second": 636.8789960663008,
+        "rounds": 15577,
+        "wins": 0,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.07538502496511985,
+        "gradient_norm": 0.5003748796880245,
+        "entropy": 7.201262295246124,
+        "critic_loss": 4.7816747184015185e-06
+      }
+    },
+    {
+      "run": "selfplay_seed111",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "selfplay",
+        "seed": 111,
+        "frames": 3604480,
+        "updates": 1760,
+        "elapsed_seconds": 6259.995033000001,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T215014.633487Z",
+        "checkpoint_sha256": {
+          "initial.pt": "f7ee26eba533ac66d518d508b50e9b5d6d77e8a752eeafc2500738414f3f771f",
+          "model.pt": "8f51486605306191449b9296de0115464d830e26a2d8f74582ba7fa7c8eef285"
+        },
+        "metrics_sha256": "74a1e985e0bd11d7ade344bf3bcf577501129aac3bcfc02fc9da03cb420c5197"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T215014.657376Z",
+        "frames": 3604480,
+        "updates": 1760,
+        "elapsed_seconds": 6260.026033,
+        "frames_per_second": 575.7931326481435,
+        "rounds": 3227,
+        "wins": 1609,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.0746017652854789,
+        "gradient_norm": 0.4138804264366627,
+        "entropy": 6.934627274672191,
+        "critic_loss": 2.2608535014493705e-06
+      }
+    },
+    {
+      "run": "selfplay_seed222",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "selfplay",
+        "seed": 222,
+        "frames": 1904640,
+        "updates": 930,
+        "elapsed_seconds": 3608.702070999998,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T214101.868835Z",
+        "checkpoint_sha256": {
+          "initial.pt": "b380bc3855328037c09bfbfc499133df69b07dca8742ad4d691f7a46c1d78277",
+          "model.pt": "75803b227d4dd63587604a1b6c8501399758ec024ab7863e680e320d114cd6f8"
+        },
+        "metrics_sha256": "9f5b9cbd617121d2ac7c7025d9595c85df0694d10865a3dd96ff75c2a1141c0d"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T214101.922062Z",
+        "frames": 1904640,
+        "updates": 930,
+        "elapsed_seconds": 3608.765070999998,
+        "frames_per_second": 527.7816545348627,
+        "rounds": 1790,
+        "wins": 885,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.07399823656305671,
+        "gradient_norm": 0.3342246462901433,
+        "entropy": 6.905549426873525,
+        "critic_loss": 1.779404617726262e-06
+      }
+    },
+    {
+      "run": "selfplay_seed333",
+      "archive": {
+        "archived_deferred": true,
+        "complete": false,
+        "stop_reason": "deferred_by_user",
+        "condition": "selfplay",
+        "seed": 333,
+        "frames": 2211840,
+        "updates": 1080,
+        "elapsed_seconds": 4163.875455000001,
+        "source_revision": "38697fee4af941b12cfd15489424e2750ef4dd1d",
+        "saved_at_utc": "20261022T215017.250886Z",
+        "checkpoint_sha256": {
+          "initial.pt": "a9e79c7081c333bea1274db8ff2f1a6246a5e523617e09aa70faf227043e9e3c",
+          "model.pt": "27d92eacea3e0378d810db5fd107974bbb157526fc8795cf98760ffa687e7f2a"
+        },
+        "metrics_sha256": "ad1a6c9c6202f873dcc3af73ac4f560ed0a7bfb51a04e79a631eaf0094856794"
+      },
+      "last_training_record": {
+        "timestamp_utc": "20261022T215017.287593Z",
+        "frames": 2211840,
+        "updates": 1080,
+        "elapsed_seconds": 4163.906455,
+        "frames_per_second": 531.1934895521085,
+        "rounds": 2049,
+        "wins": 1027,
+        "draws": 0,
+        "scenario": "standard",
+        "loss": -0.07336630429684494,
+        "gradient_norm": 0.3416527820130189,
+        "entropy": 6.826252023379008,
+        "critic_loss": 2.5269580608740703e-06
+      }
+    }
+  ],
+  "raw_sha256": {
+    "data/suite.json": "8961721af7adf6c4d858e3a1d83b128bb2926a467642bb127f86bab1e0fab864",
+    "data/fixed_seed111/archive-status.json": "cce187e3106cabb2a76808a57dae4b67acbcd0bd88a8c6dc5e9bb3072d4ad671",
+    "data/fixed_seed111/config.json": "045e2c75237f1a584ca815ec4cb9fe670a034305352819d6b55352acb84354b6",
+    "data/fixed_seed111/metrics.jsonl": "12ce967d103aab261c69643031823cad03d5f1498ca6b389854baa2efbc43f65",
+    "data/fixed_seed222/archive-status.json": "2bccbabfb033ab75585342321c652579b2ef9d3b6440c63dde6cf79bfc64819d",
+    "data/fixed_seed222/config.json": "4ce14dad5c870537d2d38488ebf3d579855afbb4813bdfef30c7bedc66ba788c",
+    "data/fixed_seed222/metrics.jsonl": "04f2204dcc696f059b68045a095e7bf3673a0c79046d9be5355a4273b46d392c",
+    "data/fixed_seed333/archive-status.json": "161f50aeef0464f8ba66fdc0e6540b0e84c269cf48c1f4ae959ea57aa0a0e0e3",
+    "data/fixed_seed333/config.json": "13af2111eda94125ce40c02c95d2ada7aead1c3bb72117d8493cfa558dbb033b",
+    "data/fixed_seed333/metrics.jsonl": "52c5fd063ceb3f3042b2a15ece7d6d6f1e4cac93c8279c82b761ba6875838729",
+    "data/selfplay_seed111/archive-status.json": "cb590506a2754ee90407e83668f5b73b2cedf08a0cc154138b8c01121b4a9837",
+    "data/selfplay_seed111/config.json": "fca4e2d182c6a8965e81ffd3eec0d4348d75e395331d4efd30173fd3c18caee7",
+    "data/selfplay_seed111/metrics.jsonl": "74a1e985e0bd11d7ade344bf3bcf577501129aac3bcfc02fc9da03cb420c5197",
+    "data/selfplay_seed222/archive-status.json": "597d03708ea346370670174c400eb540a626c2383724cc3747d4318623e454ce",
+    "data/selfplay_seed222/config.json": "c1eea69f6671cf0c7e0b9610934410f8c75e03afd6d27304dea3a85a85fd6aa0",
+    "data/selfplay_seed222/metrics.jsonl": "9f5b9cbd617121d2ac7c7025d9595c85df0694d10865a3dd96ff75c2a1141c0d",
+    "data/selfplay_seed333/archive-status.json": "9ee70f6b972a18d8fd57897565cfbcace2195f52b89054994af0d349c75d9f94",
+    "data/selfplay_seed333/config.json": "49d2f1476ee0a90b3673c4520b4514fdd8fef9d5dd41ca564244d8e28cac1d9c",
+    "data/selfplay_seed333/metrics.jsonl": "ad1a6c9c6202f873dcc3af73ac4f560ed0a7bfb51a04e79a631eaf0094856794"
+  }
+}

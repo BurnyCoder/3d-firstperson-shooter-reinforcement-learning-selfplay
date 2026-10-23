@@ -14,6 +14,10 @@ from ministrike.records import configure_logging, write_json  # Reuse timestampe
 
 LOGGER = logging.getLogger(__name__)  # Same logging contract as training and evaluation.
 FILES = ("model.pt", "initial.pt", "config.json", "result.json", "evaluation.json", "initial_evaluation.json", "metrics.jsonl")  # Credentials and .env are never eligible for upload.
+FILES += ("initial_validation.json", "final_validation.json", "initial_test.json", "final_test.json",
+          "initial_validation_stochastic.json", "final_validation_stochastic.json", "assessment.json",
+          "initial_test_stochastic.json", "final_test_stochastic.json", "release-context.json")  # Local: explicit duel evidence allowlist.
+FILES += ("archive-status.json",)  # Local: deferred models get honest derived metadata without rewriting original trainer outputs.
 
 
 def hf_command(arguments: list[str]) -> dict | str:
@@ -34,17 +38,23 @@ def hf_command(arguments: list[str]) -> dict | str:
         return receipt.strip()  # Mixed progress/JSON output remains a complete, auditable text receipt.
 
 
-def stage_run(run: Path, destination: Path) -> dict:
+def stage_run(run: Path, destination: Path, result=None) -> dict:
     """Local: prepare a source-grounded model card and strict file allowlist. Global: inspectable public release."""
-    result = json.loads((run / "result.json").read_text(encoding="utf-8"))  # Only completed trainer invocations provide release metadata.
+    result = result or json.loads((run / "result.json").read_text(encoding="utf-8"))  # Local: original trainer output or explicitly identified archival metadata.
     config = json.loads((run / "config.json").read_text(encoding="utf-8"))  # Preserve exact architecture/training controls.
     if not (run / "model.pt").is_file():  # A metrics-only experiment is not a downloadable model.
         raise FileNotFoundError(run / "model.pt")  # Do not create an empty misleading model repository.
     destination.mkdir(parents=True, exist_ok=True)  # Staging stays in generated local outputs.
+    if result.get("archived_deferred"):
+        write_json(destination / "archive-status.json", result)  # Local: derived archive status is never named result.json.
     for name in FILES:  # Fixed names prevent accidentally uploading secrets or unrelated project content.
         source = run / name  # Model/evaluation artifacts live directly in the selected run directory.
         if source.is_file():  # Missing evaluation remains explicitly pending in the card below.
             shutil.copy2(source, destination / name)  # Preserve checkpoint bytes exactly.
+    if config.get("experiment") == "duel-fixed-v1":
+        from ministrike.experiments.duel_card import make_duel_card  # Local: keep match-specific prose out of upload orchestration.
+        (destination / "README.md").write_text(make_duel_card(run, result, config), encoding="utf-8")
+        return result  # Local: duel cards cannot fall through to legacy5v5 claims.
     evaluation_path = run / "evaluation.json"  # Held-out endpoint is separate from changing training rewards.
     evaluation = json.loads(evaluation_path.read_text(encoding="utf-8")) if evaluation_path.exists() else {}  # No evaluation is not a zero score.
     summary = evaluation.get("summary", {})  # Missing summaries are labeled pending rather than imputed.
@@ -61,7 +71,10 @@ tags:
 ---
 # MiniStrike {run.name}
 
-Author: Libor Burian. Original 3D 5v5 tactical-game checkpoint from the [source repository](https://github.com/BurnyCoder/counter-strike-reinforcement-learning-selfplay).
+Author: Libor Burian. Original 3D 5v5 tactical-game checkpoint from the [source repository](https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay).
+
+Archival status: **{'DEFERRED, INCOMPLETE: no completed final tournament or tactical-skill claim' if result.get('archived_deferred') else 'Verification or measured experiment; inspect the recorded status below'}**.
+The deferred suite retains its original deadlines and all interruption amendments in the [learning audit](https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay/blob/main/reports/learning-audit/summary.md). Checkpoint source identity denotes the original learning implementation; later execution/performance revisions are recorded in that audit. This legacy fixed-opponent condition, where present, is outside the later pure-self-play Stage A protocol.
 
 ## Method and measured status
 
@@ -94,17 +107,49 @@ Algorithm references: [TorchRL MAPPO tutorial](https://docs.pytorch.org/rl/stabl
     return result  # Publication metadata can record the precise run identity.
 
 
-def publish_models(input_dir: str | Path, collection: str, namespace: str = "BurnyCoder") -> dict:
+def repository_name(namespace, run, config):
+    """Local: preserve stable experiment identities; global: repeated seeds cannot overwrite different interventions."""
+    prefix = "duel-fixed-v1-" if config.get("experiment") == "duel-fixed-v1" else ""
+    registration = config.get("registration", "")
+    if registration.startswith("A-PILOT"):
+        prefix += f"pilot-{config['reward'].lower()}-"
+    elif registration.startswith("A-DIAG"):
+        prefix += registration.removeprefix("A-").lower() + "-"
+    return f"{namespace}/ministrike-{prefix}{run.name.replace('_', '-')}"
+
+
+def deferred_result(run):
+    """Local: describe the last durable checkpoint; global: a deliberate deferral must never masquerade as a completed trainer."""
+    from ministrike.learning.checkpoint import load_checkpoint  # Local: use restricted weights-only deserialization.
+    from ministrike.experiments.loss_plots import parse_metrics
+    from ministrike.experiments.duel_evaluation import file_hash
+    state = load_checkpoint(run / "model.pt")
+    rows, warnings = parse_metrics((run / "metrics.jsonl").read_bytes())
+    if warnings or rows[-1]["frames"] != state["frames"] or rows[-1]["updates"] != state["updates"]:
+        raise ValueError("Archive metric/checkpoint boundary mismatch; preserve and investigate")
+    return {"archived_deferred": True, "complete": False, "stop_reason": "deferred_by_user",
+            "condition": state["config"]["condition"], "seed": state["config"]["seed"],
+            "frames": state["frames"], "updates": state["updates"], "elapsed_seconds": state["elapsed_seconds"],
+            "source_revision": state["source_revision"], "saved_at_utc": state["saved_at_utc"],
+            "checkpoint_sha256": {name: file_hash(run / name) for name in ("initial.pt", "model.pt")},
+            "metrics_sha256": file_hash(run / "metrics.jsonl")}
+
+
+def publish_models(input_dir: str | Path, collection: str, namespace: str = "BurnyCoder", include_deferred=False) -> dict:
     """Local: upload direct child runs into one collection. Global: preserve all conditions, not only the best score."""
     root = Path(input_dir).resolve()  # The selected input directory bounds discovery.
-    runs = [path.parent for path in sorted(root.glob("*/result.json"))]  # Exclude nested calibration probes from deployable model repositories.
+    if include_deferred and json.loads((root / "suite.json").read_text(encoding="utf-8"))["status"] != "deferred_by_user":
+        raise ValueError("Only the explicitly deferred suite permits archival checkpoint publication")
+    runs = [path.parent for path in sorted(root.glob("*/config.json"))
+            if (path.parent / "result.json").exists() or (include_deferred and (path.parent / "model.pt").exists())]
     if not runs:  # Empty publication must be reported as a problem, not success.
         raise FileNotFoundError(f"No completed run artifacts under {root}")  # User can inspect the explicit input path.
     published = []  # Preserve one verifiable receipt per model repository.
     for run in runs:  # Both conditions and all available seeds are published in stable order.
         staging = root / "publication" / run.name  # Stage inside the same project output tree.
-        result = stage_run(run, staging)  # Only allowlisted files and a grounded model card enter staging.
-        repository = f"{namespace}/ministrike-{run.name.replace('_', '-')}"  # Stable names make retries idempotent.
+        result = stage_run(run, staging, deferred_result(run) if not (run / "result.json").exists() else None)
+        config = json.loads((run / "config.json").read_text(encoding="utf-8"))
+        repository = repository_name(namespace, run, config)  # Local: all diagnostic and pilot identities are collision-free.
         include = [argument for name in (*FILES, "README.md") for argument in ("--include", name)]  # Reapply the allowlist at the actual upload boundary, even if staging already contains unrelated files.
         receipt = hf_command(["upload", repository, str(staging), ".", "--no-private", *include, "--commit-message", f"Publish {result['frames']} transition endpoint and measured evidence"])  # Upload command creates a public repository when needed.
         hf_command(["collections", "add-item", collection, repository, "model", "--exists-ok"])  # Group all released checkpoints explicitly.
@@ -119,9 +164,10 @@ def main():
     parser.add_argument("--input", type=Path, required=True)  # Select the intended experiment directory.
     parser.add_argument("--collection", required=True)  # Require a verified existing collection slug.
     parser.add_argument("--namespace", default="BurnyCoder")  # The authorized account is the default destination.
+    parser.add_argument("--include-deferred", action="store_true")  # Local: archival publication requires an explicit invocation.
     arguments = parser.parse_args()  # Reject missing publication inputs before contacting the Hub.
     configure_logging(Path("runs/logs"))  # Persist upload receipts in the same diagnostics tree.
-    publish_models(arguments.input, arguments.collection, arguments.namespace)  # Reuse the programmatic publishing phase.
+    publish_models(arguments.input, arguments.collection, arguments.namespace, arguments.include_deferred)
 
 
 if __name__ == "__main__":  # Imports remain offline and side-effect free.

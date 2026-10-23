@@ -1,0 +1,130 @@
+{
+  "name": "calibration/cpu_reference_e16_w1",
+  "status": "complete",
+  "config": "configs\\duel-calibration.json",
+  "indices": [
+    16
+  ],
+  "started_utc": "2026-10-22T23:34:01.775247+00:00",
+  "workers": [
+    {
+      "pid": 48240,
+      "command": [
+        "C:\\Users\\Happy\\Documents\\projects\\counter-strike-reinforcement-learning-selfplay\\.venv\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "ministrike.experiments.staged",
+        "--config",
+        "configs\\duel-calibration.json",
+        "--index",
+        "16"
+      ],
+      "output_dir": "runs\\duel-fixed-v1\\calibration\\cpu_reference_e16_w1\\seed5290"
+    }
+  ],
+  "telemetry": [
+    {
+      "timestamp_utc": "20261022T233401.811567Z",
+      "cpu_percent": 36.6,
+      "ram_available_fraction": 0.30211114215335744,
+      "gpu_percent": 6.0,
+      "gpu_used_mib": 2030.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7509508035823825
+    },
+    {
+      "timestamp_utc": "20261022T233403.900090Z",
+      "cpu_percent": 29.9,
+      "ram_available_fraction": 0.2916706315589014,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2028.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7511961722488039
+    },
+    {
+      "timestamp_utc": "20261022T233405.995099Z",
+      "cpu_percent": 21.3,
+      "ram_available_fraction": 0.29020184459173876,
+      "gpu_percent": 20.0,
+      "gpu_used_mib": 2025.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7515642252484358
+    },
+    {
+      "timestamp_utc": "20261022T233408.096450Z",
+      "cpu_percent": 20.4,
+      "ram_available_fraction": 0.2890983353788319,
+      "gpu_percent": 21.0,
+      "gpu_used_mib": 2018.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7524230155809103
+    },
+    {
+      "timestamp_utc": "20261022T233410.183825Z",
+      "cpu_percent": 24.5,
+      "ram_available_fraction": 0.2876278426449716,
+      "gpu_percent": 22.0,
+      "gpu_used_mib": 2021.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7520549625812784
+    },
+    {
+      "timestamp_utc": "20261022T233412.268913Z",
+      "cpu_percent": 22.9,
+      "ram_available_fraction": 0.2849971848757465,
+      "gpu_percent": 8.0,
+      "gpu_used_mib": 2141.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7373328425960005
+    },
+    {
+      "timestamp_utc": "20261022T233414.360790Z",
+      "cpu_percent": 20.1,
+      "ram_available_fraction": 0.2837483199721034,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2145.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.736842105263158
+    },
+    {
+      "timestamp_utc": "20261022T233416.440419Z",
+      "cpu_percent": 21.7,
+      "ram_available_fraction": 0.28416221207724246,
+      "gpu_percent": 7.0,
+      "gpu_used_mib": 2150.0,
+      "gpu_total_mib": 8151.0,
+      "gpu_available_fraction": 0.7362286835971046
+    }
+  ],
+  "results": [
+    {
+      "condition": "selfplay",
+      "seed": 5290,
+      "frames": 8192,
+      "updates": 4,
+      "source_revision": "6db495937074e63876863b364654aef36a904345",
+      "execution_revision": "6db495937074e63876863b364654aef36a904345",
+      "elapsed_seconds": 4.889999999999418,
+      "frames_per_second": 1675.2556237220808,
+      "complete": true,
+      "stop_reason": "frames",
+      "checkpoint": "runs\\duel-fixed-v1\\calibration\\cpu_reference_e16_w1\\seed5290\\model.pt",
+      "initial_checkpoint": "runs\\duel-fixed-v1\\calibration\\cpu_reference_e16_w1\\seed5290\\initial.pt",
+      "rounds": 16,
+      "wins": 0,
+      "draws": 16,
+      "loss": -0.07561878182847674,
+      "gradient_norm": 0.3855905445913474,
+      "entropy": 6.750979562600453,
+      "critic_loss": 3.722581201751988e-05,
+      "policy_loss": -0.008146211310910681,
+      "approx_kl": 0.00834698920759062,
+      "clip_fraction": 0.07503255208333333
+    }
+  ],
+  "exit_codes": [
+    0
+  ],
+  "wall_seconds": 16.75,
+  "aggregate_arena_steps_per_second": 489.07462686567163
+}

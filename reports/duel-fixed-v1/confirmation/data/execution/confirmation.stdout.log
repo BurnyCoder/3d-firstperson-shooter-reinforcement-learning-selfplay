@@ -1,0 +1,1 @@
+2026-10-23 05:17:22,038Z INFO root | command {'command': 'train', 'suite': True, 'output': None, 'condition': 'selfplay', 'seed': 111, 'num_envs': 16, 'frames': 65536, 'max_hours': 12.0, 'device': 'cpu', 'resume': None, 'pairs': 128, 'experiment': 'duel-fixed-v1', 'run_config': WindowsPath('configs/duel-confirmation.json'), 'run_index': 0, 'calibrate': False}

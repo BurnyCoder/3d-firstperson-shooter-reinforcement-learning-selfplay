@@ -16,30 +16,35 @@ def paired_power():
             for sd in (.05, .10, .20)]  # Local: exactly the preregistered sensitivity cases.
 
 
-def paired_match_interval(initial, final, resamples=5000):
+def paired_match_interval(initial, final, resamples=5000, *, baselines=("random", "initial", "scripted")):
     """Local: paired seed resampling within opponent; global: keep sides together and deterministic cells fixed."""
     def keyed(rows):
         """Local: index unique outcomes; global: duplicate rounds are a data error rather than extra evidence."""
-        result = {(row["baseline"], row["side"], row["seed"]): row["score"] for row in rows}
-        if len(result) != len(rows):
+        selected = [row for row in rows if row["baseline"] in baselines]  # Local: a prospectively registered subset must use unchanged opponents.
+        result = {(row["baseline"], row["side"], row["seed"]): row["score"] for row in selected}
+        if len(result) != len(selected):
             raise ValueError("Duplicate paired evaluation records")
         return result
 
+    if not baselines or len(set(baselines)) != len(baselines):
+        raise ValueError("Select unique paired baselines")
     before, after = keyed(initial["rounds"]), keyed(final["rounds"])
+    if set(name for name, _, _ in before) != set(baselines):
+        raise ValueError("Missing paired baseline records")
     if before.keys() != after.keys():
         raise ValueError("Initial/final paired worlds do not match")
     rng = np.random.default_rng(5701)  # Local: frozen analysis RNG, never used for training or evaluation.
     draws = np.zeros(resamples)
     all_seeds = sorted({seed for _, _, seed in before})  # Local: preserve common-random-number coupling across baselines.
     indices = rng.integers(len(all_seeds), size=(resamples, len(all_seeds)))  # Local: resample one complete seed block.
-    for baseline in ("random", "initial", "scripted"):
+    for baseline in baselines:
         seeds = sorted({seed for name, _, seed in before if name == baseline})
         deltas = np.array([np.mean([after[baseline, side, seed] - before[baseline, side, seed] for side in (0, 1)])
                            for seed in seeds])  # Local: keep the two ends of each world paired.
         if len(seeds) == 1:
-            draws += deltas[0] / 3  # Local: fixed deterministic cell has no fictitious match sampling uncertainty.
+            draws += deltas[0] / len(baselines)  # Local: fixed deterministic cell has no fictitious match sampling uncertainty.
         elif seeds == all_seeds:
-            draws += deltas[indices].mean(-1) / 3  # Local: retain baseline/side/checkpoint coupling of each random world.
+            draws += deltas[indices].mean(-1) / len(baselines)  # Local: retain baseline/side/checkpoint coupling of each random world.
         else:
             raise ValueError("Unequal stochastic seed blocks cannot use the registered paired bootstrap")
     return {"ci95": np.quantile(draws, [.025, .975]).tolist(), "resamples": resamples,

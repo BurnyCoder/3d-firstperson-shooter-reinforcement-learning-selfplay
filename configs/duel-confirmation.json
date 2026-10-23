@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "protocol": "docs/amendments/2026-10-23-confirmation-resolution.md",
+  "concurrency": 1,
+  "resolution": {
+    "resolved_utc": "2026-10-23T05:08:00.134460+00:00",
+    "confirmation_cap_utc": "2026-10-23T09:30:52.627932+00:00",
+    "overall_deadline_utc": "2026-10-23T11:30:52.627932+00:00",
+    "launch_not_after_utc": "2026-10-23T05:30:00+00:00",
+    "available_seconds": 15772.493472,
+    "calibrated_arena_steps_per_second": 1300.936954105218,
+    "reserve_fraction": 0.2,
+    "equal_arena_steps": 5464064,
+    "updates_per_model": 667,
+    "expected_total_seconds_at_calibration": 12600.296999999142,
+    "selected_recipe": "egocentric-v1/R1/entropy-0.01",
+    "qualification_analysis": "reports/duel-fixed-v1/egocentric-v1/data/egocentric/analysis.json",
+    "power_sensitivity": "reports/duel-fixed-v1/power.json"
+  },
+  "validation": {"seed_base": 3000000, "pairs": 128, "num_envs": 32},
+  "final_test": {"seed_base": 4000000, "pairs": 128, "num_envs": 32},
+  "runs": [
+    {
+      "output_dir": "runs/duel-fixed-v1/confirmation/seed5101",
+      "experiment": "duel-fixed-v1", "registration": "A-CONFIRM", "condition": "selfplay",
+      "seed": 5101, "num_envs": 64, "total_frames": 5464064, "max_seconds": 5257,
+      "device": "cuda", "inference_device": "cuda", "torch_threads": 1,
+      "reward": "R1", "observation_transform": "egocentric-v1", "entropy_coefficient": 0.01
+    },
+    {
+      "output_dir": "runs/duel-fixed-v1/confirmation/seed5102",
+      "experiment": "duel-fixed-v1", "registration": "A-CONFIRM", "condition": "selfplay",
+      "seed": 5102, "num_envs": 64, "total_frames": 5464064, "max_seconds": 5257,
+      "device": "cuda", "inference_device": "cuda", "torch_threads": 1,
+      "reward": "R1", "observation_transform": "egocentric-v1", "entropy_coefficient": 0.01
+    },
+    {
+      "output_dir": "runs/duel-fixed-v1/confirmation/seed5103",
+      "experiment": "duel-fixed-v1", "registration": "A-CONFIRM", "condition": "selfplay",
+      "seed": 5103, "num_envs": 64, "total_frames": 5464064, "max_seconds": 5257,
+      "device": "cuda", "inference_device": "cuda", "torch_threads": 1,
+      "reward": "R1", "observation_transform": "egocentric-v1", "entropy_coefficient": 0.01
+    }
+  ]
+}

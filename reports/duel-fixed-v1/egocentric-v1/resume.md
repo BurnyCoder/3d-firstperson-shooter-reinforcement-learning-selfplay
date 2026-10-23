@@ -1,0 +1,9 @@
+# A-DIAG-RESUME-1: production optimizer resume equality
+
+**Passed**,2026-10-23T04:14:04.361959Z. [Original audit](data/resume/audit.json), [prospective protocol](../../../docs/amendments/2026-10-23-egocentric-diagnostic.md), [configuration](data/execution/duel-resume-control.json). Source`6149c2ddef0c987c08005544a855aa00c60f329f`, scratchseed5301. This is a correctness fixture, not a deployment or independent learning result.
+
+The real PPO/GAE/Adam/collector path ran two updates (512arena steps) with two CPU arenas, then resumed its saved first-update checkpoint in a separate directory for256remaining steps. Total newly executed work was768arena steps; both final counters are512. No elapsed clock was reset and no failed run was replaced. Full [uninterrupted](data/resume/uninterrupted/) and [resumed](data/resume/resumed/) logs, configs, preflight receipts and results remain preserved.
+
+Final actor, critic, optimizer, historical opponent pool, complete arena state, Python/NumPy/PyTorch/CUDA RNG records, frames, updates and interface schema matched exactly in all12 comparisons. Time/output-directory metadata is intentionally excluded. The [comparator](../../../src/ministrike/experiments/resume_verification.py) checks nested values and numerical dtypes; unit tests reject numeric/dtype drift. The criterion follows the approved project requirements; [PyTorch serialization](https://docs.pytorch.org/docs/stable/notes/serialization.html) documents the underlying library mechanism.
+
+This establishes exact continuation only for this short registered production fixture. It does not establish robustness to every long-run interruption, hardware change, incomplete write or deadline exhaustion. Checkpoint hashes are retained in the accompanying publication verification; the diagnostic checkpoints cannot deploy. The long observer-coordinate run proceeded only after this prerequisite passed.

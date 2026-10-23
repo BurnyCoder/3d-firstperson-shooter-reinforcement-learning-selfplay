@@ -85,8 +85,8 @@ def audit_duration_evidence(root, destination):
     return evaluations, analysis
 
 
-def plot_duration_evaluations(evaluations, analysis, destination):
-    """Local: show all endpoints and both contrasts; global: distinguish duration from entropy and primary from secondary."""
+def plot_duration_evaluations(evaluations, analysis, destination, *, title="Duration / entropy", contrasts=None):
+    """Local: reuse endpoint/contrast plots across matched diagnostics; global: labels never redefine the registered estimator."""
     import matplotlib  # Local: use the installed standard plotting implementation.
     matplotlib.use("Agg")  # Local: artifact export consumes no game rendering resources.
     from matplotlib import pyplot as plt
@@ -96,7 +96,7 @@ def plot_duration_evaluations(evaluations, analysis, destination):
     for mode, runs in evaluations.items():
         figure, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
         breakdown = []  # Local: reuse exactly these final summaries for spawn/count breakdowns.
-        for label, color in (("control", "#0072B2"), ("low-entropy", "#D55E00")):
+        for label, color in zip(runs, ("#0072B2", "#D55E00"), strict=True):  # Local: both registered conditions must be displayed.
             records = [runs[label][endpoint]["summary"] for endpoint in ("initial", "early", "final")]
             for axis, baseline in zip(axes.flat, ("random", "initial", "scripted", None), strict=True):
                 scores = [row["score"] if baseline is None else row["baselines"][baseline]["score"] for row in records]
@@ -106,23 +106,26 @@ def plot_duration_evaluations(evaluations, analysis, destination):
                 axis.grid(alpha=.2)  # Local: full zero-to-one score scale is shared across all endpoints.
             breakdown.append({"label": label, "final": records[-1]})
         axes[0, 0].legend(frameon=False)
-        figure.suptitle(f"Duration / entropy — {mode} validation", fontsize=16)
+        figure.suptitle(f"{title} — {mode} validation", fontsize=16)
         figure.text(.08, .025, "One matched training seed. Lines connect three measured endpoints; no intermediate scores are inferred.", fontsize=9)
         figure.subplots_adjust(left=.08, right=.98, bottom=.12, top=.89, hspace=.35, wspace=.27)
         for extension in ("png", "svg"):
             figure.savefig(destination / f"validation-{mode}.{extension}", dpi=160, facecolor="white")
         plt.close(figure)
-        plot_evaluation_breakdown(breakdown, destination, mode, title="duration / entropy")
+        plot_evaluation_breakdown(breakdown, destination, mode, title=title.lower())
     figure, axis = plt.subplots(figsize=(9, 5))
-    for index, name in enumerate(("duration", "entropy")):
+    contrasts = contrasts or {"duration": "Control final − early", "entropy": "Low entropy − control final"}
+    for index, name in enumerate(contrasts):  # Local: named pre-registered contrasts can share rendering without sharing statistical meaning.
         row = analysis[name]
         low, high = row["ci95"]
         axis.errorbar(index, row["delta"], yerr=[[row["delta"] - low], [high - row["delta"]]], fmt="o", capsize=7)
         axis.annotate(f"{row['delta']:+.4f}", (index, high), xytext=(0, 10), textcoords="offset points", ha="center")
     axis.axhline(0, color="#777777", linewidth=1)
     axis.axhline(.10, color="#777777", linestyle="--", label="Registered hypothesis +0.10")
-    axis.set(xticks=(0, 1), xticklabels=("Control final − early", "Low entropy − control final"),
-             xlim=(-.6, 1.6), ylim=(-.08, .13), ylabel="Change in primary round score", title="Registered diagnostic contrasts")
+    upper = max(.13, max(analysis[name]["ci95"][1] for name in contrasts) + .05)  # Local: retain the full measured effect, including large improvements.
+    lower = min(-.08, min(analysis[name]["ci95"][0] for name in contrasts) - .03)
+    axis.set(xticks=range(len(contrasts)), xticklabels=list(contrasts.values()),
+             xlim=(-.6, len(contrasts) - .4), ylim=(lower, upper), ylabel="Change in primary round score", title="Registered diagnostic contrasts")
     axis.legend(frameon=False, loc="upper right")
     figure.text(.12, .025, "95% paired match intervals condition on these weights; one training seed, no retraining uncertainty.", fontsize=9)
     figure.subplots_adjust(bottom=.17, top=.89)

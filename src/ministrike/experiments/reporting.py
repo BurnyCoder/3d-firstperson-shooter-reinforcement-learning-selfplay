@@ -366,7 +366,7 @@ def _paper_sections(records, comparison, suite=None):
     ]  # One source of paper content keeps Markdown and PDF claims synchronized.
 
 
-def _render_pdf(markdown, destination, figure_path):
+def _render_pdf(markdown, destination, figure_path=None):
     """Local: render the same paper text with ReportLab; global: avoid divergent Markdown/PDF claims."""
     from reportlab.lib import colors  # Small publication palette for readable tables.
     from reportlab.lib.pagesizes import A4  # Explicit portable print geometry.
@@ -382,6 +382,7 @@ def _render_pdf(markdown, destination, figure_path):
     def rich(text):
         """Local: escape text and retain source links; global: safe readable PDF provenance."""
         escaped = escape(text.replace("`", ""))  # Literal code markers do not belong in rendered prose.
+        escaped = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", escaped)  # Local: retain intentional emphasis in the shared source.
         return re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<link href="\2" color="#235789">\1</link>', escaped)
 
     def flush():
@@ -410,7 +411,16 @@ def _render_pdf(markdown, destination, figure_path):
             story.append(Paragraph(rich(line.lstrip("# ")), styles["Title" if level == 1 else "Heading2"]))
         elif line.startswith("!["):
             flush()  # The figure sits at its explicit source position.
-            story.append(Image(str(figure_path), width=width, height=width * 4 / 11))  # Match the saved figure aspect ratio.
+            match = re.fullmatch(r"!\[([^\]]*)\]\(([^)]+)\)", line)  # Local: resolve each actual figure from the paper's directory.
+            path = Path(destination).parent / match[2] if match else Path(figure_path)
+            if not path.exists() and figure_path is not None:
+                path = Path(figure_path)  # Local: retain the legacy single-figure report interface.
+            item = Image(str(path))  # Local: ReportLab reads the saved raster dimensions; no fixed-aspect distortion.
+            scale = min(width / item.imageWidth, 340 / item.imageHeight)  # Local: leave room for captions on an A4 page.
+            item.drawWidth, item.drawHeight = item.imageWidth * scale, item.imageHeight * scale
+            story.append(item)
+            if match and match[1]:
+                story.append(Paragraph(rich(match[1]), styles["BodyText"]))  # Local: preserve the claim/interpretation adjacent to its figure.
         elif not line.strip():
             flush()  # Blank lines delimit generated paragraphs/tables.
         else:
@@ -421,7 +431,12 @@ def _render_pdf(markdown, destination, figure_path):
     document = SimpleDocTemplate(str(destination), pagesize=A4, rightMargin=44, leftMargin=44,
                                  topMargin=44, bottomMargin=44, title="MiniStrike self-play experiment",
                                  author="Libor Burian")
-    document.build(story)  # Rendering is invoked only by the explicit report command.
+    def page_footer(canvas, doc):
+        """Local: label each page; global: exported evidence remains navigable outside the source repository."""
+        canvas.setFont("Helvetica", 8)
+        canvas.drawString(44, 25, "MiniStrike / Libor Burian")
+        canvas.drawRightString(A4[0] - 44, 25, str(doc.page))
+    document.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
 
 
 def create_reports(input_dir, output_dir):

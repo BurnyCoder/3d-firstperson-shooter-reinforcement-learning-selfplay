@@ -5,6 +5,8 @@ The user requested these additional views. Units/limits are engineering display 
 """
 
 import logging  # Local: record every exported group in the timestamped reporting log.
+import os  # Local: compute portable documentation links at any report nesting depth.
+from pathlib import Path  # Local: Markdown uses forward slashes on Windows too.
 
 import numpy as np  # Local: convert unavailable values to portable JSON null.
 
@@ -71,7 +73,7 @@ def save_training_gallery(records, destination):
             links.append(f"- [{title}: {category}]({stem}.png) · [SVG]({stem}.svg)")
         logging.info("Reward/activity figures saved: %s (5 views)", destination / name)
     text = ("# Reward and training behavior\n\n" + "\n".join(links) + "\n\n"
-            "[Definitions, source references and reproduction](../../../../docs/experiment-plots.md). "
+            f"[Definitions, source references and reproduction]({Path(os.path.relpath('docs/experiment-plots.md', destination)).as_posix()}). "
             "Adjacent per-run JSON saves every plotted number (null means undefined), configuration, seed, source and checkpoint hashes. "
             "Exact metric bytes are in the parent gallery's data/ directory. Rewards are interval means per arena step, not episode returns. "
             "Self-play outcomes use changing opponents; fixed validation belongs in the parent gallery. "

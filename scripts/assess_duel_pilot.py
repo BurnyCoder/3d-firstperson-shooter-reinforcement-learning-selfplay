@@ -5,24 +5,14 @@ the shared analysis, with its primary statistical sources. No training or final-
 """
 
 import argparse  # Local: require an explicit registered reward identity.
-import hashlib  # Local: compare initial actor tensors, not metadata-dependent checkpoint bytes.
 from pathlib import Path  # Local: fixed project-local pilot and evidence locations.
 import shutil  # Local: publish exact evidence bytes with the standard-library copy operation.
 
 from ministrike.experiments.duel_analysis import paired_match_interval  # Local: preserve evaluation pairing.
 from ministrike.experiments.duel_evaluation import file_hash  # Local: checkpoint/file provenance uses one implementation.
 from ministrike.experiments.registration import read_json  # Local: reuse record decoding.
-from ministrike.learning.checkpoint import load_checkpoint  # Local: restricted checkpoint loading.
+from ministrike.learning.checkpoint import parameter_hash as actor_hash  # Local: share the unchanged exact tensor-fingerprint procedure.
 from ministrike.records import timestamp, write_json  # Local: durable, timestamped decisions.
-
-
-def actor_hash(path, component="actor"):
-    """Local: hash names, dtypes, dimensions and tensor bytes; global: reward pilots share exact initialization."""
-    digest = hashlib.sha256()
-    for name, tensor in sorted(load_checkpoint(path)[component].items()):
-        digest.update(f"{name}:{tensor.dtype}:{tuple(tensor.shape)}\n".encode())  # Local: distinguish shape/name collisions.
-        digest.update(tensor.contiguous().numpy().tobytes())  # Local: exact CPU tensor bytes, no rounded decimal strings.
-    return digest.hexdigest()
 
 
 def diagnostic_metrics(evaluation):

@@ -65,3 +65,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 2026-10-23 [R2 result and diagnostic boundary](amendments/2026-10-23-R2-diagnosis.md): all three pilots completed and failed primary selection. Preserve both evaluation modes and loss graphs; no confirmation or unspecified additional optimizer experiment follows from these results.
 
 2026-10-23 [registered action-mode diagnostic](amendments/2026-10-23-action-mode-diagnostic.md): freeze a 2x2 learner/opponent inference-mode intervention with existing weights, validation seeds, 900-second cap and 24 fixed-seed traces. No optimizer, confirmation authorization, primary-gate relaxation or clock extension.
+
+2026-10-23 [registered duration/entropy diagnostics](amendments/2026-10-23-duration-entropy-diagnostic.md): after the mode intervention failed its diagnostic threshold, compare a fourfold-duration R1 control against matched entropy0.001, both scratch seed5201 with immutable early endpoints. No game/reward/architecture changes or new budget. Diagnostic checkpoints cannot deploy; a stricter recipe screen precedes any separately resolved fresh-seed confirmation.

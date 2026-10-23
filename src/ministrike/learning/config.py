@@ -29,6 +29,7 @@ class TrainConfig:
     critic_coefficient: float = 0.5  # Local: weight the central value regression.
     max_grad_norm: float = 1.0  # Local: limit unstable joint actor/critic updates.
     snapshot_interval: int = 10  # Local: completed updates between immutable opponent snapshots.
+    milestone_updates: tuple[int, ...] = ()  # Local: registered immutable evaluation endpoints; never change opponent snapshot cadence.
     log_interval: int = 1  # Local: report every update by default with timestamps supplied by root logger.
     torch_threads: int = 4  # Local: avoid excessive CPU overhead for small dense networks.
     source_revision: str | None = None  # Local: persist the precise Git commit that started the run.
@@ -49,5 +50,9 @@ class TrainConfig:
             raise ValueError("Training counts and wall-clock budget must be positive")
         if self.total_frames % self.num_envs:  # Never silently collect more than the frozen frame budget.
             raise ValueError("total_frames must be divisible by num_envs")
+        batches = (self.total_frames + self.num_envs * self.rollout_steps - 1) // (self.num_envs * self.rollout_steps)
+        if (any(type(value) is not int or not 1 <= value <= batches for value in self.milestone_updates)
+                or list(self.milestone_updates) != sorted(set(self.milestone_updates))):
+            raise ValueError("milestone updates must be unique increasing reachable positive integers")
         if self.experiment == "duel-fixed-v1" and self.condition != "selfplay":
             raise ValueError("Stage A trains exclusively from self-play")  # Local: evaluation scripts cannot train.

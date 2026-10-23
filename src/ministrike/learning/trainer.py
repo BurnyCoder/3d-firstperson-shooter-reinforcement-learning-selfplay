@@ -181,6 +181,9 @@ def train_run(config, deadline_monotonic=None):
             pool.prune(env.opponent_ids)  # Retain active old snapshots until those rounds complete.
             save_checkpoint(directory / "model.pt", _capture(config, actor_network, critic_network,
                             optimizer, pool, env, frames, updates, elapsed))
+        if updates in config.milestone_updates:  # Local: retain exact registered exposure without adding an opponent or changing RNG.
+            save_checkpoint(directory / "milestones" / f"update-{updates:06d}.pt",
+                            _capture(config, actor_network, critic_network, optimizer, pool, env, frames, updates, elapsed))
         elapsed = previous_elapsed + time.monotonic() - started  # Include any periodic checkpoint serialization.
         row = {"timestamp_utc": timestamp(), "frames": frames, "updates": updates, "elapsed_seconds": elapsed,
                "frames_per_second": frames / max(elapsed, 1e-6), "rounds": env.rounds,

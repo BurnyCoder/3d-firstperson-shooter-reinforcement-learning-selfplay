@@ -44,6 +44,8 @@ Checkpoints include actor/critic/optimizer, environment/observation history, rol
 
 Stage A preflight compares resolved configuration to committed/pushed source, checks runnable registration and the unique absolute budget manifest. Resume also checks the implementation-tree identity. Keep source files unchanged while a worker runs; changing documentation does not change that tree. JSON and checkpoint publication use bounded retries around standard-library atomic replacement for transient Windows sharing denial, preserving old and temporary versions on persistent failure. See [the recovery amendment](amendments/2026-10-23-pilot-launch-recovery.md) for the observed incident and tests.
 
+Registered `milestone_updates` optionally retain full training-state checkpoints at exact completed update numbers for duration comparisons. They use the existing serializer, do not add opponent snapshots or consume RNG, and are empty by default for legacy configurations. `tests/test_training_milestones.py` uses no-op collection/optimizer fixtures to verify persistence, resume and invalid-registration rejection without a gameplay optimization experiment. The main checkpoint and all original elapsed accounting remain authoritative for recovery.
+
 ## Primary implementation sources
 
 - [Ursina FPS example](https://github.com/pokepetter/ursina/blob/master/samples/fps.py): graphics/input patterns; its scripted enemy behavior is not used for learned actors.

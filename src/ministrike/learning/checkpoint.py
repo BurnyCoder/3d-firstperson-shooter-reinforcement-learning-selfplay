@@ -4,6 +4,7 @@ Source: https://docs.pytorch.org/docs/stable/notes/serialization.html
 """
 
 from pathlib import Path  # Local: atomic local checkpoint paths; global: recoverability.
+import hashlib  # Local: compare initialization tensors independently of checkpoint metadata.
 
 import numpy as np  # Local: serialize simulation arrays; global: NumPy state compatibility.
 import torch  # Local: tensor-only loading; global: avoid arbitrary pickle execution.
@@ -51,6 +52,15 @@ def save_checkpoint(path, state):
 def load_checkpoint(path):
     """Local: restrict deserialization; global: downloadable models need no unsafe pickle code."""
     return decode_state(torch.load(path, map_location="cpu", weights_only=True))
+
+
+def parameter_hash(path, component="actor"):
+    """Local: hash names, types, shapes and exact CPU tensor bytes; global: matched runs must share initialization."""
+    digest = hashlib.sha256()  # Local: standard content fingerprint, not an approximate decimal comparison.
+    for name, tensor in sorted(load_checkpoint(path)[component].items()):
+        digest.update(f"{name}:{tensor.dtype}:{tuple(tensor.shape)}\n".encode())
+        digest.update(tensor.contiguous().numpy().tobytes())
+    return digest.hexdigest()
 
 
 class PolicyCheckpoint:

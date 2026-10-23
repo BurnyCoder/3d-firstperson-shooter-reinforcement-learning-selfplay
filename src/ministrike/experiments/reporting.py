@@ -10,6 +10,7 @@ from pathlib import Path  # Local: isolate report paths; global: reproducible po
 import re  # Local: small Markdown presentation adapter; global: one paper source for Markdown/PDF.
 import shutil  # Local: copy raw evidence; global: preserve original JSON/JSONL bytes.
 from xml.sax.saxutils import escape  # Local: escape PDF paragraph markup; global: safe artifact rendering.
+from urllib.parse import urljoin  # Local: resolve paper-relative evidence links against their public source location.
 
 import numpy as np  # Local: arithmetic on independent training-seed differences.
 from scipy.stats import t  # Local: maintained Student-t quantiles; global: explicit interval assumptions.
@@ -383,7 +384,9 @@ def _render_pdf(markdown, destination, figure_path=None):
         """Local: escape text and retain source links; global: safe readable PDF provenance."""
         escaped = escape(text.replace("`", ""))  # Literal code markers do not belong in rendered prose.
         escaped = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", escaped)  # Local: retain intentional emphasis in the shared source.
-        return re.sub(r"\[([^\]]+)\]\((https?://[^)]+)\)", r'<link href="\2" color="#235789">\1</link>', escaped)
+        output = Path(destination).resolve()  # Local: temporary external report paths retain relative links instead of raising.
+        public_path = "https://github.com/BurnyCoder/3d-firstperson-shooter-reinforcement-learning-selfplay/blob/main/" + output.relative_to(Path.cwd()).as_posix() if output.is_relative_to(Path.cwd()) else ""
+        return re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda match: f'<link href="{urljoin(public_path, match[2])}" color="#235789">{match[1]}</link>', escaped)  # Local: standard URL joining keeps exported evidence references clickable; https://docs.python.org/3.12/library/urllib.parse.html .
 
     def flush():
         """Local: finish pending blocks; global: preserve source order and avoid splitting paragraphs."""
@@ -418,6 +421,7 @@ def _render_pdf(markdown, destination, figure_path=None):
             item = Image(str(path))  # Local: ReportLab reads the saved raster dimensions; no fixed-aspect distortion.
             scale = min(width / item.imageWidth, 340 / item.imageHeight)  # Local: leave room for captions on an A4 page.
             item.drawWidth, item.drawHeight = item.imageWidth * scale, item.imageHeight * scale
+            item.keepWithNext = True  # Local: keep each scientific figure beside its explanatory caption.
             story.append(item)
             if match and match[1]:
                 story.append(Paragraph(rich(match[1]), styles["BodyText"]))  # Local: preserve the claim/interpretation adjacent to its figure.

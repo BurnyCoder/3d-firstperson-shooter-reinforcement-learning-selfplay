@@ -1,0 +1,154 @@
+{
+  "reward": "R0",
+  "seed": 5201,
+  "assessed_utc": "20261023T000500.321100Z",
+  "source_revision": "ecd8e3b05a5f42963dc5359e259f4bdf376ff4c8",
+  "initial_actor_sha256": "6fe51f088e16ef414a224ddb01a2495706b314cc3a7eda88477b7b0fb6780935",
+  "initial_critic_sha256": "dd07316b6ca535c9bb37771cb625a0726b081764604091fbb8a37ba815572870",
+  "initial_checkpoint_sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041",
+  "final_checkpoint_sha256": "63a54c05f8d03a712ba3d1fd92cf15644c4221afda6f4facf00c2a2e7b9fe6d9",
+  "complete_equal_budget": true,
+  "initial": {
+    "score": 0.3333333333333333,
+    "baselines": {
+      "random": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 256,
+        "wins": 0,
+        "draws": 256,
+        "losses": 0
+      },
+      "initial": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 2,
+        "losses": 0
+      },
+      "scripted": {
+        "score": 0.0,
+        "side_scores": [
+          0.0,
+          0.0
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    "elimination_fraction": 0.007692307692307693
+  },
+  "final": {
+    "score": 0.345703125,
+    "baselines": {
+      "random": {
+        "score": 0.537109375,
+        "side_scores": [
+          0.54296875,
+          0.53125
+        ],
+        "matches": 256,
+        "wins": 19,
+        "draws": 237,
+        "losses": 0
+      },
+      "initial": {
+        "score": 0.5,
+        "side_scores": [
+          0.5,
+          0.5
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 2,
+        "losses": 0
+      },
+      "scripted": {
+        "score": 0.0,
+        "side_scores": [
+          0.0,
+          0.0
+        ],
+        "matches": 2,
+        "wins": 0,
+        "draws": 0,
+        "losses": 2
+      }
+    },
+    "elimination_fraction": 0.08076923076923077
+  },
+  "improvement": 0.012369791666666685,
+  "numerical_gate_passed": false,
+  "match_uncertainty": {
+    "ci95": [
+      0.007161458333333333,
+      0.018229166666666668
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "diagnostics": {
+    "initial": {
+      "random": {
+        "damage_per_round": 9.1796875,
+        "shots_per_round": 25.84765625,
+        "hits_per_shot": 0.014205833459271573,
+        "reload_occupancy": 0.437333984375,
+        "aim_saturation": 0.947275390625,
+        "seconds_per_round": 20.0
+      },
+      "initial": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 25.0,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.44625,
+        "aim_saturation": 0.9475,
+        "seconds_per_round": 20.0
+      },
+      "scripted": {
+        "damage_per_round": 0.0,
+        "shots_per_round": 7.5,
+        "hits_per_shot": 0.0,
+        "reload_occupancy": 0.32857142857142857,
+        "aim_saturation": 0.4,
+        "seconds_per_round": 1.75
+      }
+    },
+    "final": {
+      "random": {
+        "damage_per_round": 30.6640625,
+        "shots_per_round": 15.921875,
+        "hits_per_shot": 0.07703631010794897,
+        "reload_occupancy": 0.1560222801369513,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 19.1103515625
+      },
+      "initial": {
+        "damage_per_round": 25.0,
+        "shots_per_round": 31.0,
+        "hits_per_shot": 0.03225806451612903,
+        "reload_occupancy": 0.05125,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 20.0
+      },
+      "scripted": {
+        "damage_per_round": 25.0,
+        "shots_per_round": 2.5,
+        "hits_per_shot": 0.4,
+        "reload_occupancy": 0.45454545454545453,
+        "aim_saturation": 0.0,
+        "seconds_per_round": 0.55
+      }
+    }
+  },
+  "scope": "Exploratory seed5201 selection; correctness review remains a separate prerequisite"
+}

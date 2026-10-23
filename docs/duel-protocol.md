@@ -57,3 +57,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 2026-10-23 [calibration resolution](amendments/2026-10-23-duel-calibration.md): all nine cells complete; CUDA inference/optimization, 64 arenas, one worker/thread selected under memory-headroom constraints. Equal pilot target1,245,184 arena steps; R0 configuration published before execution. Original registration above remains unchanged.
 
 2026-10-23 [zero-update pilot launch recovery](amendments/2026-10-23-pilot-launch-recovery.md): preserve Windows status-file replacement failure; add bounded atomic-replacement retries before the first R0 optimizer update. Same clock, reward, seed and step target.
+
+2026-10-23 [R0 diagnosis and R1 resolution](amendments/2026-10-23-R0-diagnosis.md): R0 completed but failed its validation gate; preserve its negative result and run the already registered R1 candidate at the identical step budget and initialization.

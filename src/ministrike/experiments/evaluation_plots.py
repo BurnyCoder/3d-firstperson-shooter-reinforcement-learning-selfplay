@@ -19,7 +19,7 @@ from ministrike.experiments.duel_evaluation import file_hash  # Local: reuse exa
 from ministrike.records import source_revision, timestamp, write_json  # Local: portable plot provenance.
 
 
-def _plot_breakdown(records, destination, mode):
+def plot_evaluation_breakdown(records, destination, mode, title="reward pilots"):
     """Local: expose side asymmetry and draws; global: deterministic repetitions never inflate the displayed sample count."""
     from matplotlib import pyplot as plt  # Local: the caller has already selected the noninteractive backend.
 
@@ -49,7 +49,7 @@ def _plot_breakdown(records, destination, mode):
                 xlabel="Fraction of observed matches; labels are counts", title="Final wins, draws and losses")
     axes[1].invert_yaxis()  # Local: show R0 first in both panels.
     axes[1].legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(.5, -.16))
-    figure.suptitle(f"MiniStrike reward pilots — {mode} validation breakdown", fontsize=16, fontweight="bold")
+    figure.suptitle(f"MiniStrike {title} — {mode} validation breakdown", fontsize=16, fontweight="bold")
     figure.text(.055, .025, "Seed 5201 only. n counts recorded trajectories, not independently trained models. Validation only; no new matches run.", fontsize=9)
     figure.subplots_adjust(left=.055, right=.93, bottom=.22, top=.85, wspace=.40)
     for extension in ("png", "svg"):
@@ -119,5 +119,5 @@ def plot_pilot_evaluations(input_root, output_root):
         plt.close(figure)
         write_json(destination / f"validation-{mode}.json", {"created_utc": timestamp(), "plot_source_revision": source_revision(),
                    "records": records, "evidence": evidence, "uncertainty": "paired match bootstrap; one training seed"})
-        _plot_breakdown(records, destination, mode)  # Local: reuse the same endpoint snapshots and identity receipt.
+        plot_evaluation_breakdown(records, destination, mode)  # Local: reuse the same endpoint snapshots and identity receipt.
         logging.info("Validation plots saved: %s", destination / f"validation-{mode}.png")

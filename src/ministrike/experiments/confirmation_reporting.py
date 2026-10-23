@@ -88,7 +88,7 @@ def plot_confirmation(evaluations, analysis, destination):
             _save_figure(figure, destination / f"{split}-{mode}")
             plot_evaluation_breakdown([{"label": f"Seed {seed}", "final": pair["final"]["summary"]} for seed, pair in records.items()],
                 destination, mode, title="confirmation", split=split,
-                note="Three independent models. n counts recorded trajectories. Fixed deterministic initial/script controls: two trajectories each.")
+                note="Three independent models. n counts recorded trajectories. " + ("Fixed initial/script controls: two trajectories each." if mode == "deterministic" else "Each opponent: 128 paired seeds, two spawn ends (256 rounds)."))  # Local: the caption must describe this figure's sampling mode.
     figure, axes = plt.subplots(1, 2, figsize=(12, 5.5), sharey=True)
     for axis, mode in zip(axes, ("deterministic", "stochastic"), strict=True):
         row = analysis["test"][mode]
@@ -134,17 +134,17 @@ def write_seed_reports(evaluations, analysis, audit, destination):
                 f"{result['elapsed_seconds']:.3f} trainer seconds. No replacement seed or extension was used. "
                 f"Training revision `{result['source_revision']}`. [Exact config](data/seed{seed}/config.json), "
                 f"[result](data/seed{seed}/result.json) and [metrics](data/seed{seed}/metrics.jsonl).\n\n"
-                "## Method and rationale\n\nThe [registered protocol](../../../docs/duel-protocol.md) fixes the symmetric14m arena, "
-                "six-metre opposing starts,20Hz elimination, PPO/GAE, R1 outcome/net-damage reward and scratch historical self-play. "
-                "The actor has192local-history inputs, an observer-coordinate transform and2x128tanh hidden units; the separate "
-                "critic has2x256tanh units and original input coordinates. Neither demonstrations nor scripted opponents enter training. "
+                "## Method and rationale\n\nThe [registered protocol](../../../docs/duel-protocol.md) fixes the symmetric 14 m arena, "
+                "six-metre opposing starts, 20 Hz elimination, PPO/GAE, R1 outcome/net-damage reward and scratch historical self-play. "
+                "The actor has 192 local-history inputs, an observer-coordinate transform and 2x128 tanh hidden units; the separate "
+                "critic has 2x256 tanh units and original input coordinates. Neither demonstrations nor scripted opponents enter training. "
                 "The [confirmation resolution](../../../docs/amendments/2026-10-23-confirmation-resolution.md) explains the equal budget, "
-                "20%time reserve, independent seeds and pre-specified thresholds. All hyperparameters are engineering decisions.\n\n"
+                "20% time reserve, independent seeds and pre-specified thresholds. All hyperparameters are engineering decisions.\n\n"
                 "## Every measured endpoint\n\n" + "\n".join(rows) + "\n\n"
-                f"Primary paired improvement: **{comparison['improvement']:.9f}**; conditional match95% interval "
+                f"Primary paired improvement: **{comparison['improvement']:.9f}**; conditional match 95% interval "
                 f"`{comparison['match_uncertainty']['ci95']}`. This interval conditions on this one initial/final pair; "
                 "the separate three-model analysis is in [the aggregate report](README.md). Fixed deterministic initial/script "
-                "controls each supply two trajectories; random and all stochastic endpoints use128paired seeds/256rounds per opponent.\n\n"
+                "controls each supply two trajectories; random and all stochastic endpoints use 128 paired seeds/256 rounds per opponent.\n\n"
                 f"[All raw endpoint records](data/seed{seed}/) include wins/losses/draws, sides, damage, accuracy, kills, reload, aim saturation, "
                 "inactivity and first-seed traces. [Audit](audit.json) binds every endpoint and checkpoint hash.\n\n"
                 f"![Raw loss curves](curves/seed{seed}.png)\n\n[Reward/combat/behavior/optimizer graphs](curves/training/README.md). "

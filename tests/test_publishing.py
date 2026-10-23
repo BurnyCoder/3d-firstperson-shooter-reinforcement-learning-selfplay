@@ -50,3 +50,13 @@ def test_duel_card_has_correct_schema_and_no_unmeasured_acceptance(tmp_path, mon
     assert "384" not in card and "three independent" in card
     assert (staging / "final_test.json").exists()
     assert result["models"][0]["repository"] == "owner/ministrike-duel-fixed-v1-seed5101"
+
+
+def test_diagnostic_repository_identity_cannot_overwrite_confirmation_or_other_diagnostics(tmp_path):
+    """Local: separate repeated seed5201 experiments; global: publishing negative results cannot replace another model."""
+    run = tmp_path / "seed5201"
+    configs = [{"experiment": "duel-fixed-v1", "registration": name, "reward": "R1"}
+               for name in ("A-DIAG-DURATION-R1", "A-DIAG-ENTROPY-R1", "A-DIAG-EGO-R1", "A-CONFIRM")]
+    names = [publishing.repository_name("owner", run, config) for config in configs]
+    assert len(set(names)) == 4
+    assert names[0] == "owner/ministrike-duel-fixed-v1-diag-duration-r1-seed5201"

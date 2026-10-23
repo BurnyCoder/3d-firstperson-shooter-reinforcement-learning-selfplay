@@ -1,0 +1,63 @@
+{
+  "created_utc": "20261023T051247.394168Z",
+  "plot_source_revision": "acf3cce2064deeb05b5b75a1c83ed9ed5d39a07c",
+  "method": "raw update averages; no smoothing; missing/nonfinite values are gaps",
+  "comparisons": [],
+  "runs": {
+    "seed5201": {
+      "label": "R1 / seed 5201",
+      "status": "complete",
+      "group": "a-diag-ego-r1",
+      "source_path": "C:/Users/Happy/Documents/projects/counter-strike-reinforcement-learning-selfplay/runs/duel-fixed-v1/diagnostics/egocentric-v1/seed5201/metrics.jsonl",
+      "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+      "metrics_sha256": "5c0d65c1bd52338c49a43a35795eabc02f236203e31166ea37dd0f45326e6beb",
+      "rows": 608,
+      "last_arena_steps": 4980736,
+      "missing_or_nonfinite": {
+        "loss": 0,
+        "policy_loss": 0,
+        "critic_loss": 0,
+        "entropy": 0
+      },
+      "warnings": [],
+      "config": {
+        "output_dir": "runs/duel-fixed-v1/diagnostics/egocentric-v1/seed5201",
+        "condition": "selfplay",
+        "seed": 5201,
+        "num_envs": 64,
+        "total_frames": 4980736,
+        "max_seconds": 4800,
+        "device": "cuda",
+        "resume": null,
+        "rollout_steps": 128,
+        "epochs": 3,
+        "minibatch_size": 256,
+        "learning_rate": 0.0003,
+        "gamma": 0.999,
+        "gae_lambda": 0.95,
+        "clip_epsilon": 0.2,
+        "entropy_coefficient": 0.01,
+        "critic_coefficient": 0.5,
+        "max_grad_norm": 1.0,
+        "snapshot_interval": 10,
+        "milestone_updates": [
+          152
+        ],
+        "log_interval": 1,
+        "torch_threads": 1,
+        "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+        "experiment": "duel-fixed-v1",
+        "reward": "R1",
+        "inference_device": "cuda",
+        "observation_transform": "egocentric-v1",
+        "registration": "A-DIAG-EGO-R1",
+        "run_config": "configs\\duel-egocentric-R1.json",
+        "budget_manifest": "runs/duel-fixed-v1/manifest.json"
+      },
+      "checkpoint_sha256": {
+        "initial.pt": "173f7fdefce9de1bc4cc4c242f3da4e4e26c8de2b97b4c8ddd825c36394157a1",
+        "model.pt": "79665c155698f57de9cda2ddd38bcaed4fc2e2423abbdf97561384be9ad74002"
+      }
+    }
+  }
+}

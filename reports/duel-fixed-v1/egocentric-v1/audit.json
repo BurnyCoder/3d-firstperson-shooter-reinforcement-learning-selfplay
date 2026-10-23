@@ -1,0 +1,571 @@
+{
+  "initial_fingerprints": {
+    "actor": "6fe51f088e16ef414a224ddb01a2495706b314cc3a7eda88477b7b0fb6780935",
+    "critic": "dd07316b6ca535c9bb37771cb625a0726b081764604091fbb8a37ba815572870"
+  },
+  "checkpoint_hashes": {
+    "world control/initial": "0be96992f9170a06d970196f2e51974c151d8c8b6b8473a69da2aa6f73c400f9",
+    "world control/early": "69c6c2e35f43deb6852cc661d684d1b7e144763681b59b5491d2dc19e862e48d",
+    "world control/final": "92364fabda4cb086ff03ce6ddb56be37c2154cd3d2ae657138b83afdc2a0c4b8",
+    "observer coordinates/initial": "173f7fdefce9de1bc4cc4c242f3da4e4e26c8de2b97b4c8ddd825c36394157a1",
+    "observer coordinates/early": "322877617d2b0835ac4410cdf1a5a7fa2ab3bdc5243cf3d7267d88538f9c9bb5",
+    "observer coordinates/final": "79665c155698f57de9cda2ddd38bcaed4fc2e2423abbdf97561384be9ad74002"
+  },
+  "analysis_reproduced": true,
+  "created_utc": "20261023T051253.613199Z",
+  "report_source_revision": "acf3cce2064deeb05b5b75a1c83ed9ed5d39a07c",
+  "raw_inputs": {
+    "data/egocentric/analysis.json": "21d42fd632e71e3a8520c3634c6f325b4fb17fdb5f5da2878f206a6fc7b61b4e",
+    "data/egocentric/evaluation-receipt.json": "a646f1e7c4d1269ff623d1d6fa3027f0453f21acbaec1009f0b13e7ba1b10000",
+    "data/egocentric/launch-verification.json": "c0e678a9e62e846812166d9ca580ea4fdf088c9239f058eb2dcd565e0f6fccaa",
+    "data/egocentric/logs/20261023T041357.411700Z.log": "a5745216b6c5966bb57c795496363a312d470a397af627f14992ef8a6d8535ba",
+    "data/egocentric/seed5201/config.json": "9540324ca1b0203a885247324fb4c3f695d7c204b1f57d4bb7c7031c347190fa",
+    "data/egocentric/seed5201/early_validation.json": "936139c4f85aa9f195f348745fb1e5368600a5eb6ec954d6ff804cfe4690399b",
+    "data/egocentric/seed5201/early_validation_stochastic.json": "8ab81355054028bce6e0a33420117f6dc794fe2e8fc0724e884ef74f543e4b59",
+    "data/egocentric/seed5201/final_validation.json": "6e92a6700b4988c31330095026e3da288c4ca7318894984ae8bb7538a95b044b",
+    "data/egocentric/seed5201/final_validation_stochastic.json": "10bb2354559d1339c6e3e098824339f1aa103a9e2ef9e92fd484a11379086ae9",
+    "data/egocentric/seed5201/initial_validation.json": "1adc92621d040dafca25386952c651eca0be062bb07c58de46b44b17ad5ca10a",
+    "data/egocentric/seed5201/initial_validation_stochastic.json": "f035442cb2e9acfde3a3a18fc0691c4882686f00444406ac81fea69b298a9fd6",
+    "data/egocentric/seed5201/logs/20261023T041414.595142Z.log": "f1659899b850e515ce5b57784f1a76dbdeaa7ea0d416da1571ea5811f6891c29",
+    "data/egocentric/seed5201/metrics.jsonl": "5c0d65c1bd52338c49a43a35795eabc02f236203e31166ea37dd0f45326e6beb",
+    "data/egocentric/seed5201/preflight.json": "ee354ceaf6dcc1c174671122fb413d114689fd3cd54b29befdb5311c3188735a",
+    "data/egocentric/seed5201/result.json": "9a306da46d7575c95a90e53dd57cfb4c67190137fe085672ef8afc37c9cb7cff",
+    "data/egocentric/seed5201/worker-20261023T041405.439557Z.log": "f1659899b850e515ce5b57784f1a76dbdeaa7ea0d416da1571ea5811f6891c29",
+    "data/control/seed5201/config.json": "621abed40f860e15e4a6381a19a94c480c881c1774deaa4a2b0248dd9d0ff6ff",
+    "data/control/seed5201/early_validation.json": "b52a52ae40ca4b1ae098be71316c3febae4e2d1984961fe30697b85c17cf61bb",
+    "data/control/seed5201/early_validation_stochastic.json": "0d0fe0fa74b3454db8e15e92d81d6016658e004c5e48cf84a14e6c46f13c65e5",
+    "data/control/seed5201/final_validation.json": "b10d80ae56232126c96184022b74f0e3bd372dd0ab0809939a4db6338bd1b347",
+    "data/control/seed5201/final_validation_stochastic.json": "f51aa2be716d47ff117fc8ee2482819a6a36b4395a5c2102e0d8ad92e14f0c16",
+    "data/control/seed5201/initial_validation.json": "376ca015de9210107eccbf884584543ef5ebf4a4871ef69d3d04a833ad85163c",
+    "data/control/seed5201/initial_validation_stochastic.json": "904031343cc4a62515912f3d45e28464cf2727027f6f6861e4e30a7279d645f8",
+    "data/control/seed5201/logs/20261023T020331.711286Z.log": "006c2eba49096f8fecc95d1abff3b81c6808fae364a7f70af7e0236a20126ef3",
+    "data/control/seed5201/metrics.jsonl": "1ea98a24f36b95145a4351971dfc4c147db4ce17ea4ffba250cc0483aa5d05ca",
+    "data/control/seed5201/preflight.json": "b91211052ba582d14907a5d372097373afc78316cae33bdb847036480eb51977",
+    "data/control/seed5201/result.json": "7a00af3fcac7999ede775d3ef301195ddfd250cf3017e1166d7bdf520a198971",
+    "data/control/seed5201/worker-20261023T020323.441779Z.log": "006c2eba49096f8fecc95d1abff3b81c6808fae364a7f70af7e0236a20126ef3",
+    "data/resume/audit.json": "9da6384ab88b5153c7808da27d4a7efe1b8a9e8ef4be3cdf070d209dc75b946f",
+    "data/resume/resumed/config.json": "b53ff5e2ff673e6628d9dda1d34c0bbb4e31e67d4db4b5ac23e0f8d03fc81693",
+    "data/resume/resumed/metrics.jsonl": "c1d89f9fb2f417e8694bddcfdd757d4c3cf8acbebbe62f3019307c875d1ce36d",
+    "data/resume/resumed/preflight.json": "f8124ed5ac2aa66ce8aaebf018ed0a28da1e83fbe3220a637f7aeec19430b636",
+    "data/resume/resumed/result.json": "82a438afbdb49b78f795f741a0fae2e020f002db0affc36887c303e69fa88e84",
+    "data/resume/uninterrupted/config.json": "3759b39f4e02e9ae6131c939cf97a192d6d7e22ec3507183a195e26e45f6ead4",
+    "data/resume/uninterrupted/metrics.jsonl": "e96f78249ce7b239befdcc34ac6211210659d170c781366e16cac8e257e19027",
+    "data/resume/uninterrupted/preflight.json": "aee544925da4cf642aa426568e3622cb4ef5e20c3469cab61a9bf3db1fc8f459",
+    "data/resume/uninterrupted/result.json": "523cd60f54ddceb041342674c1893b5f1ae1ebb278534d393f31e3753e1aa148",
+    "data/execution/egocentric-R1.json": "feb3f9646c8d663e3cddbf16bb7dd0486e20bd0e714ce4b514854d99c23227f1",
+    "data/execution/launch.json": "757c1ce6ac625beb19c76f8032f051e03f559b18468d43a8e16f05258ddc506c",
+    "data/execution/egocentric.stdout.log": "a5745216b6c5966bb57c795496363a312d470a397af627f14992ef8a6d8535ba",
+    "data/execution/egocentric.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "data/execution/duel-egocentric-R1.json": "d3b4262bcffe24926593444f4c3ac2b1c19ed432d5b5c91954d3cc4151e36daa",
+    "data/execution/duel-resume-control.json": "4f4d09aad48e0a9f0bc0f2e4d6f6b856724740c0422cb21e21c404c52e63b47f"
+  },
+  "figures": {
+    "contrasts.png": "34fe640a378f2f7e79bda1b3616dd3075ead3a04f2e52f5a4938941c07391f35",
+    "contrasts.svg": "f88689e1ddad588a92235a5a9d1b216b4abfbdb8be8ae5ed07bcbf17e22c6d64",
+    "curves/seed5201.png": "3a0738bee02e7e9cf36739c1cd418da5f9d3811b315b0cb6a138ea1f38382593",
+    "curves/seed5201.svg": "0369a8e6729ec6e69cbd84c733449e6cda3fe226424efac51dd83b547aa1a640",
+    "curves/training/seed5201-behavior.png": "249ba5f9491d795394b779ddeabd544e7aefc1578ced149ba4d67b1a8fed2abe",
+    "curves/training/seed5201-behavior.svg": "9effcb34a1304213eea17a35ddfc1f187c27352ce14bdbce68a22b29ceacb29b",
+    "curves/training/seed5201-combat.png": "01a9b401c60fb685cf04c5d32aa4dba0d2d0175a8d6dc43519e9fae6ea6f3585",
+    "curves/training/seed5201-combat.svg": "157a0208368b1d1a299ff48343b51e1e6ab55b337413d14e59b059bf16bbc1b0",
+    "curves/training/seed5201-optimization.png": "e65fcec27211d6e67d5f7145815e4065012f1afadb474c9bc71dbc86f0a2d333",
+    "curves/training/seed5201-optimization.svg": "b7d60280fcefe4fa4c8c6c6098622e14a3582fcad67db4bbb8b7f158096f3f3e",
+    "curves/training/seed5201-rewards.png": "be2f6465200850bcc144bff371a8fd8e9d8950663058e24d71de786166777afe",
+    "curves/training/seed5201-rewards.svg": "2494b72ed458786808cb3589d7909045675e98ac29541f8653cbce98bfb60275",
+    "curves/training/seed5201-selfplay-outcomes.png": "aff9521ea6917b4712630a9d1c54d809f2358eb7e08e979a97833f9de7a05c0d",
+    "curves/training/seed5201-selfplay-outcomes.svg": "866856337a3cae395eadd7da7f4b323286d917388fa6e99ed9bae765f5593e7d",
+    "validation-deterministic-breakdown.png": "2acee126c1ebd970b5494fdb537ad5e55bb927f4fdcd83a99defed7c313c8b08",
+    "validation-deterministic-breakdown.svg": "34517ced6a00794e7f45e6a9783311c6646c7e47ba12808d9194aca5d12a70c0",
+    "validation-deterministic.png": "8fea2cde9c927536bd5c544530f134b5639224533d1b2dbf62033aa9d1c07947",
+    "validation-deterministic.svg": "99177cb2e9909527c7640ddbf2993b418dc4876d9f1283dfc899dc9f9346b735",
+    "validation-stochastic-breakdown.png": "da06cea1420df41e1f3c51e8b29e992b8b4eda65c0a1da06f1368f99a962fc0e",
+    "validation-stochastic-breakdown.svg": "8db8ebea41e14742ec6ec533cc698a0aebf921b098c3805d1acb5ccc8087b6b0",
+    "validation-stochastic.png": "ae00bed258fe6cd99bdfa1b2810121451338ea8f90e8bacaedeae2ffe9f7832c",
+    "validation-stochastic.svg": "1385852fd42dfc5f69799adf253d0f3fb917164d018eb603e53ee374518d44d1"
+  },
+  "plotted_summaries": {
+    "deterministic": {
+      "world control": {
+        "initial": {
+          "score": 0.3333333333333333,
+          "baselines": {
+            "random": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 256,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 2,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 0,
+              "losses": 2
+            }
+          },
+          "elimination_fraction": 0.007692307692307693
+        },
+        "early": {
+          "score": 0.396484375,
+          "baselines": {
+            "random": {
+              "score": 0.689453125,
+              "side_scores": [
+                0.53125,
+                0.84765625
+              ],
+              "matches": 256,
+              "wins": 97,
+              "draws": 159,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 2,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 0,
+              "losses": 2
+            }
+          },
+          "elimination_fraction": 0.38076923076923075
+        },
+        "final": {
+          "score": 0.4205729166666667,
+          "baselines": {
+            "random": {
+              "score": 0.76171875,
+              "side_scores": [
+                0.9609375,
+                0.5625
+              ],
+              "matches": 256,
+              "wins": 134,
+              "draws": 122,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 2,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 0,
+              "losses": 2
+            }
+          },
+          "elimination_fraction": 0.5230769230769231
+        }
+      },
+      "observer coordinates": {
+        "initial": {
+          "score": 0.3333333333333333,
+          "baselines": {
+            "random": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 256,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 2,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 2,
+              "wins": 0,
+              "draws": 0,
+              "losses": 2
+            }
+          },
+          "elimination_fraction": 0.007692307692307693
+        },
+        "early": {
+          "score": 0.6875,
+          "baselines": {
+            "random": {
+              "score": 0.8125,
+              "side_scores": [
+                0.75390625,
+                0.87109375
+              ],
+              "matches": 256,
+              "wins": 160,
+              "draws": 96,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.75,
+              "side_scores": [
+                1.0,
+                0.5
+              ],
+              "matches": 2,
+              "wins": 1,
+              "draws": 1,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.5,
+              "side_scores": [
+                1.0,
+                0.0
+              ],
+              "matches": 2,
+              "wins": 1,
+              "draws": 0,
+              "losses": 1
+            }
+          },
+          "elimination_fraction": 0.6269230769230769
+        },
+        "final": {
+          "score": 1.0,
+          "baselines": {
+            "random": {
+              "score": 1.0,
+              "side_scores": [
+                1.0,
+                1.0
+              ],
+              "matches": 256,
+              "wins": 256,
+              "draws": 0,
+              "losses": 0
+            },
+            "initial": {
+              "score": 1.0,
+              "side_scores": [
+                1.0,
+                1.0
+              ],
+              "matches": 2,
+              "wins": 2,
+              "draws": 0,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 1.0,
+              "side_scores": [
+                1.0,
+                1.0
+              ],
+              "matches": 2,
+              "wins": 2,
+              "draws": 0,
+              "losses": 0
+            }
+          },
+          "elimination_fraction": 1.0
+        }
+      }
+    },
+    "stochastic": {
+      "world control": {
+        "initial": {
+          "score": 0.3326822916666667,
+          "baselines": {
+            "random": {
+              "score": 0.498046875,
+              "side_scores": [
+                0.49609375,
+                0.5
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 255,
+              "losses": 1
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 256,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 0,
+              "losses": 256
+            }
+          },
+          "elimination_fraction": 0.3346354166666667
+        },
+        "early": {
+          "score": 0.5970052083333334,
+          "baselines": {
+            "random": {
+              "score": 0.892578125,
+              "side_scores": [
+                0.80859375,
+                0.9765625
+              ],
+              "matches": 256,
+              "wins": 201,
+              "draws": 55,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.8984375,
+              "side_scores": [
+                0.8359375,
+                0.9609375
+              ],
+              "matches": 256,
+              "wins": 204,
+              "draws": 52,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 0,
+              "losses": 256
+            }
+          },
+          "elimination_fraction": 0.8606770833333334
+        },
+        "final": {
+          "score": 0.6380208333333334,
+          "baselines": {
+            "random": {
+              "score": 0.95703125,
+              "side_scores": [
+                0.9765625,
+                0.9375
+              ],
+              "matches": 256,
+              "wins": 234,
+              "draws": 22,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.953125,
+              "side_scores": [
+                0.9609375,
+                0.9453125
+              ],
+              "matches": 256,
+              "wins": 232,
+              "draws": 24,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.00390625,
+              "side_scores": [
+                0.0078125,
+                0.0
+              ],
+              "matches": 256,
+              "wins": 1,
+              "draws": 0,
+              "losses": 255
+            }
+          },
+          "elimination_fraction": 0.9401041666666666
+        }
+      },
+      "observer coordinates": {
+        "initial": {
+          "score": 0.33203125,
+          "baselines": {
+            "random": {
+              "score": 0.49609375,
+              "side_scores": [
+                0.49609375,
+                0.49609375
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 254,
+              "losses": 2
+            },
+            "initial": {
+              "score": 0.5,
+              "side_scores": [
+                0.5,
+                0.5
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 256,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.0,
+              "side_scores": [
+                0.0,
+                0.0
+              ],
+              "matches": 256,
+              "wins": 0,
+              "draws": 0,
+              "losses": 256
+            }
+          },
+          "elimination_fraction": 0.3359375
+        },
+        "early": {
+          "score": 0.6458333333333334,
+          "baselines": {
+            "random": {
+              "score": 0.96484375,
+              "side_scores": [
+                0.97265625,
+                0.95703125
+              ],
+              "matches": 256,
+              "wins": 238,
+              "draws": 18,
+              "losses": 0
+            },
+            "initial": {
+              "score": 0.9609375,
+              "side_scores": [
+                0.984375,
+                0.9375
+              ],
+              "matches": 256,
+              "wins": 236,
+              "draws": 20,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.01171875,
+              "side_scores": [
+                0.0234375,
+                0.0
+              ],
+              "matches": 256,
+              "wins": 3,
+              "draws": 0,
+              "losses": 253
+            }
+          },
+          "elimination_fraction": 0.9505208333333334
+        },
+        "final": {
+          "score": 0.9908854166666666,
+          "baselines": {
+            "random": {
+              "score": 1.0,
+              "side_scores": [
+                1.0,
+                1.0
+              ],
+              "matches": 256,
+              "wins": 256,
+              "draws": 0,
+              "losses": 0
+            },
+            "initial": {
+              "score": 1.0,
+              "side_scores": [
+                1.0,
+                1.0
+              ],
+              "matches": 256,
+              "wins": 256,
+              "draws": 0,
+              "losses": 0
+            },
+            "scripted": {
+              "score": 0.97265625,
+              "side_scores": [
+                0.9609375,
+                0.984375
+              ],
+              "matches": 256,
+              "wins": 247,
+              "draws": 4,
+              "losses": 5
+            }
+          },
+          "elimination_fraction": 1.0
+        }
+      }
+    }
+  },
+  "independent_training_seeds": 1,
+  "final_test_accessed": false,
+  "deployment_eligible": false
+}

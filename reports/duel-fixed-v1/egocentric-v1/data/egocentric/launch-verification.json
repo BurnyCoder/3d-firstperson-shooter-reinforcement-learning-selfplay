@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-10-23T04:16:21.348419+00:00",
+  "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+  "previous_observed_frames": 57344,
+  "current_observed_frames": 262144,
+  "current_update": 32,
+  "metric_timestamp_utc": "20261023T041618.162723Z",
+  "resume_control_passed": true,
+  "windows_checks": "both passed at this source revision",
+  "source_frozen_through_automatic_validation": true
+}

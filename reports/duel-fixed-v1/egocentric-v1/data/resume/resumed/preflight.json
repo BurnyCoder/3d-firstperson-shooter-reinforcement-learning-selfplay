@@ -1,0 +1,8 @@
+{
+  "source_revision": "6149c2ddef0c987c08005544a855aa00c60f329f",
+  "implementation_tree": "e8108f554beb2cee2fd033e5aaf48475a6261572",
+  "config": "configs/duel-resume-control.json",
+  "sha256": "4f4d09aad48e0a9f0bc0f2e4d6f6b856724740c0422cb21e21c404c52e63b47f",
+  "registration": "A-DIAG-RESUME-1",
+  "checked_utc": "2026-10-23T04:14:03.178618+00:00"
+}

@@ -1,0 +1,187 @@
+{
+  "external_baselines": [
+    "random",
+    "scripted"
+  ],
+  "external_delta": 0.619140625,
+  "hypothesis_threshold_met": true,
+  "external_match_uncertainty": {
+    "ci95": [
+      0.6103515625,
+      0.6279296875
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "own_initial_improvement": 0.6666666666666667,
+  "own_match_uncertainty": {
+    "ci95": [
+      0.6666666666666666,
+      0.6666666666666666
+    ],
+    "resamples": 5000,
+    "scope": "conditional on one checkpoint pair; fixed deterministic cells add no sampling variance"
+  },
+  "screen_passed": true,
+  "eligible_recipe": "egocentric-v1",
+  "final": {
+    "score": 1.0,
+    "baselines": {
+      "random": {
+        "score": 1.0,
+        "side_scores": [
+          1.0,
+          1.0
+        ],
+        "matches": 256,
+        "wins": 256,
+        "draws": 0,
+        "losses": 0
+      },
+      "initial": {
+        "score": 1.0,
+        "side_scores": [
+          1.0,
+          1.0
+        ],
+        "matches": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0
+      },
+      "scripted": {
+        "score": 1.0,
+        "side_scores": [
+          1.0,
+          1.0
+        ],
+        "matches": 2,
+        "wins": 2,
+        "draws": 0,
+        "losses": 0
+      }
+    },
+    "elimination_fraction": 1.0
+  },
+  "deployment_eligible": false,
+  "scope": "one matched training seed; no independently trained-model interval",
+  "secondary_summaries": {
+    "initial": {
+      "score": 0.33203125,
+      "baselines": {
+        "random": {
+          "score": 0.49609375,
+          "side_scores": [
+            0.49609375,
+            0.49609375
+          ],
+          "matches": 256,
+          "wins": 0,
+          "draws": 254,
+          "losses": 2
+        },
+        "initial": {
+          "score": 0.5,
+          "side_scores": [
+            0.5,
+            0.5
+          ],
+          "matches": 256,
+          "wins": 0,
+          "draws": 256,
+          "losses": 0
+        },
+        "scripted": {
+          "score": 0.0,
+          "side_scores": [
+            0.0,
+            0.0
+          ],
+          "matches": 256,
+          "wins": 0,
+          "draws": 0,
+          "losses": 256
+        }
+      },
+      "elimination_fraction": 0.3359375
+    },
+    "early": {
+      "score": 0.6458333333333334,
+      "baselines": {
+        "random": {
+          "score": 0.96484375,
+          "side_scores": [
+            0.97265625,
+            0.95703125
+          ],
+          "matches": 256,
+          "wins": 238,
+          "draws": 18,
+          "losses": 0
+        },
+        "initial": {
+          "score": 0.9609375,
+          "side_scores": [
+            0.984375,
+            0.9375
+          ],
+          "matches": 256,
+          "wins": 236,
+          "draws": 20,
+          "losses": 0
+        },
+        "scripted": {
+          "score": 0.01171875,
+          "side_scores": [
+            0.0234375,
+            0.0
+          ],
+          "matches": 256,
+          "wins": 3,
+          "draws": 0,
+          "losses": 253
+        }
+      },
+      "elimination_fraction": 0.9505208333333334
+    },
+    "final": {
+      "score": 0.9908854166666666,
+      "baselines": {
+        "random": {
+          "score": 1.0,
+          "side_scores": [
+            1.0,
+            1.0
+          ],
+          "matches": 256,
+          "wins": 256,
+          "draws": 0,
+          "losses": 0
+        },
+        "initial": {
+          "score": 1.0,
+          "side_scores": [
+            1.0,
+            1.0
+          ],
+          "matches": 256,
+          "wins": 256,
+          "draws": 0,
+          "losses": 0
+        },
+        "scripted": {
+          "score": 0.97265625,
+          "side_scores": [
+            0.9609375,
+            0.984375
+          ],
+          "matches": 256,
+          "wins": 247,
+          "draws": 4,
+          "losses": 5
+        }
+      },
+      "elimination_fraction": 1.0
+    }
+  }
+}

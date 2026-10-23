@@ -1,0 +1,8 @@
+{
+  "seed": 111,
+  "source_revision": "d2bc7e677e208012c9b4368b228d3c9194bd1669",
+  "model_seed": 5101,
+  "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+  "checkpoint": "artifacts/models/duel-seed5101/model.pt",
+  "started_utc": "2026-10-23T12:29:52.1193418Z"
+}

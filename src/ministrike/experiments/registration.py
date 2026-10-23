@@ -27,18 +27,18 @@ def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))  # Local: do not search unrelated directories.
 
 
-def training_preflight(config):
-    """Local: verify status, parameters, publication and budget; global: never optimize unregistered settings."""
-    if not config.run_config or not config.registration:
-        raise ValueError("Stage A requires a published run_config and roadmap registration")
-    path = (ROOT / config.run_config).resolve()  # Local: recorded config must be in this checkout.
+def published_preflight(config_path, registration):
+    """Local: verify runnable source/config publication; global: training and frozen diagnostics share one provenance gate."""
+    path = (ROOT / config_path).resolve()  # Local: recorded config must be in this checkout.
     relative = path.relative_to(ROOT).as_posix()  # Local: reject external configuration paths.
     registry = read_json(ROOT / "configs/experiments.json")  # Local: stable runnable identities are versioned.
-    entry = registry["experiments"].get(config.registration, {})
+    entry = registry["experiments"].get(registration, {})
     if entry.get("status") != "runnable":
         raise ValueError("Registration is not runnable; publish its resolved prerequisites first")
     if git("status", "--porcelain", "--untracked-files=all", "src", "configs", "docs", "tests", "README.md", "AGENTS.md", "pyproject.toml", "uv.lock"):
         raise ValueError("Implementation, tests or protocol are not committed")  # Local: user scratch files elsewhere are untouched.
+    if git("diff", "--name-only", "HEAD", "--", "scripts"):
+        raise ValueError("Tracked execution scripts are not committed")  # Local: an unrelated untracked scratch script is not modified or published.
     source = git("rev-parse", "HEAD")  # Local: current execution identity must exist on the public remote.
     branch = git("branch", "--show-current")
     remote = git("ls-remote", "--heads", "origin", branch)  # Local: do not trust an obsolete remote-tracking ref.
@@ -48,6 +48,17 @@ def training_preflight(config):
     published = subprocess.check_output(["git", "show", f"HEAD:{relative}"], cwd=ROOT)
     if raw.replace(b"\r\n", b"\n") != published.replace(b"\r\n", b"\n"):
         raise ValueError("Configuration differs from the published source")
+    return {"source_revision": source, "implementation_tree": git("rev-parse", "HEAD:src/ministrike"),
+            "config": relative, "sha256": hashlib.sha256(raw).hexdigest(),
+            "registration": registration, "checked_utc": datetime.now(timezone.utc).isoformat()}
+
+
+def training_preflight(config):
+    """Local: verify status, parameters, publication and budget; global: never optimize unregistered settings."""
+    if not config.run_config or not config.registration:
+        raise ValueError("Stage A requires a published run_config and roadmap registration")
+    receipt = published_preflight(config.run_config, config.registration)  # Local: one implementation checks the public source identity.
+    path = ROOT / config.run_config
     frozen = read_json(path)  # Local: one file may register independent workers in a hardware cell or suite.
     actual = asdict(config)  # Local: mutable runtime fields are excluded; all learning/hardware settings stay frozen.
     ignored = {"resume", "source_revision", "run_config"}
@@ -60,9 +71,6 @@ def training_preflight(config):
         raise ValueError("Stage A must use its single authorized budget manifest")
     if MANIFEST.exists() and remaining_budget(config.budget_manifest) <= 0:
         raise TimeoutError("Stage A absolute deadline has expired")
-    receipt = {"source_revision": source, "implementation_tree": git("rev-parse", "HEAD:src/ministrike"),
-               "config": relative, "sha256": hashlib.sha256(raw).hexdigest(),
-               "registration": config.registration, "checked_utc": datetime.now(timezone.utc).isoformat()}
     destination = ROOT / config.output_dir  # Local: retain full per-execution preflight evidence.
     destination.mkdir(parents=True, exist_ok=True)
     (destination / "preflight.json").write_text(json.dumps(receipt, indent=2), encoding="utf-8")

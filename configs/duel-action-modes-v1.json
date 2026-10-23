@@ -1,0 +1,29 @@
+{
+  "registration": "A-DIAG-ACTION-MODES-1",
+  "protocol": "docs/amendments/2026-10-23-action-mode-diagnostic.md",
+  "output_dir": "runs/duel-fixed-v1/diagnostics/action-modes-v1",
+  "max_seconds": 900,
+  "seed_base": 3000000,
+  "pairs": 128,
+  "num_envs": 32,
+  "models": {
+    "R0": {
+      "checkpoint": "runs/duel-fixed-v1/pilots/R0/seed5201/model.pt",
+      "checkpoint_sha256": "63a54c05f8d03a712ba3d1fd92cf15644c4221afda6f4facf00c2a2e7b9fe6d9",
+      "initial": "runs/duel-fixed-v1/pilots/R0/seed5201/initial.pt",
+      "initial_sha256": "0a7f75e2291d9c38bd1c5701cfe945d45e98cfc4d9224527392683a354335041"
+    },
+    "R1": {
+      "checkpoint": "runs/duel-fixed-v1/pilots/R1/seed5201/model.pt",
+      "checkpoint_sha256": "c97392916f6fa4a968564b90d7928c7e223b6d5e97fab0ea67ae85ee0f440b77",
+      "initial": "runs/duel-fixed-v1/pilots/R1/seed5201/initial.pt",
+      "initial_sha256": "65dfb0071324f9087eb3f7fcc448b62f456687f3b4322c84da6d76c9f6ae82de"
+    },
+    "R2": {
+      "checkpoint": "runs/duel-fixed-v1/pilots/R2/seed5201/model.pt",
+      "checkpoint_sha256": "495446a1142be875a43a6012377af4daa062a7e293b0d141e0c8c8b5ae1d6d79",
+      "initial": "runs/duel-fixed-v1/pilots/R2/seed5201/initial.pt",
+      "initial_sha256": "983f11be7adc776038f0d95c6c14cf11509f14b6883a3672fc56fafb4535a2e8"
+    }
+  }
+}

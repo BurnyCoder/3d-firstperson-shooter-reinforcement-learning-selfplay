@@ -64,6 +64,8 @@ The complete frozen fields, decision rules and numerical settings for these entr
 
 Future agents must add every proposed architecture/reward/diagnostic variant here **and** freeze its executable config/protocol before optimizer work. A broad row is not permission to improvise hyperparameters or a new budget. Publish amendments, record actual execution separately in the manifest, and link measured findings rather than editing a prior hypothesis to match outcomes.
 
+Confirmation training subsequently completed for all three seeds at the registered equal targets. [Evaluation execution](amendments/2026-10-23-confirmation-evaluation.md) resolves the existing A-EVAL orchestration without changing its analysis or allowance. No benchmark-quality conclusion follows from training completion alone.
+
 ## Execution status, 2026-10-23
 
 The registration tables above retain their prospective wording. Calibration and R0/R1/R2 are now complete. All three matched pilots failed the primary validation gate; [R2's report](../reports/duel-fixed-v1/pilot-R2.md) and the [post-pilot amendment](amendments/2026-10-23-R2-diagnosis.md) close this selection sequence. Confirmation remains blocked. The [action-mode intervention](amendments/2026-10-23-action-mode-diagnostic.md) now resolves the next diagnostic's exact controls and allowance; consult its latest receipt for execution status. Saved [loss, reward and evaluation figures](experiment-plots.md) show measured outcomes without replacing the registered decision rule.

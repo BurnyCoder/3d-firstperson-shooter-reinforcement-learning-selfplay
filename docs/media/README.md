@@ -29,7 +29,7 @@ The encoder was FFmpeg `N-124716-g054dffd133-20260531`. H.264 follows [GitHub's 
 
 ## Verification
 
-The full video decoded without FFmpeg errors. Six evenly spaced frames were visually inspected for gameplay and capture boundaries. The [recorded session](evidence/final.replay.json), its [final screenshot](evidence/final.png) and [parity receipt](evidence/parity.json) preserve the session containing the clip: all 348 recorded simulation ticks across 20 started rounds reproduced the final canonical state exactly through the existing headless replay verifier. The session is longer than the 24-second video excerpt. This checks rendering/simulation consistency, not learning quality.
+The full video decoded without FFmpeg errors. Six evenly spaced frames were visually inspected for gameplay and capture boundaries. GitHub's Markdown renderer produced a video player with controls, and an unauthenticated download of the public attachment matched the MP4 hash above. The [recorded session](evidence/final.replay.json), its [final screenshot](evidence/final.png) and [parity receipt](evidence/parity.json) preserve the session containing the clip: all 348 recorded simulation ticks across 20 started rounds reproduced the final canonical state exactly through the existing headless replay verifier. The session is longer than the 24-second video excerpt. This checks rendering/simulation consistency, not learning quality.
 
 ```powershell
 uv run python scripts/verify_native_replays.py --checkpoint artifacts/models/duel-seed5101/model.pt --output artifacts/readme-video-reverification docs/media/evidence/final.replay.json

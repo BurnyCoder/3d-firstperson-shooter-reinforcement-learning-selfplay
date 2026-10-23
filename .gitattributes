@@ -1,6 +1,7 @@
 # Generated binary artifacts must keep exact bytes on Windows clones.
 *.pdf binary
 *.png binary
+*.mp4 binary
 *.pt binary
 # Local: keep raw evidence bytes, including profiler spacing; global: make audits reproducible on every clone.
 # Git attributes documentation: https://git-scm.com/docs/gitattributes
@@ -12,3 +13,4 @@ reports/duel-fixed-v1/launch-failure/** -text -whitespace
 reports/duel-fixed-v1/confirmation/native/** -text -whitespace
 reports/publication/cards/** -text -whitespace
 reports/duel-fixed-v1/release-verification/** -text -whitespace
+docs/media/evidence/** -text -whitespace

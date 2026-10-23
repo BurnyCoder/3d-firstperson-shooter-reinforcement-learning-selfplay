@@ -12,7 +12,9 @@ This is an implementation/release checklist, not a learning result. Follow [regi
 - [x] [Historical audit](../reports/learning-audit/summary.md) resolved with negative outcomes and uncertainty, original suite deferred without deadline changes.
 - [x] [Bounded duel hardware calibration](amendments/2026-10-23-duel-calibration.md); selected execution and equal pilot targets published with this amendment.
 - [x] Reward pilots executed in registered order, identical initial actor/critic hashes and equal step targets verified: [R0](../reports/duel-fixed-v1/pilot-R0.md), [R1](../reports/duel-fixed-v1/pilot-R1.md), [R2](../reports/duel-fixed-v1/pilot-R2.md). All failed selection; this is completeness, not acceptance.
-- [x] Documented [action-mode diagnostic fallback](../reports/duel-fixed-v1/action-modes-v1.md); confirmation remains blocked. The [duration/entropy comparison](amendments/2026-10-23-duration-entropy-diagnostic.md) is registered prospectively; completion and quality are separate pending outcomes.
+- [x] Documented [action-mode diagnostic fallback](../reports/duel-fixed-v1/action-modes-v1.md) and completed [duration/entropy comparison](../reports/duel-fixed-v1/duration-entropy-v1/README.md); both recipes fail their screen. All12 endpoints and exact152-update control reproduction audited; confirmation remains blocked.
+- [x] [Source review and prospective input intervention](shooter-rl-design-review.md), analytic geometry/masking/checkpoint tests; current local suite 104 passed. This is implementation evidence, not learning acceptance.
+- [ ] Registered real optimizer save/resume equality control; see latest `runs/duel-fixed-v1/diagnostics/resume-v1/audit.json` before marking complete.
 - [ ] Power sensitivity and resolved three-seed confirmation settings published before confirmation.
 - [ ] All three fresh independent seeds completed or explicitly failed/partial within absolute deadline.
 - [ ] Deployment frozen by validation before final tests; every initial/final evaluated and reported.

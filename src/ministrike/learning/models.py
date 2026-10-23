@@ -11,6 +11,7 @@ from tensordict.nn import TensorDictModule  # Local: named I/O; global: TorchRL 
 from torchrl.modules import ProbabilisticActor  # Local: library sampling and log probabilities.
 
 from ministrike.sim.constants import ACTION_NVECS, OBS_DIM  # Shared observation/action contract.
+from ministrike.learning.observation_transform import TRANSFORMS, transform_observation  # Local: identical preprocessing in training, snapshots and gameplay.
 
 
 class FactorizedCategorical(Independent):
@@ -31,10 +32,13 @@ class FactorizedCategorical(Independent):
 class ActorNetwork(nn.Module):
     """Local: shared two-layer MLP; global: bots use their own local history only."""
 
-    def __init__(self, observation_dim=OBS_DIM, action_nvecs=ACTION_NVECS):
+    def __init__(self, observation_dim=OBS_DIM, action_nvecs=ACTION_NVECS, observation_transform="identity"):
         """Local: allocate layers and action mask; global: fixed published architecture."""
         super().__init__()  # Register parameters with PyTorch.
         self.observation_dim, self.action_nvecs = observation_dim, tuple(action_nvecs)  # Local: explicit saved interface.
+        if observation_transform not in TRANSFORMS:
+            raise ValueError("Unknown actor observation transform")
+        self.observation_transform = observation_transform  # Local: no parameters or RNG consumed; legacy initialization stays exact.
         self.network = nn.Sequential(nn.Linear(observation_dim, 128), nn.Tanh(),
                                      nn.Linear(128, 128), nn.Tanh(),
                                      nn.Linear(128, sum(action_nvecs)))
@@ -42,7 +46,7 @@ class ActorNetwork(nn.Module):
 
     def forward(self, observation):
         """Local: pad unequal categorical heads; global: reuse standard distributions."""
-        pieces = self.network(observation).split(self.action_nvecs, dim=-1)  # Each enabled slice is one control.
+        pieces = self.network(transform_observation(observation, self.observation_transform)).split(self.action_nvecs, dim=-1)  # Local: transform only legal local inputs before learned layers.
         padded = [torch.nn.functional.pad(piece, (0, max(self.action_nvecs) - piece.shape[-1]),
                                          value=-1e9) for piece in pieces]
         return torch.stack(padded, dim=-2)  # [..., six heads, nine padded categories].

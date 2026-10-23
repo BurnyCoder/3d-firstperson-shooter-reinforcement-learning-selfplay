@@ -76,7 +76,10 @@ class PolicyCheckpoint:
             raise ValueError("Checkpoint observation dimension does not match this game")
         if tuple(state.get("schema", {}).get("action_nvecs", ACTION_NVECS)) != self.spec.action_nvecs:
             raise ValueError("Checkpoint control categories do not match this game")  # Prevent silent decoder mismatch.
-        self.actor = ActorNetwork(self.spec.observation_dim, self.spec.action_nvecs).eval().requires_grad_(False)
+        transform = state.get("config", {}).get("observation_transform", "identity")  # Local: legacy models retain world-relative coordinates.
+        if state.get("schema", {}).get("actor_observation_transform", "identity") != transform:
+            raise ValueError("Checkpoint actor observation transform metadata differs")
+        self.actor = ActorNetwork(self.spec.observation_dim, self.spec.action_nvecs, transform).eval().requires_grad_(False)
         self.actor.load_state_dict(state["actor"])  # Strict loading rejects missing/extra architecture keys.
         self.path = str(path)  # Expose provenance to reports and the renderer.
         rules = state.get("environment", {}).get("sim", {}).get("config")  # Local: legacy experiments keep exact rules.

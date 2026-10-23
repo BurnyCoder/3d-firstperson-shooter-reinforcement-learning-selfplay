@@ -10,8 +10,10 @@
     "A-CONFIRM": {"status": "blocked", "prerequisite": "Qualifying pilot, power analysis, selected reward and equal targets published"},
     "A-DIAG": {"status": "blocked", "prerequisite": "Specific intervention/control/configuration published as dated amendment"},
     "A-DIAG-ACTION-MODES-1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-action-mode-diagnostic.md", "config": "configs/duel-action-modes-v1.json", "outcome": "Mean learner-only effect 0.0169271 below 0.10; 774 reproduced rows exact; see reports/duel-fixed-v1/action-modes-v1.md"},
-    "A-DIAG-DURATION-R1": {"status": "runnable", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "purpose": "Scratch R1 control, 4,980,736 steps, entropy 0.01, immutable early endpoint; diagnostic only"},
-    "A-DIAG-ENTROPY-R1": {"status": "runnable", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "purpose": "Matched scratch R1, entropy 0.001, equal steps; diagnostic only"},
+    "A-DIAG-DURATION-R1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "outcome": "Duration gain 0.02408854 below 0.10; recipe screen failed; never retrain completed control"},
+    "A-DIAG-ENTROPY-R1": {"status": "complete", "protocol": "docs/amendments/2026-10-23-duration-entropy-diagnostic.md", "config": "configs/duel-duration-entropy-v1.json", "outcome": "Low-minus-control -0.04622396; recipe screen failed; all twelve endpoints preserved"},
+    "A-DIAG-RESUME-1": {"status": "runnable", "protocol": "docs/amendments/2026-10-23-egocentric-diagnostic.md", "config": "configs/duel-resume-control.json", "purpose": "Real optimizer checkpoint fork: exact state equality, 768 executed arena steps total, diagnostic only"},
+    "A-DIAG-EGO-R1": {"status": "runnable", "protocol": "docs/amendments/2026-10-23-egocentric-diagnostic.md", "config": "configs/duel-egocentric-R1.json", "purpose": "Matched scratch seed5201, actor observer-coordinate input only, 4,980,736 steps, unchanged PPO/reward/outputs; diagnostic only"},
     "LEGACY-5V5": {"status": "deferred", "prerequisite": "No restart authorized; retain original deadlines and evidence"}
   }
 }

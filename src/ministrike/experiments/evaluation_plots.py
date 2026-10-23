@@ -53,7 +53,7 @@ def plot_evaluation_breakdown(records, destination, mode, title="reward pilots")
     figure.text(.055, .025, "Seed 5201 only. n counts recorded trajectories, not independently trained models. Validation only; no new matches run.", fontsize=9)
     figure.subplots_adjust(left=.055, right=.93, bottom=.22, top=.85, wspace=.40)
     for extension in ("png", "svg"):
-        figure.savefig(destination / f"validation-{mode}-breakdown.{extension}", dpi=160, facecolor="white")
+        figure.savefig(destination / f"validation-{mode}-breakdown.{extension}", dpi=160, facecolor="white", bbox_inches="tight")  # Local: longer experiment labels must not be cropped.
     plt.close(figure)  # Local: each action mode has a separate artifact, backed by the existing validation JSON receipt.
 
 

@@ -63,3 +63,5 @@ Artifacts per execution: full config, source+interface identity, initial/final/c
 2026-10-23 [R1 diagnosis and R2 resolution](amendments/2026-10-23-R1-diagnosis.md): R1 improved random-opponent performance but still failed the unchanged primary gate. Publish its evidence and resolve the already registered R2 potential-shaping pilot; confirmation remains blocked.
 
 2026-10-23 [R2 result and diagnostic boundary](amendments/2026-10-23-R2-diagnosis.md): all three pilots completed and failed primary selection. Preserve both evaluation modes and loss graphs; no confirmation or unspecified additional optimizer experiment follows from these results.
+
+2026-10-23 [registered action-mode diagnostic](amendments/2026-10-23-action-mode-diagnostic.md): freeze a 2x2 learner/opponent inference-mode intervention with existing weights, validation seeds, 900-second cap and 24 fixed-seed traces. No optimizer, confirmation authorization, primary-gate relaxation or clock extension.

@@ -4,8 +4,8 @@
   "roadmap": "docs/experiment-roadmap.md",
   "experiments": {
     "A-CAL": {"status": "complete", "purpose": "Nine cells completed; see reports/duel-fixed-v1/calibration/selection.json; do not repeat"},
-    "A-PILOT-R0": {"status": "runnable", "prerequisite": "Resolved in docs/amendments/2026-10-23-duel-calibration.md and configs/duel-pilot-R0.json"},
-    "A-PILOT-R1": {"status": "blocked", "prerequisite": "R0 fails validation gate; diagnosis and frozen matched configuration published"},
+    "A-PILOT-R0": {"status": "complete", "outcome": "Failed validation gate; preserve reports/duel-fixed-v1/pilot-R0.md"},
+    "A-PILOT-R1": {"status": "runnable", "prerequisite": "R0 diagnosis in docs/amendments/2026-10-23-R0-diagnosis.md; matched configs/duel-pilot-R1.json"},
     "A-PILOT-R2": {"status": "blocked", "prerequisite": "R1 fails validation gate; diagnosis and frozen matched configuration published"},
     "A-CONFIRM": {"status": "blocked", "prerequisite": "Qualifying pilot, power analysis, selected reward and equal targets published"},
     "A-DIAG": {"status": "blocked", "prerequisite": "Specific intervention/control/configuration published as dated amendment"},

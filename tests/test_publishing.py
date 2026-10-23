@@ -27,3 +27,26 @@ def test_publication_filters_secrets_and_preserves_pending_evidence(tmp_path, mo
     include = [calls[0][index + 1] for index, argument in enumerate(calls[0][:-1]) if argument == "--include"]  # Read the final CLI allowlist.
     assert set(include) == {*publishing.FILES, "README.md"} and ".env" not in include  # Neither source nor stale secrets are eligible.
     assert len(calls) == 2 and result["models"][0]["frames"] == 128  # One upload and one collection insertion retain measured provenance.
+
+
+def test_duel_card_has_correct_schema_and_no_unmeasured_acceptance(tmp_path, monkeypatch):
+    """Local: duel artifacts cannot inherit legacy claims; global: publish all outcomes with explicit limits."""
+    run = tmp_path / "seed5101"
+    write_json(run / "result.json", {"condition": "selfplay", "seed": 5101, "frames": 8192,
+                                    "updates": 1, "complete": False, "source_revision": "fixture"})
+    write_json(run / "config.json", {"experiment": "duel-fixed-v1", "gamma": .999, "reward": "R0"})
+    (run / "model.pt").write_bytes(b"fixture final")
+    (run / "initial.pt").write_bytes(b"fixture initial")
+    evaluation = {"status": "complete", "summary": {"score": .4, "elimination_fraction": .2,
+                  "baselines": {name: {"score": .4} for name in ("random", "initial", "scripted")}}}
+    write_json(run / "final_test.json", evaluation)
+    calls = []
+    monkeypatch.setattr(publishing, "hf_command", lambda arguments: calls.append(arguments) or {"ok": True})
+    result = publishing.publish_models(tmp_path, "owner/collection", namespace="owner")
+    staging = tmp_path / "publication" / run.name
+    card = (staging / "README.md").read_text(encoding="utf-8")
+    assert "192" in card and "five categorical" in card and "Experimental" in card
+    assert "0.4" in card and "initial.pt" in card and "SHA256" in card
+    assert "384" not in card and "three independent" in card
+    assert (staging / "final_test.json").exists()
+    assert result["models"][0]["repository"] == "owner/ministrike-duel-fixed-v1-seed5101"

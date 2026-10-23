@@ -55,11 +55,14 @@ def create_parser(settings) -> argparse.ArgumentParser:
     return parser  # Tests can inspect argument behavior without starting graphics or training.
 
 
-def recommended_checkpoint(output_dir: Path) -> Path | None:
+def recommended_checkpoint(output_dir: Path, experiment=None) -> Path | None:
     """Local: read the explicit suite recommendation. Global: never quietly substitute an unrelated model."""
-    path = output_dir / "suite" / "recommended.json"  # Suite publication writes this stable pointer.
-    if not path.exists():  # Before training, the launcher labels its scripted demonstration honestly.
-        return None  # The renderer handles this as an explicit baseline mode.
+    folders = {"duel-fixed-v1": "duel-fixed-v1", "legacy-5v5-v1": "suite"}
+    candidates = [folders[experiment]] if experiment else list(folders.values())  # Local: prefer the active stage by default.
+    path = next((output_dir / folder / "recommended.json" for folder in candidates
+                 if (output_dir / folder / "recommended.json").exists()), None)
+    if path is None:  # Before selection, the renderer labels its scripted demonstration honestly.
+        return None
     checkpoint = Path(json.loads(path.read_text(encoding="utf-8"))["checkpoint"])  # Pointer is produced by the local experiment runner.
     if not checkpoint.is_file():  # Stale pointers should not silently fall back to another model.
         raise FileNotFoundError(f"Recommended checkpoint missing: {checkpoint}")  # User can supply --checkpoint explicitly.
@@ -70,7 +73,8 @@ def execute_phase(arguments, settings):
     """Local: dispatch one mode. Global: implementations stay behind small imported functions."""
     if arguments.command in (None, "play", "watch"):  # Renderers are imported only for visible interaction.
         from ministrike.view import run_view  # Headless commands never construct Ursina objects.
-        checkpoint = getattr(arguments, "checkpoint", None) or recommended_checkpoint(settings.output_dir)  # Prefer an explicit user-selected model.
+        checkpoint = getattr(arguments, "checkpoint", None) or recommended_checkpoint(
+            settings.output_dir, getattr(arguments, "experiment", None))  # Local: preserve explicit match selection.
         if arguments.command is None:  # Human entry point offers arena spectating, bot POV, and human play.
             from ministrike.view import run_launcher  # Standard desktop launcher opens before the game engine.
             return run_launcher(checkpoint=checkpoint, seed=settings.seed)  # Choose watch or human first-person play.

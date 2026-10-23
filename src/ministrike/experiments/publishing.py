@@ -14,6 +14,9 @@ from ministrike.records import configure_logging, write_json  # Reuse timestampe
 
 LOGGER = logging.getLogger(__name__)  # Same logging contract as training and evaluation.
 FILES = ("model.pt", "initial.pt", "config.json", "result.json", "evaluation.json", "initial_evaluation.json", "metrics.jsonl")  # Credentials and .env are never eligible for upload.
+FILES += ("initial_validation.json", "final_validation.json", "initial_test.json", "final_test.json",
+          "initial_validation_stochastic.json", "final_validation_stochastic.json", "assessment.json",
+          "initial_test_stochastic.json", "final_test_stochastic.json", "release-context.json")  # Local: explicit duel evidence allowlist.
 
 
 def hf_command(arguments: list[str]) -> dict | str:
@@ -45,6 +48,10 @@ def stage_run(run: Path, destination: Path) -> dict:
         source = run / name  # Model/evaluation artifacts live directly in the selected run directory.
         if source.is_file():  # Missing evaluation remains explicitly pending in the card below.
             shutil.copy2(source, destination / name)  # Preserve checkpoint bytes exactly.
+    if config.get("experiment") == "duel-fixed-v1":
+        from ministrike.experiments.duel_card import make_duel_card  # Local: keep match-specific prose out of upload orchestration.
+        (destination / "README.md").write_text(make_duel_card(run, result, config), encoding="utf-8")
+        return result  # Local: duel cards cannot fall through to legacy5v5 claims.
     evaluation_path = run / "evaluation.json"  # Held-out endpoint is separate from changing training rewards.
     evaluation = json.loads(evaluation_path.read_text(encoding="utf-8")) if evaluation_path.exists() else {}  # No evaluation is not a zero score.
     summary = evaluation.get("summary", {})  # Missing summaries are labeled pending rather than imputed.
@@ -104,7 +111,11 @@ def publish_models(input_dir: str | Path, collection: str, namespace: str = "Bur
     for run in runs:  # Both conditions and all available seeds are published in stable order.
         staging = root / "publication" / run.name  # Stage inside the same project output tree.
         result = stage_run(run, staging)  # Only allowlisted files and a grounded model card enter staging.
-        repository = f"{namespace}/ministrike-{run.name.replace('_', '-')}"  # Stable names make retries idempotent.
+        config = json.loads((run / "config.json").read_text(encoding="utf-8"))
+        prefix = "duel-fixed-v1-" if config.get("experiment") == "duel-fixed-v1" else ""
+        if config.get("registration", "").startswith("A-PILOT"):
+            prefix += f"pilot-{config['reward'].lower()}-"  # Local: distinct exploratory rewards cannot overwrite each other's Hub model.
+        repository = f"{namespace}/ministrike-{prefix}{run.name.replace('_', '-')}"  # Stable names make retries idempotent.
         include = [argument for name in (*FILES, "README.md") for argument in ("--include", name)]  # Reapply the allowlist at the actual upload boundary, even if staging already contains unrelated files.
         receipt = hf_command(["upload", repository, str(staging), ".", "--no-private", *include, "--commit-message", f"Publish {result['frames']} transition endpoint and measured evidence"])  # Upload command creates a public repository when needed.
         hf_command(["collections", "add-item", collection, repository, "model", "--exists-ok"])  # Group all released checkpoints explicitly.

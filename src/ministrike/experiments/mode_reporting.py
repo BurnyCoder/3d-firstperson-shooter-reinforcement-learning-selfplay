@@ -35,6 +35,8 @@ def audit_modes(root):
             if mode in ("DD", "SS"):
                 suffix = "_stochastic" if mode == "SS" else ""
                 old_path = Path(f"runs/duel-fixed-v1/pilots/{reward}/seed5201/final_validation{suffix}.json")
+                if not old_path.exists():
+                    old_path = Path(f"reports/duel-fixed-v1/data/pilot-{reward}/final_validation{suffix}.json")
                 previous = [row for row in read_json(old_path)["rounds"] if row["baseline"] == "initial"]
                 key = itemgetter("side", "seed")  # Local: ignore serialization order, not any outcome/counter field.
                 exact = sorted(rows, key=key) == sorted(previous, key=key)
@@ -103,7 +105,7 @@ def mode_figures(cells, analysis, destination):
     axes[1].set(yticks=range(4), yticklabels=[*cells, "Mean"], xlabel="Score(SD) minus score(DD)",
                 title="Change learner mode, hold opponent D", xlim=(-.12, .14))
     axes[1].invert_yaxis()
-    axes[1].legend(fontsize=8, loc="lower left")
+    axes[1].legend(fontsize=8, loc="upper left", bbox_to_anchor=(0, -.18))  # Local: never cover the primary mean/error bar.
     figure.suptitle("Action-mode intervention | frozen reward pilots", fontsize=16)
     figure.text(.06, .025, "D = argmax; S = categorical sampling. DD: 2 fixed trajectories; other cells: 256 matches.\n"
                 "95% intervals resample paired match seeds, conditional on these same-seed models; no model-population interval.", fontsize=9)

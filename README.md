@@ -8,6 +8,8 @@ Bots learn from scratch through **historical self-play with PPO**, using TorchRL
 
 **Bot gameplay:** [watch the 24-second first-person video](docs/media/duel-gameplay.mp4). Both bots use the trained seed 5101 checkpoint in fixed-spawn 1v1 self-play. This is an experimental model; the clip illustrates gameplay, not generalization or benchmark success. [Recording details](docs/media/README.md).
 
+https://github.com/user-attachments/assets/150ec0d6-a4f4-4db6-83cc-aa913485e719
+
 ## Methodology and quick start
 
 One NumPy simulation owns gameplay, collisions, visibility and outcomes; Ursina renders it. Training collects self-play experience, updates the learner and freezes snapshots as future opponents. Stage A has completed its registered training and evaluation within its separately recorded 12-hour allowance. Before any new experiment, read the roadmap, active protocol and [evidence index](docs/evidence-index.md). The image above shows confirmation seed 5101, selected by validation before testing; its actor rotates visible relative positions into the observer's coordinate frame.

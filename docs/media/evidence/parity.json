@@ -1,0 +1,19 @@
+{
+  "source_revision": "d2bc7e677e208012c9b4368b228d3c9194bd1669",
+  "checkpoint": "artifacts\\models\\duel-seed5101\\model.pt",
+  "checkpoint_sha256": "08555d745249be9e49bb4b320f04737c5c5730bb53c39473d5fb4cf16a481ecb",
+  "captures": {
+    "final.replay.json": {
+      "ticks": 348,
+      "round": 20,
+      "mode": "watch",
+      "controlled": null,
+      "followed": 1,
+      "paused": false,
+      "done": false,
+      "exact_parity": true,
+      ".json_sha256": "50a14d1d2d8395c029e3fb0c983286b308a4d83498119acdf9911e9b06872dc9",
+      ".png_sha256": "b3496dc004e6391e1a6dc2436eace5360df7c72df600e205ae6787dfac71afba"
+    }
+  }
+}

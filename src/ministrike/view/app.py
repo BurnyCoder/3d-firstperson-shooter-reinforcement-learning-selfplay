@@ -220,6 +220,8 @@ def run_view(mode="play", checkpoint=None, seed=0, team=0, seconds=None, screens
 
     app = Ursina(title="MiniStrike | Self-play Lab", size=(1440, 810), fullscreen=False,
                  borderless=False, development_mode=False, editor_ui_enabled=False, vsync=True)  # Local: native window.
+    # Global: Ursina's window hotkeys remain separate from editor visibility: https://github.com/pokepetter/ursina/blob/master/ursina/window.py
+    window.input_entity.enabled = False  # Local: reserve F10/F12 for game exit/capture, preventing debug wireframe/editor toggles.
     window.color = color.rgb32(24, 37, 47)  # Local: coherent navy background beyond the original industrial arena.
     window.exit_button.visible = False  # Local: F10 and the native titlebar are the documented exits.
     window.fps_counter.enabled = False  # Local: keep debugging counters out of the playable game's interface.

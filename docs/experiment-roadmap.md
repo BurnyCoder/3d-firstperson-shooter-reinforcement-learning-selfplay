@@ -59,3 +59,5 @@ Future agents must add every proposed architecture/reward/diagnostic variant her
 ## Execution status, 2026-10-23
 
 The registration tables above retain their prospective wording. Calibration and R0/R1/R2 are now complete. All three matched pilots failed the primary validation gate; [R2's report](../reports/duel-fixed-v1/pilot-R2.md) and the [post-pilot amendment](amendments/2026-10-23-R2-diagnosis.md) close this selection sequence. Confirmation remains blocked. The [action-mode intervention](amendments/2026-10-23-action-mode-diagnostic.md) now resolves the next diagnostic's exact controls and allowance; consult its latest receipt for execution status. Saved [loss, reward and evaluation figures](experiment-plots.md) show measured outcomes without replacing the registered decision rule.
+
+Subsequent measured update: [A-DIAG-ACTION-MODES-1 is complete](../reports/duel-fixed-v1/action-modes-v1.md). Its mean learner-only effect +0.0169271 failed the +0.10 diagnostic threshold. All 774 repeated control records reproduced exactly. This does not qualify confirmation; no optimizer or final-test access occurred.

@@ -5,6 +5,7 @@ This index maps claims to records. A registration is not a result. Stage A pilot
 | Claim class | Canonical evidence / reproducible route | Status |
 |---|---|---|
 |Approved Stage A design/thresholds |[active registration](duel-protocol.md), `configs/experiments.json`, selected `MatchSpec` |Engineering decisions, not empirical findings |
+|Learner/opponent action-mode intervention |[report](../reports/duel-fixed-v1/action-modes-v1.md), 12 cells/24 traces, [reproduction and hash audit](../reports/duel-fixed-v1/action-mode-verification.json) |Mean learner-only change +0.0169271 fails +0.10 threshold; 774 repeated control records match exactly; no optimizer/final-test access |
 |Shared simulator correctness |`tests/test_sim.py`, `tests/test_duel.py`; `uv run pytest` plus saved test receipt |Requires passing current revision; do not substitute old receipts |
 |Legacy5v5 protocol and accounting |[original registration](protocol.md), `runs/suite/suite.json`, `launch.json`, `execution_amendments/` |Deferred, never reset/retrain to hide failures |
 |Ten previous hardware probes |[performance summary](../reports/performance/summary.md), individual reports and their raw data links |Historical workload evidence; not duel throughput |

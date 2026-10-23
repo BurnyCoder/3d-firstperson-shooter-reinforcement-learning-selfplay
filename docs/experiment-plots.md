@@ -21,6 +21,10 @@ The legacy logger did not record policy loss separately. Its corresponding panel
 
 The [deterministic breakdown](../reports/duel-fixed-v1/losses/validation-deterministic-breakdown.png) and [stochastic breakdown](../reports/duel-fixed-v1/losses/validation-stochastic-breakdown.png) expose each spawn end in a 0-to-1 score heatmap and show observed wins/draws/losses as stacked bars. Segment labels are counts; `n` is the actual trajectory count. A deterministic two-trajectory control is never presented as 256 independent matches. No new evaluations or final-test access are needed to create these plots; both use their adjacent `validation-<mode>.json` receipt and original endpoint records.
 
+## Action-mode intervention
+
+The [action-mode diagnostic](../reports/duel-fixed-v1/action-modes-v1.md) adds seven PNG/SVG pairs: a score heatmap with learner-only paired contrasts, and all six prospectively selected model/spawn-end path-and-health comparisons. These use frozen validation data only, with DD's two deterministic trajectories shown explicitly. [Raw hashes and derived values](../reports/duel-fixed-v1/action-mode-verification.json). Reproduce from a clone with `uv run python scripts/report_action_modes.py --input reports/duel-fixed-v1/data/action-modes-v1 --output runs/reproduced-action-modes`.
+
 ## Reward and activity units
 
 The [logger](../src/ministrike/learning/environment.py) records cumulative learner counters. The [analysis](../src/ministrike/experiments/training_plot_metrics.py) takes adjacent differences before dividing by exposure. With counter `C` and arena steps `S`, the plotted interval rate is `(C[t] - C[t-1]) / (S[t] - S[t-1])`. A zero origin is permitted only when the log starts at update 1. Undefined denominators and unavailable telemetry remain gaps; nonnegative counters that decrease raise an error. An absent sparse event counter means zero only when that row's behavior logger is active. These are accounting rules, not learned estimators; [NumPy's first-difference API](https://numpy.org/doc/stable/reference/generated/numpy.diff.html) supplies the arithmetic.

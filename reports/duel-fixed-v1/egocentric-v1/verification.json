@@ -1,0 +1,39 @@
+{
+  "checked_utc": "2026-10-23T05:14:27.446445+00:00",
+  "raw_input_hashes_checked": 43,
+  "figure_hashes_checked": 22,
+  "hashes_match": {
+    "raw_inputs": true,
+    "figures": true
+  },
+  "visual_review": {
+    "pngs_checked": [
+      "contrasts.png",
+      "curves/seed5201.png",
+      "curves/training/seed5201-behavior.png",
+      "curves/training/seed5201-combat.png",
+      "curves/training/seed5201-optimization.png",
+      "curves/training/seed5201-rewards.png",
+      "curves/training/seed5201-selfplay-outcomes.png",
+      "validation-deterministic-breakdown.png",
+      "validation-deterministic.png",
+      "validation-stochastic-breakdown.png",
+      "validation-stochastic.png"
+    ],
+    "count": 11,
+    "result": "All plots inspected. Long condition/opponent labels wrapped and both affected breakdowns re-inspected; no clipping or overlap remains."
+  },
+  "resume_checkpoint_hashes": {
+    "resumed/initial.pt": "c19b6f85ef1773c53ee7297aab95b8cd5ac2039bf292c3ddbf0c14a7994dd91d",
+    "resumed/model.pt": "a49976dd4d45e5894737e62dcab875edf1314e69ba29229c33bb4ab05b08cd3f",
+    "uninterrupted/initial.pt": "c19b6f85ef1773c53ee7297aab95b8cd5ac2039bf292c3ddbf0c14a7994dd91d",
+    "uninterrupted/model.pt": "ca9bdb0199307200ab45334cc6dcabbb62135ee0e0e8aaf9638501c16b34e158",
+    "uninterrupted/milestones/update-000001.pt": "3f3c32af5684c1c9bdf6615bc3b9fdd2507d852dd13af2b8c53400398f79e84c"
+  },
+  "local_validation": {
+    "pytest": "104 passed in 16.23s",
+    "ruff": "passed",
+    "confirmation_config": "three exact seeds, identical recipe/targets, calibrated rounded target and valid TrainConfig checked"
+  },
+  "final_test_accessed": false
+}

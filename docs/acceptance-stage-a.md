@@ -12,10 +12,11 @@ This is an implementation/release checklist, not a learning result. Follow [regi
 - [x] [Historical audit](../reports/learning-audit/summary.md) resolved with negative outcomes and uncertainty, original suite deferred without deadline changes.
 - [x] [Bounded duel hardware calibration](amendments/2026-10-23-duel-calibration.md); selected execution and equal pilot targets published with this amendment.
 - [x] Reward pilots executed in registered order, identical initial actor/critic hashes and equal step targets verified: [R0](../reports/duel-fixed-v1/pilot-R0.md), [R1](../reports/duel-fixed-v1/pilot-R1.md), [R2](../reports/duel-fixed-v1/pilot-R2.md). All failed selection; this is completeness, not acceptance.
-- [x] Documented [action-mode diagnostic fallback](../reports/duel-fixed-v1/action-modes-v1.md) and completed [duration/entropy comparison](../reports/duel-fixed-v1/duration-entropy-v1/README.md); both recipes fail their screen. All12 endpoints and exact152-update control reproduction audited; confirmation remains blocked.
+- [x] Documented [action-mode diagnostic fallback](../reports/duel-fixed-v1/action-modes-v1.md) and completed [duration/entropy comparison](../reports/duel-fixed-v1/duration-entropy-v1/README.md); both duration/entropy recipes fail their screen. All12 endpoints and exact152-update control reproduction audited. These earlier results did not qualify confirmation; the later representation result is recorded below.
 - [x] [Source review and prospective input intervention](shooter-rl-design-review.md), analytic geometry/masking/checkpoint tests; current local suite 104 passed. This is implementation evidence, not learning acceptance.
-- [ ] Registered real optimizer save/resume equality control; see latest `runs/duel-fixed-v1/diagnostics/resume-v1/audit.json` before marking complete.
-- [ ] Power sensitivity and resolved three-seed confirmation settings published before confirmation.
+- [x] Registered real optimizer save/resume equality control: all12 exact comparisons passed over two updates ([report and original audit](../reports/duel-fixed-v1/egocentric-v1/resume.md)); long interruption cases remain outside this fixture's scope.
+- [x] [Observer-coordinate evidence](../reports/duel-fixed-v1/egocentric-v1/README.md) passes the single-seed recipe screen;104 local tests and Ruff pass. This qualifies fresh confirmation, not a diagnostic deployment.
+- [x] [Power sensitivity and resolved three-seed settings](amendments/2026-10-23-confirmation-resolution.md) registered before confirmation; actual publication identity is recorded in each launch preflight.
 - [ ] All three fresh independent seeds completed or explicitly failed/partial within absolute deadline.
 - [ ] Deployment frozen by validation before final tests; every initial/final evaluated and reported.
 - [ ] Model and match uncertainty separated; deterministic repeated trajectories not pseudo-replicated.

@@ -1,0 +1,36 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-23T03:27:40.026582+00:00",
+  "preflight": {
+    "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+    "implementation_tree": "53c311a0b3570dc1722c3bea487ac6b06ecbabcd",
+    "config": "configs/duel-duration-entropy-v1.json",
+    "sha256": "9189f25059c60d2b1898936f2306e57d1c5c5811ac86bd3b8d491bdfb66c1432",
+    "registration": "A-DIAG-DURATION-R1",
+    "checked_utc": "2026-10-23T03:27:40.025078+00:00"
+  },
+  "deadline_utc": "2026-10-23T03:42:40.026582+00:00",
+  "checkpoints": {
+    "control/initial": "0be96992f9170a06d970196f2e51974c151d8c8b6b8473a69da2aa6f73c400f9",
+    "control/early": "69c6c2e35f43deb6852cc661d684d1b7e144763681b59b5491d2dc19e862e48d",
+    "control/final": "92364fabda4cb086ff03ce6ddb56be37c2154cd3d2ae657138b83afdc2a0c4b8",
+    "low-entropy/initial": "4b175cd0cd1c2b7fc024a4e96d4eac721e8cbc9e3c6448952b2a82703c672b1d",
+    "low-entropy/early": "c28c57d0bee22ff46220b38ea7669bcfbc90630246a31e56ad9a37704883a118",
+    "low-entropy/final": "d487c3efd1de99147528f162fb4bf82e4b9170c3c51ea5f27f176c7cfed447eb"
+  },
+  "completed": [
+    "control/initial/deterministic",
+    "control/initial/stochastic",
+    "control/early/deterministic",
+    "control/early/stochastic",
+    "control/final/deterministic",
+    "control/final/stochastic",
+    "low-entropy/initial/deterministic",
+    "low-entropy/initial/stochastic",
+    "low-entropy/early/deterministic",
+    "low-entropy/early/stochastic",
+    "low-entropy/final/deterministic",
+    "low-entropy/final/stochastic"
+  ],
+  "finished_utc": "2026-10-23T03:33:35.614176+00:00"
+}

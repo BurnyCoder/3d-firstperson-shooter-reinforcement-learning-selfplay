@@ -1,0 +1,31 @@
+{
+  "recorded_utc": "20261023T041159.081634Z",
+  "source_revision": "0353890b7cd7c9eaf042a766bfdeb1572e6cf682",
+  "pytest": {
+    "command": "uv run pytest -q",
+    "passed": 104,
+    "seconds": 16.69,
+    "exit_code": 0
+  },
+  "ruff": {
+    "command": "uv run ruff check src tests scripts/report_duration_entropy.py scripts/run_egocentric_diagnostic.py",
+    "exit_code": 0
+  },
+  "raw_hashes_checked": 33,
+  "figure_hashes_checked": 46,
+  "visually_inspected": {
+    "validation-deterministic-breakdown.png": "dacbe6d087552f8794204b3b3dc0bc75e04a1d5a29b55dde27add81abbf247ea",
+    "validation-stochastic-breakdown.png": "37b424614f9457ee73c79163fbd64fa97da9d955857ca92d6d9775381a42df2a",
+    "validation-deterministic.png": "13f58ef3766dc642b06e29721553aef446e00a001b22c7d34d40321fc9a8088a",
+    "validation-stochastic.png": "585f71b1f4238cf24a07c34990ccac3cdaea5603a73aaeeaeea0602fd2dcb381",
+    "contrasts.png": "e4e3deba56b90834daf9ac8acac80dd2958c0ce0a968e68b39a6ddf88cd2dafa",
+    "curves/duration-entropy.png": "8c138c071e714d23c34433aec5d1e89cce8eb3609936ce7f71b884014b7e8571",
+    "curves/training/duration-entropy-rewards.png": "d6d40ca3ebfc73b02f30c0249860e88d5e9f1efd8b8cbcf78aa27c5fc9f80bc1",
+    "curves/training/duration-entropy-combat.png": "fafde8da53923f3dafdc8c37f65f0686eb46473944f5040b6d24847cc22affee",
+    "curves/training/duration-entropy-behavior.png": "9757eef235144ff44c9e851acb65ca197083fa7c2366d41856a545fcc2248d91",
+    "curves/training/duration-entropy-optimization.png": "36fab8384256b0d16ca872580253110326a59fba423bb48271aced4fcc59d3bd",
+    "curves/training/duration-entropy-selfplay-outcomes.png": "be810b8dfb7e6719030f4cc1a07353277bb00037873cec713e72341fd4e2cdea"
+  },
+  "visual_findings": "Eleven representative aggregate/endpoint images inspected: labels, units, signs and uncertainty scope readable; formerly cropped low-entropy breakdown labels now fully visible. Individual curves use the same checked templates; not claimed separately visually inspected.",
+  "numerical_audit": "audit.json reconstructs all twelve endpoint summaries and both registered contrasts; verifies checkpoint hashes and exact control-prefix metrics/tensors."
+}

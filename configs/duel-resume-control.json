@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "protocol": "docs/amendments/2026-10-23-egocentric-diagnostic.md",
+  "report": "runs/duel-fixed-v1/diagnostics/resume-v1/audit.json",
+  "runs": [
+    {
+      "output_dir": "runs/duel-fixed-v1/diagnostics/resume-v1/uninterrupted",
+      "experiment": "duel-fixed-v1",
+      "registration": "A-DIAG-RESUME-1",
+      "condition": "selfplay",
+      "seed": 5301,
+      "num_envs": 2,
+      "total_frames": 512,
+      "max_seconds": 60,
+      "device": "cpu",
+      "inference_device": "cpu",
+      "torch_threads": 1,
+      "reward": "R1",
+      "entropy_coefficient": 0.01,
+      "observation_transform": "egocentric-v1",
+      "snapshot_interval": 1,
+      "milestone_updates": [1]
+    },
+    {
+      "output_dir": "runs/duel-fixed-v1/diagnostics/resume-v1/resumed",
+      "experiment": "duel-fixed-v1",
+      "registration": "A-DIAG-RESUME-1",
+      "condition": "selfplay",
+      "seed": 5301,
+      "num_envs": 2,
+      "total_frames": 512,
+      "max_seconds": 60,
+      "device": "cpu",
+      "inference_device": "cpu",
+      "torch_threads": 1,
+      "reward": "R1",
+      "entropy_coefficient": 0.01,
+      "observation_transform": "egocentric-v1",
+      "snapshot_interval": 1,
+      "milestone_updates": [1]
+    }
+  ]
+}

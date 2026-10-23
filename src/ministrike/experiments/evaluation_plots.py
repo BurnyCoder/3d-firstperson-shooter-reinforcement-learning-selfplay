@@ -45,7 +45,7 @@ def plot_evaluation_breakdown(records, destination, mode, title="reward pilots")
         left += fractions  # Local: offsets accumulate fractions, while labels retain integer match counts.
     for index, (_, item) in enumerate(entries):
         axes[1].text(1.02, index, f"n={item['matches']}", va="center", fontsize=9, clip_on=False)  # Local: two deterministic matches stay two.
-    axes[1].set(yticks=np.arange(len(entries)), yticklabels=[label for label, _ in entries], xlim=(0, 1),
+    axes[1].set(yticks=np.arange(len(entries)), yticklabels=[label.replace(" / ", "\n/ ") for label, _ in entries], xlim=(0, 1),  # Local: wrap condition/opponent labels so long names cannot overlap the neighboring heatmap.
                 xlabel="Fraction of observed matches; labels are counts", title="Final wins, draws and losses")
     axes[1].invert_yaxis()  # Local: show R0 first in both panels.
     axes[1].legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(.5, -.16))

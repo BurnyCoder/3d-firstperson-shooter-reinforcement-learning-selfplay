@@ -1,5 +1,6 @@
 # Saved loss graphs
 
+- [Reward, combat, behavior, self-play outcomes and optimizer diagnostics](training/README.md)
 - [reward-pilots comparison](reward-pilots.png) · [SVG](reward-pilots.svg)
 - [calibration__cpu_reference_e16_w1__seed5290 (complete)](calibration__cpu_reference_e16_w1__seed5290.png) · [SVG](calibration__cpu_reference_e16_w1__seed5290.svg)
 - [calibration__cuda_infer-cpu_e16_w1__seed5290 (complete)](calibration__cuda_infer-cpu_e16_w1__seed5290.png) · [SVG](calibration__cuda_infer-cpu_e16_w1__seed5290.svg)

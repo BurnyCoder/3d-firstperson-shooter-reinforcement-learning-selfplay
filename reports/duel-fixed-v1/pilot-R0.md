@@ -33,7 +33,7 @@ The final update had finite policy loss −0.003774, value loss 0.008344, entrop
 
 ![R0 recorded loss diagnostics](losses/pilots__R0__seed5201.png)
 
-[SVG](losses/pilots__R0__seed5201.svg), [all pilot curves and evaluations](../../docs/experiment-plots.md). Every logged update is shown without smoothing; loss changes do not replace the benchmark gate.
+[SVG](losses/pilots__R0__seed5201.svg), [reward components](losses/training/pilots__R0__seed5201-rewards.png), [combat rates](losses/training/pilots__R0__seed5201-combat.png), [all pilot curves and evaluations](../../docs/experiment-plots.md). Every logged update is shown without smoothing; loss/reward changes do not replace the benchmark gate.
 
 Proceed with the preregistered matched **R1** pilot, doubling only damage shaping to 0.50. The next run must retain seed, actor/critic initialization, arena steps, algorithm and opponent schedule. Stronger damage feedback is a hypothesis, not a diagnosis established by these observations. Advantage normalization means reward magnitude does not translate directly into a proportional policy update; changing the relative damage/outcome weighting may still affect trajectories and credit assignment. [TorchRL PPO loss](https://docs.pytorch.org/rl/stable/reference/generated/torchrl.objectives.ClipPPOLoss.html), [registered objective implementation](https://github.com/BurnyCoder/counter-strike-reinforcement-learning-selfplay/blob/ecd8e3b05a5f42963dc5359e259f4bdf376ff4c8/src/ministrike/learning/objectives.py).
 

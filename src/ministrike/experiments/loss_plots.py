@@ -15,10 +15,13 @@ import numpy as np  # Local: NaN values create honest gaps in standard Matplotli
 
 from ministrike.records import source_revision, timestamp, write_json  # Local: reuse project provenance and persistence.
 from ministrike.experiments.duel_evaluation import file_hash  # Local: reuse streamed artifact hashing without loading checkpoint tensors.
+from ministrike.experiments.curve_plots import metric_series, plot_curves  # Local: one renderer serves losses and behavior metrics.
+from ministrike.experiments.training_plots import save_training_gallery  # Local: reuse the same raw snapshots for reward/activity evidence.
 
-METRICS = (("loss", "Total optimization loss"), ("policy_loss", "Policy loss"),
-           ("critic_loss", "Value loss"), ("entropy", "Policy entropy (nats)"))  # Local: separate terms have different meanings/scales.
-COLORS = ("#0072B2", "#D55E00", "#009E73", "#CC79A7", "#E69F00", "#56B4E9")  # Local: engineering choice of contrasting series colors.
+METRICS = (("loss", "Total optimization loss", "Logged value", None),
+           ("policy_loss", "Policy loss", "Logged value", None),
+           ("critic_loss", "Value loss", "Logged value", (0, None)),
+           ("entropy", "Policy entropy", "Nats", (0, None)))  # Local: separate terms have different meanings/scales.
 
 
 def parse_metrics(raw):
@@ -38,12 +41,6 @@ def parse_metrics(raw):
             raise ValueError("Canonical metric frames must be strictly increasing; audit recovery suffixes")
         rows.append(row)  # Local: retain original order and every complete record.
     return rows, warnings
-
-
-def metric_series(rows, key):
-    """Local: preserve genuine zero and missingness; global: missing loss is not successful zero error."""
-    values = np.asarray([row.get(key, np.nan) for row in rows], dtype=float)
-    return np.where(np.isfinite(values), values, np.nan)  # Local: infinities/NaNs are gaps, never clipped into finite values.
 
 
 def _read_run(path, root, destination):
@@ -66,7 +63,7 @@ def _read_run(path, root, destination):
     for original in (config_path, result_path):
         if original.exists():
             (snapshot / original.name).write_bytes(original.read_bytes())  # Local: allowlisted metadata only, never .env.
-    missing = {key: int(np.isnan(metric_series(rows, key)).sum()) for key, _ in METRICS}
+    missing = {key: int(np.isnan(metric_series(rows, key)).sum()) for key, *_ in METRICS}
     receipt = {"label": label, "status": status, "group": group, "source_path": path.as_posix(),
                "source_revision": result.get("source_revision", config.get("source_revision", "unavailable")),
                "metrics_sha256": hashlib.sha256(raw).hexdigest(), "rows": len(rows),
@@ -79,37 +76,8 @@ def _read_run(path, root, destination):
 
 def _plot(records, destination, title):
     """Local: export one four-panel figure; global: loss terms and runs are never averaged into a false performance score."""
-    import matplotlib  # Local: reporting alone imports the graphics backend.
-    matplotlib.use("Agg")  # Local: no window, rendering context or GPU competes with training.
-    from matplotlib import pyplot as plt
-
-    with plt.rc_context({"font.size": 11, "axes.spines.top": False, "axes.spines.right": False}):
-        figure, axes = plt.subplots(2, 2, figsize=(12, 8), sharex=True)
-        for axis, (key, caption) in zip(axes.flat, METRICS, strict=True):
-            for index, record in enumerate(records):
-                values = metric_series(record["rows"], key)
-                if np.isfinite(values).any():
-                    x = [row["frames"] / 1e6 for row in record["rows"]]  # Local: common millions-of-arena-steps axis.
-                    axis.plot(x, values, color=COLORS[index % len(COLORS)], linewidth=1.15,
-                              label=record["receipt"]["label"])  # Local: raw logged update averages, without smoothing.
-            axis.set_title(caption, loc="left", fontweight="bold")
-            axis.set_xlabel("Arena steps (millions)")
-            axis.set_ylabel("Logged value")
-            axis.ticklabel_format(axis="y", style="sci", scilimits=(-3, 3))  # Local: standard scientific notation keeps tiny calibration losses legible.
-            axis.grid(alpha=.2)
-            axis.set_xlim(left=0)
-            if key in {"critic_loss", "entropy"}:
-                axis.set_ylim(bottom=0)  # Local: nonnegative diagnostics retain their meaningful origin.
-            if axis.lines:
-                axis.legend(fontsize=9, frameon=False)
-            else:
-                axis.text(.5, .5, "Not recorded", transform=axis.transAxes, ha="center", color="#666666")
-        figure.suptitle(title, fontsize=17, fontweight="bold", x=.075, ha="left")
-        figure.text(.075, .025, "Every logged update; no smoothing. Loss is not a win rate. Reward definitions affect loss scales.", fontsize=10)
-        figure.subplots_adjust(left=.10, right=.98, bottom=.12, top=.89, hspace=.40, wspace=.25)
-        for suffix in ("png", "svg"):
-            figure.savefig(destination.with_suffix(f".{suffix}"), dpi=160, facecolor="white")
-        plt.close(figure)  # Local: release plotting memory before the next experiment.
+    plot_curves(records, destination, title, METRICS,
+                "Every logged update; no smoothing. Loss is not a win rate. Reward definitions affect loss scales.")
 
 
 def save_loss_gallery(input_root, output_root, pattern="**/metrics.jsonl"):
@@ -135,7 +103,10 @@ def save_loss_gallery(input_root, output_root, pattern="**/metrics.jsonl"):
     write_json(destination / "evidence.json", {"created_utc": timestamp(), "plot_source_revision": source_revision(),
                "method": "raw update averages; no smoothing; missing/nonfinite values are gaps", "comparisons": comparisons,
                "runs": {record["name"]: record["receipt"] for record in records}})
+    training = save_training_gallery(records, destination / "training")  # Local: no rereading or rehashing a potentially growing log.
     links = [f"- [{name} comparison]({name}.png) · [SVG]({name}.svg)" for name in comparisons]
+    if training:
+        links.insert(0, "- [Reward, combat, behavior, self-play outcomes and optimizer diagnostics](training/README.md)")
     links += [f"- [{r['receipt']['label']} ({r['receipt']['status']})]({r['name']}.png) · [SVG]({r['name']}.svg)" for r in records]
     text = ("# Saved loss graphs\n\n" + "\n".join(links) + "\n\n"
             "Total loss combines the policy, weighted value and entropy terms. Policy loss is a PPO surrogate, not a win rate. "
@@ -147,4 +118,4 @@ def save_loss_gallery(input_root, output_root, pattern="**/metrics.jsonl"):
             "[TorchRL PPO loss](https://docs.pytorch.org/rl/stable/reference/generated/torchrl.objectives.ClipPPOLoss.html), "
             "[Matplotlib](https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.plot.html).\n")
     (destination / "README.md").write_text(text, encoding="utf-8")
-    return {"runs": len(records), "comparisons": comparisons, "directory": str(destination)}
+    return {"runs": len(records), "comparisons": comparisons, "training_figures": training, "directory": str(destination)}

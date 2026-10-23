@@ -2,6 +2,9 @@
 
 Error-bar API: https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.errorbar.html .
 The shared paired bootstrap implements the registered analysis in docs/duel-protocol.md.
+Additional original plotting glue uses the official annotated-heatmap and stacked-bar APIs:
+https://matplotlib.org/stable/gallery/images_contours_and_fields/image_annotated_heatmap.html
+https://matplotlib.org/stable/gallery/lines_bars_and_markers/horizontal_barchart_distribution.html
 """
 
 import json  # Local: plots consume recorded evaluation endpoints, not training round counts.
@@ -11,9 +14,47 @@ from pathlib import Path  # Local: separate validation figures from future final
 import numpy as np  # Local: place grouped bars and preserve explicit numeric scores.
 
 from ministrike.experiments.duel_analysis import paired_match_interval  # Local: reuse pairing and resampling, not a second estimator.
-from ministrike.experiments.loss_plots import COLORS  # Local: shared visual identity across evidence figures.
+from ministrike.experiments.curve_plots import COLORS  # Local: shared visual identity across evidence figures.
 from ministrike.experiments.duel_evaluation import file_hash  # Local: reuse exact source hashing from the evaluation pipeline.
 from ministrike.records import source_revision, timestamp, write_json  # Local: portable plot provenance.
+
+
+def _plot_breakdown(records, destination, mode):
+    """Local: expose side asymmetry and draws; global: deterministic repetitions never inflate the displayed sample count."""
+    from matplotlib import pyplot as plt  # Local: the caller has already selected the noninteractive backend.
+
+    names = ("random", "initial", "scripted")  # Local: preserve the protocol's opponent ordering.
+    matrix = np.asarray([[score for name in names for score in record["final"]["baselines"][name]["side_scores"]]
+                         for record in records])  # Local: display each spawn end before averaging it away.
+    figure, axes = plt.subplots(1, 2, figsize=(14, 6.5), gridspec_kw={"width_ratios": [1.1, 1.25]})
+    heat = axes[0].imshow(matrix, vmin=0, vmax=1, cmap="viridis", aspect="auto")  # Local: same fixed score scale for both action modes.
+    axes[0].set(xticks=np.arange(6), xticklabels=[f"{label}\nend {side}" for label in ("Random", "Initial", "Script") for side in (0, 1)],
+                yticks=np.arange(len(records)), yticklabels=[record["label"] for record in records], title="Final score by opponent and spawn end")
+    for (row, column), value in np.ndenumerate(matrix):
+        axes[0].text(column, row, f"{value:.3f}", ha="center", va="center", color="black" if value > .55 else "white")
+    figure.colorbar(heat, ax=axes[0], orientation="horizontal", fraction=.05, pad=.17,
+                    label="Round score: win 1, draw 0.5, loss 0")  # Local: numerical annotations accompany color encoding.
+    entries = [(f"{record['label']} / {name}", record["final"]["baselines"][name]) for record in records for name in names]
+    left = np.zeros(len(entries))  # Local: stacked widths partition the actual observed matches.
+    for outcome, color in (("wins", "#009E73"), ("draws", "#AEB7C2"), ("losses", "#D55E00")):
+        fractions = np.asarray([item[outcome] / item["matches"] for _, item in entries])
+        axes[1].barh(np.arange(len(entries)), fractions, left=left, color=color, label=outcome.capitalize())
+        for index, ((_, item), fraction) in enumerate(zip(entries, fractions, strict=True)):
+            if fraction >= .08:
+                axes[1].text(left[index] + fraction / 2, index, str(item[outcome]), ha="center", va="center", fontsize=9)
+        left += fractions  # Local: offsets accumulate fractions, while labels retain integer match counts.
+    for index, (_, item) in enumerate(entries):
+        axes[1].text(1.02, index, f"n={item['matches']}", va="center", fontsize=9, clip_on=False)  # Local: two deterministic matches stay two.
+    axes[1].set(yticks=np.arange(len(entries)), yticklabels=[label for label, _ in entries], xlim=(0, 1),
+                xlabel="Fraction of observed matches; labels are counts", title="Final wins, draws and losses")
+    axes[1].invert_yaxis()  # Local: show R0 first in both panels.
+    axes[1].legend(ncol=3, frameon=False, loc="upper center", bbox_to_anchor=(.5, -.16))
+    figure.suptitle(f"MiniStrike reward pilots — {mode} validation breakdown", fontsize=16, fontweight="bold")
+    figure.text(.055, .025, "Seed 5201 only. n counts recorded trajectories, not independently trained models. Validation only; no new matches run.", fontsize=9)
+    figure.subplots_adjust(left=.055, right=.93, bottom=.22, top=.85, wspace=.40)
+    for extension in ("png", "svg"):
+        figure.savefig(destination / f"validation-{mode}-breakdown.{extension}", dpi=160, facecolor="white")
+    plt.close(figure)  # Local: each action mode has a separate artifact, backed by the existing validation JSON receipt.
 
 
 def plot_pilot_evaluations(input_root, output_root):
@@ -78,4 +119,5 @@ def plot_pilot_evaluations(input_root, output_root):
         plt.close(figure)
         write_json(destination / f"validation-{mode}.json", {"created_utc": timestamp(), "plot_source_revision": source_revision(),
                    "records": records, "evidence": evidence, "uncertainty": "paired match bootstrap; one training seed"})
+        _plot_breakdown(records, destination, mode)  # Local: reuse the same endpoint snapshots and identity receipt.
         logging.info("Validation plots saved: %s", destination / f"validation-{mode}.png")

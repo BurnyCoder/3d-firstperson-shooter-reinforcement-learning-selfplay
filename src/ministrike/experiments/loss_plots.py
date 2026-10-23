@@ -57,7 +57,7 @@ def _read_run(path, root, destination):
     registration = config.get("registration", "legacy")
     group = "reward-pilots" if registration.startswith("A-PILOT") else registration.lower()
     status = "complete" if result.get("complete") else "partial or deferred"
-    label = f"{config.get('reward', config.get('condition', name))} / seed {config.get('seed', '?')}"
+    label = f"{config.get('reward', name)} / seed {config.get('seed', '?')}"  # Local: run names distinguish legacy CPU/CUDA probes sharing a seed.
     if registration == "A-CAL":
         label = name  # Local: hardware cells sharing a seed still need distinct identities in individual plots.
     snapshot = destination / "data" / name

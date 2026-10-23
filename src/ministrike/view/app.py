@@ -162,6 +162,9 @@ class ViewSession:
 
     def input(self, key):
         """Local: handle window-level controls; global: gameplay keys still pass through HumanControls and Simulation."""
+        # Local: function-key alternatives also support input sources without letter scan codes.
+        # Global: Panda separates physical buttons from text: https://docs.panda3d.org/1.10/python/programming/hardware-support/keyboard-support
+        key = {"f1": "v", "f2": "f"}.get(key, key)  # Local: reuse existing transitions; no second control implementation.
         if key == "escape":  # Local: pause/unpause is a predictable reversible local UI action.
             self.paused = not self.paused  # Local: the update loop owns whether simulation ticks may run.
             self.controls.clear()  # Local: avoid applying stale movement when resuming.
@@ -194,6 +197,7 @@ class ViewSession:
             raise RuntimeError(f"Could not save screenshot to {path}")  # Local: do not claim a capture that failed.
         metadata = {"seed": self.seed, "mode": self.mode, "ticks": self.total_ticks, "experiment": self.simulation.spec.identity,
                     "round": self.round_number, "controlled": self.control_state.controlled,
+                    "followed": self.control_state.followed, "paused": self.paused,
                     "selected": self.control_state.selected, "snapshot": self.simulation.snapshot(arena=0)}  # Local: provenance.
         if self.replay is not None:  # Local: bounded debug captures include untruncated inputs for deterministic verification.
             metadata["replay"] = self.replay  # Local: retain every actor action from every recorded transition.

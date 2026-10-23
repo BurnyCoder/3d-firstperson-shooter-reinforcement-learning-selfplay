@@ -30,7 +30,7 @@ uv run csrl play --experiment duel-fixed-v1 --checkpoint runs/duel-fixed-v1/conf
 
 WASD moves; mouse aims; left mouse fires; R reloads; E interacts. Spectator controls let you switch between free camera and a bot's eyes, cycle living players, take over the selected bot, and return control to its policy **without resetting the round**. The on-screen guide lists the current bindings. Team 0 attacks and team 1 defends.
 
-While spectating, **Tab** selects the next living bot, **V** changes between free camera and bot first-person, and **F** lets you become the selected bot or hand control back. You keep that player's current position, health, ammunition, and bomb state.
+While spectating, **Tab** selects the next living bot, **V/F1** changes between free camera and bot first-person, and **F/F2** lets you become the selected bot or hand control back. You keep that player's current position, health, ammunition, and bomb state. The function keys also support remote input tools that do not send letter scan codes.
 
 ## Train, evaluate, and inspect
 

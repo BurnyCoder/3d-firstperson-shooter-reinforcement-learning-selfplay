@@ -1,0 +1,29 @@
+{
+  "registration": "A-DIAG-ACTION-MODES-1",
+  "status": "complete",
+  "started_utc": "2026-10-23T01:32:13.738270+00:00",
+  "deadline_utc": "2026-10-23T01:47:13.738270+00:00",
+  "preflight": {
+    "source_revision": "461e486c0f60f78e15041ed6d3f93aa7ed4c1721",
+    "implementation_tree": "8fa2004bf95e00f5c1fe3caa3ad5a258658089b9",
+    "config": "configs/duel-action-modes-v1.json",
+    "sha256": "7affeec1939e4357c7816b5a2b2988c138dc5e56cd7fdeafa281124c42f4da6b",
+    "registration": "A-DIAG-ACTION-MODES-1",
+    "checked_utc": "2026-10-23T01:32:13.736763+00:00"
+  },
+  "completed_cells": [
+    "R0-DD",
+    "R0-DS",
+    "R0-SD",
+    "R0-SS",
+    "R1-DD",
+    "R1-DS",
+    "R1-SD",
+    "R1-SS",
+    "R2-DD",
+    "R2-DS",
+    "R2-SD",
+    "R2-SS"
+  ],
+  "finished_utc": "2026-10-23T01:34:58.399169+00:00"
+}

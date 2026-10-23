@@ -1,0 +1,13 @@
+# Confirmation evaluation execution
+
+Recorded 2026-10-23, after all three trainers stopped and before any confirmation validation or final-test access. This implements the existing [confirmation resolution](2026-10-23-confirmation-resolution.md); it changes no hypothesis, threshold, model, seed, opponent, or evaluation count.
+
+All three scratch seeds 5101/5102/5103 completed 5,464,064 arena steps and 667 updates with exit code 0, from training revision `64c366cd43c9739d3596712a4dd277675ecea8aa`. Their group receipts and per-run `result.json` files under `runs/duel-fixed-v1/confirmation` are the evidence. The last training log ended at 07:44:31 UTC. No completed model will be retrained. Every recorded optimizer metric was finite; that is numerical health, not benchmark acceptance.
+
+Run `uv run python scripts/evaluate_confirmation.py` after publishing this implementation. The wrapper reuses the existing frozen evaluator and paired/model analysis. It verifies every completed target and checkpoint hash, evaluates all twelve validation endpoints, and records all three final primary scores plus the selected checkpoint hash in `selection.json`. Highest equally weighted validation score wins; an exact tie chooses the lower seed. Only then can it evaluate all twelve final-test endpoints. Each endpoint retains first-seed traces, both spawn ends, and the original 128 paired seeds where randomness creates distinct trajectories. Deterministic fixed-control matches remain two trajectories per endpoint.
+
+The persisted evaluation receipt uses the original absolute deadline **2026-10-23T11:30:52.627932Z**. Resume verifies source, configuration and checkpoint identities, keeps this cutoff, and reuses completed endpoints. No optimizer is invoked. Keep the evaluator's source revision stable until its twenty-four endpoints finish so interrupted execution can recover without a changed identity.
+
+Primary deterministic and secondary stochastic analyses stay separate. The existing model comparison reports all three paired improvements and the Student t interval with two degrees of freedom, separately from conditional paired match intervals. Engineering acceptance and the >=0.20 hypothesis point estimate are distinct outputs. [Registered analysis and sources](../duel-protocol.md), [SciPy t distribution](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html).
+
+Synthetic tests verify exact-tie selection, missing endpoints, checkpoint identity mismatch and immutable selection on resume. They contain no real test-set results. Failure or expiry preserves partial records and cannot produce fabricated draws or a replacement training seed.

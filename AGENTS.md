@@ -14,4 +14,5 @@ Work only in this project directory. Use `uv`, Python3.12, the local `.venv`, an
 - Push implementation and protocol before training. Use meaningful commits and feature PRs, attach PRs to the Codex chat, and merge after checks. One substantive review suffices unless serious findings remain.
 - Keep README as the concise installation/use overview, technical details in `docs`, and measured evidence in `reports`. Do not duplicate whole explanations.
 - Reports must distinguish measured observations, assumptions, and limitations; include failed experiments. Name Libor Burian as paper author. Publish model artifacts and model cards in a Hugging Face collection.
+- Save per-run loss graphs and evaluation comparisons with raw inputs, hashes and reproducible plotting commands. Keep missing metrics visible and match uncertainty separate from independent-model uncertainty; loss curves alone do not establish learning quality.
 - Verify installation, headless training, checkpoint resume, evaluation, both spectator camera modes, live takeover/hand-back, and first-person human play before claiming completion.

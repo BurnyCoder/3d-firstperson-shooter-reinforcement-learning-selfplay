@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-10-23T02:07:39.925519+00:00",
+  "compared_updates": 64,
+  "fields": [
+    "frames",
+    "updates",
+    "rounds",
+    "wins",
+    "draws",
+    "behavior",
+    "loss",
+    "gradient_norm",
+    "entropy",
+    "critic_loss",
+    "policy_loss",
+    "approx_kl",
+    "clip_fraction"
+  ],
+  "differing_updates": [],
+  "latest_frames": 524288,
+  "latest_timestamp": "20261023T020738.547522Z",
+  "latest_rate": 2135.8623695863753,
+  "scope": "Read-only control prefix versus original R1; excludes wall-clock measurements. This is not an independent model replication."
+}

@@ -1,0 +1,8 @@
+{
+  "source_revision": "b830c3223f3f931e953051755259e8ade44e5bdc",
+  "implementation_tree": "53c311a0b3570dc1722c3bea487ac6b06ecbabcd",
+  "config": "configs/duel-duration-entropy-v1.json",
+  "sha256": "9189f25059c60d2b1898936f2306e57d1c5c5811ac86bd3b8d491bdfb66c1432",
+  "registration": "A-DIAG-ENTROPY-R1",
+  "checked_utc": "2026-10-23T02:47:36.279150+00:00"
+}

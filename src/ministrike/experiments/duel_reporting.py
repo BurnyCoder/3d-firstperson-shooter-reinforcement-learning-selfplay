@@ -20,6 +20,12 @@ from ministrike.records import write_json
 def create_duel_reports(root, destination):
     """Local: discover evidence, analyze and render; global: include incomplete/failed runs and every reward candidate."""
     root, destination = Path(root), Path(destination)
+    if (root / "confirmation/analysis.json").exists():
+        from ministrike.experiments.confirmation_reporting import publish_confirmation_evidence
+        analysis = publish_confirmation_evidence(root / "confirmation", destination / "confirmation")
+        if (destination / "paper.md").exists():
+            _render_pdf((destination / "paper.md").read_text(encoding="utf-8"), destination / "paper.pdf")
+        return analysis  # Local: preserve handwritten historical interpretation when regenerating the completed release.
     destination.mkdir(parents=True, exist_ok=True)
     save_loss_gallery(root, destination / "losses")  # Local: save every run's recorded loss terms without optimizing a policy.
     plot_pilot_evaluations(root, destination / "losses")  # Local: retain primary and secondary validation as different figures.

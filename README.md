@@ -40,8 +40,8 @@ While spectating, **Tab** selects the next living bot, **V** changes between fre
 uv run csrl train --experiment duel-fixed-v1 --calibrate --run-config configs/duel-calibration.json
 
 # Following calibration, freeze and publish the resolved pilot/confirmation configs.
-# R0 is resolved; confirmation remains conditional on its validation gate.
-uv run csrl train --experiment duel-fixed-v1 --run-config configs/duel-pilot-R0.json
+# R0/R1 are complete; R2 is the registered next pilot. Do not repeat completed runs.
+uv run csrl train --experiment duel-fixed-v1 --run-config configs/duel-pilot-R2.json
 uv run csrl train --experiment duel-fixed-v1 --suite --run-config configs/duel-confirmation.json
 
 # Resume uses the same manifest, checkpoint state, identities and absolute deadline.
@@ -55,7 +55,7 @@ At run time the application loads `.env` and published run configuration, verifi
 
 Logs stream to the terminal and timestamped UTF-8 files in `runs/logs`. Each run retains every update in `metrics.jsonl`; evaluation retains every completed round. No LLM API or API key is needed. `.env`, logs, caches, and bulky checkpoints are not committed to source control.
 
-**Training status:** Stage A implementation is merged and nine hardware cells completed. The [calibration resolution](docs/amendments/2026-10-23-duel-calibration.md) selects 64 arenas with CUDA inference/optimization and freezes the first reward pilot; no Stage A learning-quality result is claimed yet. The separate budget ends 2026-10-23 11:30:52 UTC. Original 5v5 checkpoints, zero-win controls, diagnostics and interruptions remain deferred with unchanged deadlines. Measured findings belong in [reports](reports/README.md); a running optimizer or decreasing loss does not establish useful combat learning.
+**Training status:** The first two matched reward pilots completed. [R0](reports/duel-fixed-v1/pilot-R0.md) and [R1](reports/duel-fixed-v1/pilot-R1.md) improved primary validation score by 0.012 and 0.063 respectively, both below the registered 0.10 pilot gate. R1 won more games against random actions but still lost to the moving combat benchmark; useful dueling is not established. R2 is the next registered candidate and confirmation remains conditional. [Calibration](docs/amendments/2026-10-23-duel-calibration.md) selected 64 arenas with CUDA learner inference/optimization. The separate budget ends 2026-10-23 11:30:52 UTC. Deferred 5v5 evidence and deadlines remain preserved in [reports](reports/README.md).
 
 Public checkpoints and model cards are grouped in the [MiniStrike Hugging Face collection](https://huggingface.co/collections/BurnyCoder/ministrike-self-play-tactical-bots-6ada65970d163e293d48f3ad). Each card identifies its training budget and measured evaluation; short verification models are explicitly labeled. To download a published model, install the locked environment and use `uv run hf download BurnyCoder/ministrike-selfplay-cpu --local-dir artifacts/models/selfplay-cpu`, then select `artifacts/models/selfplay-cpu/model.pt` in the launcher. Publication instructions are in [the workflow documentation](docs/publication.md).
 

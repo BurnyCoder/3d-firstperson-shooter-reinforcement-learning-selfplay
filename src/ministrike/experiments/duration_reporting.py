@@ -67,6 +67,16 @@ def audit_duration_evidence(root, destination):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(path.read_bytes())  # Local: no JSON reformatting changes the source evidence.
         inputs[target.relative_to(destination).as_posix()] = file_hash(target)
+    supplementary = [root.parent / name for name in ("duration-R1.json", "entropy-R1.json")]
+    supplementary += [root.parent.parent / f"duration-entropy.{name}.log" for name in ("stdout", "stderr")]
+    supplementary.append(Path("configs/duel-duration-entropy-v1.json"))
+    for path in supplementary:
+        if not path.exists():
+            continue  # Local: a copied evidence bundle may omit host receipts; list only inputs actually present.
+        target = destination / "data" / "execution" / path.name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(path.read_bytes())  # Local: include raw host telemetry and launch logs without rewriting bytes.
+        inputs[target.relative_to(destination).as_posix()] = file_hash(target)
     audit = {"created_utc": timestamp(), "report_source_revision": source_revision(), "raw_inputs": inputs,
              "initial_fingerprints": fingerprints, "control_prefix": prefix, "analysis_reproduced": True,
              "checkpoint_hashes": receipt["checkpoints"], "endpoints": 12, "independent_training_seeds": 1,

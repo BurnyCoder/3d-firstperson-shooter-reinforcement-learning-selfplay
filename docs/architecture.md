@@ -14,7 +14,7 @@ Stage A uses a14×14metre flat interior and fixed six-metre-separated spawns. It
 
 ## Observation schema
 
-Each frame has `36 + 6 * players` float32 features; four frames, oldest to newest, produce192 inputs for the two-player duel or384 for legacy5v5. Positions/distances retain30m normalization. The public objective fields below are zeroed in deathmatch. `sim/observations.py` is authoritative; tests verify hidden dynamic fields and independent arena histories.
+Each frame has `36 + 6 * players` float32 features; four frames, oldest to newest, produce192 inputs for the two-player duel or384 for legacy5v5. Positions/distances retain30m normalization. The public objective fields below are zeroed in deathmatch. `sim/observation.py` is authoritative; tests verify hidden dynamic fields and independent arena histories.
 
 |Indices|Information|
 |---|---|

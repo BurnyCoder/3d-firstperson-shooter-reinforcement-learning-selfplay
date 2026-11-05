@@ -74,7 +74,7 @@ All model outcomes and cards are grouped in the [MiniStrike Hugging Face collect
 - TorchRL PPO with frozen historical opponents, masked dead-player actor losses and a separate team critic. Scripted controls are evaluation-only in the staged protocol; old fixed-opponent training remains historical evidence.
 - Python 3.12, NumPy, Ursina/Panda3D, PyTorch, TorchRL/TensorDict, SciPy, Matplotlib, ReportLab, pytest, and uv. `uv.lock` records exact versions.
 
-Windows uses the official PyTorch CUDA13.0 wheel index; CPU execution remains available. The GPU path was tested with an RTX5070 Laptop GPU and driver591.74. Stage A takes execution placement from its published run configuration and bounded calibration. [uv PyTorch integration](https://docs.astral.sh/uv/guides/integration/pytorch/)
+Windows uses the official PyTorch CUDA 13.0 wheel index; CPU execution remains available. The GPU path was tested with an NVIDIA GeForce RTX 5070 Laptop GPU, as recorded in the [hardware-probe summary](reports/performance/summary.md); the GPU driver version is not recorded in the committed evidence. Stage A takes execution placement from its published run configuration and bounded calibration. [uv PyTorch integration](https://docs.astral.sh/uv/guides/integration/pytorch/)
 
 The deferred suite used six independent CUDA learners with16 arenas each and one CPU thread per worker, selected through [ten documented hardware probes](reports/performance/summary.md). Stage A reused those findings as a starting point, then made one bounded comparison for its smaller workload. The goal is fastest complete collection/update throughput with memory headroom, not an arbitrary GPU-utilization percentage.
 
